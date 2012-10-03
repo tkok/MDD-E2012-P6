@@ -1,0 +1,541 @@
+grammar dk.itu.ecdar.text.EcdarText with org.eclipse.xtext.common.Terminals
+
+generate ecdarText "http://www.itu.dk/ecdar/text/EcdarText"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+ETFile:
+	// NOTE: instantiation important serialization of empty files
+	{ETFile}
+	imports+=ETImport*
+	// NOTE: instantiated, but optional
+	declarations=ETDeclarations
+	specifications+=ETSpecification*
+	// TODO: assertions+=Assertion*
+;
+
+ETImport:
+	'import' importedNamespace=ID
+;
+
+/*
+ * Modified UPPAAL grammar:
+ * (See http://www.it.uu.se/research/group/darts/uppaal/help.php?file=System_Descriptions/Declarations.shtml)
+ *
+ * - removed channels
+ * - added actions
+ */
+
+ETArrayDeclaration:
+	'[' size=ETExpression ']'
+;
+
+ETDeclarations:
+	{ETDeclarations}
+	(declarations+=ETDeclaration
+		(';' declarations+=ETDeclaration)*
+		';'?)?
+;
+
+ETDeclaration:
+	ETVariableDeclaration
+	| ETTypeDeclaration
+;
+
+ETType:
+	modifiers=ETTypeModifiers
+	identifier=ETTypeIdentifier
+;
+
+ETTypeModifiers:
+	{ETTypeModifiers}
+	( (urgent?='urgent')? &
+		(meta?='meta')? &
+		(const?='const')? )
+;
+
+ETVariableDeclaration:
+	type=ETType
+	variables+=ETVariableID
+	(',' variables+=ETVariableID)*
+;
+
+ETVariableID:
+	name=ID
+	// NOTE: workaround for in-/outputs, ignored
+	(ioType=('!' | '?'))?
+	dimensions+=ETArrayDeclaration*
+	('=' initialiser=ETInitialiser)?
+;
+
+
+ETInitialiser:
+	ETSingleInitialiser
+	| ETMultiInitialiser
+;
+
+ETSingleInitialiser:
+	expression=ETExpression
+;
+
+ETMultiInitialiser:
+	'{' initialisers+=ETInitialiser
+		(',' initialisers+=ETInitialiser)* '}'
+;
+
+ETTypeDeclaration:
+	'typedef' baseType=ETType
+	types+=ETTypeID
+	(',' types+=ETTypeID)*
+;
+
+ETTypeID:
+	name=ID
+	dimensions+=ETArrayDeclaration*
+;
+
+ETTypeIdentifier:
+	ETIntegerType
+	| ETClockType
+	| ETActionType
+	| ETBooleanType
+	| ETScalarType
+	| ETStructType
+	| ({ETTypeReference} target=[ETTypeID])
+;
+
+ETIntegerType:
+	{ETIntegerType}
+	'int'
+	('[' min=ETExpression ',' max=ETExpression ']')?
+;
+
+ETClockType:
+	{ETClockType}
+	'clock'
+;
+
+ETActionType:
+	ETInputType
+	| ETOutputType
+	| ({ETActionType} 'action')
+;
+
+ETInputType:
+	{ETInputType}
+	'input'
+;
+
+ETOutputType:
+	{ETOutputType}
+	'output'
+;
+
+ETBooleanType:
+	{ETBooleanType}
+	'bool'
+;
+
+ETScalarType:
+	{ETScalarType}
+	'scalar' '[' size=ETExpression ']'
+;
+
+ETStructType:
+	{ETStructType}
+	'struct' '{'
+	declarations+=ETFieldDeclaration
+	(';' declarations+=ETFieldDeclaration)*
+	';'?
+	'}'
+;
+
+ETFieldDeclaration:
+	type=ETType
+	fields+=ETFieldID
+	(',' fields+=ETFieldID)*
+;
+
+ETFieldID:
+	name=ID
+	dimensions+=ETArrayDeclaration*
+;
+
+//// Specification expression
+
+// left
+ETSpecificationExpression returns ETSpecificationExpression:
+	ETSpecificationDisjunctionExpression
+	({ETSpecificationDisjunctionExpression.left=current} '||'
+		right=ETSpecificationDisjunctionExpression)*
+;
+
+// left
+ETSpecificationDisjunctionExpression returns ETSpecificationExpression:
+	ETSpecificationCompositionExpression
+	({ETSpecificationConjunctionExpression.left=current} '&&'
+		right=ETSpecificationCompositionExpression)*
+;
+
+// left
+ETSpecificationCompositionExpression returns ETSpecificationExpression:
+	ETPrimarySpecificationExpression
+	({ETSpecificationCompositionExpression.left=current} '|'
+		right=ETPrimarySpecificationExpression)*
+;
+
+ETPrimarySpecificationExpression returns ETSpecificationExpression:
+	ETSpecificationReference
+	| ETSpecificationInstantiation
+	| '(' ETSpecificationExpression ')'
+;
+
+ETSpecificationReference returns ETSpecificationExpression:
+	{ETSpecificationReference}
+	specification=[ETSpecification]
+;
+
+ETSpecificationInstantiation returns ETSpecificationExpression:
+	{ETSpecificationInstantiation}
+	template=[ETSpecificationTemplate]
+	'(' (arguments+=ETExpression
+		(',' arguments+=ETExpression)*)? ')'
+;
+
+
+
+//// Specification
+
+ETSpecification:
+	ETSpecificationBinding
+	| ETSpecificationDefinition
+;
+
+ETSpecificationBinding:
+	'let' name=ID
+	'=' expression=ETSpecificationExpression
+;
+
+ETSpecificationDefinition:
+	ETSpecificationTemplate
+	| ({ETSpecificationDefinition}
+		'spec' name=ID
+		body=ETSpecificationBody)
+;
+
+ETSpecificationTemplate:
+	({ETSpecificationTemplate}
+	'template' name=ID
+	'(' (parameters+=ETParameter
+		(',' parameters+=ETParameter)*)? ')'
+	body=ETSpecificationBody)
+;
+
+ETSpecificationBody:
+	'{'
+	// NOTE: instantiated, but optional
+	declarations=ETDeclarations
+	// TODO: make 'initial' a modifier and all locations optional?
+	'initial' initialLocation=ETLocation
+	locations+=ETLocation*
+	'}'
+;
+
+ETParameter:
+	type=ETType
+	name=ID
+	dimensions+=ETArrayDeclaration*
+;
+
+
+ETLocation:
+	((urgent?='urgent')? & (universal?='universal')?)
+	name=ID '{'
+	('invariant' invariants+=ETExpression
+		(',' invariants+=ETExpression)* ';')?
+	( edges+=ETEdge
+		(';' edges+=ETEdge)*)?
+	'}'
+;
+
+ETEdge:
+	(controllable?='controllable')?
+	/* NOTE:
+	 * 'then' suffix not possible in LL grammar,
+	 * ETIO also expression!
+	 */
+	// TODO: how to avoid code duplication?
+	(('foreach' '(' selects+=ETSelect (',' selects+=ETSelect)* ')' '{'
+		io=ETIO ':'
+		('if' '(' guard=ETExpression ')')?
+		(('goto' target=[ETLocation])
+			| ('{' (updates+=ETExpression ';')*
+					'goto' target=[ETLocation] '}'))
+	'}')
+	| (io=ETIO ':'
+		('if' '(' guard=ETExpression ')')?
+		(('goto' target=[ETLocation])
+			| ('{' (updates+=ETExpression ';')*
+					'goto' target=[ETLocation] '}'))))
+
+;
+
+ETIO:
+	expression=ETExpression
+	type=ETIOType
+;
+
+enum ETIOType:
+	INPUT='?'
+	| OUTPUT='!'
+;
+
+ETSelect:
+	name=ID ':' type=ETType
+;
+
+/* TODO: refinement */
+/*
+Assertion:
+	'assert:' (SpecificationAssertion | Consistency | Implementation | Control)
+;
+
+SpecificationAssertion:
+	'specification' expression=LogicalExpression
+;
+
+Consistency:
+	'consistent' expression=LogicalExpression
+;
+
+Implementation:
+	'implementation' expression=LogicalExpression
+;
+
+Control:
+	'control' expression=LogicalExpression
+;
+*/
+
+
+//// Expression
+
+/*
+ * Same as UPPAAL grammar:
+ * (See http://www.it.uu.se/research/group/darts/uppaal/help.php?file=System_Descriptions/Expressions.shtml)
+ */
+
+// unary right
+ETExpression returns ETExpression:
+	ETImplyLogicOrExpression
+	| ((({ETForallExpression} 'forall')
+		| ({ETExistsExpression} 'exists'))
+		'(' name=ID ':' type=ETType ')'
+		expression=ETExpression)
+;
+
+// left
+ETImplyLogicOrExpression returns ETExpression:
+	ETLogicAndExpression1
+	((({ETImplyExpression.left=current} 'imply')
+		| ({ETLogicOrExpression.left=current} 'or'))
+		right=ETLogicAndExpression1)*
+;
+
+// left
+ETLogicAndExpression1 returns ETExpression:
+	ETLogicNotExpression1
+	(({ETLogicAndExpression.left=current} 'and')
+		right=ETLogicNotExpression1)*
+;
+
+// unary right
+ETLogicNotExpression1 returns ETExpression:
+	ETAssignmentExpression
+// TODO: causes duplicate method definition by Xtext
+//	| ({ETLogicNotExpression} 'not'
+//		expression=ETLogicNotExpression1)
+;
+
+
+// right
+ETAssignmentExpression returns ETExpression:
+	ETConditionalExpression
+	((({ETAssignmentExpression.left=current} '=')
+		| ({ETAssignmentExpression.left=current} ':=')
+		| ({ETAdditionAssignmentExpression.left=current} '+=')
+		| ({ETSubtractionAssignmentExpression.left=current} '-=')
+		| ({ETMultiplicationAssignmentExpression.left=current} '*=')
+		| ({ETDivisionAssignmentExpression.left=current} '/=')
+		| ({ETModuloAssignmentExpression.left=current} '%=')
+		| ({ETBitOrAssignmentExpression.left=current} '|=')
+		| ({ETBitAndAssignmentExpression.left=current} '&=')
+		| ({ETBitXORAssignmentExpression.left=current} '^=')
+		| ({ETBitLeftAssignmentExpression.left=current} '<<=')
+		| ({ETBitRightAssignmentExpression.left=current} '>>='))
+		right=ETAssignmentExpression)?
+;
+
+// right
+ETConditionalExpression returns ETExpression:
+	ETLogicOrExpression2
+	({ETConditionalExpression.condition=current}
+		'?' then=ETLogicOrExpression2
+		':' else=ETConditionalExpression)?
+;
+
+// left
+ETLogicOrExpression2 returns ETExpression:
+	ETLogicAndExpression2
+	(({ETLogicOrExpression.left=current} '||')
+		right=ETLogicAndExpression2)*
+;
+
+// left
+ETLogicAndExpression2 returns ETExpression:
+	ETBitOrExpression
+	(({ETLogicAndExpression.left=current} '&&')
+		right=ETBitOrExpression)*
+;
+
+// left
+ETBitOrExpression returns ETExpression:
+	ETBitXORExpression
+	(({ETBitOrExpression.left=current} '|')
+		right=ETBitXORExpression)*
+;
+
+
+// left
+ETBitXORExpression returns ETExpression:
+	ETBitAndExpression
+	(({ETBitXORExpression.left=current} '^')
+		right=ETBitAndExpression)*
+;
+
+// left
+ETBitAndExpression returns ETExpression:
+	ETEqualityExpression
+	(({ETBitAndExpression.left=current} '&')
+		right=ETEqualityExpression)*
+;
+
+// left
+ETEqualityExpression returns ETExpression:
+	ETInequalityExpression
+	((({ETEqualExpression.left=current} '==')
+		| ({ETUnequalExpression.left=current} '!='))
+		right=ETInequalityExpression)*
+;
+
+// left
+ETInequalityExpression returns ETExpression:
+	ETMinMaxExpression
+	((({ETLessExpression.left=current} '<')
+		| ({ETLessEqualExpression.left=current} '<=')
+		| ({ETGreaterEqualExpression.left=current} '>=')
+		| ({ETGreaterExpression.left=current} '>'))
+		right=ETMinMaxExpression)*
+;
+
+// left
+ETMinMaxExpression returns ETExpression:
+	ETBitLeftBRightExpression
+	((({ETMinExpression.left=current} '<?')
+		| ({ETMaxExpression.left=current} '>?'))
+		right=ETBitLeftBRightExpression)*
+;
+
+// left
+ETBitLeftBRightExpression returns ETExpression:
+	ETAdditiveExpression
+	((({ETBitLeftExpression.left=current} '<<')
+		| ({ETBitRightExpression.left=current} '>>'))
+		right=ETAdditiveExpression)*
+;
+
+// left
+ETAdditiveExpression returns ETExpression:
+	ETMultiplicativeExpression
+	((({ETAddExpression.left=current} '+')
+		| ({ETSubtractExpression.left=current} '-'))
+		right=ETMultiplicativeExpression)*
+;
+
+// left
+ETMultiplicativeExpression returns ETExpression:
+	ETPrefixExpression
+	((({ETMultiplyExpression.left=current} '*')
+		| ({ETDivideExpression.left=current} '/')
+		| ({ETModuloExpression.left=current} '%'))
+		right=ETPrefixExpression)*
+;
+
+
+// unary right
+ETPrefixExpression returns ETExpression:
+	ETUnaryExpression
+	| ((({ETPreIncrementExpression} '++')
+		| ({ETPreDecrementExpression} '--'))
+		expression=ETPrefixExpression)
+;
+
+
+// unary right
+ETUnaryExpression returns ETExpression:
+	ETPostfixExpression
+	| ((({ETLogicNotExpression} '!')
+		| ({ETMinusExpression} '-'))
+		expression=ETUnaryExpression)
+;
+
+// unary left
+ETPostfixExpression returns ETExpression:
+	ETArrayExpression
+	(({ETPostIncrementExpression.expression=current} '++')
+		| ({ETPostDecrementExpression.expression=current} '--'))*
+;
+
+
+// left
+ETArrayExpression returns ETExpression:
+	ETPrimaryExpression
+	({ETArrayExpression.left=current}
+		'[' right=ETExpression ']')*
+;
+
+ETPrimaryExpression returns ETExpression:
+	ETReference
+	| ETNumberLiteral
+	| ETBooleanLiteral
+	| ETParenthesizedExpression
+;
+
+/* NOTE:
+ * - member access handled by ID terminal
+ * - reference restricted by scoping rules,
+ *   depending on use (update, guard, etc.)
+ * - local variable, global variable,
+ *   global type, parameter
+ */
+ETReference returns ETExpression:
+	{ETReference}
+	target=[ecore::EObject]
+;
+
+ETBooleanLiteral returns ETExpression:
+	{ETBooleanLiteral}
+	value=BOOL
+;
+
+BOOL returns ecore::EBooleanObject:
+	'true' | 'false';
+
+ETNumberLiteral returns ETExpression:
+	{ETNumberLiteral}
+	value=INT
+;
+
+ETParenthesizedExpression returns ETExpression:
+	'(' ETExpression ')'
+;

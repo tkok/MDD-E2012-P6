@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/dk.itu.ecdar.text/src-gen" editDirectory="/dk.itu.ecdar.text.edit/src"
+    editorDirectory="/dk.itu.ecdar.text.editor/src" modelPluginID="dk.itu.ecdar.text"
+    forceOverwrite="true" modelName="EcdarText" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="dk.itu.ecdar.text.edit"
+    editorPluginID="dk.itu.ecdar.text.editor" runtimeVersion="2.8">
+  <genPackages prefix="EcdarText" basePackage="dk.itu.ecdar.text" disposableProviderFactory="true"
+      ecorePackage="EcdarText.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EcdarText.ecore#//ETIOType">
+      <genEnumLiterals ecoreEnumLiteral="EcdarText.ecore#//ETIOType/INPUT"/>
+      <genEnumLiterals ecoreEnumLiteral="EcdarText.ecore#//ETIOType/OUTPUT"/>
+    </genEnums>
+    <genClasses ecoreClass="EcdarText.ecore#//ETFile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETFile/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETFile/declarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETFile/specifications"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETImport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETImport/importedNamespace"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETArrayDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETArrayDeclaration/size"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETDeclarations">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETDeclarations/declarations"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETDeclaration"/>
+    <genClasses ecoreClass="EcdarText.ecore#//ETType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETType/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETType/identifier"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETTypeModifiers">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETTypeModifiers/urgent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETTypeModifiers/meta"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETTypeModifiers/const"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETVariableDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETVariableDeclaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETVariableDeclaration/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETVariableID">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETVariableID/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETVariableID/ioType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETVariableID/dimensions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETVariableID/initialiser"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETInitialiser"/>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSingleInitialiser">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSingleInitialiser/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETMultiInitialiser">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETMultiInitialiser/initialisers"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETTypeDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETTypeDeclaration/baseType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETTypeDeclaration/types"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETTypeID">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETTypeID/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETTypeID/dimensions"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETTypeIdentifier"/>
+    <genClasses ecoreClass="EcdarText.ecore#//ETIntegerType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETIntegerType/min"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETIntegerType/max"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETClockType"/>
+    <genClasses ecoreClass="EcdarText.ecore#//ETActionType"/>
+    <genClasses ecoreClass="EcdarText.ecore#//ETInputType"/>
+    <genClasses ecoreClass="EcdarText.ecore#//ETOutputType"/>
+    <genClasses ecoreClass="EcdarText.ecore#//ETBooleanType"/>
+    <genClasses ecoreClass="EcdarText.ecore#//ETScalarType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETScalarType/size"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETStructType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETStructType/declarations"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETFieldDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETFieldDeclaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETFieldDeclaration/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETFieldID">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETFieldID/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETFieldID/dimensions"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSpecificationExpression"/>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETSpecification/name"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSpecificationBinding">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationBinding/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSpecificationDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationDefinition/body"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSpecificationTemplate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationTemplate/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSpecificationBody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationBody/declarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationBody/initialLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationBody/locations"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETParameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETParameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETParameter/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETParameter/dimensions"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETLocation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETLocation/urgent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETLocation/universal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETLocation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETLocation/invariants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETLocation/edges"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETEdge">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETEdge/controllable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETEdge/selects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETEdge/io"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETEdge/guard"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETEdge/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETEdge/updates"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETIO">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETIO/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETIO/type"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSelect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETSelect/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSelect/type"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETExpression"/>
+    <genClasses ecoreClass="EcdarText.ecore#//ETTypeReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETTypeReference/target"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSpecificationDisjunctionExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationDisjunctionExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationDisjunctionExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSpecificationConjunctionExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationConjunctionExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationConjunctionExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSpecificationCompositionExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationCompositionExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationCompositionExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSpecificationReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationReference/specification"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSpecificationInstantiation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationInstantiation/template"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSpecificationInstantiation/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETForallExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETForallExpression/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETForallExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETForallExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETExistsExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETExistsExpression/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETExistsExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETExistsExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETImplyExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETImplyExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETImplyExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETLogicOrExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETLogicOrExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETLogicOrExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETLogicAndExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETLogicAndExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETLogicAndExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETAdditionAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETAdditionAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETAdditionAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSubtractionAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSubtractionAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSubtractionAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETMultiplicationAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETMultiplicationAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETMultiplicationAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETDivisionAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETDivisionAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETDivisionAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETModuloAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETModuloAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETModuloAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETBitOrAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitOrAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitOrAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETBitAndAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitAndAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitAndAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETBitXORAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitXORAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitXORAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETBitLeftAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitLeftAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitLeftAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETBitRightAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitRightAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitRightAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETConditionalExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETConditionalExpression/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETConditionalExpression/then"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETConditionalExpression/else"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETBitOrExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitOrExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitOrExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETBitXORExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitXORExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitXORExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETBitAndExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitAndExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitAndExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETEqualExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETEqualExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETEqualExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETUnequalExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETUnequalExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETUnequalExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETLessExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETLessExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETLessExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETLessEqualExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETLessEqualExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETLessEqualExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETGreaterEqualExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETGreaterEqualExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETGreaterEqualExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETGreaterExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETGreaterExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETGreaterExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETMinExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETMinExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETMinExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETMaxExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETMaxExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETMaxExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETBitLeftExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitLeftExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitLeftExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETBitRightExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitRightExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETBitRightExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETAddExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETAddExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETAddExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETSubtractExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSubtractExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETSubtractExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETMultiplyExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETMultiplyExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETMultiplyExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETDivideExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETDivideExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETDivideExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETModuloExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETModuloExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETModuloExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETPreIncrementExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETPreIncrementExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETPreDecrementExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETPreDecrementExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETLogicNotExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETLogicNotExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETMinusExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETMinusExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETPostIncrementExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETPostIncrementExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETPostDecrementExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETPostDecrementExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETArrayExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETArrayExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETArrayExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETReference/target"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETBooleanLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETBooleanLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETNumberLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETNumberLiteral/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

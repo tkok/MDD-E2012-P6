@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+    <extension
+            point="org.eclipse.ui.editors">
+        <editor
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+            default="true"
+            extensions="ecdar"
+            id="dk.itu.ecdar.text.EcdarText"
+            name="EcdarText Editor">
+        </editor>
+    </extension>
+    <extension
+        point="org.eclipse.ui.handlers">
+        <handler
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+            commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+            <activeWhen>
+                <reference
+                    definitionId="dk.itu.ecdar.text.EcdarText.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+        <handler
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+            commandId="dk.itu.ecdar.text.EcdarText.validate">
+         <activeWhen>
+            <reference
+                    definitionId="dk.itu.ecdar.text.EcdarText.Editor.opened">
+            </reference>
+         </activeWhen>
+      </handler>
+    </extension>
+    <extension point="org.eclipse.core.expressions.definitions">
+        <definition id="dk.itu.ecdar.text.EcdarText.Editor.opened">
+            <and>
+                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+                <with variable="activeEditor">
+                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+                        value="dk.itu.ecdar.text.EcdarText" 
+                        forcePluginActivation="true"/>
+                </with>        
+            </and>
+        </definition>
+    </extension>
+    <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="dk.itu.ecdar.text.EcdarText"
+            name="EcdarText">
+            <keywordReference id="dk.itu.ecdar.text.ui.keyword_EcdarText"/>
+        </page>
+        <page
+            category="dk.itu.ecdar.text.EcdarText"
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+            id="dk.itu.ecdar.text.EcdarText.coloring"
+            name="Syntax Coloring">
+            <keywordReference id="dk.itu.ecdar.text.ui.keyword_EcdarText"/>
+        </page>
+        <page
+            category="dk.itu.ecdar.text.EcdarText"
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+            id="dk.itu.ecdar.text.EcdarText.templates"
+            name="Templates">
+            <keywordReference id="dk.itu.ecdar.text.ui.keyword_EcdarText"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+            id="dk.itu.ecdar.text.EcdarText"
+            name="EcdarText">
+            <keywordReference id="dk.itu.ecdar.text.ui.keyword_EcdarText"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+    <extension
+        point="org.eclipse.ui.keywords">
+        <keyword
+            id="dk.itu.ecdar.text.ui.keyword_EcdarText"
+            label="EcdarText"/>
+    </extension>
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Trigger expensive validation"
+            id="dk.itu.ecdar.text.EcdarText.validate"
+            name="Validate">
+      </command>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+             <command
+                 commandId="dk.itu.ecdar.text.EcdarText.validate"
+                 style="push"
+                 tooltip="Trigger expensive validation">
+            <visibleWhen checkEnabled="false">
+                <reference
+                    definitionId="dk.itu.ecdar.text.EcdarText.Editor.opened">
+                </reference>
+            </visibleWhen>
+         </command>  
+         </menuContribution>
+    </extension>
+    <extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
+			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+				<visibleWhen checkEnabled="false">
+                	<reference definitionId="dk.itu.ecdar.text.EcdarText.Editor.opened">
+                	</reference>
+            	</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.handlers">
+	    <handler
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+            commandId="org.eclipse.xtext.ui.editor.FindReferences">
+            <activeWhen>
+                <reference
+                    definitionId="dk.itu.ecdar.text.EcdarText.Editor.opened">
+                </reference>
+            </activeWhen>
+        </handler>
+    </extension>   
+
+<!-- adding resource factories -->
+
+	<extension
+		point="org.eclipse.emf.ecore.extension_parser">
+		<parser
+			class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
+			type="ecdar">
+		</parser>
+	</extension>
+	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
+        <resourceServiceProvider
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+            uriExtension="ecdar">
+        </resourceServiceProvider>
+    </extension>
+
+
+    <!-- marker definitions for dk.itu.ecdar.text.EcdarText -->
+    <extension
+            id="ecdartext.check.fast"
+            name="EcdarText Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.fast"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="ecdartext.check.normal"
+            name="EcdarText Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.normal"/>
+        <persistent value="true"/>
+    </extension>
+    <extension
+            id="ecdartext.check.expensive"
+            name="EcdarText Problem"
+            point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.xtext.ui.check.expensive"/>
+        <persistent value="true"/>
+    </extension>
+
+   <extension
+         point="org.eclipse.xtext.builder.participant">
+      <participant
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
+      </participant>
+   </extension>
+   <extension
+            point="org.eclipse.ui.preferencePages">
+        <page
+            category="dk.itu.ecdar.text.EcdarText"
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="dk.itu.ecdar.text.EcdarText.compiler.preferencePage"
+            name="Compiler">
+            <keywordReference id="dk.itu.ecdar.text.ui.keyword_EcdarText"/>
+        </page>
+    </extension>
+    <extension
+            point="org.eclipse.ui.propertyPages">
+        <page
+            category="dk.itu.ecdar.text.EcdarText"
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+            id="dk.itu.ecdar.text.EcdarText.compiler.propertyPage"
+            name="Compiler">
+            <keywordReference id="dk.itu.ecdar.text.ui.keyword_EcdarText"/>
+            <enabledWhen>
+	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+        </page>
+    </extension>
+
+	<!-- Quick Outline -->
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler 
+			class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.outline.quickoutline.ShowQuickOutlineActionHandler"
+			commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline">
+			<activeWhen>
+				<reference
+					definitionId="dk.itu.ecdar.text.EcdarText.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Open the quick outline."
+			id="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+			name="Quick Outline">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.open">
+			<command commandId="org.eclipse.xtext.ui.editor.outline.QuickOutline"
+				style="push"
+				tooltip="Open Quick Outline">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="dk.itu.ecdar.text.EcdarText.Editor.opened"/>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+    <!-- quickfix marker resolution generator for dk.itu.ecdar.text.EcdarText -->
+    <extension
+            point="org.eclipse.ui.ide.markerResolution">
+        <markerResolutionGenerator
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="dk.itu.ecdar.text.ui.ecdartext.check.fast">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="dk.itu.ecdar.text.ui.ecdartext.check.normal">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+        <markerResolutionGenerator
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+            markerType="dk.itu.ecdar.text.ui.ecdartext.check.expensive">
+            <attribute
+                name="FIXABLE_KEY"
+                value="true">
+            </attribute>
+        </markerResolutionGenerator>
+    </extension>
+   	<!-- Rename Refactoring -->
+	<extension point="org.eclipse.ui.handlers">
+		<handler 
+			class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.IRenameElementHandler"
+			commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
+			<activeWhen>
+				<reference
+					definitionId="dk.itu.ecdar.text.EcdarText.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>
+    <extension point="org.eclipse.ui.menus">
+         <menuContribution
+            locationURI="popup:#TextEditorContext?after=group.edit">
+         <command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
+               style="push">
+            <visibleWhen checkEnabled="false">
+               <reference
+                     definitionId="dk.itu.ecdar.text.EcdarText.Editor.opened">
+               </reference>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+	    <page
+	        category="dk.itu.ecdar.text.EcdarText"
+	        class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+	        id="dk.itu.ecdar.text.EcdarText.refactoring"
+	        name="Refactoring">
+	        <keywordReference id="dk.itu.ecdar.text.ui.keyword_EcdarText"/>
+	    </page>
+	</extension>
+
+  <extension point="org.eclipse.compare.contentViewers">
+    <viewer id="dk.itu.ecdar.text.EcdarText.compare.contentViewers"
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="ecdar">
+    </viewer>
+  </extension>
+  <extension point="org.eclipse.compare.contentMergeViewers">
+    <viewer id="dk.itu.ecdar.text.EcdarText.compare.contentMergeViewers"
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+            extensions="ecdar" label="EcdarText Compare">
+     </viewer>
+  </extension>
+  <extension point="org.eclipse.ui.editors.documentProviders">
+    <provider id="dk.itu.ecdar.text.EcdarText.editors.documentProviders"
+            class="dk.itu.ecdar.text.ui.EcdarTextExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+            extensions="ecdar">
+    </provider>
+  </extension>
+
+</plugin>
