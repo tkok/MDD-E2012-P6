@@ -1,9 +1,0 @@
-grammar dk.itu.ecdar.text.EcdarText with org.eclipse.xtext.common.Terminals
-
-generate ecdarText "http://www.itu.dk/ecdar/text/EcdarText"
-
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
