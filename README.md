@@ -1,6 +1,8 @@
 MDD-E2012-P6
 ============
 
+Visit [the Wiki](https://github.com/tkok/MDD-E2012-P6/wiki) and get smart!
+
 # Code Generation From ECDAR
 
 As complexity of Software Projects grows, it becomes necessary to lift abstraction to a higher level. This is very useful when experts from specific domains who are not familiar with classical programming need to develop systems. Instead of educating programmers in these domains, we can increase productivity by giving aforementioned experts the proper tools to develop these systems which also enables re-usability.
