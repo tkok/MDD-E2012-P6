@@ -62,8 +62,7 @@ ETVariableDeclaration:
 
 ETVariableID:
 	name=ID
-	// NOTE: workaround for in-/outputs, ignored
-	(ioType=('!' | '?'))?
+	(ioType=ETIOType)?
 	dimensions+=ETArrayDeclaration*
 	('=' initialiser=ETInitialiser)?
 ;
@@ -158,6 +157,7 @@ ETFieldDeclaration:
 
 ETFieldID:
 	name=ID
+	(ioType=ETIOType)?
 	dimensions+=ETArrayDeclaration*
 ;
 
@@ -244,6 +244,7 @@ ETSpecificationBody:
 ETParameter:
 	type=ETType
 	name=ID
+	(ioType=ETIOType)?
 	dimensions+=ETArrayDeclaration*
 ;
 
@@ -491,11 +492,18 @@ ETUnaryExpression returns ETExpression:
 
 // unary left
 ETPostfixExpression returns ETExpression:
-	ETArrayExpression
+	ETStructExpression
 	(({ETPostIncrementExpression.expression=current} '++')
 		| ({ETPostDecrementExpression.expression=current} '--'))*
 ;
 
+
+// left
+ETStructExpression returns ETExpression:
+	ETArrayExpression
+	({ETStructExpression.left=current}
+		'.' right=ID)*
+;
 
 // left
 ETArrayExpression returns ETExpression:
@@ -512,7 +520,6 @@ ETPrimaryExpression returns ETExpression:
 ;
 
 /* NOTE:
- * - member access handled by ID terminal
  * - reference restricted by scoping rules,
  *   depending on use (update, guard, etc.)
  * - local variable, global variable,
