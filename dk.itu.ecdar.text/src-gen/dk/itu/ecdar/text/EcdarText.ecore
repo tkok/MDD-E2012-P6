@@ -40,7 +40,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ETVariableID">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ioType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ioType" eType="#//ETIOType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimensions" upperBound="-1"
         eType="#//ETArrayDeclaration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="initialiser" eType="#//ETInitialiser"
@@ -94,6 +94,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ETFieldID">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ioType" eType="#//ETIOType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimensions" upperBound="-1"
         eType="#//ETArrayDeclaration" containment="true"/>
   </eClassifiers>
@@ -125,6 +126,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ETType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ioType" eType="#//ETIOType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimensions" upperBound="-1"
         eType="#//ETArrayDeclaration" containment="true"/>
   </eClassifiers>
@@ -433,6 +435,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="ETPostDecrementExpression" eSuperTypes="#//ETExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//ETExpression"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ETStructExpression" eSuperTypes="#//ETExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//ETExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="right" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ETArrayExpression" eSuperTypes="#//ETExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//ETExpression"

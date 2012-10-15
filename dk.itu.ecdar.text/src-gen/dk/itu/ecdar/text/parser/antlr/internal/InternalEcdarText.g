@@ -640,32 +640,20 @@ ruleETVariableID returns [EObject current=null]
 )
 )(
 (
-(
-		lv_ioType_1_1=	'!' 
-    {
-        newLeafNode(lv_ioType_1_1, grammarAccess.getETVariableIDAccess().getIoTypeExclamationMarkKeyword_1_0_0());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getETVariableIDRule());
-	        }
-       		setWithLastConsumed($current, "ioType", lv_ioType_1_1, null);
+		{ 
+	        newCompositeNode(grammarAccess.getETVariableIDAccess().getIoTypeETIOTypeEnumRuleCall_1_0()); 
 	    }
-
-    |		lv_ioType_1_2=	'?' 
-    {
-        newLeafNode(lv_ioType_1_2, grammarAccess.getETVariableIDAccess().getIoTypeQuestionMarkKeyword_1_0_1());
-    }
- 
-	    {
+		lv_ioType_1_0=ruleETIOType		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getETVariableIDRule());
+	            $current = createModelElementForParent(grammarAccess.getETVariableIDRule());
 	        }
-       		setWithLastConsumed($current, "ioType", lv_ioType_1_2, null);
+       		set(
+       			$current, 
+       			"ioType",
+        		lv_ioType_1_0, 
+        		"ETIOType");
+	        afterParserOrEnumRuleCall();
 	    }
-
-)
 
 )
 )?(
@@ -1611,16 +1599,34 @@ ruleETFieldID returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getETFieldIDAccess().getDimensionsETArrayDeclarationParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getETFieldIDAccess().getIoTypeETIOTypeEnumRuleCall_1_0()); 
 	    }
-		lv_dimensions_1_0=ruleETArrayDeclaration		{
+		lv_ioType_1_0=ruleETIOType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getETFieldIDRule());
+	        }
+       		set(
+       			$current, 
+       			"ioType",
+        		lv_ioType_1_0, 
+        		"ETIOType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getETFieldIDAccess().getDimensionsETArrayDeclarationParserRuleCall_2_0()); 
+	    }
+		lv_dimensions_2_0=ruleETArrayDeclaration		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getETFieldIDRule());
 	        }
        		add(
        			$current, 
        			"dimensions",
-        		lv_dimensions_1_0, 
+        		lv_dimensions_2_0, 
         		"ETArrayDeclaration");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2430,16 +2436,34 @@ ruleETParameter returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getETParameterAccess().getDimensionsETArrayDeclarationParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getETParameterAccess().getIoTypeETIOTypeEnumRuleCall_2_0()); 
 	    }
-		lv_dimensions_2_0=ruleETArrayDeclaration		{
+		lv_ioType_2_0=ruleETIOType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getETParameterRule());
+	        }
+       		set(
+       			$current, 
+       			"ioType",
+        		lv_ioType_2_0, 
+        		"ETIOType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getETParameterAccess().getDimensionsETArrayDeclarationParserRuleCall_3_0()); 
+	    }
+		lv_dimensions_3_0=ruleETArrayDeclaration		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getETParameterRule());
 	        }
        		add(
        			$current, 
        			"dimensions",
-        		lv_dimensions_2_0, 
+        		lv_dimensions_3_0, 
         		"ETArrayDeclaration");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -4533,11 +4557,11 @@ ruleETPostfixExpression returns [EObject current=null]
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getETPostfixExpressionAccess().getETArrayExpressionParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getETPostfixExpressionAccess().getETStructExpressionParserRuleCall_0()); 
     }
-    this_ETArrayExpression_0=ruleETArrayExpression
+    this_ETStructExpression_0=ruleETStructExpression
     { 
-        $current = $this_ETArrayExpression_0.current; 
+        $current = $this_ETStructExpression_0.current; 
         afterParserOrEnumRuleCall();
     }
 (((
@@ -4561,6 +4585,64 @@ ruleETPostfixExpression returns [EObject current=null]
     {
     	newLeafNode(otherlv_4, grammarAccess.getETPostfixExpressionAccess().getHyphenMinusHyphenMinusKeyword_1_1_1());
     }
+))*)
+;
+
+
+
+
+
+// Entry rule entryRuleETStructExpression
+entryRuleETStructExpression returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getETStructExpressionRule()); }
+	 iv_ruleETStructExpression=ruleETStructExpression 
+	 { $current=$iv_ruleETStructExpression.current; } 
+	 EOF 
+;
+
+// Rule ETStructExpression
+ruleETStructExpression returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getETStructExpressionAccess().getETArrayExpressionParserRuleCall_0()); 
+    }
+    this_ETArrayExpression_0=ruleETArrayExpression
+    { 
+        $current = $this_ETArrayExpression_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+((
+    {
+        $current = forceCreateModelElementAndSet(
+            grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0(),
+            $current);
+    }
+)	otherlv_2='.' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getETStructExpressionAccess().getFullStopKeyword_1_1());
+    }
+(
+(
+		lv_right_3_0=RULE_ID
+		{
+			newLeafNode(lv_right_3_0, grammarAccess.getETStructExpressionAccess().getRightIDTerminalRuleCall_1_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getETStructExpressionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"right",
+        		lv_right_3_0, 
+        		"ID");
+	    }
+
+)
 ))*)
 ;
 

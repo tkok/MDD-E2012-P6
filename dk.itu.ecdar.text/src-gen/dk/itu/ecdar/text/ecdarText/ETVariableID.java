@@ -55,6 +55,7 @@ public interface ETVariableID extends EObject
 
   /**
    * Returns the value of the '<em><b>Io Type</b></em>' attribute.
+   * The literals are from the enumeration {@link dk.itu.ecdar.text.ecdarText.ETIOType}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Io Type</em>' attribute isn't clear,
@@ -62,22 +63,24 @@ public interface ETVariableID extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Io Type</em>' attribute.
-   * @see #setIoType(String)
+   * @see dk.itu.ecdar.text.ecdarText.ETIOType
+   * @see #setIoType(ETIOType)
    * @see dk.itu.ecdar.text.ecdarText.EcdarTextPackage#getETVariableID_IoType()
    * @model
    * @generated
    */
-  String getIoType();
+  ETIOType getIoType();
 
   /**
    * Sets the value of the '{@link dk.itu.ecdar.text.ecdarText.ETVariableID#getIoType <em>Io Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Io Type</em>' attribute.
+   * @see dk.itu.ecdar.text.ecdarText.ETIOType
    * @see #getIoType()
    * @generated
    */
-  void setIoType(String value);
+  void setIoType(ETIOType value);
 
   /**
    * Returns the value of the '<em><b>Dimensions</b></em>' containment reference list.

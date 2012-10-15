@@ -82,6 +82,7 @@
     </genClasses>
     <genClasses ecoreClass="EcdarText.ecore#//ETFieldID">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETFieldID/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETFieldID/ioType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETFieldID/dimensions"/>
     </genClasses>
     <genClasses ecoreClass="EcdarText.ecore#//ETSpecificationExpression"/>
@@ -105,6 +106,7 @@
     <genClasses ecoreClass="EcdarText.ecore#//ETParameter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETParameter/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETParameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETParameter/ioType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETParameter/dimensions"/>
     </genClasses>
     <genClasses ecoreClass="EcdarText.ecore#//ETLocation">
@@ -313,6 +315,10 @@
     </genClasses>
     <genClasses ecoreClass="EcdarText.ecore#//ETPostDecrementExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETPostDecrementExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="EcdarText.ecore#//ETStructExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETStructExpression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EcdarText.ecore#//ETStructExpression/right"/>
     </genClasses>
     <genClasses ecoreClass="EcdarText.ecore#//ETArrayExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EcdarText.ecore#//ETArrayExpression/left"/>

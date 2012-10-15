@@ -495,6 +495,11 @@ public class EcdarTextAdapterFactory extends AdapterFactoryImpl
         return createETPostDecrementExpressionAdapter();
       }
       @Override
+      public Adapter caseETStructExpression(ETStructExpression object)
+      {
+        return createETStructExpressionAdapter();
+      }
+      @Override
       public Adapter caseETArrayExpression(ETArrayExpression object)
       {
         return createETArrayExpressionAdapter();
@@ -1792,6 +1797,21 @@ public class EcdarTextAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createETPostDecrementExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link dk.itu.ecdar.text.ecdarText.ETStructExpression <em>ET Struct Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see dk.itu.ecdar.text.ecdarText.ETStructExpression
+   * @generated
+   */
+  public Adapter createETStructExpressionAdapter()
   {
     return null;
   }

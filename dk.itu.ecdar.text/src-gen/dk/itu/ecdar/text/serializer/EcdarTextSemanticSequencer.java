@@ -73,6 +73,7 @@ import dk.itu.ecdar.text.ecdarText.ETSpecificationDisjunctionExpression;
 import dk.itu.ecdar.text.ecdarText.ETSpecificationInstantiation;
 import dk.itu.ecdar.text.ecdarText.ETSpecificationReference;
 import dk.itu.ecdar.text.ecdarText.ETSpecificationTemplate;
+import dk.itu.ecdar.text.ecdarText.ETStructExpression;
 import dk.itu.ecdar.text.ecdarText.ETStructType;
 import dk.itu.ecdar.text.ecdarText.ETSubtractExpression;
 import dk.itu.ecdar.text.ecdarText.ETSubtractionAssignmentExpression;
@@ -175,6 +176,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAdditiveExpression(context, (ETAddExpression) semanticObject); 
 					return; 
@@ -242,6 +245,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAssignmentExpression(context, (ETAdditionAssignmentExpression) semanticObject); 
 					return; 
@@ -315,6 +320,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETArrayExpression(context, (ETArrayExpression) semanticObject); 
 					return; 
@@ -382,6 +389,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAssignmentExpression(context, (ETAssignmentExpression) semanticObject); 
 					return; 
@@ -449,6 +458,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAssignmentExpression(context, (ETBitAndAssignmentExpression) semanticObject); 
 					return; 
@@ -516,6 +527,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETBitAndExpression(context, (ETBitAndExpression) semanticObject); 
 					return; 
@@ -583,6 +596,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAssignmentExpression(context, (ETBitLeftAssignmentExpression) semanticObject); 
 					return; 
@@ -650,6 +665,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETBitLeftBRightExpression(context, (ETBitLeftExpression) semanticObject); 
 					return; 
@@ -717,6 +734,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAssignmentExpression(context, (ETBitOrAssignmentExpression) semanticObject); 
 					return; 
@@ -784,6 +803,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETBitOrExpression(context, (ETBitOrExpression) semanticObject); 
 					return; 
@@ -851,6 +872,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAssignmentExpression(context, (ETBitRightAssignmentExpression) semanticObject); 
 					return; 
@@ -918,6 +941,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETBitLeftBRightExpression(context, (ETBitRightExpression) semanticObject); 
 					return; 
@@ -985,6 +1010,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAssignmentExpression(context, (ETBitXORAssignmentExpression) semanticObject); 
 					return; 
@@ -1052,6 +1079,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETBitXORExpression(context, (ETBitXORExpression) semanticObject); 
 					return; 
@@ -1120,6 +1149,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETBooleanLiteral(context, (ETBooleanLiteral) semanticObject); 
 					return; 
@@ -1201,6 +1232,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETConditionalExpression(context, (ETConditionalExpression) semanticObject); 
 					return; 
@@ -1274,6 +1307,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETMultiplicativeExpression(context, (ETDivideExpression) semanticObject); 
 					return; 
@@ -1341,6 +1376,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAssignmentExpression(context, (ETDivisionAssignmentExpression) semanticObject); 
 					return; 
@@ -1414,6 +1451,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETEqualityExpression(context, (ETEqualExpression) semanticObject); 
 					return; 
@@ -1481,6 +1520,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETExpression(context, (ETExistsExpression) semanticObject); 
 					return; 
@@ -1566,6 +1607,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETExpression(context, (ETForallExpression) semanticObject); 
 					return; 
@@ -1633,6 +1676,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETInequalityExpression(context, (ETGreaterEqualExpression) semanticObject); 
 					return; 
@@ -1700,6 +1745,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETInequalityExpression(context, (ETGreaterExpression) semanticObject); 
 					return; 
@@ -1773,6 +1820,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETImplyLogicOrExpression(context, (ETImplyExpression) semanticObject); 
 					return; 
@@ -1861,6 +1910,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETInequalityExpression(context, (ETLessEqualExpression) semanticObject); 
 					return; 
@@ -1928,6 +1979,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETInequalityExpression(context, (ETLessExpression) semanticObject); 
 					return; 
@@ -2001,6 +2054,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETLogicAndExpression1_ETLogicAndExpression2(context, (ETLogicAndExpression) semanticObject); 
 					return; 
@@ -2068,6 +2123,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETUnaryExpression(context, (ETLogicNotExpression) semanticObject); 
 					return; 
@@ -2135,6 +2192,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETImplyLogicOrExpression_ETLogicOrExpression2(context, (ETLogicOrExpression) semanticObject); 
 					return; 
@@ -2202,6 +2261,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETMinMaxExpression(context, (ETMaxExpression) semanticObject); 
 					return; 
@@ -2269,6 +2330,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETMinMaxExpression(context, (ETMinExpression) semanticObject); 
 					return; 
@@ -2336,6 +2399,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETUnaryExpression(context, (ETMinusExpression) semanticObject); 
 					return; 
@@ -2403,6 +2468,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAssignmentExpression(context, (ETModuloAssignmentExpression) semanticObject); 
 					return; 
@@ -2470,6 +2537,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETMultiplicativeExpression(context, (ETModuloExpression) semanticObject); 
 					return; 
@@ -2544,6 +2613,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAssignmentExpression(context, (ETMultiplicationAssignmentExpression) semanticObject); 
 					return; 
@@ -2611,6 +2682,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETMultiplicativeExpression(context, (ETMultiplyExpression) semanticObject); 
 					return; 
@@ -2679,6 +2752,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETNumberLiteral(context, (ETNumberLiteral) semanticObject); 
 					return; 
@@ -2760,6 +2835,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETPostfixExpression(context, (ETPostDecrementExpression) semanticObject); 
 					return; 
@@ -2827,6 +2904,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETPostfixExpression(context, (ETPostIncrementExpression) semanticObject); 
 					return; 
@@ -2894,6 +2973,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETPrefixExpression(context, (ETPreDecrementExpression) semanticObject); 
 					return; 
@@ -2961,6 +3042,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETPrefixExpression(context, (ETPreIncrementExpression) semanticObject); 
 					return; 
@@ -3029,6 +3112,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
 				   context == grammarAccess.getETReferenceRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETReference(context, (ETReference) semanticObject); 
 					return; 
@@ -3144,6 +3229,75 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 					return; 
 				}
 				else break;
+			case EcdarTextPackage.ET_STRUCT_EXPRESSION:
+				if(context == grammarAccess.getETAdditiveExpressionRule() ||
+				   context == grammarAccess.getETAdditiveExpressionAccess().getETAddExpressionLeftAction_1_0_0_0() ||
+				   context == grammarAccess.getETAdditiveExpressionAccess().getETSubtractExpressionLeftAction_1_0_1_0() ||
+				   context == grammarAccess.getETArrayExpressionRule() ||
+				   context == grammarAccess.getETArrayExpressionAccess().getETArrayExpressionLeftAction_1_0() ||
+				   context == grammarAccess.getETAssignmentExpressionRule() ||
+				   context == grammarAccess.getETAssignmentExpressionAccess().getETAdditionAssignmentExpressionLeftAction_1_0_2_0() ||
+				   context == grammarAccess.getETAssignmentExpressionAccess().getETAssignmentExpressionLeftAction_1_0_0_0() ||
+				   context == grammarAccess.getETAssignmentExpressionAccess().getETAssignmentExpressionLeftAction_1_0_1_0() ||
+				   context == grammarAccess.getETAssignmentExpressionAccess().getETBitAndAssignmentExpressionLeftAction_1_0_8_0() ||
+				   context == grammarAccess.getETAssignmentExpressionAccess().getETBitLeftAssignmentExpressionLeftAction_1_0_10_0() ||
+				   context == grammarAccess.getETAssignmentExpressionAccess().getETBitOrAssignmentExpressionLeftAction_1_0_7_0() ||
+				   context == grammarAccess.getETAssignmentExpressionAccess().getETBitRightAssignmentExpressionLeftAction_1_0_11_0() ||
+				   context == grammarAccess.getETAssignmentExpressionAccess().getETBitXORAssignmentExpressionLeftAction_1_0_9_0() ||
+				   context == grammarAccess.getETAssignmentExpressionAccess().getETDivisionAssignmentExpressionLeftAction_1_0_5_0() ||
+				   context == grammarAccess.getETAssignmentExpressionAccess().getETModuloAssignmentExpressionLeftAction_1_0_6_0() ||
+				   context == grammarAccess.getETAssignmentExpressionAccess().getETMultiplicationAssignmentExpressionLeftAction_1_0_4_0() ||
+				   context == grammarAccess.getETAssignmentExpressionAccess().getETSubtractionAssignmentExpressionLeftAction_1_0_3_0() ||
+				   context == grammarAccess.getETBitAndExpressionRule() ||
+				   context == grammarAccess.getETBitAndExpressionAccess().getETBitAndExpressionLeftAction_1_0_0() ||
+				   context == grammarAccess.getETBitLeftBRightExpressionRule() ||
+				   context == grammarAccess.getETBitLeftBRightExpressionAccess().getETBitLeftExpressionLeftAction_1_0_0_0() ||
+				   context == grammarAccess.getETBitLeftBRightExpressionAccess().getETBitRightExpressionLeftAction_1_0_1_0() ||
+				   context == grammarAccess.getETBitOrExpressionRule() ||
+				   context == grammarAccess.getETBitOrExpressionAccess().getETBitOrExpressionLeftAction_1_0_0() ||
+				   context == grammarAccess.getETBitXORExpressionRule() ||
+				   context == grammarAccess.getETBitXORExpressionAccess().getETBitXORExpressionLeftAction_1_0_0() ||
+				   context == grammarAccess.getETConditionalExpressionRule() ||
+				   context == grammarAccess.getETConditionalExpressionAccess().getETConditionalExpressionConditionAction_1_0() ||
+				   context == grammarAccess.getETEqualityExpressionRule() ||
+				   context == grammarAccess.getETEqualityExpressionAccess().getETEqualExpressionLeftAction_1_0_0_0() ||
+				   context == grammarAccess.getETEqualityExpressionAccess().getETUnequalExpressionLeftAction_1_0_1_0() ||
+				   context == grammarAccess.getETExpressionRule() ||
+				   context == grammarAccess.getETImplyLogicOrExpressionRule() ||
+				   context == grammarAccess.getETImplyLogicOrExpressionAccess().getETImplyExpressionLeftAction_1_0_0_0() ||
+				   context == grammarAccess.getETImplyLogicOrExpressionAccess().getETLogicOrExpressionLeftAction_1_0_1_0() ||
+				   context == grammarAccess.getETInequalityExpressionRule() ||
+				   context == grammarAccess.getETInequalityExpressionAccess().getETGreaterEqualExpressionLeftAction_1_0_2_0() ||
+				   context == grammarAccess.getETInequalityExpressionAccess().getETGreaterExpressionLeftAction_1_0_3_0() ||
+				   context == grammarAccess.getETInequalityExpressionAccess().getETLessEqualExpressionLeftAction_1_0_1_0() ||
+				   context == grammarAccess.getETInequalityExpressionAccess().getETLessExpressionLeftAction_1_0_0_0() ||
+				   context == grammarAccess.getETLogicAndExpression1Rule() ||
+				   context == grammarAccess.getETLogicAndExpression1Access().getETLogicAndExpressionLeftAction_1_0_0() ||
+				   context == grammarAccess.getETLogicAndExpression2Rule() ||
+				   context == grammarAccess.getETLogicAndExpression2Access().getETLogicAndExpressionLeftAction_1_0_0() ||
+				   context == grammarAccess.getETLogicNotExpression1Rule() ||
+				   context == grammarAccess.getETLogicOrExpression2Rule() ||
+				   context == grammarAccess.getETLogicOrExpression2Access().getETLogicOrExpressionLeftAction_1_0_0() ||
+				   context == grammarAccess.getETMinMaxExpressionRule() ||
+				   context == grammarAccess.getETMinMaxExpressionAccess().getETMaxExpressionLeftAction_1_0_1_0() ||
+				   context == grammarAccess.getETMinMaxExpressionAccess().getETMinExpressionLeftAction_1_0_0_0() ||
+				   context == grammarAccess.getETMultiplicativeExpressionRule() ||
+				   context == grammarAccess.getETMultiplicativeExpressionAccess().getETDivideExpressionLeftAction_1_0_1_0() ||
+				   context == grammarAccess.getETMultiplicativeExpressionAccess().getETModuloExpressionLeftAction_1_0_2_0() ||
+				   context == grammarAccess.getETMultiplicativeExpressionAccess().getETMultiplyExpressionLeftAction_1_0_0_0() ||
+				   context == grammarAccess.getETParenthesizedExpressionRule() ||
+				   context == grammarAccess.getETPostfixExpressionRule() ||
+				   context == grammarAccess.getETPostfixExpressionAccess().getETPostDecrementExpressionExpressionAction_1_1_0() ||
+				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
+				   context == grammarAccess.getETPrefixExpressionRule() ||
+				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
+				   context == grammarAccess.getETUnaryExpressionRule()) {
+					sequence_ETStructExpression(context, (ETStructExpression) semanticObject); 
+					return; 
+				}
+				else break;
 			case EcdarTextPackage.ET_STRUCT_TYPE:
 				if(context == grammarAccess.getETStructTypeRule() ||
 				   context == grammarAccess.getETTypeIdentifierRule()) {
@@ -3213,6 +3367,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAdditiveExpression(context, (ETSubtractExpression) semanticObject); 
 					return; 
@@ -3280,6 +3436,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETAssignmentExpression(context, (ETSubtractionAssignmentExpression) semanticObject); 
 					return; 
@@ -3378,6 +3536,8 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 				   context == grammarAccess.getETPostfixExpressionAccess().getETPostIncrementExpressionExpressionAction_1_0_0() ||
 				   context == grammarAccess.getETPrefixExpressionRule() ||
 				   context == grammarAccess.getETPrimaryExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionRule() ||
+				   context == grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0() ||
 				   context == grammarAccess.getETUnaryExpressionRule()) {
 					sequence_ETEqualityExpression(context, (ETUnequalExpression) semanticObject); 
 					return; 
@@ -3952,7 +4112,7 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (name=ID dimensions+=ETArrayDeclaration*)
+	 *     (name=ID ioType=ETIOType? dimensions+=ETArrayDeclaration*)
 	 */
 	protected void sequence_ETFieldID(EObject context, ETFieldID semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -4280,7 +4440,7 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (type=ETType name=ID dimensions+=ETArrayDeclaration*)
+	 *     (type=ETType name=ID ioType=ETIOType? dimensions+=ETArrayDeclaration*)
 	 */
 	protected void sequence_ETParameter(EObject context, ETParameter semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -4558,6 +4718,25 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
+	 *     (left=ETStructExpression_ETStructExpression_1_0 right=ID)
+	 */
+	protected void sequence_ETStructExpression(EObject context, ETStructExpression semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, EcdarTextPackage.Literals.ET_STRUCT_EXPRESSION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EcdarTextPackage.Literals.ET_STRUCT_EXPRESSION__LEFT));
+			if(transientValues.isValueTransient(semanticObject, EcdarTextPackage.Literals.ET_STRUCT_EXPRESSION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EcdarTextPackage.Literals.ET_STRUCT_EXPRESSION__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getETStructExpressionAccess().getETStructExpressionLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getETStructExpressionAccess().getRightIDTerminalRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (declarations+=ETFieldDeclaration declarations+=ETFieldDeclaration*)
 	 */
 	protected void sequence_ETStructType(EObject context, ETStructType semanticObject) {
@@ -4670,7 +4849,7 @@ public class EcdarTextSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (name=ID (ioType='!' | ioType='?')? dimensions+=ETArrayDeclaration* initialiser=ETInitialiser?)
+	 *     (name=ID ioType=ETIOType? dimensions+=ETArrayDeclaration* initialiser=ETInitialiser?)
 	 */
 	protected void sequence_ETVariableID(EObject context, ETVariableID semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

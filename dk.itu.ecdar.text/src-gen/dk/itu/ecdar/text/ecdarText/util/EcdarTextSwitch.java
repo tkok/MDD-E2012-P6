@@ -725,6 +725,14 @@ public class EcdarTextSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EcdarTextPackage.ET_STRUCT_EXPRESSION:
+      {
+        ETStructExpression etStructExpression = (ETStructExpression)theEObject;
+        T result = caseETStructExpression(etStructExpression);
+        if (result == null) result = caseETExpression(etStructExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case EcdarTextPackage.ET_ARRAY_EXPRESSION:
       {
         ETArrayExpression etArrayExpression = (ETArrayExpression)theEObject;
@@ -2101,6 +2109,22 @@ public class EcdarTextSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseETPostDecrementExpression(ETPostDecrementExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>ET Struct Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>ET Struct Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseETStructExpression(ETStructExpression object)
   {
     return null;
   }

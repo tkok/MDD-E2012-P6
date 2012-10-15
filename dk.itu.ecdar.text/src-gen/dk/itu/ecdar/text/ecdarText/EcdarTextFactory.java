@@ -779,6 +779,15 @@ public interface EcdarTextFactory extends EFactory
   ETPostDecrementExpression createETPostDecrementExpression();
 
   /**
+   * Returns a new object of class '<em>ET Struct Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>ET Struct Expression</em>'.
+   * @generated
+   */
+  ETStructExpression createETStructExpression();
+
+  /**
    * Returns a new object of class '<em>ET Array Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

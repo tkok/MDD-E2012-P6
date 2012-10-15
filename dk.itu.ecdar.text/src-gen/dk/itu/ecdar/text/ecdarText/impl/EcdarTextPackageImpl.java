@@ -78,6 +78,7 @@ import dk.itu.ecdar.text.ecdarText.ETSpecificationExpression;
 import dk.itu.ecdar.text.ecdarText.ETSpecificationInstantiation;
 import dk.itu.ecdar.text.ecdarText.ETSpecificationReference;
 import dk.itu.ecdar.text.ecdarText.ETSpecificationTemplate;
+import dk.itu.ecdar.text.ecdarText.ETStructExpression;
 import dk.itu.ecdar.text.ecdarText.ETStructType;
 import dk.itu.ecdar.text.ecdarText.ETSubtractExpression;
 import dk.itu.ecdar.text.ecdarText.ETSubtractionAssignmentExpression;
@@ -696,6 +697,13 @@ public class EcdarTextPackageImpl extends EPackageImpl implements EcdarTextPacka
    * @generated
    */
   private EClass etPostDecrementExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass etStructExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1350,9 +1358,19 @@ public class EcdarTextPackageImpl extends EPackageImpl implements EcdarTextPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getETFieldID_IoType()
+  {
+    return (EAttribute)etFieldIDEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getETFieldID_Dimensions()
   {
-    return (EReference)etFieldIDEClass.getEStructuralFeatures().get(1);
+    return (EReference)etFieldIDEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1520,9 +1538,19 @@ public class EcdarTextPackageImpl extends EPackageImpl implements EcdarTextPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getETParameter_IoType()
+  {
+    return (EAttribute)etParameterEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getETParameter_Dimensions()
   {
-    return (EReference)etParameterEClass.getEStructuralFeatures().get(2);
+    return (EReference)etParameterEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -3090,6 +3118,36 @@ public class EcdarTextPackageImpl extends EPackageImpl implements EcdarTextPacka
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getETStructExpression()
+  {
+    return etStructExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getETStructExpression_Left()
+  {
+    return (EReference)etStructExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getETStructExpression_Right()
+  {
+    return (EAttribute)etStructExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getETArrayExpression()
   {
     return etArrayExpressionEClass;
@@ -3294,6 +3352,7 @@ public class EcdarTextPackageImpl extends EPackageImpl implements EcdarTextPacka
 
     etFieldIDEClass = createEClass(ET_FIELD_ID);
     createEAttribute(etFieldIDEClass, ET_FIELD_ID__NAME);
+    createEAttribute(etFieldIDEClass, ET_FIELD_ID__IO_TYPE);
     createEReference(etFieldIDEClass, ET_FIELD_ID__DIMENSIONS);
 
     etSpecificationExpressionEClass = createEClass(ET_SPECIFICATION_EXPRESSION);
@@ -3318,6 +3377,7 @@ public class EcdarTextPackageImpl extends EPackageImpl implements EcdarTextPacka
     etParameterEClass = createEClass(ET_PARAMETER);
     createEReference(etParameterEClass, ET_PARAMETER__TYPE);
     createEAttribute(etParameterEClass, ET_PARAMETER__NAME);
+    createEAttribute(etParameterEClass, ET_PARAMETER__IO_TYPE);
     createEReference(etParameterEClass, ET_PARAMETER__DIMENSIONS);
 
     etLocationEClass = createEClass(ET_LOCATION);
@@ -3528,6 +3588,10 @@ public class EcdarTextPackageImpl extends EPackageImpl implements EcdarTextPacka
     etPostDecrementExpressionEClass = createEClass(ET_POST_DECREMENT_EXPRESSION);
     createEReference(etPostDecrementExpressionEClass, ET_POST_DECREMENT_EXPRESSION__EXPRESSION);
 
+    etStructExpressionEClass = createEClass(ET_STRUCT_EXPRESSION);
+    createEReference(etStructExpressionEClass, ET_STRUCT_EXPRESSION__LEFT);
+    createEAttribute(etStructExpressionEClass, ET_STRUCT_EXPRESSION__RIGHT);
+
     etArrayExpressionEClass = createEClass(ET_ARRAY_EXPRESSION);
     createEReference(etArrayExpressionEClass, ET_ARRAY_EXPRESSION__LEFT);
     createEReference(etArrayExpressionEClass, ET_ARRAY_EXPRESSION__RIGHT);
@@ -3636,6 +3700,7 @@ public class EcdarTextPackageImpl extends EPackageImpl implements EcdarTextPacka
     etMinusExpressionEClass.getESuperTypes().add(this.getETExpression());
     etPostIncrementExpressionEClass.getESuperTypes().add(this.getETExpression());
     etPostDecrementExpressionEClass.getESuperTypes().add(this.getETExpression());
+    etStructExpressionEClass.getESuperTypes().add(this.getETExpression());
     etArrayExpressionEClass.getESuperTypes().add(this.getETExpression());
     etReferenceEClass.getESuperTypes().add(this.getETExpression());
     etBooleanLiteralEClass.getESuperTypes().add(this.getETExpression());
@@ -3673,7 +3738,7 @@ public class EcdarTextPackageImpl extends EPackageImpl implements EcdarTextPacka
 
     initEClass(etVariableIDEClass, ETVariableID.class, "ETVariableID", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getETVariableID_Name(), ecorePackage.getEString(), "name", null, 0, 1, ETVariableID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getETVariableID_IoType(), ecorePackage.getEString(), "ioType", null, 0, 1, ETVariableID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getETVariableID_IoType(), this.getETIOType(), "ioType", null, 0, 1, ETVariableID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getETVariableID_Dimensions(), this.getETArrayDeclaration(), null, "dimensions", null, 0, -1, ETVariableID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getETVariableID_Initialiser(), this.getETInitialiser(), null, "initialiser", null, 0, 1, ETVariableID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3721,6 +3786,7 @@ public class EcdarTextPackageImpl extends EPackageImpl implements EcdarTextPacka
 
     initEClass(etFieldIDEClass, ETFieldID.class, "ETFieldID", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getETFieldID_Name(), ecorePackage.getEString(), "name", null, 0, 1, ETFieldID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getETFieldID_IoType(), this.getETIOType(), "ioType", null, 0, 1, ETFieldID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getETFieldID_Dimensions(), this.getETArrayDeclaration(), null, "dimensions", null, 0, -1, ETFieldID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(etSpecificationExpressionEClass, ETSpecificationExpression.class, "ETSpecificationExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3745,6 +3811,7 @@ public class EcdarTextPackageImpl extends EPackageImpl implements EcdarTextPacka
     initEClass(etParameterEClass, ETParameter.class, "ETParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getETParameter_Type(), this.getETType(), null, "type", null, 0, 1, ETParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getETParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, ETParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getETParameter_IoType(), this.getETIOType(), "ioType", null, 0, 1, ETParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getETParameter_Dimensions(), this.getETArrayDeclaration(), null, "dimensions", null, 0, -1, ETParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(etLocationEClass, ETLocation.class, "ETLocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3954,6 +4021,10 @@ public class EcdarTextPackageImpl extends EPackageImpl implements EcdarTextPacka
 
     initEClass(etPostDecrementExpressionEClass, ETPostDecrementExpression.class, "ETPostDecrementExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getETPostDecrementExpression_Expression(), this.getETExpression(), null, "expression", null, 0, 1, ETPostDecrementExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(etStructExpressionEClass, ETStructExpression.class, "ETStructExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getETStructExpression_Left(), this.getETExpression(), null, "left", null, 0, 1, ETStructExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getETStructExpression_Right(), ecorePackage.getEString(), "right", null, 0, 1, ETStructExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(etArrayExpressionEClass, ETArrayExpression.class, "ETArrayExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getETArrayExpression_Left(), this.getETExpression(), null, "left", null, 0, 1, ETArrayExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

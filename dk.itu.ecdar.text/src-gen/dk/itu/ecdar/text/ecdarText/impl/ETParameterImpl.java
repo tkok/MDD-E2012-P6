@@ -3,6 +3,7 @@
 package dk.itu.ecdar.text.ecdarText.impl;
 
 import dk.itu.ecdar.text.ecdarText.ETArrayDeclaration;
+import dk.itu.ecdar.text.ecdarText.ETIOType;
 import dk.itu.ecdar.text.ecdarText.ETParameter;
 import dk.itu.ecdar.text.ecdarText.ETType;
 import dk.itu.ecdar.text.ecdarText.EcdarTextPackage;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link dk.itu.ecdar.text.ecdarText.impl.ETParameterImpl#getType <em>Type</em>}</li>
  *   <li>{@link dk.itu.ecdar.text.ecdarText.impl.ETParameterImpl#getName <em>Name</em>}</li>
+ *   <li>{@link dk.itu.ecdar.text.ecdarText.impl.ETParameterImpl#getIoType <em>Io Type</em>}</li>
  *   <li>{@link dk.itu.ecdar.text.ecdarText.impl.ETParameterImpl#getDimensions <em>Dimensions</em>}</li>
  * </ul>
  * </p>
@@ -69,6 +71,26 @@ public class ETParameterImpl extends MinimalEObjectImpl.Container implements ETP
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getIoType() <em>Io Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIoType()
+   * @generated
+   * @ordered
+   */
+  protected static final ETIOType IO_TYPE_EDEFAULT = ETIOType.INPUT;
+
+  /**
+   * The cached value of the '{@link #getIoType() <em>Io Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIoType()
+   * @generated
+   * @ordered
+   */
+  protected ETIOType ioType = IO_TYPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getDimensions() <em>Dimensions</em>}' containment reference list.
@@ -177,6 +199,29 @@ public class ETParameterImpl extends MinimalEObjectImpl.Container implements ETP
    * <!-- end-user-doc -->
    * @generated
    */
+  public ETIOType getIoType()
+  {
+    return ioType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIoType(ETIOType newIoType)
+  {
+    ETIOType oldIoType = ioType;
+    ioType = newIoType == null ? IO_TYPE_EDEFAULT : newIoType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EcdarTextPackage.ET_PARAMETER__IO_TYPE, oldIoType, ioType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<ETArrayDeclaration> getDimensions()
   {
     if (dimensions == null)
@@ -218,6 +263,8 @@ public class ETParameterImpl extends MinimalEObjectImpl.Container implements ETP
         return getType();
       case EcdarTextPackage.ET_PARAMETER__NAME:
         return getName();
+      case EcdarTextPackage.ET_PARAMETER__IO_TYPE:
+        return getIoType();
       case EcdarTextPackage.ET_PARAMETER__DIMENSIONS:
         return getDimensions();
     }
@@ -240,6 +287,9 @@ public class ETParameterImpl extends MinimalEObjectImpl.Container implements ETP
         return;
       case EcdarTextPackage.ET_PARAMETER__NAME:
         setName((String)newValue);
+        return;
+      case EcdarTextPackage.ET_PARAMETER__IO_TYPE:
+        setIoType((ETIOType)newValue);
         return;
       case EcdarTextPackage.ET_PARAMETER__DIMENSIONS:
         getDimensions().clear();
@@ -265,6 +315,9 @@ public class ETParameterImpl extends MinimalEObjectImpl.Container implements ETP
       case EcdarTextPackage.ET_PARAMETER__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case EcdarTextPackage.ET_PARAMETER__IO_TYPE:
+        setIoType(IO_TYPE_EDEFAULT);
+        return;
       case EcdarTextPackage.ET_PARAMETER__DIMENSIONS:
         getDimensions().clear();
         return;
@@ -286,6 +339,8 @@ public class ETParameterImpl extends MinimalEObjectImpl.Container implements ETP
         return type != null;
       case EcdarTextPackage.ET_PARAMETER__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case EcdarTextPackage.ET_PARAMETER__IO_TYPE:
+        return ioType != IO_TYPE_EDEFAULT;
       case EcdarTextPackage.ET_PARAMETER__DIMENSIONS:
         return dimensions != null && !dimensions.isEmpty();
     }
@@ -305,6 +360,8 @@ public class ETParameterImpl extends MinimalEObjectImpl.Container implements ETP
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", ioType: ");
+    result.append(ioType);
     result.append(')');
     return result.toString();
   }

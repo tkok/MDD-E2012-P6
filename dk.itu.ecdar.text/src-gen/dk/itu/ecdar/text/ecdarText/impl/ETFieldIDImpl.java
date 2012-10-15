@@ -4,6 +4,7 @@ package dk.itu.ecdar.text.ecdarText.impl;
 
 import dk.itu.ecdar.text.ecdarText.ETArrayDeclaration;
 import dk.itu.ecdar.text.ecdarText.ETFieldID;
+import dk.itu.ecdar.text.ecdarText.ETIOType;
 import dk.itu.ecdar.text.ecdarText.EcdarTextPackage;
 
 import java.util.Collection;
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link dk.itu.ecdar.text.ecdarText.impl.ETFieldIDImpl#getName <em>Name</em>}</li>
+ *   <li>{@link dk.itu.ecdar.text.ecdarText.impl.ETFieldIDImpl#getIoType <em>Io Type</em>}</li>
  *   <li>{@link dk.itu.ecdar.text.ecdarText.impl.ETFieldIDImpl#getDimensions <em>Dimensions</em>}</li>
  * </ul>
  * </p>
@@ -57,6 +59,26 @@ public class ETFieldIDImpl extends MinimalEObjectImpl.Container implements ETFie
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getIoType() <em>Io Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIoType()
+   * @generated
+   * @ordered
+   */
+  protected static final ETIOType IO_TYPE_EDEFAULT = ETIOType.INPUT;
+
+  /**
+   * The cached value of the '{@link #getIoType() <em>Io Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIoType()
+   * @generated
+   * @ordered
+   */
+  protected ETIOType ioType = IO_TYPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getDimensions() <em>Dimensions</em>}' containment reference list.
@@ -117,6 +139,29 @@ public class ETFieldIDImpl extends MinimalEObjectImpl.Container implements ETFie
    * <!-- end-user-doc -->
    * @generated
    */
+  public ETIOType getIoType()
+  {
+    return ioType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIoType(ETIOType newIoType)
+  {
+    ETIOType oldIoType = ioType;
+    ioType = newIoType == null ? IO_TYPE_EDEFAULT : newIoType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EcdarTextPackage.ET_FIELD_ID__IO_TYPE, oldIoType, ioType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<ETArrayDeclaration> getDimensions()
   {
     if (dimensions == null)
@@ -154,6 +199,8 @@ public class ETFieldIDImpl extends MinimalEObjectImpl.Container implements ETFie
     {
       case EcdarTextPackage.ET_FIELD_ID__NAME:
         return getName();
+      case EcdarTextPackage.ET_FIELD_ID__IO_TYPE:
+        return getIoType();
       case EcdarTextPackage.ET_FIELD_ID__DIMENSIONS:
         return getDimensions();
     }
@@ -173,6 +220,9 @@ public class ETFieldIDImpl extends MinimalEObjectImpl.Container implements ETFie
     {
       case EcdarTextPackage.ET_FIELD_ID__NAME:
         setName((String)newValue);
+        return;
+      case EcdarTextPackage.ET_FIELD_ID__IO_TYPE:
+        setIoType((ETIOType)newValue);
         return;
       case EcdarTextPackage.ET_FIELD_ID__DIMENSIONS:
         getDimensions().clear();
@@ -195,6 +245,9 @@ public class ETFieldIDImpl extends MinimalEObjectImpl.Container implements ETFie
       case EcdarTextPackage.ET_FIELD_ID__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case EcdarTextPackage.ET_FIELD_ID__IO_TYPE:
+        setIoType(IO_TYPE_EDEFAULT);
+        return;
       case EcdarTextPackage.ET_FIELD_ID__DIMENSIONS:
         getDimensions().clear();
         return;
@@ -214,6 +267,8 @@ public class ETFieldIDImpl extends MinimalEObjectImpl.Container implements ETFie
     {
       case EcdarTextPackage.ET_FIELD_ID__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case EcdarTextPackage.ET_FIELD_ID__IO_TYPE:
+        return ioType != IO_TYPE_EDEFAULT;
       case EcdarTextPackage.ET_FIELD_ID__DIMENSIONS:
         return dimensions != null && !dimensions.isEmpty();
     }
@@ -233,6 +288,8 @@ public class ETFieldIDImpl extends MinimalEObjectImpl.Container implements ETFie
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", ioType: ");
+    result.append(ioType);
     result.append(')');
     return result.toString();
   }

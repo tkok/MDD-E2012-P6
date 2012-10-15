@@ -794,13 +794,22 @@ public interface EcdarTextPackage extends EPackage
   int ET_FIELD_ID__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Io Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ET_FIELD_ID__IO_TYPE = 1;
+
+  /**
    * The feature id for the '<em><b>Dimensions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ET_FIELD_ID__DIMENSIONS = 1;
+  int ET_FIELD_ID__DIMENSIONS = 2;
 
   /**
    * The number of structural features of the '<em>ET Field ID</em>' class.
@@ -809,7 +818,7 @@ public interface EcdarTextPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ET_FIELD_ID_FEATURE_COUNT = 2;
+  int ET_FIELD_ID_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link dk.itu.ecdar.text.ecdarText.impl.ETSpecificationExpressionImpl <em>ET Specification Expression</em>}' class.
@@ -1053,13 +1062,22 @@ public interface EcdarTextPackage extends EPackage
   int ET_PARAMETER__NAME = 1;
 
   /**
+   * The feature id for the '<em><b>Io Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ET_PARAMETER__IO_TYPE = 2;
+
+  /**
    * The feature id for the '<em><b>Dimensions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ET_PARAMETER__DIMENSIONS = 2;
+  int ET_PARAMETER__DIMENSIONS = 3;
 
   /**
    * The number of structural features of the '<em>ET Parameter</em>' class.
@@ -1068,7 +1086,7 @@ public interface EcdarTextPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ET_PARAMETER_FEATURE_COUNT = 3;
+  int ET_PARAMETER_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl <em>ET Location</em>}' class.
@@ -2995,6 +3013,43 @@ public interface EcdarTextPackage extends EPackage
   int ET_POST_DECREMENT_EXPRESSION_FEATURE_COUNT = ET_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link dk.itu.ecdar.text.ecdarText.impl.ETStructExpressionImpl <em>ET Struct Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see dk.itu.ecdar.text.ecdarText.impl.ETStructExpressionImpl
+   * @see dk.itu.ecdar.text.ecdarText.impl.EcdarTextPackageImpl#getETStructExpression()
+   * @generated
+   */
+  int ET_STRUCT_EXPRESSION = 84;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ET_STRUCT_EXPRESSION__LEFT = ET_EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ET_STRUCT_EXPRESSION__RIGHT = ET_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>ET Struct Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ET_STRUCT_EXPRESSION_FEATURE_COUNT = ET_EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link dk.itu.ecdar.text.ecdarText.impl.ETArrayExpressionImpl <em>ET Array Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3002,7 +3057,7 @@ public interface EcdarTextPackage extends EPackage
    * @see dk.itu.ecdar.text.ecdarText.impl.EcdarTextPackageImpl#getETArrayExpression()
    * @generated
    */
-  int ET_ARRAY_EXPRESSION = 84;
+  int ET_ARRAY_EXPRESSION = 85;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3039,7 +3094,7 @@ public interface EcdarTextPackage extends EPackage
    * @see dk.itu.ecdar.text.ecdarText.impl.EcdarTextPackageImpl#getETReference()
    * @generated
    */
-  int ET_REFERENCE = 85;
+  int ET_REFERENCE = 86;
 
   /**
    * The feature id for the '<em><b>Target</b></em>' reference.
@@ -3067,7 +3122,7 @@ public interface EcdarTextPackage extends EPackage
    * @see dk.itu.ecdar.text.ecdarText.impl.EcdarTextPackageImpl#getETBooleanLiteral()
    * @generated
    */
-  int ET_BOOLEAN_LITERAL = 86;
+  int ET_BOOLEAN_LITERAL = 87;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3095,7 +3150,7 @@ public interface EcdarTextPackage extends EPackage
    * @see dk.itu.ecdar.text.ecdarText.impl.EcdarTextPackageImpl#getETNumberLiteral()
    * @generated
    */
-  int ET_NUMBER_LITERAL = 87;
+  int ET_NUMBER_LITERAL = 88;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3123,7 +3178,7 @@ public interface EcdarTextPackage extends EPackage
    * @see dk.itu.ecdar.text.ecdarText.impl.EcdarTextPackageImpl#getETIOType()
    * @generated
    */
-  int ETIO_TYPE = 88;
+  int ETIO_TYPE = 89;
 
 
   /**
@@ -3707,6 +3762,17 @@ public interface EcdarTextPackage extends EPackage
   EAttribute getETFieldID_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link dk.itu.ecdar.text.ecdarText.ETFieldID#getIoType <em>Io Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Io Type</em>'.
+   * @see dk.itu.ecdar.text.ecdarText.ETFieldID#getIoType()
+   * @see #getETFieldID()
+   * @generated
+   */
+  EAttribute getETFieldID_IoType();
+
+  /**
    * Returns the meta object for the containment reference list '{@link dk.itu.ecdar.text.ecdarText.ETFieldID#getDimensions <em>Dimensions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3885,6 +3951,17 @@ public interface EcdarTextPackage extends EPackage
    * @generated
    */
   EAttribute getETParameter_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.itu.ecdar.text.ecdarText.ETParameter#getIoType <em>Io Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Io Type</em>'.
+   * @see dk.itu.ecdar.text.ecdarText.ETParameter#getIoType()
+   * @see #getETParameter()
+   * @generated
+   */
+  EAttribute getETParameter_IoType();
 
   /**
    * Returns the meta object for the containment reference list '{@link dk.itu.ecdar.text.ecdarText.ETParameter#getDimensions <em>Dimensions</em>}'.
@@ -5562,6 +5639,38 @@ public interface EcdarTextPackage extends EPackage
   EReference getETPostDecrementExpression_Expression();
 
   /**
+   * Returns the meta object for class '{@link dk.itu.ecdar.text.ecdarText.ETStructExpression <em>ET Struct Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>ET Struct Expression</em>'.
+   * @see dk.itu.ecdar.text.ecdarText.ETStructExpression
+   * @generated
+   */
+  EClass getETStructExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link dk.itu.ecdar.text.ecdarText.ETStructExpression#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see dk.itu.ecdar.text.ecdarText.ETStructExpression#getLeft()
+   * @see #getETStructExpression()
+   * @generated
+   */
+  EReference getETStructExpression_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link dk.itu.ecdar.text.ecdarText.ETStructExpression#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Right</em>'.
+   * @see dk.itu.ecdar.text.ecdarText.ETStructExpression#getRight()
+   * @see #getETStructExpression()
+   * @generated
+   */
+  EAttribute getETStructExpression_Right();
+
+  /**
    * Returns the meta object for class '{@link dk.itu.ecdar.text.ecdarText.ETArrayExpression <em>ET Array Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -6180,6 +6289,14 @@ public interface EcdarTextPackage extends EPackage
     EAttribute ET_FIELD_ID__NAME = eINSTANCE.getETFieldID_Name();
 
     /**
+     * The meta object literal for the '<em><b>Io Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ET_FIELD_ID__IO_TYPE = eINSTANCE.getETFieldID_IoType();
+
+    /**
      * The meta object literal for the '<em><b>Dimensions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6328,6 +6445,14 @@ public interface EcdarTextPackage extends EPackage
      * @generated
      */
     EAttribute ET_PARAMETER__NAME = eINSTANCE.getETParameter_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Io Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ET_PARAMETER__IO_TYPE = eINSTANCE.getETParameter_IoType();
 
     /**
      * The meta object literal for the '<em><b>Dimensions</b></em>' containment reference list feature.
@@ -7688,6 +7813,32 @@ public interface EcdarTextPackage extends EPackage
      * @generated
      */
     EReference ET_POST_DECREMENT_EXPRESSION__EXPRESSION = eINSTANCE.getETPostDecrementExpression_Expression();
+
+    /**
+     * The meta object literal for the '{@link dk.itu.ecdar.text.ecdarText.impl.ETStructExpressionImpl <em>ET Struct Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see dk.itu.ecdar.text.ecdarText.impl.ETStructExpressionImpl
+     * @see dk.itu.ecdar.text.ecdarText.impl.EcdarTextPackageImpl#getETStructExpression()
+     * @generated
+     */
+    EClass ET_STRUCT_EXPRESSION = eINSTANCE.getETStructExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ET_STRUCT_EXPRESSION__LEFT = eINSTANCE.getETStructExpression_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ET_STRUCT_EXPRESSION__RIGHT = eINSTANCE.getETStructExpression_Right();
 
     /**
      * The meta object literal for the '{@link dk.itu.ecdar.text.ecdarText.impl.ETArrayExpressionImpl <em>ET Array Expression</em>}' class.

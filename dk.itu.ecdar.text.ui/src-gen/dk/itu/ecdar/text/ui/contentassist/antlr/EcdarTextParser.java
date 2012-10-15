@@ -38,7 +38,6 @@ public class EcdarTextParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getETDeclarationAccess().getAlternatives(), "rule__ETDeclaration__Alternatives");
-					put(grammarAccess.getETVariableIDAccess().getIoTypeAlternatives_1_0(), "rule__ETVariableID__IoTypeAlternatives_1_0");
 					put(grammarAccess.getETInitialiserAccess().getAlternatives(), "rule__ETInitialiser__Alternatives");
 					put(grammarAccess.getETTypeIdentifierAccess().getAlternatives(), "rule__ETTypeIdentifier__Alternatives");
 					put(grammarAccess.getETActionTypeAccess().getAlternatives(), "rule__ETActionType__Alternatives");
@@ -211,6 +210,8 @@ public class EcdarTextParser extends AbstractContentAssistParser {
 					put(grammarAccess.getETPostfixExpressionAccess().getGroup(), "rule__ETPostfixExpression__Group__0");
 					put(grammarAccess.getETPostfixExpressionAccess().getGroup_1_0(), "rule__ETPostfixExpression__Group_1_0__0");
 					put(grammarAccess.getETPostfixExpressionAccess().getGroup_1_1(), "rule__ETPostfixExpression__Group_1_1__0");
+					put(grammarAccess.getETStructExpressionAccess().getGroup(), "rule__ETStructExpression__Group__0");
+					put(grammarAccess.getETStructExpressionAccess().getGroup_1(), "rule__ETStructExpression__Group_1__0");
 					put(grammarAccess.getETArrayExpressionAccess().getGroup(), "rule__ETArrayExpression__Group__0");
 					put(grammarAccess.getETArrayExpressionAccess().getGroup_1(), "rule__ETArrayExpression__Group_1__0");
 					put(grammarAccess.getETReferenceAccess().getGroup(), "rule__ETReference__Group__0");
@@ -254,7 +255,8 @@ public class EcdarTextParser extends AbstractContentAssistParser {
 					put(grammarAccess.getETFieldDeclarationAccess().getFieldsAssignment_1(), "rule__ETFieldDeclaration__FieldsAssignment_1");
 					put(grammarAccess.getETFieldDeclarationAccess().getFieldsAssignment_2_1(), "rule__ETFieldDeclaration__FieldsAssignment_2_1");
 					put(grammarAccess.getETFieldIDAccess().getNameAssignment_0(), "rule__ETFieldID__NameAssignment_0");
-					put(grammarAccess.getETFieldIDAccess().getDimensionsAssignment_1(), "rule__ETFieldID__DimensionsAssignment_1");
+					put(grammarAccess.getETFieldIDAccess().getIoTypeAssignment_1(), "rule__ETFieldID__IoTypeAssignment_1");
+					put(grammarAccess.getETFieldIDAccess().getDimensionsAssignment_2(), "rule__ETFieldID__DimensionsAssignment_2");
 					put(grammarAccess.getETSpecificationExpressionAccess().getRightAssignment_1_2(), "rule__ETSpecificationExpression__RightAssignment_1_2");
 					put(grammarAccess.getETSpecificationDisjunctionExpressionAccess().getRightAssignment_1_2(), "rule__ETSpecificationDisjunctionExpression__RightAssignment_1_2");
 					put(grammarAccess.getETSpecificationCompositionExpressionAccess().getRightAssignment_1_2(), "rule__ETSpecificationCompositionExpression__RightAssignment_1_2");
@@ -275,7 +277,8 @@ public class EcdarTextParser extends AbstractContentAssistParser {
 					put(grammarAccess.getETSpecificationBodyAccess().getLocationsAssignment_4(), "rule__ETSpecificationBody__LocationsAssignment_4");
 					put(grammarAccess.getETParameterAccess().getTypeAssignment_0(), "rule__ETParameter__TypeAssignment_0");
 					put(grammarAccess.getETParameterAccess().getNameAssignment_1(), "rule__ETParameter__NameAssignment_1");
-					put(grammarAccess.getETParameterAccess().getDimensionsAssignment_2(), "rule__ETParameter__DimensionsAssignment_2");
+					put(grammarAccess.getETParameterAccess().getIoTypeAssignment_2(), "rule__ETParameter__IoTypeAssignment_2");
+					put(grammarAccess.getETParameterAccess().getDimensionsAssignment_3(), "rule__ETParameter__DimensionsAssignment_3");
 					put(grammarAccess.getETLocationAccess().getUrgentAssignment_0_0(), "rule__ETLocation__UrgentAssignment_0_0");
 					put(grammarAccess.getETLocationAccess().getUniversalAssignment_0_1(), "rule__ETLocation__UniversalAssignment_0_1");
 					put(grammarAccess.getETLocationAccess().getNameAssignment_1(), "rule__ETLocation__NameAssignment_1");
@@ -321,6 +324,7 @@ public class EcdarTextParser extends AbstractContentAssistParser {
 					put(grammarAccess.getETMultiplicativeExpressionAccess().getRightAssignment_1_1(), "rule__ETMultiplicativeExpression__RightAssignment_1_1");
 					put(grammarAccess.getETPrefixExpressionAccess().getExpressionAssignment_1_1(), "rule__ETPrefixExpression__ExpressionAssignment_1_1");
 					put(grammarAccess.getETUnaryExpressionAccess().getExpressionAssignment_1_1(), "rule__ETUnaryExpression__ExpressionAssignment_1_1");
+					put(grammarAccess.getETStructExpressionAccess().getRightAssignment_1_2(), "rule__ETStructExpression__RightAssignment_1_2");
 					put(grammarAccess.getETArrayExpressionAccess().getRightAssignment_1_2(), "rule__ETArrayExpression__RightAssignment_1_2");
 					put(grammarAccess.getETReferenceAccess().getTargetAssignment_1(), "rule__ETReference__TargetAssignment_1");
 					put(grammarAccess.getETBooleanLiteralAccess().getValueAssignment_1(), "rule__ETBooleanLiteral__ValueAssignment_1");

@@ -313,9 +313,7 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Assignment cIoTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cIoTypeAlternatives_1_0 = (Alternatives)cIoTypeAssignment_1.eContents().get(0);
-		private final Keyword cIoTypeExclamationMarkKeyword_1_0_0 = (Keyword)cIoTypeAlternatives_1_0.eContents().get(0);
-		private final Keyword cIoTypeQuestionMarkKeyword_1_0_1 = (Keyword)cIoTypeAlternatives_1_0.eContents().get(1);
+		private final RuleCall cIoTypeETIOTypeEnumRuleCall_1_0 = (RuleCall)cIoTypeAssignment_1.eContents().get(0);
 		private final Assignment cDimensionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDimensionsETArrayDeclarationParserRuleCall_2_0 = (RuleCall)cDimensionsAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
@@ -324,12 +322,10 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cInitialiserETInitialiserParserRuleCall_3_1_0 = (RuleCall)cInitialiserAssignment_3_1.eContents().get(0);
 		
 		//ETVariableID:
-		//	name=ID // NOTE: workaround for in-/outputs, ignored
-		//	ioType=("!" | "?")? dimensions+=ETArrayDeclaration* ("=" initialiser=ETInitialiser)?;
+		//	name=ID ioType=ETIOType? dimensions+=ETArrayDeclaration* ("=" initialiser=ETInitialiser)?;
 		public ParserRule getRule() { return rule; }
 
-		//name=ID // NOTE: workaround for in-/outputs, ignored
-		//ioType=("!" | "?")? dimensions+=ETArrayDeclaration* ("=" initialiser=ETInitialiser)?
+		//name=ID ioType=ETIOType? dimensions+=ETArrayDeclaration* ("=" initialiser=ETInitialiser)?
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -338,17 +334,11 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 
-		//ioType=("!" | "?")?
+		//ioType=ETIOType?
 		public Assignment getIoTypeAssignment_1() { return cIoTypeAssignment_1; }
 
-		//"!" | "?"
-		public Alternatives getIoTypeAlternatives_1_0() { return cIoTypeAlternatives_1_0; }
-
-		//"!"
-		public Keyword getIoTypeExclamationMarkKeyword_1_0_0() { return cIoTypeExclamationMarkKeyword_1_0_0; }
-
-		//"?"
-		public Keyword getIoTypeQuestionMarkKeyword_1_0_1() { return cIoTypeQuestionMarkKeyword_1_0_1; }
+		//ETIOType
+		public RuleCall getIoTypeETIOTypeEnumRuleCall_1_0() { return cIoTypeETIOTypeEnumRuleCall_1_0; }
 
 		//dimensions+=ETArrayDeclaration*
 		public Assignment getDimensionsAssignment_2() { return cDimensionsAssignment_2; }
@@ -888,14 +878,16 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Assignment cDimensionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDimensionsETArrayDeclarationParserRuleCall_1_0 = (RuleCall)cDimensionsAssignment_1.eContents().get(0);
+		private final Assignment cIoTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIoTypeETIOTypeEnumRuleCall_1_0 = (RuleCall)cIoTypeAssignment_1.eContents().get(0);
+		private final Assignment cDimensionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDimensionsETArrayDeclarationParserRuleCall_2_0 = (RuleCall)cDimensionsAssignment_2.eContents().get(0);
 		
 		//ETFieldID:
-		//	name=ID dimensions+=ETArrayDeclaration*;
+		//	name=ID ioType=ETIOType? dimensions+=ETArrayDeclaration*;
 		public ParserRule getRule() { return rule; }
 
-		//name=ID dimensions+=ETArrayDeclaration*
+		//name=ID ioType=ETIOType? dimensions+=ETArrayDeclaration*
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -904,11 +896,17 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
 
+		//ioType=ETIOType?
+		public Assignment getIoTypeAssignment_1() { return cIoTypeAssignment_1; }
+
+		//ETIOType
+		public RuleCall getIoTypeETIOTypeEnumRuleCall_1_0() { return cIoTypeETIOTypeEnumRuleCall_1_0; }
+
 		//dimensions+=ETArrayDeclaration*
-		public Assignment getDimensionsAssignment_1() { return cDimensionsAssignment_1; }
+		public Assignment getDimensionsAssignment_2() { return cDimensionsAssignment_2; }
 
 		//ETArrayDeclaration
-		public RuleCall getDimensionsETArrayDeclarationParserRuleCall_1_0() { return cDimensionsETArrayDeclarationParserRuleCall_1_0; }
+		public RuleCall getDimensionsETArrayDeclarationParserRuleCall_2_0() { return cDimensionsETArrayDeclarationParserRuleCall_2_0; }
 	}
 
 	public class ETSpecificationExpressionElements extends AbstractParserRuleElementFinder {
@@ -1395,14 +1393,16 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeETTypeParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cDimensionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cDimensionsETArrayDeclarationParserRuleCall_2_0 = (RuleCall)cDimensionsAssignment_2.eContents().get(0);
+		private final Assignment cIoTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIoTypeETIOTypeEnumRuleCall_2_0 = (RuleCall)cIoTypeAssignment_2.eContents().get(0);
+		private final Assignment cDimensionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDimensionsETArrayDeclarationParserRuleCall_3_0 = (RuleCall)cDimensionsAssignment_3.eContents().get(0);
 		
 		//ETParameter:
-		//	type=ETType name=ID dimensions+=ETArrayDeclaration*;
+		//	type=ETType name=ID ioType=ETIOType? dimensions+=ETArrayDeclaration*;
 		public ParserRule getRule() { return rule; }
 
-		//type=ETType name=ID dimensions+=ETArrayDeclaration*
+		//type=ETType name=ID ioType=ETIOType? dimensions+=ETArrayDeclaration*
 		public Group getGroup() { return cGroup; }
 
 		//type=ETType
@@ -1417,11 +1417,17 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
+		//ioType=ETIOType?
+		public Assignment getIoTypeAssignment_2() { return cIoTypeAssignment_2; }
+
+		//ETIOType
+		public RuleCall getIoTypeETIOTypeEnumRuleCall_2_0() { return cIoTypeETIOTypeEnumRuleCall_2_0; }
+
 		//dimensions+=ETArrayDeclaration*
-		public Assignment getDimensionsAssignment_2() { return cDimensionsAssignment_2; }
+		public Assignment getDimensionsAssignment_3() { return cDimensionsAssignment_3; }
 
 		//ETArrayDeclaration
-		public RuleCall getDimensionsETArrayDeclarationParserRuleCall_2_0() { return cDimensionsETArrayDeclarationParserRuleCall_2_0; }
+		public RuleCall getDimensionsETArrayDeclarationParserRuleCall_3_0() { return cDimensionsETArrayDeclarationParserRuleCall_3_0; }
 	}
 
 	public class ETLocationElements extends AbstractParserRuleElementFinder {
@@ -3098,7 +3104,7 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 	public class ETPostfixExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ETPostfixExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cETArrayExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cETStructExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Action cETPostIncrementExpressionExpressionAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
@@ -3109,16 +3115,16 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// unary left
 		//ETPostfixExpression returns ETExpression:
-		//	ETArrayExpression ({ETPostIncrementExpression.expression=current} "++" |
+		//	ETStructExpression ({ETPostIncrementExpression.expression=current} "++" |
 		//	{ETPostDecrementExpression.expression=current} "--")*;
 		public ParserRule getRule() { return rule; }
 
-		//ETArrayExpression ({ETPostIncrementExpression.expression=current} "++" | {ETPostDecrementExpression.expression=current}
+		//ETStructExpression ({ETPostIncrementExpression.expression=current} "++" | {ETPostDecrementExpression.expression=current}
 		//"--")*
 		public Group getGroup() { return cGroup; }
 
-		//ETArrayExpression
-		public RuleCall getETArrayExpressionParserRuleCall_0() { return cETArrayExpressionParserRuleCall_0; }
+		//ETStructExpression
+		public RuleCall getETStructExpressionParserRuleCall_0() { return cETStructExpressionParserRuleCall_0; }
 
 		//({ETPostIncrementExpression.expression=current} "++" | {ETPostDecrementExpression.expression=current} "--")*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
@@ -3140,6 +3146,43 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"--"
 		public Keyword getHyphenMinusHyphenMinusKeyword_1_1_1() { return cHyphenMinusHyphenMinusKeyword_1_1_1; }
+	}
+
+	public class ETStructExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ETStructExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cETArrayExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cETStructExpressionLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cFullStopKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightIDTerminalRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		
+		//// left
+		//ETStructExpression returns ETExpression:
+		//	ETArrayExpression ({ETStructExpression.left=current} "." right=ID)*;
+		public ParserRule getRule() { return rule; }
+
+		//ETArrayExpression ({ETStructExpression.left=current} "." right=ID)*
+		public Group getGroup() { return cGroup; }
+
+		//ETArrayExpression
+		public RuleCall getETArrayExpressionParserRuleCall_0() { return cETArrayExpressionParserRuleCall_0; }
+
+		//({ETStructExpression.left=current} "." right=ID)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//{ETStructExpression.left=current}
+		public Action getETStructExpressionLeftAction_1_0() { return cETStructExpressionLeftAction_1_0; }
+
+		//"."
+		public Keyword getFullStopKeyword_1_1() { return cFullStopKeyword_1_1; }
+
+		//right=ID
+		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+
+		//ID
+		public RuleCall getRightIDTerminalRuleCall_1_2_0() { return cRightIDTerminalRuleCall_1_2_0; }
 	}
 
 	public class ETArrayExpressionElements extends AbstractParserRuleElementFinder {
@@ -3220,7 +3263,6 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTargetEObjectIDTerminalRuleCall_1_0_1 = (RuleCall)cTargetEObjectCrossReference_1_0.eContents().get(1);
 		
 		/// * NOTE:
-		// * - member access handled by ID terminal
 		// * - reference restricted by scoping rules,
 		// *   depending on use (update, guard, etc.)
 		// * - local variable, global variable,
@@ -3428,6 +3470,7 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 	private ETPrefixExpressionElements pETPrefixExpression;
 	private ETUnaryExpressionElements pETUnaryExpression;
 	private ETPostfixExpressionElements pETPostfixExpression;
+	private ETStructExpressionElements pETStructExpression;
 	private ETArrayExpressionElements pETArrayExpression;
 	private ETPrimaryExpressionElements pETPrimaryExpression;
 	private ETReferenceElements pETReference;
@@ -3563,8 +3606,7 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ETVariableID:
-	//	name=ID // NOTE: workaround for in-/outputs, ignored
-	//	ioType=("!" | "?")? dimensions+=ETArrayDeclaration* ("=" initialiser=ETInitialiser)?;
+	//	name=ID ioType=ETIOType? dimensions+=ETArrayDeclaration* ("=" initialiser=ETInitialiser)?;
 	public ETVariableIDElements getETVariableIDAccess() {
 		return (pETVariableID != null) ? pETVariableID : (pETVariableID = new ETVariableIDElements());
 	}
@@ -3725,7 +3767,7 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ETFieldID:
-	//	name=ID dimensions+=ETArrayDeclaration*;
+	//	name=ID ioType=ETIOType? dimensions+=ETArrayDeclaration*;
 	public ETFieldIDElements getETFieldIDAccess() {
 		return (pETFieldID != null) ? pETFieldID : (pETFieldID = new ETFieldIDElements());
 	}
@@ -3857,7 +3899,7 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ETParameter:
-	//	type=ETType name=ID dimensions+=ETArrayDeclaration*;
+	//	type=ETType name=ID ioType=ETIOType? dimensions+=ETArrayDeclaration*;
 	public ETParameterElements getETParameterAccess() {
 		return (pETParameter != null) ? pETParameter : (pETParameter = new ETParameterElements());
 	}
@@ -4178,7 +4220,7 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// unary left
 	//ETPostfixExpression returns ETExpression:
-	//	ETArrayExpression ({ETPostIncrementExpression.expression=current} "++" |
+	//	ETStructExpression ({ETPostIncrementExpression.expression=current} "++" |
 	//	{ETPostDecrementExpression.expression=current} "--")*;
 	public ETPostfixExpressionElements getETPostfixExpressionAccess() {
 		return (pETPostfixExpression != null) ? pETPostfixExpression : (pETPostfixExpression = new ETPostfixExpressionElements());
@@ -4186,6 +4228,17 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getETPostfixExpressionRule() {
 		return getETPostfixExpressionAccess().getRule();
+	}
+
+	//// left
+	//ETStructExpression returns ETExpression:
+	//	ETArrayExpression ({ETStructExpression.left=current} "." right=ID)*;
+	public ETStructExpressionElements getETStructExpressionAccess() {
+		return (pETStructExpression != null) ? pETStructExpression : (pETStructExpression = new ETStructExpressionElements());
+	}
+	
+	public ParserRule getETStructExpressionRule() {
+		return getETStructExpressionAccess().getRule();
 	}
 
 	//// left
@@ -4210,7 +4263,6 @@ public class EcdarTextGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// * NOTE:
-	// * - member access handled by ID terminal
 	// * - reference restricted by scoping rules,
 	// *   depending on use (update, guard, etc.)
 	// * - local variable, global variable,

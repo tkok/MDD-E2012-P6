@@ -149,6 +149,7 @@ public class EcdarTextFactoryImpl extends EFactoryImpl implements EcdarTextFacto
       case EcdarTextPackage.ET_MINUS_EXPRESSION: return createETMinusExpression();
       case EcdarTextPackage.ET_POST_INCREMENT_EXPRESSION: return createETPostIncrementExpression();
       case EcdarTextPackage.ET_POST_DECREMENT_EXPRESSION: return createETPostDecrementExpression();
+      case EcdarTextPackage.ET_STRUCT_EXPRESSION: return createETStructExpression();
       case EcdarTextPackage.ET_ARRAY_EXPRESSION: return createETArrayExpression();
       case EcdarTextPackage.ET_REFERENCE: return createETReference();
       case EcdarTextPackage.ET_BOOLEAN_LITERAL: return createETBooleanLiteral();
@@ -1114,6 +1115,17 @@ public class EcdarTextFactoryImpl extends EFactoryImpl implements EcdarTextFacto
   {
     ETPostDecrementExpressionImpl etPostDecrementExpression = new ETPostDecrementExpressionImpl();
     return etPostDecrementExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ETStructExpression createETStructExpression()
+  {
+    ETStructExpressionImpl etStructExpression = new ETStructExpressionImpl();
+    return etStructExpression;
   }
 
   /**

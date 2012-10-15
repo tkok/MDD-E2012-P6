@@ -3,6 +3,7 @@
 package dk.itu.ecdar.text.ecdarText.impl;
 
 import dk.itu.ecdar.text.ecdarText.ETArrayDeclaration;
+import dk.itu.ecdar.text.ecdarText.ETIOType;
 import dk.itu.ecdar.text.ecdarText.ETInitialiser;
 import dk.itu.ecdar.text.ecdarText.ETVariableID;
 import dk.itu.ecdar.text.ecdarText.EcdarTextPackage;
@@ -69,7 +70,7 @@ public class ETVariableIDImpl extends MinimalEObjectImpl.Container implements ET
    * @generated
    * @ordered
    */
-  protected static final String IO_TYPE_EDEFAULT = null;
+  protected static final ETIOType IO_TYPE_EDEFAULT = ETIOType.INPUT;
 
   /**
    * The cached value of the '{@link #getIoType() <em>Io Type</em>}' attribute.
@@ -79,7 +80,7 @@ public class ETVariableIDImpl extends MinimalEObjectImpl.Container implements ET
    * @generated
    * @ordered
    */
-  protected String ioType = IO_TYPE_EDEFAULT;
+  protected ETIOType ioType = IO_TYPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getDimensions() <em>Dimensions</em>}' containment reference list.
@@ -150,7 +151,7 @@ public class ETVariableIDImpl extends MinimalEObjectImpl.Container implements ET
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getIoType()
+  public ETIOType getIoType()
   {
     return ioType;
   }
@@ -160,10 +161,10 @@ public class ETVariableIDImpl extends MinimalEObjectImpl.Container implements ET
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIoType(String newIoType)
+  public void setIoType(ETIOType newIoType)
   {
-    String oldIoType = ioType;
-    ioType = newIoType;
+    ETIOType oldIoType = ioType;
+    ioType = newIoType == null ? IO_TYPE_EDEFAULT : newIoType;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, EcdarTextPackage.ET_VARIABLE_ID__IO_TYPE, oldIoType, ioType));
   }
@@ -285,7 +286,7 @@ public class ETVariableIDImpl extends MinimalEObjectImpl.Container implements ET
         setName((String)newValue);
         return;
       case EcdarTextPackage.ET_VARIABLE_ID__IO_TYPE:
-        setIoType((String)newValue);
+        setIoType((ETIOType)newValue);
         return;
       case EcdarTextPackage.ET_VARIABLE_ID__DIMENSIONS:
         getDimensions().clear();
@@ -337,7 +338,7 @@ public class ETVariableIDImpl extends MinimalEObjectImpl.Container implements ET
       case EcdarTextPackage.ET_VARIABLE_ID__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case EcdarTextPackage.ET_VARIABLE_ID__IO_TYPE:
-        return IO_TYPE_EDEFAULT == null ? ioType != null : !IO_TYPE_EDEFAULT.equals(ioType);
+        return ioType != IO_TYPE_EDEFAULT;
       case EcdarTextPackage.ET_VARIABLE_ID__DIMENSIONS:
         return dimensions != null && !dimensions.isEmpty();
       case EcdarTextPackage.ET_VARIABLE_ID__INITIALISER:

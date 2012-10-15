@@ -72,6 +72,7 @@ public class InternalEcdarTextLexer extends Lexer {
     public static final int T__85=85;
     public static final int T__84=84;
     public static final int RULE_SL_COMMENT=8;
+    public static final int T__86=86;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__30=30;
     public static final int T__31=31;
@@ -278,10 +279,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:19:7: ( '!' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:19:9: '!'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:19:7: ( '=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:19:9: '='
             {
-            match('!'); 
+            match('='); 
 
             }
 
@@ -298,10 +299,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:20:7: ( '?' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:20:9: '?'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:20:7: ( '{' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:20:9: '{'
             {
-            match('?'); 
+            match('{'); 
 
             }
 
@@ -318,10 +319,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:21:7: ( '=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:21:9: '='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:21:7: ( '}' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:21:9: '}'
             {
-            match('='); 
+            match('}'); 
 
             }
 
@@ -338,10 +339,11 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:22:7: ( '{' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:22:9: '{'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:22:7: ( 'typedef' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:22:9: 'typedef'
             {
-            match('{'); 
+            match("typedef"); 
+
 
             }
 
@@ -358,10 +360,11 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:23:7: ( '}' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:23:9: '}'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:23:7: ( 'int' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:23:9: 'int'
             {
-            match('}'); 
+            match("int"); 
+
 
             }
 
@@ -378,10 +381,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:24:7: ( 'typedef' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:24:9: 'typedef'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:24:7: ( 'clock' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:24:9: 'clock'
             {
-            match("typedef"); 
+            match("clock"); 
 
 
             }
@@ -399,10 +402,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:25:7: ( 'int' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:25:9: 'int'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:25:7: ( 'action' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:25:9: 'action'
             {
-            match("int"); 
+            match("action"); 
 
 
             }
@@ -420,10 +423,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:26:7: ( 'clock' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:26:9: 'clock'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:26:7: ( 'input' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:26:9: 'input'
             {
-            match("clock"); 
+            match("input"); 
 
 
             }
@@ -441,10 +444,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:27:7: ( 'action' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:27:9: 'action'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:27:7: ( 'output' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:27:9: 'output'
             {
-            match("action"); 
+            match("output"); 
 
 
             }
@@ -462,10 +465,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:28:7: ( 'input' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:28:9: 'input'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:28:7: ( 'bool' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:28:9: 'bool'
             {
-            match("input"); 
+            match("bool"); 
 
 
             }
@@ -483,10 +486,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:29:7: ( 'output' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:29:9: 'output'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:29:7: ( 'scalar' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:29:9: 'scalar'
             {
-            match("output"); 
+            match("scalar"); 
 
 
             }
@@ -504,10 +507,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:30:7: ( 'bool' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:30:9: 'bool'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:30:7: ( 'struct' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:30:9: 'struct'
             {
-            match("bool"); 
+            match("struct"); 
 
 
             }
@@ -525,10 +528,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:31:7: ( 'scalar' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:31:9: 'scalar'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:31:7: ( '||' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:31:9: '||'
             {
-            match("scalar"); 
+            match("||"); 
 
 
             }
@@ -546,10 +549,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:32:7: ( 'struct' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:32:9: 'struct'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:32:7: ( '&&' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:32:9: '&&'
             {
-            match("struct"); 
+            match("&&"); 
 
 
             }
@@ -567,11 +570,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:33:7: ( '||' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:33:9: '||'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:33:7: ( '|' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:33:9: '|'
             {
-            match("||"); 
-
+            match('|'); 
 
             }
 
@@ -588,11 +590,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:34:7: ( '&&' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:34:9: '&&'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:34:7: ( '(' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:34:9: '('
             {
-            match("&&"); 
-
+            match('('); 
 
             }
 
@@ -609,10 +610,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:35:7: ( '|' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:35:9: '|'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:35:7: ( ')' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:35:9: ')'
             {
-            match('|'); 
+            match(')'); 
 
             }
 
@@ -629,10 +630,11 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:36:7: ( '(' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:36:9: '('
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:36:7: ( 'let' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:36:9: 'let'
             {
-            match('('); 
+            match("let"); 
+
 
             }
 
@@ -649,10 +651,11 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:37:7: ( ')' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:37:9: ')'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:37:7: ( 'spec' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:37:9: 'spec'
             {
-            match(')'); 
+            match("spec"); 
+
 
             }
 
@@ -669,10 +672,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:38:7: ( 'let' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:38:9: 'let'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:38:7: ( 'template' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:38:9: 'template'
             {
-            match("let"); 
+            match("template"); 
 
 
             }
@@ -690,10 +693,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:39:7: ( 'spec' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:39:9: 'spec'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:39:7: ( 'initial' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:39:9: 'initial'
             {
-            match("spec"); 
+            match("initial"); 
 
 
             }
@@ -711,10 +714,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:40:7: ( 'template' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:40:9: 'template'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:40:7: ( 'universal' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:40:9: 'universal'
             {
-            match("template"); 
+            match("universal"); 
 
 
             }
@@ -732,10 +735,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:41:7: ( 'initial' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:41:9: 'initial'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:41:7: ( 'invariant' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:41:9: 'invariant'
             {
-            match("initial"); 
+            match("invariant"); 
 
 
             }
@@ -753,10 +756,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:42:7: ( 'universal' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:42:9: 'universal'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:42:7: ( 'controllable' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:42:9: 'controllable'
             {
-            match("universal"); 
+            match("controllable"); 
 
 
             }
@@ -774,10 +777,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:43:7: ( 'invariant' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:43:9: 'invariant'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:43:7: ( 'foreach' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:43:9: 'foreach'
             {
-            match("invariant"); 
+            match("foreach"); 
 
 
             }
@@ -795,11 +798,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:44:7: ( 'controllable' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:44:9: 'controllable'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:44:7: ( ':' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:44:9: ':'
             {
-            match("controllable"); 
-
+            match(':'); 
 
             }
 
@@ -816,10 +818,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:45:7: ( 'foreach' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:45:9: 'foreach'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:45:7: ( 'if' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:45:9: 'if'
             {
-            match("foreach"); 
+            match("if"); 
 
 
             }
@@ -837,10 +839,11 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:46:7: ( ':' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:46:9: ':'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:46:7: ( 'goto' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:46:9: 'goto'
             {
-            match(':'); 
+            match("goto"); 
+
 
             }
 
@@ -857,10 +860,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:47:7: ( 'if' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:47:9: 'if'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:47:7: ( 'forall' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:47:9: 'forall'
             {
-            match("if"); 
+            match("forall"); 
 
 
             }
@@ -878,10 +881,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:48:7: ( 'goto' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:48:9: 'goto'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:48:7: ( 'exists' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:48:9: 'exists'
             {
-            match("goto"); 
+            match("exists"); 
 
 
             }
@@ -899,10 +902,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:49:7: ( 'forall' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:49:9: 'forall'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:49:7: ( 'imply' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:49:9: 'imply'
             {
-            match("forall"); 
+            match("imply"); 
 
 
             }
@@ -920,10 +923,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:50:7: ( 'exists' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:50:9: 'exists'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:50:7: ( 'or' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:50:9: 'or'
             {
-            match("exists"); 
+            match("or"); 
 
 
             }
@@ -941,10 +944,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:51:7: ( 'imply' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:51:9: 'imply'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:51:7: ( 'and' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:51:9: 'and'
             {
-            match("imply"); 
+            match("and"); 
 
 
             }
@@ -962,10 +965,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:52:7: ( 'or' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:52:9: 'or'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:52:7: ( ':=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:52:9: ':='
             {
-            match("or"); 
+            match(":="); 
 
 
             }
@@ -983,10 +986,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:53:7: ( 'and' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:53:9: 'and'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:53:7: ( '+=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:53:9: '+='
             {
-            match("and"); 
+            match("+="); 
 
 
             }
@@ -1004,10 +1007,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:54:7: ( ':=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:54:9: ':='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:54:7: ( '-=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:54:9: '-='
             {
-            match(":="); 
+            match("-="); 
 
 
             }
@@ -1025,10 +1028,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:55:7: ( '+=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:55:9: '+='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:55:7: ( '*=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:55:9: '*='
             {
-            match("+="); 
+            match("*="); 
 
 
             }
@@ -1046,10 +1049,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:56:7: ( '-=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:56:9: '-='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:56:7: ( '/=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:56:9: '/='
             {
-            match("-="); 
+            match("/="); 
 
 
             }
@@ -1067,10 +1070,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:57:7: ( '*=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:57:9: '*='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:57:7: ( '%=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:57:9: '%='
             {
-            match("*="); 
+            match("%="); 
 
 
             }
@@ -1088,10 +1091,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:58:7: ( '/=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:58:9: '/='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:58:7: ( '|=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:58:9: '|='
             {
-            match("/="); 
+            match("|="); 
 
 
             }
@@ -1109,10 +1112,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:59:7: ( '%=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:59:9: '%='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:59:7: ( '&=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:59:9: '&='
             {
-            match("%="); 
+            match("&="); 
 
 
             }
@@ -1130,10 +1133,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:60:7: ( '|=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:60:9: '|='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:60:7: ( '^=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:60:9: '^='
             {
-            match("|="); 
+            match("^="); 
 
 
             }
@@ -1151,10 +1154,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:61:7: ( '&=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:61:9: '&='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:61:7: ( '<<=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:61:9: '<<='
             {
-            match("&="); 
+            match("<<="); 
 
 
             }
@@ -1172,10 +1175,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:62:7: ( '^=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:62:9: '^='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:62:7: ( '>>=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:62:9: '>>='
             {
-            match("^="); 
+            match(">>="); 
 
 
             }
@@ -1193,11 +1196,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:63:7: ( '<<=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:63:9: '<<='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:63:7: ( '?' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:63:9: '?'
             {
-            match("<<="); 
-
+            match('?'); 
 
             }
 
@@ -1214,11 +1216,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:64:7: ( '>>=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:64:9: '>>='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:64:7: ( '^' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:64:9: '^'
             {
-            match(">>="); 
-
+            match('^'); 
 
             }
 
@@ -1235,10 +1236,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:65:7: ( '^' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:65:9: '^'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:65:7: ( '&' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:65:9: '&'
             {
-            match('^'); 
+            match('&'); 
 
             }
 
@@ -1255,10 +1256,11 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:66:7: ( '&' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:66:9: '&'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:66:7: ( '==' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:66:9: '=='
             {
-            match('&'); 
+            match("=="); 
+
 
             }
 
@@ -1275,10 +1277,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:67:7: ( '==' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:67:9: '=='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:67:7: ( '!=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:67:9: '!='
             {
-            match("=="); 
+            match("!="); 
 
 
             }
@@ -1296,11 +1298,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:68:7: ( '!=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:68:9: '!='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:68:7: ( '<' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:68:9: '<'
             {
-            match("!="); 
-
+            match('<'); 
 
             }
 
@@ -1317,10 +1318,11 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:69:7: ( '<' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:69:9: '<'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:69:7: ( '<=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:69:9: '<='
             {
-            match('<'); 
+            match("<="); 
+
 
             }
 
@@ -1337,10 +1339,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:70:7: ( '<=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:70:9: '<='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:70:7: ( '>=' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:70:9: '>='
             {
-            match("<="); 
+            match(">="); 
 
 
             }
@@ -1358,11 +1360,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:71:7: ( '>=' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:71:9: '>='
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:71:7: ( '>' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:71:9: '>'
             {
-            match(">="); 
-
+            match('>'); 
 
             }
 
@@ -1379,10 +1380,11 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:72:7: ( '>' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:72:9: '>'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:72:7: ( '<?' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:72:9: '<?'
             {
-            match('>'); 
+            match("<?"); 
+
 
             }
 
@@ -1399,10 +1401,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:73:7: ( '<?' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:73:9: '<?'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:73:7: ( '>?' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:73:9: '>?'
             {
-            match("<?"); 
+            match(">?"); 
 
 
             }
@@ -1420,10 +1422,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:74:7: ( '>?' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:74:9: '>?'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:74:7: ( '<<' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:74:9: '<<'
             {
-            match(">?"); 
+            match("<<"); 
 
 
             }
@@ -1441,10 +1443,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:75:7: ( '<<' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:75:9: '<<'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:75:7: ( '>>' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:75:9: '>>'
             {
-            match("<<"); 
+            match(">>"); 
 
 
             }
@@ -1462,11 +1464,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:76:7: ( '>>' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:76:9: '>>'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:76:7: ( '+' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:76:9: '+'
             {
-            match(">>"); 
-
+            match('+'); 
 
             }
 
@@ -1483,10 +1484,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:77:7: ( '+' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:77:9: '+'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:77:7: ( '-' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:77:9: '-'
             {
-            match('+'); 
+            match('-'); 
 
             }
 
@@ -1503,10 +1504,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:78:7: ( '-' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:78:9: '-'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:78:7: ( '*' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:78:9: '*'
             {
-            match('-'); 
+            match('*'); 
 
             }
 
@@ -1523,10 +1524,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:79:7: ( '*' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:79:9: '*'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:79:7: ( '/' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:79:9: '/'
             {
-            match('*'); 
+            match('/'); 
 
             }
 
@@ -1543,10 +1544,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:80:7: ( '/' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:80:9: '/'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:80:7: ( '%' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:80:9: '%'
             {
-            match('/'); 
+            match('%'); 
 
             }
 
@@ -1563,10 +1564,11 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:81:7: ( '%' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:81:9: '%'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:81:7: ( '++' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:81:9: '++'
             {
-            match('%'); 
+            match("++"); 
+
 
             }
 
@@ -1583,10 +1585,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:82:7: ( '++' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:82:9: '++'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:82:7: ( '--' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:82:9: '--'
             {
-            match("++"); 
+            match("--"); 
 
 
             }
@@ -1604,11 +1606,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:83:7: ( '--' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:83:9: '--'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:83:7: ( '!' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:83:9: '!'
             {
-            match("--"); 
-
+            match('!'); 
 
             }
 
@@ -1625,11 +1626,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:84:7: ( 'true' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:84:9: 'true'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:84:7: ( '.' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:84:9: '.'
             {
-            match("true"); 
-
+            match('.'); 
 
             }
 
@@ -1646,10 +1646,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:85:7: ( 'false' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:85:9: 'false'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:85:7: ( 'true' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:85:9: 'true'
             {
-            match("false"); 
+            match("true"); 
 
 
             }
@@ -1662,15 +1662,36 @@ public class InternalEcdarTextLexer extends Lexer {
     }
     // $ANTLR end "T__85"
 
+    // $ANTLR start "T__86"
+    public final void mT__86() throws RecognitionException {
+        try {
+            int _type = T__86;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:86:7: ( 'false' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:86:9: 'false'
+            {
+            match("false"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__86"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4914:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4914:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4996:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4996:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4914:11: ( '^' )?
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4996:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1679,7 +1700,7 @@ public class InternalEcdarTextLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4914:11: '^'
+                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4996:11: '^'
                     {
                     match('^'); 
 
@@ -1697,7 +1718,7 @@ public class InternalEcdarTextLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4914:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4996:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1746,10 +1767,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4916:10: ( ( '0' .. '9' )+ )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4916:12: ( '0' .. '9' )+
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4998:10: ( ( '0' .. '9' )+ )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4998:12: ( '0' .. '9' )+
             {
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4916:12: ( '0' .. '9' )+
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4998:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1763,7 +1784,7 @@ public class InternalEcdarTextLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4916:13: '0' .. '9'
+            	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4998:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1795,10 +1816,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4918:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4918:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5000:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5000:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4918:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5000:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1816,10 +1837,10 @@ public class InternalEcdarTextLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4918:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5000:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4918:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5000:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1835,7 +1856,7 @@ public class InternalEcdarTextLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4918:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5000:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1851,7 +1872,7 @@ public class InternalEcdarTextLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4918:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5000:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1876,10 +1897,10 @@ public class InternalEcdarTextLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4918:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5000:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4918:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5000:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1895,7 +1916,7 @@ public class InternalEcdarTextLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4918:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5000:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1911,7 +1932,7 @@ public class InternalEcdarTextLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4918:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5000:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1954,12 +1975,12 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4920:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4920:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5002:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5002:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4920:24: ( options {greedy=false; } : . )*
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5002:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1984,7 +2005,7 @@ public class InternalEcdarTextLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4920:52: .
+            	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5002:52: .
             	    {
             	    matchAny(); 
 
@@ -2014,12 +2035,12 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4922:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4922:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5004:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5004:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4922:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5004:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -2032,7 +2053,7 @@ public class InternalEcdarTextLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4922:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5004:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2052,7 +2073,7 @@ public class InternalEcdarTextLexer extends Lexer {
                 }
             } while (true);
 
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4922:40: ( ( '\\r' )? '\\n' )?
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5004:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -2061,9 +2082,9 @@ public class InternalEcdarTextLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4922:41: ( '\\r' )? '\\n'
+                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5004:41: ( '\\r' )? '\\n'
                     {
-                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4922:41: ( '\\r' )?
+                    // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5004:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -2072,7 +2093,7 @@ public class InternalEcdarTextLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4922:41: '\\r'
+                            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5004:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2104,10 +2125,10 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4924:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4924:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5006:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5006:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4924:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5006:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -2161,8 +2182,8 @@ public class InternalEcdarTextLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4926:16: ( . )
-            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:4926:18: .
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5008:16: ( . )
+            // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:5008:18: .
             {
             matchAny(); 
 
@@ -2177,8 +2198,8 @@ public class InternalEcdarTextLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=82;
+        // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=83;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -2707,49 +2728,56 @@ public class InternalEcdarTextLexer extends Lexer {
                 }
                 break;
             case 76 :
-                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:460: RULE_ID
+                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:460: T__86
+                {
+                mT__86(); 
+
+                }
+                break;
+            case 77 :
+                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:466: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 77 :
-                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:468: RULE_INT
+            case 78 :
+                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:474: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 78 :
-                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:477: RULE_STRING
+            case 79 :
+                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:483: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 79 :
-                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:489: RULE_ML_COMMENT
+            case 80 :
+                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:495: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 80 :
-                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:505: RULE_SL_COMMENT
+            case 81 :
+                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:511: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 81 :
-                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:521: RULE_WS
+            case 82 :
+                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:527: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 82 :
-                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:529: RULE_ANY_OTHER
+            case 83 :
+                // ../dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/parser/antlr/internal/InternalEcdarText.g:1:535: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -2763,30 +2791,30 @@ public class InternalEcdarTextLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\1\55\3\uffff\3\55\1\uffff\1\70\1\uffff\1\73\2\uffff\5\55"+
-        "\1\113\1\116\2\uffff\2\55\1\125\2\55\1\132\1\135\1\137\1\143\1\145"+
-        "\1\147\1\153\1\157\2\uffff\2\51\2\uffff\2\55\1\170\4\uffff\5\55"+
-        "\10\uffff\6\55\1\u0084\4\55\10\uffff\3\55\2\uffff\2\55\20\uffff"+
-        "\1\u008f\3\uffff\1\u0091\6\uffff\1\55\1\u0094\3\55\1\uffff\11\55"+
-        "\1\u00a2\1\55\1\uffff\4\55\1\u00a8\4\55\4\uffff\2\55\1\uffff\5\55"+
-        "\1\u00b5\5\55\1\u00bb\1\55\1\uffff\1\55\1\u00be\2\55\1\u00c1\1\uffff"+
-        "\3\55\1\u00c5\2\55\1\u00c8\1\u00c9\4\55\1\uffff\1\u00ce\1\55\1\u00d0"+
-        "\2\55\1\uffff\2\55\1\uffff\2\55\1\uffff\2\55\1\u00d9\1\uffff\1\55"+
-        "\1\u00db\2\uffff\2\55\1\u00de\1\55\1\uffff\1\55\1\uffff\2\55\1\u00e3"+
-        "\1\u00e4\1\u00e5\1\u00e6\1\55\1\u00e8\1\uffff\1\u00e9\1\uffff\1"+
-        "\u00ea\1\55\1\uffff\2\55\1\u00ee\1\55\4\uffff\1\u00f0\3\uffff\3"+
-        "\55\1\uffff\1\u00f4\1\uffff\1\u00f5\1\u00f6\1\55\3\uffff\2\55\1"+
-        "\u00fa\1\uffff";
+        "\1\uffff\1\56\3\uffff\3\56\1\uffff\1\71\2\uffff\5\56\1\111\1\114"+
+        "\2\uffff\2\56\1\123\2\56\1\130\1\133\1\135\1\141\1\143\1\145\1\151"+
+        "\1\155\1\uffff\1\160\3\uffff\2\52\2\uffff\2\56\1\172\4\uffff\5\56"+
+        "\5\uffff\6\56\1\u0086\4\56\10\uffff\3\56\2\uffff\2\56\20\uffff\1"+
+        "\u0091\3\uffff\1\u0093\12\uffff\1\56\1\u0096\3\56\1\uffff\11\56"+
+        "\1\u00a4\1\56\1\uffff\4\56\1\u00aa\4\56\4\uffff\2\56\1\uffff\5\56"+
+        "\1\u00b7\5\56\1\u00bd\1\56\1\uffff\1\56\1\u00c0\2\56\1\u00c3\1\uffff"+
+        "\3\56\1\u00c7\2\56\1\u00ca\1\u00cb\4\56\1\uffff\1\u00d0\1\56\1\u00d2"+
+        "\2\56\1\uffff\2\56\1\uffff\2\56\1\uffff\2\56\1\u00db\1\uffff\1\56"+
+        "\1\u00dd\2\uffff\2\56\1\u00e0\1\56\1\uffff\1\56\1\uffff\2\56\1\u00e5"+
+        "\1\u00e6\1\u00e7\1\u00e8\1\56\1\u00ea\1\uffff\1\u00eb\1\uffff\1"+
+        "\u00ec\1\56\1\uffff\2\56\1\u00f0\1\56\4\uffff\1\u00f2\3\uffff\3"+
+        "\56\1\uffff\1\u00f6\1\uffff\1\u00f7\1\u00f8\1\56\3\uffff\2\56\1"+
+        "\u00fc\1\uffff";
     static final String DFA12_eofS =
-        "\u00fb\uffff";
+        "\u00fd\uffff";
     static final String DFA12_minS =
-        "\1\0\1\146\3\uffff\1\156\1\145\1\154\1\uffff\1\75\1\uffff\1\75\2"+
-        "\uffff\1\145\1\143\1\162\1\157\1\143\1\75\1\46\2\uffff\1\145\1\141"+
-        "\1\75\1\157\1\170\1\53\1\55\1\75\1\52\2\75\1\74\1\75\2\uffff\2\0"+
-        "\2\uffff\1\160\1\151\1\60\4\uffff\1\147\1\151\1\164\1\156\1\157"+
-        "\10\uffff\1\160\1\155\1\165\1\164\1\144\1\164\1\60\1\157\1\141\1"+
+        "\1\0\1\146\3\uffff\1\156\1\145\1\154\1\uffff\1\75\2\uffff\1\145"+
+        "\1\143\1\162\1\157\1\143\1\75\1\46\2\uffff\1\145\1\141\1\75\1\157"+
+        "\1\170\1\53\1\55\1\75\1\52\2\75\1\74\1\75\1\uffff\1\75\3\uffff\2"+
+        "\0\2\uffff\1\160\1\151\1\60\4\uffff\1\147\1\151\1\164\1\156\1\157"+
+        "\5\uffff\1\160\1\155\1\165\1\164\1\144\1\164\1\60\1\157\1\141\1"+
         "\162\1\145\10\uffff\1\164\1\162\1\154\2\uffff\1\164\1\151\20\uffff"+
-        "\1\75\3\uffff\1\75\6\uffff\1\154\1\60\1\165\1\164\1\141\1\uffff"+
+        "\1\75\3\uffff\1\75\12\uffff\1\154\1\60\1\165\1\164\1\141\1\uffff"+
         "\1\145\1\166\1\141\1\163\1\143\1\145\1\160\1\145\1\151\1\60\1\160"+
         "\1\uffff\2\154\1\165\1\143\1\60\1\141\1\163\1\157\1\163\4\uffff"+
         "\1\162\1\171\1\uffff\1\164\1\151\1\162\1\156\1\145\1\60\1\164\1"+
@@ -2799,13 +2827,13 @@ public class InternalEcdarTextLexer extends Lexer {
         "\154\1\60\1\145\4\uffff\1\60\3\uffff\1\164\1\154\1\141\1\uffff\1"+
         "\60\1\uffff\2\60\1\142\3\uffff\1\154\1\145\1\60\1\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\156\3\uffff\1\162\1\145\1\157\1\uffff\1\75\1\uffff\1"+
-        "\75\2\uffff\1\171\1\156\1\165\1\157\1\164\1\174\1\75\2\uffff\1\145"+
-        "\1\157\1\75\1\157\1\170\5\75\1\172\2\77\2\uffff\2\uffff\2\uffff"+
-        "\1\160\1\166\1\172\4\uffff\1\147\1\151\1\164\1\156\1\157\10\uffff"+
+        "\1\uffff\1\156\3\uffff\1\162\1\145\1\157\1\uffff\1\75\2\uffff\1"+
+        "\171\1\156\1\165\1\157\1\164\1\174\1\75\2\uffff\1\145\1\157\1\75"+
+        "\1\157\1\170\5\75\1\172\2\77\1\uffff\1\75\3\uffff\2\uffff\2\uffff"+
+        "\1\160\1\166\1\172\4\uffff\1\147\1\151\1\164\1\156\1\157\5\uffff"+
         "\1\160\1\155\1\165\1\164\1\144\1\164\1\172\1\157\1\141\1\162\1\145"+
         "\10\uffff\1\164\1\162\1\154\2\uffff\1\164\1\151\20\uffff\1\75\3"+
-        "\uffff\1\75\6\uffff\1\157\1\172\1\165\1\164\1\141\1\uffff\1\145"+
+        "\uffff\1\75\12\uffff\1\157\1\172\1\165\1\164\1\141\1\uffff\1\145"+
         "\1\166\1\141\1\164\1\143\1\145\1\160\1\145\1\151\1\172\1\160\1\uffff"+
         "\2\154\1\165\1\143\1\172\1\145\1\163\1\157\1\163\4\uffff\1\162\1"+
         "\171\1\uffff\1\164\1\151\1\162\1\156\1\145\1\172\1\164\1\162\1\153"+
@@ -2818,131 +2846,125 @@ public class InternalEcdarTextLexer extends Lexer {
         "\1\172\1\145\4\uffff\1\172\3\uffff\1\164\1\154\1\141\1\uffff\1\172"+
         "\1\uffff\2\172\1\142\3\uffff\1\154\1\145\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\2\uffff\1\2\1\3\1\4\3\uffff\1\10\1\uffff\1\12\1\uffff\1\14\1\15"+
-        "\7\uffff\1\32\1\33\15\uffff\1\114\1\115\2\uffff\1\121\1\122\3\uffff"+
-        "\1\114\1\2\1\3\1\4\5\uffff\1\10\1\72\1\11\1\12\1\71\1\13\1\14\1"+
-        "\15\13\uffff\1\27\1\62\1\31\1\30\1\63\1\70\1\32\1\33\3\uffff\1\54"+
-        "\1\44\2\uffff\1\55\1\110\1\103\1\56\1\111\1\104\1\57\1\105\1\60"+
-        "\1\117\1\120\1\106\1\61\1\107\1\64\1\67\1\uffff\1\74\1\77\1\73\1"+
-        "\uffff\1\75\1\100\1\76\1\115\1\116\1\121\5\uffff\1\45\13\uffff\1"+
-        "\52\11\uffff\1\65\1\101\1\66\1\102\2\uffff\1\17\15\uffff\1\53\5"+
-        "\uffff\1\34\14\uffff\1\6\5\uffff\1\112\2\uffff\1\24\2\uffff\1\35"+
-        "\3\uffff\1\46\2\uffff\1\51\1\22\4\uffff\1\7\1\uffff\1\20\10\uffff"+
-        "\1\113\1\uffff\1\1\2\uffff\1\5\4\uffff\1\21\1\23\1\25\1\26\1\uffff"+
-        "\1\47\1\50\1\37\3\uffff\1\16\1\uffff\1\43\3\uffff\1\36\1\41\1\40"+
-        "\3\uffff\1\42";
+        "\2\uffff\1\2\1\3\1\4\3\uffff\1\10\1\uffff\1\12\1\13\7\uffff\1\30"+
+        "\1\31\15\uffff\1\65\1\uffff\1\112\1\115\1\116\2\uffff\1\122\1\123"+
+        "\3\uffff\1\115\1\2\1\3\1\4\5\uffff\1\10\1\70\1\11\1\12\1\13\13\uffff"+
+        "\1\25\1\60\1\27\1\26\1\61\1\67\1\30\1\31\3\uffff\1\52\1\42\2\uffff"+
+        "\1\53\1\107\1\102\1\54\1\110\1\103\1\55\1\104\1\56\1\120\1\121\1"+
+        "\105\1\57\1\106\1\62\1\66\1\uffff\1\73\1\76\1\72\1\uffff\1\74\1"+
+        "\77\1\75\1\65\1\71\1\111\1\112\1\116\1\117\1\122\5\uffff\1\43\13"+
+        "\uffff\1\50\11\uffff\1\63\1\100\1\64\1\101\2\uffff\1\15\15\uffff"+
+        "\1\51\5\uffff\1\32\14\uffff\1\6\5\uffff\1\113\2\uffff\1\22\2\uffff"+
+        "\1\33\3\uffff\1\44\2\uffff\1\47\1\20\4\uffff\1\7\1\uffff\1\16\10"+
+        "\uffff\1\114\1\uffff\1\1\2\uffff\1\5\4\uffff\1\17\1\21\1\23\1\24"+
+        "\1\uffff\1\45\1\46\1\35\3\uffff\1\14\1\uffff\1\41\3\uffff\1\34\1"+
+        "\37\1\36\3\uffff\1\40";
     static final String DFA12_specialS =
-        "\1\0\45\uffff\1\1\1\2\u00d3\uffff}>";
+        "\1\0\46\uffff\1\1\1\2\u00d4\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\51\2\50\2\51\1\50\22\51\1\50\1\11\1\46\2\51\1\40\1\24\1"+
-            "\47\1\25\1\26\1\36\1\34\1\10\1\35\1\51\1\37\12\45\1\31\1\4\1"+
-            "\42\1\13\1\43\1\12\1\51\32\44\1\2\1\51\1\3\1\41\1\44\1\51\1"+
-            "\17\1\21\1\7\1\44\1\33\1\30\1\32\1\44\1\1\2\44\1\27\1\6\1\44"+
-            "\1\20\3\44\1\22\1\16\1\5\5\44\1\14\1\23\1\15\uff82\51",
-            "\1\54\6\uffff\1\52\1\53",
+            "\11\52\2\51\2\52\1\51\22\52\1\51\1\43\1\47\2\52\1\36\1\22\1"+
+            "\50\1\23\1\24\1\34\1\32\1\10\1\33\1\44\1\35\12\46\1\27\1\4\1"+
+            "\40\1\11\1\41\1\42\1\52\32\45\1\2\1\52\1\3\1\37\1\45\1\52\1"+
+            "\15\1\17\1\7\1\45\1\31\1\26\1\30\1\45\1\1\2\45\1\25\1\6\1\45"+
+            "\1\16\3\45\1\20\1\14\1\5\5\45\1\12\1\21\1\13\uff82\52",
+            "\1\55\6\uffff\1\53\1\54",
             "",
             "",
             "",
-            "\1\62\3\uffff\1\61",
-            "\1\63",
-            "\1\65\2\uffff\1\64",
+            "\1\63\3\uffff\1\62",
+            "\1\64",
+            "\1\66\2\uffff\1\65",
             "",
-            "\1\67",
-            "",
-            "\1\72",
+            "\1\70",
             "",
             "",
-            "\1\77\14\uffff\1\100\6\uffff\1\76",
-            "\1\101\12\uffff\1\102",
-            "\1\104\2\uffff\1\103",
-            "\1\105",
-            "\1\106\14\uffff\1\110\3\uffff\1\107",
-            "\1\112\76\uffff\1\111",
-            "\1\114\26\uffff\1\115",
+            "\1\75\14\uffff\1\76\6\uffff\1\74",
+            "\1\77\12\uffff\1\100",
+            "\1\102\2\uffff\1\101",
+            "\1\103",
+            "\1\104\14\uffff\1\106\3\uffff\1\105",
+            "\1\110\76\uffff\1\107",
+            "\1\112\26\uffff\1\113",
             "",
             "",
-            "\1\121",
-            "\1\123\15\uffff\1\122",
+            "\1\117",
+            "\1\121\15\uffff\1\120",
+            "\1\122",
             "\1\124",
-            "\1\126",
-            "\1\127",
-            "\1\131\21\uffff\1\130",
-            "\1\134\17\uffff\1\133",
-            "\1\136",
-            "\1\141\4\uffff\1\142\15\uffff\1\140",
-            "\1\144",
-            "\1\146\3\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\1\150\1\151\1\uffff\1\152",
-            "\1\155\1\154\1\156",
+            "\1\125",
+            "\1\127\21\uffff\1\126",
+            "\1\132\17\uffff\1\131",
+            "\1\134",
+            "\1\137\4\uffff\1\140\15\uffff\1\136",
+            "\1\142",
+            "\1\144\3\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\146\1\147\1\uffff\1\150",
+            "\1\153\1\152\1\154",
             "",
-            "",
-            "\0\161",
-            "\0\161",
-            "",
-            "",
-            "\1\163",
-            "\1\166\6\uffff\1\165\3\uffff\1\164\1\uffff\1\167",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\157",
             "",
             "",
             "",
+            "\0\163",
+            "\0\163",
             "",
-            "\1\171",
-            "\1\172",
+            "",
+            "\1\165",
+            "\1\170\6\uffff\1\167\3\uffff\1\166\1\uffff\1\171",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "",
+            "",
+            "",
+            "",
             "\1\173",
             "\1\174",
             "\1\175",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\176",
             "\1\177",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\u0080",
             "\1\u0081",
             "\1\u0082",
             "\1\u0083",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\u0084",
             "\1\u0085",
-            "\1\u0086",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u0087",
             "\1\u0088",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\u0089",
             "\1\u008a",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\u008b",
-            "",
-            "",
             "\1\u008c",
             "\1\u008d",
             "",
             "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\u008e",
+            "\1\u008f",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "",
             "",
             "",
@@ -2950,82 +2972,87 @@ public class InternalEcdarTextLexer extends Lexer {
             "",
             "",
             "",
+            "\1\u0092",
             "",
             "",
             "",
-            "\1\u0093\2\uffff\1\u0092",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\1\u0095",
-            "\1\u0096",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\u0095\2\uffff\1\u0094",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u0097",
-            "",
             "\1\u0098",
             "\1\u0099",
+            "",
             "\1\u009a",
-            "\1\u009b\1\u009c",
-            "\1\u009d",
-            "\1\u009e",
+            "\1\u009b",
+            "\1\u009c",
+            "\1\u009d\1\u009e",
             "\1\u009f",
             "\1\u00a0",
             "\1\u00a1",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\u00a2",
             "\1\u00a3",
-            "",
-            "\1\u00a4",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u00a5",
+            "",
             "\1\u00a6",
             "\1\u00a7",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\1\u00aa\3\uffff\1\u00a9",
-            "\1\u00ab",
-            "\1\u00ac",
+            "\1\u00a8",
+            "\1\u00a9",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u00ac\3\uffff\1\u00ab",
             "\1\u00ad",
-            "",
-            "",
-            "",
-            "",
             "\1\u00ae",
             "\1\u00af",
             "",
+            "",
+            "",
+            "",
             "\1\u00b0",
             "\1\u00b1",
+            "",
             "\1\u00b2",
             "\1\u00b3",
             "\1\u00b4",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\u00b5",
             "\1\u00b6",
-            "\1\u00b7",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u00b8",
             "\1\u00b9",
             "\1\u00ba",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\u00bb",
             "\1\u00bc",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u00be",
             "",
-            "\1\u00bd",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
             "\1\u00bf",
-            "\1\u00c0",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u00c1",
             "\1\u00c2",
-            "\1\u00c3",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "",
             "\1\u00c4",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\u00c5",
             "\1\u00c6",
-            "\1\u00c7",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\1\u00ca",
-            "\1\u00cb",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u00c8",
+            "\1\u00c9",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u00cc",
             "\1\u00cd",
-            "",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\u00ce",
             "\1\u00cf",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\1\u00d1",
-            "\1\u00d2",
             "",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u00d1",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u00d3",
             "\1\u00d4",
             "",
@@ -3034,60 +3061,63 @@ public class InternalEcdarTextLexer extends Lexer {
             "",
             "\1\u00d7",
             "\1\u00d8",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
             "",
+            "\1\u00d9",
             "\1\u00da",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "",
             "\1\u00dc",
-            "\1\u00dd",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "",
+            "",
+            "\1\u00de",
             "\1\u00df",
-            "",
-            "\1\u00e0",
-            "",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u00e1",
+            "",
             "\1\u00e2",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\1\u00e7",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
             "",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\1\u00e3",
+            "\1\u00e4",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\1\u00e9",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\1\u00eb",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "",
-            "\1\u00ec",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u00ed",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "",
+            "\1\u00ee",
             "\1\u00ef",
-            "",
-            "",
-            "",
-            "",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "",
-            "",
-            "",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u00f1",
-            "\1\u00f2",
+            "",
+            "",
+            "",
+            "",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "",
+            "",
+            "",
             "\1\u00f3",
+            "\1\u00f4",
+            "\1\u00f5",
             "",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
-            "\1\u00f7",
-            "",
-            "",
-            "",
-            "\1\u00f8",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             "\1\u00f9",
-            "\12\55\7\uffff\32\55\4\uffff\1\55\1\uffff\32\55",
+            "",
+            "",
+            "",
+            "\1\u00fa",
+            "\1\u00fb",
+            "\12\56\7\uffff\32\56\4\uffff\1\56\1\uffff\32\56",
             ""
     };
 
@@ -3121,7 +3151,7 @@ public class InternalEcdarTextLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -3147,91 +3177,93 @@ public class InternalEcdarTextLexer extends Lexer {
 
                         else if ( (LA12_0==',') ) {s = 8;}
 
-                        else if ( (LA12_0=='!') ) {s = 9;}
+                        else if ( (LA12_0=='=') ) {s = 9;}
 
-                        else if ( (LA12_0=='?') ) {s = 10;}
+                        else if ( (LA12_0=='{') ) {s = 10;}
 
-                        else if ( (LA12_0=='=') ) {s = 11;}
+                        else if ( (LA12_0=='}') ) {s = 11;}
 
-                        else if ( (LA12_0=='{') ) {s = 12;}
+                        else if ( (LA12_0=='t') ) {s = 12;}
 
-                        else if ( (LA12_0=='}') ) {s = 13;}
+                        else if ( (LA12_0=='a') ) {s = 13;}
 
-                        else if ( (LA12_0=='t') ) {s = 14;}
+                        else if ( (LA12_0=='o') ) {s = 14;}
 
-                        else if ( (LA12_0=='a') ) {s = 15;}
+                        else if ( (LA12_0=='b') ) {s = 15;}
 
-                        else if ( (LA12_0=='o') ) {s = 16;}
+                        else if ( (LA12_0=='s') ) {s = 16;}
 
-                        else if ( (LA12_0=='b') ) {s = 17;}
+                        else if ( (LA12_0=='|') ) {s = 17;}
 
-                        else if ( (LA12_0=='s') ) {s = 18;}
+                        else if ( (LA12_0=='&') ) {s = 18;}
 
-                        else if ( (LA12_0=='|') ) {s = 19;}
+                        else if ( (LA12_0=='(') ) {s = 19;}
 
-                        else if ( (LA12_0=='&') ) {s = 20;}
+                        else if ( (LA12_0==')') ) {s = 20;}
 
-                        else if ( (LA12_0=='(') ) {s = 21;}
+                        else if ( (LA12_0=='l') ) {s = 21;}
 
-                        else if ( (LA12_0==')') ) {s = 22;}
+                        else if ( (LA12_0=='f') ) {s = 22;}
 
-                        else if ( (LA12_0=='l') ) {s = 23;}
+                        else if ( (LA12_0==':') ) {s = 23;}
 
-                        else if ( (LA12_0=='f') ) {s = 24;}
+                        else if ( (LA12_0=='g') ) {s = 24;}
 
-                        else if ( (LA12_0==':') ) {s = 25;}
+                        else if ( (LA12_0=='e') ) {s = 25;}
 
-                        else if ( (LA12_0=='g') ) {s = 26;}
+                        else if ( (LA12_0=='+') ) {s = 26;}
 
-                        else if ( (LA12_0=='e') ) {s = 27;}
+                        else if ( (LA12_0=='-') ) {s = 27;}
 
-                        else if ( (LA12_0=='+') ) {s = 28;}
+                        else if ( (LA12_0=='*') ) {s = 28;}
 
-                        else if ( (LA12_0=='-') ) {s = 29;}
+                        else if ( (LA12_0=='/') ) {s = 29;}
 
-                        else if ( (LA12_0=='*') ) {s = 30;}
+                        else if ( (LA12_0=='%') ) {s = 30;}
 
-                        else if ( (LA12_0=='/') ) {s = 31;}
+                        else if ( (LA12_0=='^') ) {s = 31;}
 
-                        else if ( (LA12_0=='%') ) {s = 32;}
+                        else if ( (LA12_0=='<') ) {s = 32;}
 
-                        else if ( (LA12_0=='^') ) {s = 33;}
+                        else if ( (LA12_0=='>') ) {s = 33;}
 
-                        else if ( (LA12_0=='<') ) {s = 34;}
+                        else if ( (LA12_0=='?') ) {s = 34;}
 
-                        else if ( (LA12_0=='>') ) {s = 35;}
+                        else if ( (LA12_0=='!') ) {s = 35;}
 
-                        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='d'||LA12_0=='h'||(LA12_0>='j' && LA12_0<='k')||LA12_0=='n'||(LA12_0>='p' && LA12_0<='r')||(LA12_0>='v' && LA12_0<='z')) ) {s = 36;}
+                        else if ( (LA12_0=='.') ) {s = 36;}
 
-                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 37;}
+                        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='d'||LA12_0=='h'||(LA12_0>='j' && LA12_0<='k')||LA12_0=='n'||(LA12_0>='p' && LA12_0<='r')||(LA12_0>='v' && LA12_0<='z')) ) {s = 37;}
 
-                        else if ( (LA12_0=='\"') ) {s = 38;}
+                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 38;}
 
-                        else if ( (LA12_0=='\'') ) {s = 39;}
+                        else if ( (LA12_0=='\"') ) {s = 39;}
 
-                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 40;}
+                        else if ( (LA12_0=='\'') ) {s = 40;}
 
-                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||(LA12_0>='#' && LA12_0<='$')||LA12_0=='.'||LA12_0=='@'||LA12_0=='\\'||LA12_0=='`'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 41;}
+                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 41;}
+
+                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||(LA12_0>='#' && LA12_0<='$')||LA12_0=='@'||LA12_0=='\\'||LA12_0=='`'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 42;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA12_38 = input.LA(1);
+                        int LA12_39 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_38>='\u0000' && LA12_38<='\uFFFF')) ) {s = 113;}
+                        if ( ((LA12_39>='\u0000' && LA12_39<='\uFFFF')) ) {s = 115;}
 
-                        else s = 41;
+                        else s = 42;
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA12_39 = input.LA(1);
+                        int LA12_40 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_39>='\u0000' && LA12_39<='\uFFFF')) ) {s = 113;}
+                        if ( ((LA12_40>='\u0000' && LA12_40<='\uFFFF')) ) {s = 115;}
 
-                        else s = 41;
+                        else s = 42;
 
                         if ( s>=0 ) return s;
                         break;
