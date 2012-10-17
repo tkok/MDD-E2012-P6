@@ -1,15 +1,17 @@
 package dk.itu.ecdar.text.generator.framework;
 
-public interface IEdge {
+public abstract class IEdge {
+	
+	ILocation to;
 
 	/**
 	 * @return True if the guard holds, false otherwise
 	 */
-	public boolean guard();
+	public abstract boolean checkGuard();
 	
 	/**
 	 * Traverses over this edge
 	 */
-	public void traverse();
+	public abstract void traverse();
 	
 }
