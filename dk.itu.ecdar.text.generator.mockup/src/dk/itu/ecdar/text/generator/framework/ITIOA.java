@@ -10,7 +10,7 @@ public abstract class ITIOA {
 	 * Notifies the TIOA about input
 	 * @param input Some action
 	 */
-	public abstract void doNotify(IAction input);
+	public abstract void doNotify(IController.IAction input);
 	
 	/**
 	 * Sets the internal clock of 
