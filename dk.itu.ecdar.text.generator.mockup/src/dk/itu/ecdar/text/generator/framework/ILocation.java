@@ -14,4 +14,9 @@ public abstract class ILocation {
 	 * @param input Some action
 	 */
 	public abstract void doNotify(IAction input);
+	
+	/**
+	 * Executes whatever procedure this location should execute
+	 */
+	public abstract void execute();
 }
