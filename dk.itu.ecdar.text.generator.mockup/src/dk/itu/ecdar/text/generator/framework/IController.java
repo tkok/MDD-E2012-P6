@@ -1,31 +1,52 @@
 package dk.itu.ecdar.text.generator.framework;
 
+import java.util.Vector;
+
+/**
+ * Base class for controller implementations.
+ * 
+ * The controller handles input and notifies the automata
+ * about it.
+ */
 public abstract class IController {
-	
-	public interface IAction {
-		/**
-		 * This is empty on purpose. The Action enum on any
-		 * implementation of IController will implement this.
-		 * 
-		 * public Class MyController {
-		 * 		enum Action implements IAction{
-		 *			Foo,
-		 *			Bar
-		 *		}
-		 * }
-		 */
-	}
-	
+		
 	ITIOA[] automata;
+	Vector<IInput.IInputEnum> inputs;
+	boolean cont;
 	
 	/**
 	 * Notifies the controller about some input
 	 * @param input Some input
 	 */
-	public abstract void notify(IAction input);
+	public void notify(IInput.IInputEnum input) {
+		inputs.add(input);
+	}
 	
 	/**
-	 * Runs the controller
+	 * Performs a transition on the automata
 	 */
-	public abstract void run();
+	public void transition() {
+		for (ITIOA a: automata) {
+			a.transition();
+		}
+		
+		for (ITIOA a: automata) {
+			for (IInput.IInputEnum input : inputs) {
+				a.notify(input);
+			}
+		}
+	}
+	
+	/**
+	 * Executes the controller
+	 */
+	public void run() {
+		while (cont) {
+			for (ITIOA a: automata) {
+				a.execute();
+			}
+			
+			transition();
+		}
+	}
 }
