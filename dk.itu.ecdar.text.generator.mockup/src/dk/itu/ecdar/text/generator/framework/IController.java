@@ -12,7 +12,6 @@ public abstract class IController {
 		
 	ITIOA[] automata;
 	Vector<IInput.IInputEnum> inputs;
-	boolean cont;
 	
 	/**
 	 * Notifies the controller about some input
@@ -41,7 +40,7 @@ public abstract class IController {
 	 * Executes the controller
 	 */
 	public void run() {
-		while (cont) {
+		while (true) {
 			for (ITIOA a: automata) {
 				a.execute();
 			}
