@@ -25,10 +25,7 @@ public abstract class ILocation {
 	 */
 	public class TaskExecutor extends TaskThread{
 		public TaskExecutor(ILocation parent) { super(parent); }
-		
-		public void run() {
-			parent.task();
-		}
+		public void run() { parent.task(); }
 	}
 	
 	/**
@@ -36,10 +33,7 @@ public abstract class ILocation {
 	 */
 	public class TaskMonitor extends TaskThread {
 		public TaskMonitor(ILocation parent) { super(parent); }
-		
-		public void run() {
-			parent.runTask();
-		}
+		public void run() { parent.runTask(); }
 	}
 	
 	// reference the parent automaton to check invariant against it's clock
