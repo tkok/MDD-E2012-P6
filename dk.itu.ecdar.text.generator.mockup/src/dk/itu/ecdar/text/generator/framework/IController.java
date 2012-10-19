@@ -13,6 +13,11 @@ public abstract class IController {
 	ITIOA[] automata;
 	Vector<IInput.IInputEnum> inputs;
 	
+	public IController(ITIOA[] automata) {
+		this.automata = automata;
+		inputs = new Vector<IInput.IInputEnum>();
+	}
+	
 	/**
 	 * Notifies the controller about some input
 	 * @param input Some input
