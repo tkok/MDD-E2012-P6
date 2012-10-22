@@ -8,7 +8,7 @@ public class AutomatonTimer {
 	// resolution the timer has to the user
 	private int resolution;
 	
-	// timestamp for starting and pausing the timer
+	// time stamp for starting and pausing the timer
 	private long t_start, t_pause;
 	
 	// indicates if the timer is running
@@ -91,8 +91,8 @@ public class AutomatonTimer {
 	}
 	
 	/**
-	 * Substract time from the clock
-	 * @param x Time to substract
+	 * Subtract time from the clock
+	 * @param x Time to subtract
 	 */
 	public void subTime(long x) {
 		addTime(-x);
