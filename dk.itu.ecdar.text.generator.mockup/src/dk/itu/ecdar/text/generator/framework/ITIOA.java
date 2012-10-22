@@ -64,6 +64,7 @@ public abstract class ITIOA {
 			for(IEdgeControllable edge : current.inputEdges) {
 				if (edge.acceptInput(input) && edge.checkGuard()) {
 					current = edge.traverse();
+					executed = false;
 					
 					// in each run the automaton can traverse at most one edge
 					// TODO: talk to andrzej about this!
@@ -77,6 +78,7 @@ public abstract class ITIOA {
 		for(IEdge edge: current.outputEdges){
 			if(edge.checkGuard()) {
 				current = edge.traverse();
+				executed = false;
 				
 				// in each run the automaton can traverse at most one edge
 				// TODO: talk to andrzej about this!
