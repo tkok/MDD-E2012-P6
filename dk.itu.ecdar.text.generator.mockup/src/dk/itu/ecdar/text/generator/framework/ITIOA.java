@@ -1,6 +1,5 @@
 package dk.itu.ecdar.text.generator.framework;
 
-import java.util.Timer;
 import java.util.Vector;
 
 /**
