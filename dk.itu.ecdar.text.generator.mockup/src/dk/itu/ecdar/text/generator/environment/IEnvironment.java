@@ -66,7 +66,6 @@ public abstract class IEnvironment {
 		Scanner scanner = new Scanner(file);
 
 		String[] splitLine;
-		
 		while (scanner.hasNext()) {
 			splitLine = scanner.next().split("\\s+");
 
@@ -75,6 +74,7 @@ public abstract class IEnvironment {
 			
 			inputs.add(new SimpleEntry<Long, String>(time, input));
 		}
+		scanner.close();
 	}
 	
 	/**
