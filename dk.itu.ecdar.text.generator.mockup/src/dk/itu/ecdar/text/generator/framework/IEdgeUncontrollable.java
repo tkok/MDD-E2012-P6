@@ -9,7 +9,7 @@ package dk.itu.ecdar.text.generator.framework;
 public abstract class IEdgeUncontrollable extends IEdge {
 
 	@Override
-	public boolean acceptInput(IInput.IInputEnum input) {
+	public boolean acceptInput(String input) {
 		return false;
 	}
 

@@ -9,8 +9,8 @@ package dk.itu.ecdar.text.generator.framework;
 public abstract class IEdgeControllable extends IEdge {
 
 	@Override
-	public boolean acceptInput(IInput.IInputEnum input) {
-		return input == signal;
+	public boolean acceptInput(String input) {
+		return input.equals(signal);
 	}
 
 }

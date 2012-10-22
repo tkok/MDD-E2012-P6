@@ -13,7 +13,7 @@ public abstract class IEdge {
 	ILocation to;
 	
 	// the input this edge is bound to
-	IInput.IInputEnum signal;
+	String signal;
 
 	/**
 	 * @return True if the guard holds, false otherwise
@@ -26,7 +26,7 @@ public abstract class IEdge {
 	 * @param input Some input
 	 * @return True if this edge accepts the input, false otherwise
 	 */
-	public abstract boolean acceptInput(IInput.IInputEnum input);
+	public abstract boolean acceptInput(String input);
 	
 	/**
 	 * Traverses over this edge

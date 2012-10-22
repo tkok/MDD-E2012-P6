@@ -13,10 +13,9 @@ public abstract class ITIOA {
 	private ILocation current;
 	private ILocation[] locations;
 	
-	private Vector<IInput.IInputEnum> inputs;
+	private Vector<String> inputs;
 	
-	boolean executing;
-	boolean executed;
+	boolean executing, executed;
 
 	public ITIOA() {
 		timer = new AutomatonTimer();
@@ -26,7 +25,7 @@ public abstract class ITIOA {
 	 * Notifies the TIOA about input
 	 * @param input Some action
 	 */
-	public abstract boolean notify(IInput.IInputEnum input);
+	public abstract boolean notify(String input);
 	
 	/**
 	 * Executes the task at the current location
@@ -58,10 +57,10 @@ public abstract class ITIOA {
 		if (!executing && executed)
 			return;
 		
-		Vector<IInput.IInputEnum> currentInputs = (Vector<IInput.IInputEnum>) inputs.clone();
+		Vector<String> currentInputs = (Vector<String>) inputs.clone();
 		inputs.clear();
 		
-		for(IInput.IInputEnum input : currentInputs) {
+		for(String input : currentInputs) {
 			for(IEdgeControllable edge : current.inputEdges) {
 				if (edge.acceptInput(input) && edge.checkGuard()) {
 					current = edge.traverse();

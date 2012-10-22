@@ -11,18 +11,18 @@ import java.util.Vector;
 public abstract class IController {
 	
 	ITIOA[] automata;
-	Vector<IInput.IInputEnum> inputs;
+	Vector<String> inputs;
 	
 	public IController(ITIOA[] automata) {
 		this.automata = automata;
-		inputs = new Vector<IInput.IInputEnum>();
+		inputs = new Vector<String>();
 	}
 	
 	/**
 	 * Notifies the controller about some input
 	 * @param input Some input
 	 */
-	public void notify(IInput.IInputEnum input) {
+	public void notify(String input) {
 		inputs.add(input);
 	}
 	
@@ -35,7 +35,7 @@ public abstract class IController {
 		}
 		
 		for (ITIOA a: automata) {
-			for (IInput.IInputEnum input : inputs) {
+			for (String input : inputs) {
 				a.notify(input);
 			}
 		}
