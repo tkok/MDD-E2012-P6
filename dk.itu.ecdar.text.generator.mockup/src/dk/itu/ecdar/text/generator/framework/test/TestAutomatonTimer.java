@@ -13,7 +13,7 @@ public class TestAutomatonTimer extends TestCase {
 	}
 
 	public void testReset() {
-		for(int i = 0; i < 9999; i++);
+		for(int i = 0; i < 99999; i++);
 		
 		long a = timer.getTime();
 		timer.reset();
@@ -67,7 +67,7 @@ public class TestAutomatonTimer extends TestCase {
 		for(int i = 0; i < 9999; i++);
 		
 		timer.resume();
-		Assert.assertTrue(timer.getTime() < 10);
+		Assert.assertTrue(timer.getTime() < 1);
 		
 	}
 	
