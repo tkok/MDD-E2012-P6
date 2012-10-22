@@ -33,7 +33,7 @@ public abstract class IEnvironment {
 	
 	IController controller;
 	AutomatonTimer timer;
-    ArrayList<SimpleEntry<Long, IInput.IInputEnum>> inputs;
+    ArrayList<SimpleEntry<Long, String>> inputs;
 	
     /**
      * Needs to be implemented for every implemented ECDAR specification.
@@ -43,7 +43,7 @@ public abstract class IEnvironment {
 	public IEnvironment() {
 		generateController();
 		timer = new AutomatonTimer();
-		inputs = new ArrayList<SimpleEntry<Long, IInput.IInputEnum>>();
+		inputs = new ArrayList<SimpleEntry<Long, String>>();
 	}
     
 	/**
@@ -71,9 +71,9 @@ public abstract class IEnvironment {
 			splitLine = scanner.next().split("\\s+");
 
 			long time = Long.parseLong(splitLine[0]);
-			IInput.IInputEnum input = IInput.IInputEnum.valueOf(splitLine[1]);
+			String input = splitLine[1];
 			
-			inputs.add(new SimpleEntry<Long, IInput.IInputEnum>(time, input));
+			inputs.add(new SimpleEntry<Long, String>(time, input));
 		}
 	}
 	
