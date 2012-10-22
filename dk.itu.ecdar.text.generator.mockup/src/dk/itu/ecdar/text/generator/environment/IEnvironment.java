@@ -96,6 +96,15 @@ public abstract class IEnvironment {
 		
 		try {
 			thread.join();
+			
+			
+			/**
+			 * Log whatever...
+			 */
+			
+			Log.log("Log something...");
+			
+			
 		} catch (InterruptedException e) {
 			System.err.print("Error: " + e.getMessage());
 		}
