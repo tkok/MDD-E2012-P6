@@ -1,5 +1,6 @@
 package dk.itu.ecdar.text.generator.framework;
 
+import java.util.Timer;
 import java.util.Vector;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Vector;
  */
 public abstract class ITIOA {
 	
-	int time;
+	AutomatonTimer time;
 	private ILocation current;
 	private ILocation[] locations;
 	
@@ -18,33 +19,16 @@ public abstract class ITIOA {
 	boolean executing;
 	boolean executed;
 
+	public ITIOA() {
+		time = new AutomatonTimer();
+	}
+	
+	
 	/**
 	 * Notifies the TIOA about input
 	 * @param input Some action
 	 */
 	public abstract boolean notify(IInput.IInputEnum input);
-	
-	/**
-	 * Sets the internal clock of 
-	 * @param x The value the clock will be set to
-	 */
-	public void setTime(int x) {
-		this.time = x;
-	}
-	
-	/**
-	 * @return The current time
-	 */
-	public int getTime(){
-		return this.time;
-	}
-	
-	/**
-	 * Spends a time unit.
-	 */
-	public void spendTime(){
-		this.time++;
-	}
 	
 	/**
 	 * Executes the task at the current location
@@ -65,10 +49,14 @@ public abstract class ITIOA {
 	 */
 	public void transition() {
 		
+		time.pause();
+		
 		// a transition is only possible if the task
 		// at the current location has been performed
-		if (!executing && executed)
+		if (!executing && executed) {
+			time.resume();
 			return;
+		}
 		
 		Vector<IInput.IInputEnum> currentInputs = (Vector<IInput.IInputEnum>) inputs.clone();
 		inputs.clear();
@@ -77,6 +65,7 @@ public abstract class ITIOA {
 			for(IEdgeControllable edge : current.inputEdges) {
 				if (edge.acceptInput(input) && edge.checkGuard()) {
 					current = edge.traverse();
+					time.resume();
 					
 					// in each run the automaton can traverse at most one edge
 					// TODO: talk to andrzej about this!
@@ -90,6 +79,7 @@ public abstract class ITIOA {
 		for(IEdge edge: current.outputEdges){
 			if(edge.checkGuard()) {
 				current = edge.traverse();
+				time.resume();
 				
 				// in each run the automaton can traverse at most one edge
 				// TODO: talk to andrzej about this!

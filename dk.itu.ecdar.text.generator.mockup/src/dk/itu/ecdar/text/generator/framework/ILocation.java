@@ -71,11 +71,6 @@ public abstract class ILocation {
 		
 		while(task.isAlive()) {
 			
-			// here, spending time is necessary
-			// as defined by the ECDAR specification
-			// TODO: verify with andrzej
-			parent.spendTime();
-			
 			if (!checkInvariant()) {
 				// kill the task and message error!
 				try {

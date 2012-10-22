@@ -9,7 +9,7 @@ import java.util.Vector;
  * about it.
  */
 public abstract class IController {
-		
+	
 	ITIOA[] automata;
 	Vector<IInput.IInputEnum> inputs;
 	
