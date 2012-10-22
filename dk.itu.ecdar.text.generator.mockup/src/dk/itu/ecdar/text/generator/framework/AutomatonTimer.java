@@ -54,9 +54,9 @@ public class AutomatonTimer {
 	public long getTime() {
 		long time;
 		if (running)
-			time = t_start - System.currentTimeMillis();
+			time = System.currentTimeMillis() - t_start;
 		else
-			time = t_start - t_pause;
+			time = t_pause - t_start;
 		return time / resolution;
 	}
 	

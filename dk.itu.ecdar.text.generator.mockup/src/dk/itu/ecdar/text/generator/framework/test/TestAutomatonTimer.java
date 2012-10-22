@@ -20,6 +20,32 @@ public class TestAutomatonTimer extends TestCase {
 		Assert.assertTrue(a != timer.getTime());
 	}
 	
+	public void testAddTime() {
+		long a, b;
+		
+		timer.pause();
+		a = timer.getTime();
+		
+		timer.addTime(10);
+		b = timer.getTime();
+		
+		Assert.assertTrue(b - a == 10);
+		timer.resume();
+	}
+	
+	public void testSubTime() {
+		long a, b;
+		
+		timer.pause();
+		a = timer.getTime();
+		
+		timer.subTime(10);
+		b = timer.getTime();
+		
+		Assert.assertTrue(b - a == -10);
+		timer.resume();
+	}
+	
 	public void testPause() {
 		long a, b;
 		
