@@ -10,7 +10,7 @@ import java.util.Vector;
  */
 public abstract class ITIOA {
 	
-	AutomatonTimer time;
+	AutomatonTimer timer;
 	private ILocation current;
 	private ILocation[] locations;
 	
@@ -20,9 +20,8 @@ public abstract class ITIOA {
 	boolean executed;
 
 	public ITIOA() {
-		time = new AutomatonTimer();
+		timer = new AutomatonTimer();
 	}
-	
 	
 	/**
 	 * Notifies the TIOA about input
@@ -40,7 +39,7 @@ public abstract class ITIOA {
 			current.execute();
 		}
 	}
-	
+
 	/**
 	 * Performs a transition on the automaton
 	 * 
@@ -48,15 +47,17 @@ public abstract class ITIOA {
 	 * and take very few time. 
 	 */
 	public void transition() {
-		
-		time.pause();
+		timer.pause();
+		internalTransition();
+		timer.resume();
+	}
+	
+	protected void internalTransition() {
 		
 		// a transition is only possible if the task
 		// at the current location has been performed
-		if (!executing && executed) {
-			time.resume();
+		if (!executing && executed)
 			return;
-		}
 		
 		Vector<IInput.IInputEnum> currentInputs = (Vector<IInput.IInputEnum>) inputs.clone();
 		inputs.clear();
@@ -65,7 +66,6 @@ public abstract class ITIOA {
 			for(IEdgeControllable edge : current.inputEdges) {
 				if (edge.acceptInput(input) && edge.checkGuard()) {
 					current = edge.traverse();
-					time.resume();
 					
 					// in each run the automaton can traverse at most one edge
 					// TODO: talk to andrzej about this!
@@ -79,7 +79,6 @@ public abstract class ITIOA {
 		for(IEdge edge: current.outputEdges){
 			if(edge.checkGuard()) {
 				current = edge.traverse();
-				time.resume();
 				
 				// in each run the automaton can traverse at most one edge
 				// TODO: talk to andrzej about this!
