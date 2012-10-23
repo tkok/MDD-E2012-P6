@@ -83,30 +83,24 @@ public abstract class IEnvironment {
 	public void run() {
 		
 		ControllerThread thread = new ControllerThread(controller);
+		Log.log("Starting controller.");
 		thread.run();
 		
 		timer.reset();
 		
 		while(!inputs.isEmpty()) {
 			if (inputs.get(0).getKey() == timer.getTime()) {
+				Log.log("Signaling \"" + inputs.get(0).getValue() + "\"");
 				controller.notify(inputs.get(0).getValue());
 				inputs.remove(0);
 			}
 		}
 		
+		Log.log("All instructions sent, killing controller...");
 		try {
 			thread.join();
-			
-			
-			/**
-			 * Log whatever...
-			 */
-			
-			Log.log("Log something...");
-			
-			
 		} catch (InterruptedException e) {
-			System.err.print("Error: " + e.getMessage());
+			Log.log("Error: " + e.getMessage());
 		}
 	}
 }
