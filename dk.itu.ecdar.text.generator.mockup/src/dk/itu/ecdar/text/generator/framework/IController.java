@@ -1,7 +1,5 @@
 package dk.itu.ecdar.text.generator.framework;
 
-import java.util.Vector;
-
 /**
  * Base class for controller implementations.
  * 
@@ -11,11 +9,9 @@ import java.util.Vector;
 public abstract class IController {
 	
 	ITIOA[] automata;
-	Vector<String> inputs;
 	
 	public IController(ITIOA[] automata) {
 		this.automata = automata;
-		inputs = new Vector<String>();
 	}
 	
 	/**
@@ -23,22 +19,24 @@ public abstract class IController {
 	 * @param input Some input
 	 */
 	public void notify(String input) {
-		inputs.add(input);
+		for (ITIOA a: automata)
+			a.notify(input);
 	}
 	
 	/**
 	 * Performs a transition on the automata
 	 */
-	public void transition() {
-		for (ITIOA a: automata) {
+	private void transition() {
+		for (ITIOA a: automata)
 			a.transition();
-		}
-		
-		for (ITIOA a: automata) {
-			for (String input : inputs) {
-				a.notify(input);
-			}
-		}
+	}
+	
+	/**
+	 * Performs execution of tasks on the automata
+	 */
+	private void execute() {
+		for (ITIOA a: automata)
+			a.execute();
 	}
 	
 	/**
@@ -46,10 +44,7 @@ public abstract class IController {
 	 */
 	public void run() {
 		while (true) {
-			for (ITIOA a: automata) {
-				a.execute();
-			}
-			
+			execute();
 			transition();
 		}
 	}
