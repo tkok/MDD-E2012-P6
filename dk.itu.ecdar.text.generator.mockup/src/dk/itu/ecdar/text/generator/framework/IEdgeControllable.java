@@ -8,6 +8,10 @@ package dk.itu.ecdar.text.generator.framework;
  */
 public abstract class IEdgeControllable extends IEdge {
 
+	public IEdgeControllable(ILocation to, String signal, ITIOA parent) {
+		super(to, signal, parent);
+	}
+
 	@Override
 	public boolean acceptInput(String input) {
 		return input.equals(signal);

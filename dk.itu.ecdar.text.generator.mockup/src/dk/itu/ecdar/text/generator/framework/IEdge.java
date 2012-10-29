@@ -7,20 +7,24 @@ public abstract class IEdge {
 	
 	// reference parent automaton to check guard against
 	// and to assign to its clock as well as to 
-	ITIOA parent;
+	protected ITIOA parent;
 	
 	// pointing to the l
-	ILocation to;
+	protected ILocation to;
 	
 	// the input this edge is bound to
-	String signal;
+	protected String signal;
 
+	public IEdge(ILocation to, String signal, ITIOA parent) {
+		this.to = to;
+		this.signal = signal;
+		this.parent = parent;
+	}
+	
 	/**
 	 * @return True if the guard holds, false otherwise
 	 */
-	public boolean checkGuard() {
-		return true;
-	}
+	public abstract boolean checkGuard();
 	
 	/**
 	 * @param input Some input
