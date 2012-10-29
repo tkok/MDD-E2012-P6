@@ -50,8 +50,8 @@ public abstract class ILocation {
 	// reference the parent automaton to check invariant against it's clock
 	protected ITIOA parent;
 
-	IEdgeUncontrollable[] outputEdges;
-	IEdgeControllable[] inputEdges;
+	protected IEdgeUncontrollable[] outputEdges;
+	protected IEdgeControllable[] inputEdges;
 	String name;
 
 	TaskExecutor executor;
