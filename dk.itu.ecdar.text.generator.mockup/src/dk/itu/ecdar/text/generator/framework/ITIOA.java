@@ -5,7 +5,7 @@ package dk.itu.ecdar.text.generator.framework;
  */
 public abstract class ITIOA {
 
-	AutomatonTimer timer;
+	public AutomatonTimer timer;
 	private ILocation current;
 	boolean executing, executed;
 
