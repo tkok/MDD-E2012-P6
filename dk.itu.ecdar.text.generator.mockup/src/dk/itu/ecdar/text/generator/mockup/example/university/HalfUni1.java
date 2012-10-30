@@ -135,12 +135,14 @@ public class HalfUni1 extends ITIOA {
 		public A(HalfUni1 parent) {
 			super("a", parent);
 			
-			outputEdges = new IEdgeUncontrollable[1];
-			outputEdges[0] = new A_PATENT_A(parent);
+			outputEdges = new IEdgeUncontrollable[]{
+					new A_PATENT_A(parent)
+			};
 			
-			inputEdges = new IEdgeControllable[2];
-			inputEdges[0] = new A_PUB_A(parent);
-			inputEdges[1] = new A_GRANT_B(parent);
+			inputEdges = new IEdgeControllable[]{
+					new A_PUB_A(parent),
+					new A_GRANT_B(parent)
+			};
 		}
 
 		@Override
@@ -165,13 +167,15 @@ public class HalfUni1 extends ITIOA {
 		public B(HalfUni1 parent) {
 			super("b", parent);
 			
-			outputEdges = new IEdgeUncontrollable[2];
-			outputEdges[0] = new B_PATENT_B(parent);
-			outputEdges[1] = new B_COIN_A(parent);
+			outputEdges = new IEdgeUncontrollable[]{
+					new B_PATENT_B(parent),
+					new B_COIN_A(parent)
+			};
 			
-			inputEdges = new IEdgeControllable[2];
-			inputEdges[0] = new B_PUB_B(parent);
-			inputEdges[1] = new B_GRANT_B(parent);
+			inputEdges = new IEdgeControllable[]{
+					new B_PUB_B(parent),
+					new B_GRANT_B(parent)
+			};
 		}
 
 		@Override

@@ -155,12 +155,13 @@ public class Researcher extends ITIOA {
 		public Idle(Researcher parent) {
 			super("Idle", parent);
 			
-			outputEdges = new IEdgeUncontrollable[0];
+			outputEdges = new IEdgeUncontrollable[]{};
 			
-			inputEdges = new IEdgeControllable[3];
-			inputEdges[0] = new Idle_COF_Coffee(parent);
-			inputEdges[1] = new Idle_TEA_Tea(parent);
-			inputEdges[2] = new Idle_PUB_Stuck(parent);
+			inputEdges = new IEdgeControllable[]{
+					new Idle_COF_Coffee(parent),
+					new Idle_TEA_Tea(parent),
+					new Idle_PUB_Stuck(parent)
+			};
 		}
 
 		@Override
@@ -185,10 +186,11 @@ public class Researcher extends ITIOA {
 		public Coffee(Researcher parent) {
 			super("Coffee", parent);
 			
-			outputEdges = new IEdgeUncontrollable[1];
-			outputEdges[0] = new Coffe_PUB_Idle(parent);
+			outputEdges = new IEdgeUncontrollable[]{
+					new Coffe_PUB_Idle(parent)	
+			};
 			
-			inputEdges = new IEdgeControllable[0];
+			inputEdges = new IEdgeControllable[]{};
 		}
 
 		@Override
@@ -212,10 +214,11 @@ public class Researcher extends ITIOA {
 		public Tea(Researcher parent) {
 			super("Tea", parent);
 			
-			outputEdges = new IEdgeUncontrollable[1];
-			outputEdges[0] = new Tea_PUB_Idle(parent);
+			outputEdges = new IEdgeUncontrollable[]{
+					new Tea_PUB_Idle(parent)
+			};
 			
-			inputEdges = new IEdgeControllable[0];
+			inputEdges = new IEdgeControllable[]{};
 		}
 
 		@Override
@@ -240,12 +243,14 @@ public class Researcher extends ITIOA {
 		public Stuck(Researcher parent) {
 			super("Stuck", parent);
 			
-			outputEdges = new IEdgeUncontrollable[1];
-			outputEdges[0] = new Stuck_PUB_Stuck(parent);
+			outputEdges = new IEdgeUncontrollable[]{
+					new Stuck_PUB_Stuck(parent)
+			};
 			
-			inputEdges = new IEdgeControllable[2];
-			inputEdges[0] = new Stuck_COF_Stuck(parent);
-			inputEdges[0] = new Stuck_TEA_Stuck(parent);
+			inputEdges = new IEdgeControllable[]{
+					new Stuck_COF_Stuck(parent),
+					new Stuck_TEA_Stuck(parent)
+			};
 		}
 
 		@Override
