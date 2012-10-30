@@ -31,7 +31,7 @@ public abstract class IEnvironment {
 		}
 	}
 	
-	IController controller;
+	protected IController controller;
 	AutomatonTimer timer;
     ArrayList<SimpleEntry<Long, String>> inputs;
 	
