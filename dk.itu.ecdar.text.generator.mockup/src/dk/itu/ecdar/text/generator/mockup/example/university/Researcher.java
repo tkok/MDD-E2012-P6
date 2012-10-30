@@ -10,8 +10,8 @@ public class Researcher extends ITIOA {
 	// Controllable edges
 	class Idle_COF_Coffee extends IEdgeControllable {
 
-		public Idle_COF_Coffee(ILocation to, ITIOA parent) {
-			super(to, "cof", parent);
+		public Idle_COF_Coffee(Researcher parent) {
+			super(parent.coffee, "cof", parent);
 		}
 
 		@Override
@@ -28,8 +28,8 @@ public class Researcher extends ITIOA {
 	
 	class Idle_TEA_Tea extends IEdgeControllable {
 
-		public Idle_TEA_Tea(ILocation to, ITIOA parent) {
-			super(to, "tea", parent);
+		public Idle_TEA_Tea(Researcher parent) {
+			super(parent.tea, "tea", parent);
 		}
 		
 		@Override
@@ -46,8 +46,8 @@ public class Researcher extends ITIOA {
 	
 	class Idle_PUB_Stuck extends IEdgeControllable {
 
-		public Idle_PUB_Stuck(ILocation to, ITIOA parent) {
-			super(to, "tea", parent);
+		public Idle_PUB_Stuck(Researcher parent) {
+			super(parent.stuck, "tea", parent);
 		}
 
 		@Override
@@ -63,8 +63,8 @@ public class Researcher extends ITIOA {
 
 	class Stuck_TEA_Stuck extends IEdgeControllable {
 
-		public Stuck_TEA_Stuck(ILocation to, ITIOA parent) {
-			super(to, "tea", parent);
+		public Stuck_TEA_Stuck(Researcher parent) {
+			super(parent.stuck, "tea", parent);
 		}
 
 		@Override
@@ -80,8 +80,8 @@ public class Researcher extends ITIOA {
 	
 	class Stuck_COF_Stuck extends IEdgeControllable {
 
-		public Stuck_COF_Stuck(ILocation to, ITIOA parent) {
-			super(to, "cof", parent);
+		public Stuck_COF_Stuck(Researcher parent) {
+			super(parent.stuck, "cof", parent);
 		}
 
 		@Override
@@ -98,8 +98,8 @@ public class Researcher extends ITIOA {
 	// Uncontrollable edges
 	class Coffe_PUB_Idle extends IEdgeUncontrollable {
 
-		public Coffe_PUB_Idle(ILocation to, ITIOA parent) {
-			super(to, "pub", parent);
+		public Coffe_PUB_Idle(Researcher parent) {
+			super(parent.idle, "pub", parent);
 		}
 
 		@Override
@@ -116,8 +116,8 @@ public class Researcher extends ITIOA {
 	
 	class Tea_PUB_Idle extends IEdgeUncontrollable {
 
-		public Tea_PUB_Idle(ILocation to, ITIOA parent) {
-			super(to, "pub", parent);
+		public Tea_PUB_Idle(Researcher parent) {
+			super(parent.idle, "pub", parent);
 		}
 
 		@Override
@@ -134,8 +134,8 @@ public class Researcher extends ITIOA {
 
 	class Stuck_PUB_Stuck extends IEdgeUncontrollable {
 
-		public Stuck_PUB_Stuck(ILocation to, ITIOA parent) {
-			super(to, "pub", parent);
+		public Stuck_PUB_Stuck(Researcher parent) {
+			super(parent.stuck, "pub", parent);
 		}
 
 		@Override
@@ -158,9 +158,9 @@ public class Researcher extends ITIOA {
 			outputEdges = new IEdgeUncontrollable[0];
 			
 			inputEdges = new IEdgeControllable[3];
-			inputEdges[0] = new Idle_COF_Coffee(parent.coffee, parent);
-			inputEdges[1] = new Idle_TEA_Tea(parent.tea, parent);
-			inputEdges[2] = new Idle_PUB_Stuck(parent.stuck, parent);
+			inputEdges[0] = new Idle_COF_Coffee(parent);
+			inputEdges[1] = new Idle_TEA_Tea(parent);
+			inputEdges[2] = new Idle_PUB_Stuck(parent);
 		}
 
 		@Override
@@ -186,7 +186,7 @@ public class Researcher extends ITIOA {
 			super("Coffee", parent);
 			
 			outputEdges = new IEdgeUncontrollable[1];
-			outputEdges[0] = new Coffe_PUB_Idle(parent.idle, parent);
+			outputEdges[0] = new Coffe_PUB_Idle(parent);
 			
 			inputEdges = new IEdgeControllable[0];
 		}
@@ -213,7 +213,7 @@ public class Researcher extends ITIOA {
 			super("Tea", parent);
 			
 			outputEdges = new IEdgeUncontrollable[1];
-			outputEdges[0] = new Tea_PUB_Idle(parent.idle, parent);
+			outputEdges[0] = new Tea_PUB_Idle(parent);
 			
 			inputEdges = new IEdgeControllable[0];
 		}
@@ -241,11 +241,11 @@ public class Researcher extends ITIOA {
 			super("Stuck", parent);
 			
 			outputEdges = new IEdgeUncontrollable[1];
-			outputEdges[0] = new Stuck_PUB_Stuck(parent.stuck, parent);
+			outputEdges[0] = new Stuck_PUB_Stuck(parent);
 			
 			inputEdges = new IEdgeControllable[2];
-			inputEdges[0] = new Stuck_COF_Stuck(parent.stuck, parent);
-			inputEdges[0] = new Stuck_TEA_Stuck(parent.stuck, parent);
+			inputEdges[0] = new Stuck_COF_Stuck(parent);
+			inputEdges[0] = new Stuck_TEA_Stuck(parent);
 		}
 
 		@Override
