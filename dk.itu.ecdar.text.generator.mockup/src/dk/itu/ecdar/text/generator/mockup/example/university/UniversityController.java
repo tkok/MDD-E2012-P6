@@ -9,6 +9,13 @@ public class UniversityController extends IController {
 		super(automata);
 	}
 	
+	/* These static factories should normally not be here but
+	 * instead the specification should make the generator place
+	 * the correct configuration in the constructor above,
+	 * calling super() with the right array of automata. However,
+	 * for testing it is more convenient to have it like this so
+	 * we can switch quickly.
+	 */
 	public static UniversityController
 	system_Machine_Researcher_University_HalfUni1_HalfUni2_Spec() {
 		return new UniversityController(new ITIOA[]{new Machine(),
