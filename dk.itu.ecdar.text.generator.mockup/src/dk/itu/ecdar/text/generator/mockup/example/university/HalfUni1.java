@@ -17,6 +17,7 @@ public class HalfUni1 extends ITIOA {
 		@Override
 		public boolean checkGuard() {
 			return true;
+			//AMAZINGLY TRUE
 		}
 
 		@Override
