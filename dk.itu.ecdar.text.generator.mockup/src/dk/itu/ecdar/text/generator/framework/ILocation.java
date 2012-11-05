@@ -4,9 +4,6 @@ package dk.itu.ecdar.text.generator.framework;
  * Base class for location implementations.
  * 
  * The location can execute a task which will be launched in a separate thread.
- * While running the task, the invariant will constantly be checked. If it is
- * violated (i.e. the task took to long to complete) it will notify the
- * controller singleton about the violation.
  */
 public abstract class ILocation {
 
