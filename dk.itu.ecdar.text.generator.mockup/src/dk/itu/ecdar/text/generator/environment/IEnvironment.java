@@ -17,21 +17,6 @@ import dk.itu.ecdar.text.generator.framework.*;
  */
 public abstract class IEnvironment {
 	
-	/**
-	 * This thread class executes the controller separately 
-	 */
-	public class ControllerThread extends Thread{
-		IController controller;
-		
-		public ControllerThread(IController c) {
-			super();
-			controller = c;
-		}
-		
-		public void run() {
-			controller.run();
-		}
-	}
 	
 	protected IController controller;
 	AutomatonTimer timer;
@@ -65,7 +50,7 @@ public abstract class IEnvironment {
 	 * @param file Path to the file to parse.
 	 */
 	public void parse(String file) {
-		System.err.println("Parsing \"" + file + "\"...");
+		Log.log("Parsing \"" + file + "\"...");
 		Scanner scanner;
 		
 		try {
@@ -85,7 +70,7 @@ public abstract class IEnvironment {
 			scanner.close();
 			
 		} catch (FileNotFoundException e) {
-			System.err.println("Could not open file \"" + file + "\", will exit now.");
+			Log.log("Could not open file \"" + file + "\", will exit now.");
 			System.exit(-1);
 		}
 	}
@@ -95,12 +80,12 @@ public abstract class IEnvironment {
 	 */
 	public void run() {
 		
-		ControllerThread thread = new ControllerThread(controller);
-		Log.log("Starting controller.");
-		thread.run();
+		Log.log("Starting controller...");
+		controller.run();
 		
 		timer.reset();
 		
+		Log.log("Current time is " + String.valueOf(timer.getTime()));
 		while(!inputs.isEmpty()) {
 			if (inputs.get(0).getKey() == timer.getTime()) {
 				Log.log("Signaling \"" + inputs.get(0).getValue() + "\"");
@@ -109,11 +94,6 @@ public abstract class IEnvironment {
 			}
 		}
 		
-		Log.log("All instructions sent, killing controller...");
-		try {
-			thread.join();
-		} catch (InterruptedException e) {
-			Log.log("Error: " + e.getMessage());
-		}
+		Log.log("All instructions sent.");
 	}
 }
