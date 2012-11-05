@@ -11,12 +11,12 @@ public class Researcher extends ITIOA {
 	class Idle_COF_Coffee extends IEdgeControllable {
 
 		public Idle_COF_Coffee(Researcher parent) {
-			super(parent.coffee, "cof", parent);
+			super(parent.idle, parent.coffee, "cof", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return true;
+			return from.checkInvariant() && true;
 		}
 
 		@Override
@@ -29,12 +29,12 @@ public class Researcher extends ITIOA {
 	class Idle_TEA_Tea extends IEdgeControllable {
 
 		public Idle_TEA_Tea(Researcher parent) {
-			super(parent.tea, "tea", parent);
+			super(parent.idle, parent.tea, "tea", parent);
 		}
 		
 		@Override
 		public boolean checkGuard() {
-			return parent.timer.getTime() <= 15;
+			return from.checkInvariant() && parent.timer.getTime() <= 15;
 		}
 		
 		@Override
@@ -47,12 +47,12 @@ public class Researcher extends ITIOA {
 	class Idle_PUB_Stuck extends IEdgeControllable {
 
 		public Idle_PUB_Stuck(Researcher parent) {
-			super(parent.stuck, "tea", parent);
+			super(parent.idle, parent.stuck, "tea", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return parent.timer.getTime() > 15;
+			return from.checkInvariant() && parent.timer.getTime() > 15;
 		}
 
 		@Override
@@ -64,12 +64,12 @@ public class Researcher extends ITIOA {
 	class Stuck_TEA_Stuck extends IEdgeControllable {
 
 		public Stuck_TEA_Stuck(Researcher parent) {
-			super(parent.stuck, "tea", parent);
+			super(parent.stuck, parent.stuck, "tea", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return true;
+			return from.checkInvariant() && true;
 		}
 
 		@Override
@@ -81,12 +81,12 @@ public class Researcher extends ITIOA {
 	class Stuck_COF_Stuck extends IEdgeControllable {
 
 		public Stuck_COF_Stuck(Researcher parent) {
-			super(parent.stuck, "cof", parent);
+			super(parent.stuck, parent.stuck, "cof", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return true;
+			return from.checkInvariant() && true;
 		}
 
 		@Override
@@ -99,12 +99,12 @@ public class Researcher extends ITIOA {
 	class Coffe_PUB_Idle extends IEdgeUncontrollable {
 
 		public Coffe_PUB_Idle(Researcher parent) {
-			super(parent.idle, "pub", parent);
+			super(parent.coffee, parent.idle, "pub", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return parent.timer.getTime() >= 2;
+			return from.checkInvariant() && parent.timer.getTime() >= 2;
 		}
 
 		@Override
@@ -117,12 +117,12 @@ public class Researcher extends ITIOA {
 	class Tea_PUB_Idle extends IEdgeUncontrollable {
 
 		public Tea_PUB_Idle(Researcher parent) {
-			super(parent.idle, "pub", parent);
+			super(parent.tea, parent.idle, "pub", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return parent.timer.getTime() >= 4;
+			return from.checkInvariant() && parent.timer.getTime() >= 4;
 		}
 
 		@Override
@@ -135,12 +135,12 @@ public class Researcher extends ITIOA {
 	class Stuck_PUB_Stuck extends IEdgeUncontrollable {
 
 		public Stuck_PUB_Stuck(Researcher parent) {
-			super(parent.stuck, "pub", parent);
+			super(parent.stuck, parent.stuck, "pub", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return true;
+			return from.checkInvariant() && true;
 		}
 
 		@Override

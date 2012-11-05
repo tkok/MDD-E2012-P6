@@ -11,12 +11,12 @@ public class HalfUni1 extends ITIOA {
 	class A_GRANT_B extends IEdgeControllable {
 
 		public A_GRANT_B(HalfUni1 parent) {
-			super(parent.b, "grant", parent);
+			super(parent.a, parent.b, "grant", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return true;
+			return from.checkInvariant() && true;
 		}
 
 		@Override
@@ -29,12 +29,12 @@ public class HalfUni1 extends ITIOA {
 	class A_PUB_A extends IEdgeControllable {
 
 		public A_PUB_A(HalfUni1 parent) {
-			super(parent.a, "pub", parent);
+			super(parent.a, parent.a, "pub", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return true;
+			return from.checkInvariant() && true;
 		}
 
 		@Override
@@ -46,12 +46,12 @@ public class HalfUni1 extends ITIOA {
 	class B_PUB_B extends IEdgeControllable {
 
 		public B_PUB_B(HalfUni1 parent) {
-			super(parent.b, "pub", parent);
+			super(parent.b, parent.b, "pub", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return true;
+			return from.checkInvariant() && true;
 		}
 
 		@Override
@@ -63,12 +63,12 @@ public class HalfUni1 extends ITIOA {
 	class B_GRANT_B extends IEdgeControllable {
 
 		public B_GRANT_B(HalfUni1 parent) {
-			super(parent.b, "grant", parent);
+			super(parent.b, parent.b, "grant", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return true;
+			return from.checkInvariant() && true;
 		}
 
 		@Override
@@ -81,12 +81,12 @@ public class HalfUni1 extends ITIOA {
 	class A_PATENT_A extends IEdgeUncontrollable {
 
 		public A_PATENT_A(HalfUni1 parent) {
-			super(parent.a, "patent", parent);
+			super(parent.a, parent.a, "patent", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return true;
+			return from.checkInvariant() && true;
 		}
 
 		@Override
@@ -98,12 +98,12 @@ public class HalfUni1 extends ITIOA {
 	class B_PATENT_B extends IEdgeUncontrollable {
 
 		public B_PATENT_B(HalfUni1 parent) {
-			super(parent.b, "patent", parent);
+			super(parent.b, parent.b, "patent", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return true;
+			return from.checkInvariant() && true;
 		}
 
 		@Override
@@ -115,12 +115,12 @@ public class HalfUni1 extends ITIOA {
 	class B_COIN_A extends IEdgeUncontrollable {
 
 		public B_COIN_A(HalfUni1 parent) {
-			super(parent.a, "coin", parent);
+			super(parent.b, parent.a, "coin", parent);
 		}
 
 		@Override
 		public boolean checkGuard() {
-			return true;
+			return from.checkInvariant() && true;
 		}
 
 		@Override
