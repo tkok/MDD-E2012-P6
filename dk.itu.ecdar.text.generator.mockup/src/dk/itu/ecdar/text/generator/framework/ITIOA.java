@@ -59,6 +59,10 @@ public abstract class ITIOA {
 	public void run() {
 		if (!running) {
 			timer.reset();
+			
+			// Execute the initial location
+			current.execute();
+			
 			transitionThread.run();
 			running = true;
 		}
