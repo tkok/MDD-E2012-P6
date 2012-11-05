@@ -75,7 +75,7 @@ public abstract class ILocation {
 	/**
 	 * @return True if the invariant holds, false otherwise
 	 */
-	public abstract boolean checkInvariant();
+	public abstract boolean checkInvariant(long time);
 
 	/**
 	 * @return True if the location's task is preemptive, false otherwise
