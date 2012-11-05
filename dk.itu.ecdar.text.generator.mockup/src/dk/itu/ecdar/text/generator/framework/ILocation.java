@@ -68,6 +68,11 @@ public abstract class ILocation {
 	}
 
 	/**
+	 * Set up edges after creation.
+	 */
+	public abstract void setupEdges();
+	
+	/**
 	 * @return True if the invariant holds, false otherwise
 	 */
 	public abstract boolean checkInvariant(long time);
