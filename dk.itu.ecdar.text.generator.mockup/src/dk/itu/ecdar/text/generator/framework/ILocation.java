@@ -11,21 +11,16 @@ public abstract class ILocation {
 	 * A thread executing the task of a location.
 	 */
 	public class TaskThread extends Thread {
-		ILocation parent;
-
-		public TaskThread(ILocation parent) {
-			this.parent = parent;
-		}
-
+		
 		public void run() {
 			
-			parent.parent.executing = true;
-			parent.task();
+			parent.executing = true;
+			task();
 			
 			// these need to be set "at the same time", therefore synchronized
-			synchronized (parent.parent) {
-				parent.parent.executing = false;
-				parent.parent.executed = true;
+			synchronized (parent) {
+				parent.executing = false;
+				parent.executed = true;
 			}
 		}
 	}
@@ -43,12 +38,12 @@ public abstract class ILocation {
 		this.name = name;
 		this.parent = parent;
 	}
-
+	
 	/**
 	 * Executes the location's task
 	 */
 	public void execute() {
-		executor = new TaskThread(this);
+		executor = new TaskThread();
 		executor.run();		
 	}
 
