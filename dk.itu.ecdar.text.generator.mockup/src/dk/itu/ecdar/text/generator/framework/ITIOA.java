@@ -100,6 +100,7 @@ public abstract class ITIOA {
 		// Traverse and reset.
 		current = that.traverse();
 		reset();
+		execute();
 	}
 
 	/**
