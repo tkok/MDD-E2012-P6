@@ -1,6 +1,6 @@
 package dk.itu.ecdar.text.generator.mockup.example.university;
 
-import dk.itu.ecdar.text.generator.environment.Log;
+import dk.itu.ecdar.text.generator.environment.QuickLog;
 import dk.itu.ecdar.text.generator.framework.IEdgeControllable;
 import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
 import dk.itu.ecdar.text.generator.framework.ILocation;
@@ -161,7 +161,7 @@ public class HalfUni1 extends ITIOA {
 
 		@Override
 		public void task() {
-			Log.log("Executing task at " + name + " in HalfUni1");
+			QuickLog.log("Executing task at " + name + " in HalfUni1", 10);
 		}
 	}
 	
@@ -196,7 +196,7 @@ public class HalfUni1 extends ITIOA {
 
 		@Override
 		public void task() {
-			Log.log("Executing task at " + name + " in HalfUni1");
+			QuickLog.log("Executing task at " + name + " in HalfUni1", 10);
 		}
 	}
 	

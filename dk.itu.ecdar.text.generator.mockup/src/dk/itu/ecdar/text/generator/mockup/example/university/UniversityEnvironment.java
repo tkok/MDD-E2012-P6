@@ -1,6 +1,7 @@
 package dk.itu.ecdar.text.generator.mockup.example.university;
 
 import dk.itu.ecdar.text.generator.environment.IEnvironment;
+import dk.itu.ecdar.text.generator.environment.QuickLog;
 
 public class UniversityEnvironment extends IEnvironment {
 
@@ -11,6 +12,7 @@ public class UniversityEnvironment extends IEnvironment {
 	}
 
 	public static void main(String[] args) {
+		QuickLog.setLogLevel(10);
 		IEnvironment universityEnvironment = new UniversityEnvironment();
 		universityEnvironment.parse(args[0]);
 		universityEnvironment.run();

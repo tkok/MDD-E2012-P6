@@ -1,5 +1,6 @@
 package dk.itu.ecdar.text.generator.mockup.example.university;
 
+import dk.itu.ecdar.text.generator.environment.QuickLog;
 import dk.itu.ecdar.text.generator.framework.IEdgeControllable;
 import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
 import dk.itu.ecdar.text.generator.framework.ILocation;
@@ -148,8 +149,7 @@ public class Spec extends ITIOA {
 
 		@Override
 		public void task() {
-			// TODO Auto-generated method stub
-			
+			QuickLog.log("Executing task at " + name + " in Spec", 10);
 		}
 		
 	}
@@ -183,8 +183,7 @@ public class Spec extends ITIOA {
 
 		@Override
 		public void task() {
-			// TODO Auto-generated method stub
-			
+			QuickLog.log("Executing task at " + name + " in Spec", 10);
 		}
 		
 	}
@@ -218,8 +217,7 @@ public class Spec extends ITIOA {
 
 		@Override
 		public void task() {
-			// TODO Auto-generated method stub
-			
+			QuickLog.log("Executing task at " + name + " in Spec", 10);
 		}
 		
 	}
