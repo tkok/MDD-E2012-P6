@@ -5,10 +5,6 @@ package dk.itu.ecdar.text.generator.framework;
  */
 public abstract class IEdge {
 	
-	// reference parent automaton to check guard against
-	// and to assign to its clock
-	protected ITIOA parent;
-	
 	// pointing to the location coming from (for guard checking)
 	// and to the new location
 	protected ILocation from, to;
@@ -16,11 +12,10 @@ public abstract class IEdge {
 	// the input this edge is bound to
 	protected String signal;
 
-	public IEdge(ILocation from, ILocation to, String signal, ITIOA parent) {
+	public IEdge(ILocation from, ILocation to, String signal) {
 		this.from = from;
 		this.to = to;
 		this.signal = signal;
-		this.parent = parent;
 	}
 	
 	/**

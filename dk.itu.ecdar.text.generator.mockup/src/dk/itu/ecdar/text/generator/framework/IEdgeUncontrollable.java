@@ -8,8 +8,8 @@ package dk.itu.ecdar.text.generator.framework;
  */
 public abstract class IEdgeUncontrollable extends IEdge {
 
-	public IEdgeUncontrollable(ILocation from, ILocation to, String signal, ITIOA parent) {
-		super(from, to, signal, parent);
+	public IEdgeUncontrollable(ILocation from, ILocation to, String signal) {
+		super(from, to, signal);
 	}
 
 	@Override
