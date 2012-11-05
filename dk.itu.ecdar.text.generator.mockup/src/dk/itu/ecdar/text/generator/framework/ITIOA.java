@@ -22,14 +22,26 @@ public abstract class ITIOA {
 		public void run () {
 			while (true) {
 				parent.transition();
+				
+				// Put this thread to sleep while waiting for the first
+				// edge to become available (lazy waiting)
+				try {
+					super.sleep(parent.getMinWaitingTime());
+				} catch (InterruptedException e) {
+					
+					// TODO: What to do here?
+					e.printStackTrace();
+				}
 			}
 		}
 	}
 	
 	public AutomatonTimer timer;
 	protected ILocation current;
+	
 	boolean executing, executed;
 	private boolean running;
+	
 	private TransitionThread transitionThread;
 
 	public ITIOA() {
@@ -103,6 +115,10 @@ public abstract class ITIOA {
 		current = that.traverse();
 		reset();
 		execute();
+		
+		// Wake up the transition thread!
+		// TODO: Is this sensitive enough?
+		transitionThread.interrupt();
 	}
 
 	/**
@@ -159,16 +175,6 @@ public abstract class ITIOA {
 					return;
 				}
 			}
-		}
-		
-		// Put this thread to sleep while waiting for the first
-		// edge to become available (lazy waiting)
-		try {
-			Thread.sleep(getMinWaitingTime());
-		} catch (InterruptedException e) {
-			
-			// TODO: What to do here?
-			e.printStackTrace();
 		}
 	}
 }
