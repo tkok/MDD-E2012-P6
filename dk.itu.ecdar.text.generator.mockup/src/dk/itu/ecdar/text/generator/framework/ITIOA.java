@@ -138,7 +138,7 @@ public abstract class ITIOA {
 				
 				// TODO: Time will continue. How should we handle this? Synchrony hypothesis?
 				check = e.checkGuard(getTime() + time);
-				if (check)
+				if (check/* && e.to != current*/) // TODO: Should redundant edges be checked here?
 					break;
 			}			
 		}
@@ -160,7 +160,7 @@ public abstract class ITIOA {
 		// at the current location has been performed.
 		if (!executing && executed) {
 			for (IEdge edge : current.outputEdges) {
-				if (edge.checkGuard(getTime())) {
+				if (edge.checkGuard(getTime())/* && current != edge.to*/) { // TODO: Should redundant edges be checked here?
 					current = edge.traverse();
 
 					// Reset only if sure that traversal has happened
