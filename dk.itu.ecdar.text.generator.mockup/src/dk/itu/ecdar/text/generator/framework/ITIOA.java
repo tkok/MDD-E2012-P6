@@ -140,7 +140,9 @@ public abstract class ITIOA {
 		while (!check) {
 			time++;
 			for (IEdge e : current.inputEdges) {
-				check = e.checkGuard(time);
+				
+				// TODO: Time will continue. How should we handle this? Synchrony hypothesis?
+				check = e.checkGuard(timer.getTime() + time);
 				if (check)
 					break;
 			}			
