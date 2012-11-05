@@ -10,8 +10,8 @@ public class Machine extends ITIOA {
 	// Controllable edges
 	class Idle_COIN_Serving extends IEdgeControllable {
 
-		public Idle_COIN_Serving(Machine parent) {
-			super(parent.idle, parent.serving, "coin", parent);
+		public Idle_COIN_Serving() {
+			super(idle, serving, "coin");
 		}
 
 		@Override
@@ -21,16 +21,15 @@ public class Machine extends ITIOA {
 
 		@Override
 		public ILocation traverse() {
-			parent.timer.reset();
+			resetTime();
 			return to;
 		}
-		
 	}
 	
 	class Serving_COIN_Serving extends IEdgeControllable {
 
-		public Serving_COIN_Serving(Machine parent) {
-			super(parent.serving, parent.serving, "coin", parent);
+		public Serving_COIN_Serving() {
+			super(serving, serving, "coin");
 		}
 
 		@Override
@@ -42,14 +41,13 @@ public class Machine extends ITIOA {
 		public ILocation traverse() {
 			return to;
 		}
-		
 	}
 	
 	// Uncontrollable edges
 	class Idle_TEA_Idle extends IEdgeUncontrollable {
 
-		public Idle_TEA_Idle(Machine parent) {
-			super(parent.idle, parent.idle, "tea", parent);
+		public Idle_TEA_Idle() {
+			super(idle, idle, "tea");
 		}
 
 		@Override
@@ -61,13 +59,12 @@ public class Machine extends ITIOA {
 		public ILocation traverse() {
 			return to;
 		}
-		
 	}
 	
 	class Serving_TEA_Idle extends IEdgeUncontrollable {
 
-		public Serving_TEA_Idle(Machine parent) {
-			super(parent.serving, parent.idle, "tea", parent);
+		public Serving_TEA_Idle() {
+			super(serving, idle, "tea");
 		}
 
 		@Override
@@ -84,8 +81,8 @@ public class Machine extends ITIOA {
 	
 	class Serving_COF_Idle extends IEdgeUncontrollable {
 
-		public Serving_COF_Idle(Machine parent) {
-			super(parent.serving, parent.idle, "cof", parent);
+		public Serving_COF_Idle() {
+			super(serving, idle, "cof");
 		}
 
 		@Override
@@ -105,13 +102,16 @@ public class Machine extends ITIOA {
 
 		public Idle(Machine parent) {
 			super("idle", parent);
-			
+		}
+		
+		@Override
+		public void setupEdges() {
 			outputEdges = new IEdgeUncontrollable[]{
-					new Idle_TEA_Idle(parent)
+					new Idle_TEA_Idle()
 			};
 			
 			inputEdges = new IEdgeControllable[]{
-					new Idle_COIN_Serving(parent)
+					new Idle_COIN_Serving()
 			};
 		}
 
@@ -130,22 +130,26 @@ public class Machine extends ITIOA {
 			// TODO Auto-generated method stub
 			
 		}
-		
 	}
 	
 	class Serving extends ILocation {
-
+		
 		public Serving(Machine parent) {
 			super("serving", parent);
+		}
+		
+		@Override
+		public void setupEdges() {
 
 			outputEdges = new IEdgeUncontrollable[]{
-					new Serving_TEA_Idle(parent),
-					new Serving_COF_Idle(parent)
+					new Serving_TEA_Idle(),
+					new Serving_COF_Idle()
 			};
 			
 			inputEdges = new IEdgeControllable[]{
-					new Serving_COIN_Serving(parent)
+					new Serving_COIN_Serving()
 			};
+			
 		}
 
 		@Override
@@ -162,8 +166,7 @@ public class Machine extends ITIOA {
 		public void task() {
 			// TODO Auto-generated method stub
 			
-		}
-		
+		}		
 	}
 	
 	ILocation idle, serving;
@@ -173,6 +176,9 @@ public class Machine extends ITIOA {
 		
 		idle = new Idle(this);
 		serving = new Serving(this);
+		
+		idle.setupEdges();
+		serving.setupEdges();
 		
 		current = idle;
 	}

@@ -10,8 +10,8 @@ public class HalfUni1 extends ITIOA {
 	// Controllable Edges
 	class A_GRANT_B extends IEdgeControllable {
 
-		public A_GRANT_B(HalfUni1 parent) {
-			super(parent.a, parent.b, "grant", parent);
+		public A_GRANT_B() {
+			super(a, b, "grant");
 		}
 
 		@Override
@@ -21,15 +21,15 @@ public class HalfUni1 extends ITIOA {
 
 		@Override
 		public ILocation traverse() {
-			parent.timer.reset();
+			resetTime();
 			return to;
 		}
 	}
 	
 	class A_PUB_A extends IEdgeControllable {
 
-		public A_PUB_A(HalfUni1 parent) {
-			super(parent.a, parent.a, "pub", parent);
+		public A_PUB_A() {
+			super(a, a, "pub");
 		}
 
 		@Override
@@ -45,8 +45,8 @@ public class HalfUni1 extends ITIOA {
 	
 	class B_PUB_B extends IEdgeControllable {
 
-		public B_PUB_B(HalfUni1 parent) {
-			super(parent.b, parent.b, "pub", parent);
+		public B_PUB_B() {
+			super(b, b, "pub");
 		}
 
 		@Override
@@ -62,8 +62,8 @@ public class HalfUni1 extends ITIOA {
 	
 	class B_GRANT_B extends IEdgeControllable {
 
-		public B_GRANT_B(HalfUni1 parent) {
-			super(parent.b, parent.b, "grant", parent);
+		public B_GRANT_B() {
+			super(b, b, "grant");
 		}
 
 		@Override
@@ -80,8 +80,8 @@ public class HalfUni1 extends ITIOA {
 	// Uncontrollable Edges
 	class A_PATENT_A extends IEdgeUncontrollable {
 
-		public A_PATENT_A(HalfUni1 parent) {
-			super(parent.a, parent.a, "patent", parent);
+		public A_PATENT_A() {
+			super(a, a, "patent");
 		}
 
 		@Override
@@ -97,8 +97,8 @@ public class HalfUni1 extends ITIOA {
 	
 	class B_PATENT_B extends IEdgeUncontrollable {
 
-		public B_PATENT_B(HalfUni1 parent) {
-			super(parent.b, parent.b, "patent", parent);
+		public B_PATENT_B() {
+			super(b, b, "patent");
 		}
 
 		@Override
@@ -114,8 +114,8 @@ public class HalfUni1 extends ITIOA {
 	
 	class B_COIN_A extends IEdgeUncontrollable {
 
-		public B_COIN_A(HalfUni1 parent) {
-			super(parent.b, parent.a, "coin", parent);
+		public B_COIN_A() {
+			super(b, a, "coin");
 		}
 
 		@Override
@@ -134,17 +134,20 @@ public class HalfUni1 extends ITIOA {
 
 		public A(HalfUni1 parent) {
 			super("a", parent);
-			
+		}
+
+		@Override
+		public void setupEdges() {
 			outputEdges = new IEdgeUncontrollable[]{
-					new A_PATENT_A(parent)
+					new A_PATENT_A()
 			};
 			
 			inputEdges = new IEdgeControllable[]{
-					new A_PUB_A(parent),
-					new A_GRANT_B(parent)
+					new A_PUB_A(),
+					new A_GRANT_B()
 			};
 		}
-
+		
 		@Override
 		public boolean checkInvariant(long time) {
 			return true;
@@ -166,18 +169,21 @@ public class HalfUni1 extends ITIOA {
 
 		public B(HalfUni1 parent) {
 			super("b", parent);
-			
+		}
+
+		@Override
+		public void setupEdges() {
 			outputEdges = new IEdgeUncontrollable[]{
-					new B_PATENT_B(parent),
-					new B_COIN_A(parent)
+					new B_PATENT_B(),
+					new B_COIN_A()
 			};
 			
 			inputEdges = new IEdgeControllable[]{
-					new B_PUB_B(parent),
-					new B_GRANT_B(parent)
+					new B_PUB_B(),
+					new B_GRANT_B()
 			};
 		}
-
+		
 		@Override
 		public boolean checkInvariant(long time) {
 			return time <= 2;
@@ -202,6 +208,9 @@ public class HalfUni1 extends ITIOA {
 		
 		a = new A(this);
 		b = new B(this);
+		
+		a.setupEdges();
+		b.setupEdges();
 		
 		current = a;
 	}

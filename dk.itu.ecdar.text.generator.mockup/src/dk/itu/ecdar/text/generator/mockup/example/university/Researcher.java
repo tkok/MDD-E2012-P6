@@ -10,8 +10,8 @@ public class Researcher extends ITIOA {
 	// Controllable edges
 	class Idle_COF_Coffee extends IEdgeControllable {
 
-		public Idle_COF_Coffee(Researcher parent) {
-			super(parent.idle, parent.coffee, "cof", parent);
+		public Idle_COF_Coffee() {
+			super(idle, coffee, "cof");
 		}
 
 		@Override
@@ -21,15 +21,15 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public ILocation traverse() {
-			parent.timer.reset();
+			resetTime();
 			return to;
 		}
 	}
 	
 	class Idle_TEA_Tea extends IEdgeControllable {
 
-		public Idle_TEA_Tea(Researcher parent) {
-			super(parent.idle, parent.tea, "tea", parent);
+		public Idle_TEA_Tea() {
+			super(idle, tea, "tea");
 		}
 		
 		@Override
@@ -39,15 +39,15 @@ public class Researcher extends ITIOA {
 		
 		@Override
 		public ILocation traverse() {
-			parent.timer.reset();
+			resetTime();
 			return to;
 		}
 	}
 	
 	class Idle_PUB_Stuck extends IEdgeControllable {
 
-		public Idle_PUB_Stuck(Researcher parent) {
-			super(parent.idle, parent.stuck, "tea", parent);
+		public Idle_PUB_Stuck() {
+			super(idle, stuck, "tea");
 		}
 
 		@Override
@@ -63,8 +63,8 @@ public class Researcher extends ITIOA {
 
 	class Stuck_TEA_Stuck extends IEdgeControllable {
 
-		public Stuck_TEA_Stuck(Researcher parent) {
-			super(parent.stuck, parent.stuck, "tea", parent);
+		public Stuck_TEA_Stuck() {
+			super(stuck, stuck, "tea");
 		}
 
 		@Override
@@ -80,8 +80,8 @@ public class Researcher extends ITIOA {
 	
 	class Stuck_COF_Stuck extends IEdgeControllable {
 
-		public Stuck_COF_Stuck(Researcher parent) {
-			super(parent.stuck, parent.stuck, "cof", parent);
+		public Stuck_COF_Stuck() {
+			super(stuck, stuck, "cof");
 		}
 
 		@Override
@@ -98,8 +98,8 @@ public class Researcher extends ITIOA {
 	// Uncontrollable edges
 	class Coffe_PUB_Idle extends IEdgeUncontrollable {
 
-		public Coffe_PUB_Idle(Researcher parent) {
-			super(parent.coffee, parent.idle, "pub", parent);
+		public Coffe_PUB_Idle() {
+			super(coffee, idle, "pub");
 		}
 
 		@Override
@@ -109,15 +109,15 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public ILocation traverse() {
-			parent.timer.reset();
+			resetTime();
 			return to;
 		}
 	}
 	
 	class Tea_PUB_Idle extends IEdgeUncontrollable {
 
-		public Tea_PUB_Idle(Researcher parent) {
-			super(parent.tea, parent.idle, "pub", parent);
+		public Tea_PUB_Idle() {
+			super(tea, idle, "pub");
 		}
 
 		@Override
@@ -127,15 +127,15 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public ILocation traverse() {
-			parent.timer.reset();
+			resetTime();
 			return to;
 		}
 	}
 
 	class Stuck_PUB_Stuck extends IEdgeUncontrollable {
 
-		public Stuck_PUB_Stuck(Researcher parent) {
-			super(parent.stuck, parent.stuck, "pub", parent);
+		public Stuck_PUB_Stuck() {
+			super(stuck, stuck, "pub");
 		}
 
 		@Override
@@ -154,16 +154,19 @@ public class Researcher extends ITIOA {
 
 		public Idle(Researcher parent) {
 			super("Idle", parent);
-			
+		}
+
+		@Override
+		public void setupEdges() {
 			outputEdges = new IEdgeUncontrollable[]{};
 			
 			inputEdges = new IEdgeControllable[]{
-					new Idle_COF_Coffee(parent),
-					new Idle_TEA_Tea(parent),
-					new Idle_PUB_Stuck(parent)
+					new Idle_COF_Coffee(),
+					new Idle_TEA_Tea(),
+					new Idle_PUB_Stuck()
 			};
 		}
-
+		
 		@Override
 		public boolean checkInvariant(long time) {
 			return true;
@@ -178,21 +181,23 @@ public class Researcher extends ITIOA {
 		public void task() {
 			// TODO Auto-generated method stub
 		}
-		
 	}
 
 	class Coffee extends ILocation {
 
 		public Coffee(Researcher parent) {
 			super("Coffee", parent);
-			
+		}
+
+		@Override
+		public void setupEdges() {
 			outputEdges = new IEdgeUncontrollable[]{
-					new Coffe_PUB_Idle(parent)	
+					new Coffe_PUB_Idle()	
 			};
 			
 			inputEdges = new IEdgeControllable[]{};
 		}
-
+		
 		@Override
 		public boolean checkInvariant(long time) {
 			return time <= 4;
@@ -213,14 +218,17 @@ public class Researcher extends ITIOA {
 
 		public Tea(Researcher parent) {
 			super("Tea", parent);
-			
+		}
+
+		@Override
+		public void setupEdges() {
 			outputEdges = new IEdgeUncontrollable[]{
-					new Tea_PUB_Idle(parent)
+					new Tea_PUB_Idle()
 			};
 			
 			inputEdges = new IEdgeControllable[]{};
 		}
-
+		
 		@Override
 		public boolean checkInvariant(long time) {
 			return time <= 8;
@@ -235,24 +243,26 @@ public class Researcher extends ITIOA {
 		public void task() {
 			// TODO Auto-generated method stub
 		}
-		
 	}
 
 	class Stuck extends ILocation {
 
 		public Stuck(Researcher parent) {
 			super("Stuck", parent);
-			
+		}
+
+		@Override
+		public void setupEdges() {
 			outputEdges = new IEdgeUncontrollable[]{
-					new Stuck_PUB_Stuck(parent)
+					new Stuck_PUB_Stuck()
 			};
 			
 			inputEdges = new IEdgeControllable[]{
-					new Stuck_COF_Stuck(parent),
-					new Stuck_TEA_Stuck(parent)
+					new Stuck_COF_Stuck(),
+					new Stuck_TEA_Stuck()
 			};
 		}
-
+		
 		@Override
 		public boolean checkInvariant(long time) {
 			return true;
@@ -267,7 +277,6 @@ public class Researcher extends ITIOA {
 		public void task() {
 			// TODO Auto-generated method stub
 		}
-		
 	}
 	
 	ILocation idle, coffee, tea, stuck;
@@ -279,6 +288,11 @@ public class Researcher extends ITIOA {
 		coffee = new Coffee(this);
 		tea = new Tea(this);
 		stuck = new Stuck(this);
+		
+		idle.setupEdges();
+		coffee.setupEdges();
+		tea.setupEdges();
+		stuck.setupEdges();
 		
 		current = idle;
 	}
