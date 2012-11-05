@@ -50,7 +50,7 @@ public abstract class IEnvironment {
 	 * @param file Path to the file to parse.
 	 */
 	public void parse(String file) {
-		Log.log("Parsing \"" + file + "\"...");
+		QuickLog.log("Parsing \"" + file + "\"...");
 		Scanner scanner;
 		
 		try {
@@ -70,7 +70,7 @@ public abstract class IEnvironment {
 			scanner.close();
 			
 		} catch (FileNotFoundException e) {
-			Log.log("Could not open file \"" + file + "\", will exit now.");
+			QuickLog.log("Could not open file \"" + file + "\", will exit now.");
 			System.exit(-1);
 		}
 	}
@@ -80,20 +80,20 @@ public abstract class IEnvironment {
 	 */
 	public void run() {
 		
-		Log.log("Starting controller...");
+		QuickLog.log("Starting controller...");
 		controller.run();
 		
 		timer.reset();
 		
-		Log.log("Current time is " + String.valueOf(timer.getTime()));
 		while(!inputs.isEmpty()) {
-			if (inputs.get(0).getKey() == timer.getTime()) {
-				Log.log("Signaling \"" + inputs.get(0).getValue() + "\"");
+			if (inputs.get(0).getKey() <= timer.getTime()) {
+				QuickLog.log("Signaling \"" + inputs.get(0).getValue() + "\" at " + String.valueOf(timer.getTime()), 3);
 				controller.notify(inputs.get(0).getValue());
 				inputs.remove(0);
 			}
 		}
 		
-		Log.log("All instructions sent.");
+		QuickLog.log("All instructions sent, exiting...");
+		System.exit(0);
 	}
 }
