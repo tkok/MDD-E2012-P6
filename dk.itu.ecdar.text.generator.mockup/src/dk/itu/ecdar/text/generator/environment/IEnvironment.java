@@ -1,5 +1,7 @@
 package dk.itu.ecdar.text.generator.environment;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -63,18 +65,29 @@ public abstract class IEnvironment {
 	 * @param file Path to the file to parse.
 	 */
 	public void parse(String file) {
-		Scanner scanner = new Scanner(file);
-
-		String[] splitLine;
-		while (scanner.hasNext()) {
-			splitLine = scanner.next().split("\\s+");
-
-			long time = Long.parseLong(splitLine[0]);
-			String input = splitLine[1];
+		System.err.println("Parsing \"" + file + "\"...");
+		Scanner scanner;
+		
+		try {
+			scanner = new Scanner(new File(file));
 			
-			inputs.add(new SimpleEntry<Long, String>(time, input));
+			while (scanner.hasNext()) {
+				String line = scanner.nextLine();
+				
+				// allow comments
+				if (line.startsWith("#"))
+					continue;
+				
+				String[] input = line.split("\\s+");
+				inputs.add(new SimpleEntry<Long, String>(Long.parseLong(input[0]), input[1]));
+			}
+			
+			scanner.close();
+			
+		} catch (FileNotFoundException e) {
+			System.err.println("Could not open file \"" + file + "\", will exit now.");
+			System.exit(-1);
 		}
-		scanner.close();
 	}
 	
 	/**
