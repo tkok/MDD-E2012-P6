@@ -1,6 +1,5 @@
 package dk.itu.ecdar.text.generator.framework;
 
-
 /**
  * Base class for timed I/O automata implementations.
  */
@@ -22,9 +21,7 @@ public abstract class ITIOA {
 				try {
 					super.sleep(getMinWaitingTime());
 				} catch (InterruptedException e) {
-					
-					// TODO: What to do here?
-					e.printStackTrace();
+					// don't do anything but continue
 				}
 			}
 		}
