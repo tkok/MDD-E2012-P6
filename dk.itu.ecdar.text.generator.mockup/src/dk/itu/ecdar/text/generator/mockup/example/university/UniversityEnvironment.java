@@ -13,6 +13,10 @@ public class UniversityEnvironment extends IEnvironment {
 		IEnvironment universityEnvironment = new UniversityEnvironment();
 		universityEnvironment.parse(args[0]);
 		universityEnvironment.run();
+		
+		while(true) {
+			// keeps the program alive
+		}
 	}
 
 }
