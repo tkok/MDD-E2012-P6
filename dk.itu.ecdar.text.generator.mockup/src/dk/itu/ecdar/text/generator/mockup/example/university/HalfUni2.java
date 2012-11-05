@@ -1,6 +1,5 @@
 package dk.itu.ecdar.text.generator.mockup.example.university;
 
-import dk.itu.ecdar.text.generator.environment.QuickLog;
 import dk.itu.ecdar.text.generator.framework.IEdgeControllable;
 import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
 import dk.itu.ecdar.text.generator.framework.ILocation;
@@ -21,8 +20,8 @@ public class HalfUni2 extends ITIOA {
 		}
 
 		@Override
-		public ILocation traverse() {
-			return to;
+		public void onTraverse() {
+			
 		}
 	}
 	
@@ -38,9 +37,9 @@ public class HalfUni2 extends ITIOA {
 		}
 
 		@Override
-		public ILocation traverse() {
+		public void onTraverse() {
 			resetTime();
-			return to;
+			
 		}
 	}
 	
@@ -56,8 +55,8 @@ public class HalfUni2 extends ITIOA {
 		}
 
 		@Override
-		public ILocation traverse() {
-			return to;
+		public void onTraverse() {
+			
 		}
 	}
 	
@@ -73,8 +72,8 @@ public class HalfUni2 extends ITIOA {
 		}
 
 		@Override
-		public ILocation traverse() {
-			return to;
+		public void onTraverse() {
+			
 		}
 	}
 	
@@ -91,8 +90,8 @@ public class HalfUni2 extends ITIOA {
 		}
 
 		@Override
-		public ILocation traverse() {
-			return to;
+		public void onTraverse() {
+			
 		}
 	}
 	
@@ -108,8 +107,8 @@ public class HalfUni2 extends ITIOA {
 		}
 
 		@Override
-		public ILocation traverse() {
-			return to;
+		public void onTraverse() {
+			
 		}
 	}
 	
@@ -125,8 +124,8 @@ public class HalfUni2 extends ITIOA {
 		}
 
 		@Override
-		public ILocation traverse() {
-			return to;
+		public void onTraverse() {
+			
 		}
 	}
 	
@@ -161,7 +160,7 @@ public class HalfUni2 extends ITIOA {
 
 		@Override
 		public void task() {
-			QuickLog.log("Executing task at " + name + " in HalfUni2", 10);
+			
 		}
 	}
 	
@@ -196,7 +195,7 @@ public class HalfUni2 extends ITIOA {
 
 		@Override
 		public void task() {
-			QuickLog.log("Executing task at " + name + " in HalfUni2", 10);
+			
 		}
 	}
 	

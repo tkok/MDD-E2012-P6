@@ -1,5 +1,7 @@
 package dk.itu.ecdar.text.generator.framework;
 
+import dk.itu.ecdar.text.generator.environment.QuickLog;
+
 /**
  * Base class for location implementations.
  * 
@@ -30,7 +32,7 @@ public abstract class ILocation {
 
 	protected IEdgeUncontrollable[] outputEdges;
 	protected IEdgeControllable[] inputEdges;
-	protected String name;
+	public String name;
 
 	TaskThread executor;
 
@@ -43,6 +45,7 @@ public abstract class ILocation {
 	 * Executes the location's task
 	 */
 	public void execute() {
+		QuickLog.log("Executing task at " + name + " in " + parent, 10);
 		executor = new TaskThread();
 		executor.start();		
 	}
