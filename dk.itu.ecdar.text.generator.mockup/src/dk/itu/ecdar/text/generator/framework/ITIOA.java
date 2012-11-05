@@ -13,6 +13,7 @@ public abstract class ITIOA {
 	 */
 	class TransitionThread extends Thread {
 		public void run () {
+			
 			while (true) {
 				transition();
 				
@@ -101,10 +102,7 @@ public abstract class ITIOA {
 			if (current.isPreemptive()) {
 				current.kill();
 			} else {
-
-				// TODO: Maybe instead just ignore the input?
-				System.err.println("ERROR: Received input during execution of non-preemptive task!");
-				System.exit(1);
+				System.err.println("Received input during execution of non-preemptive task! Input will be ignored.");
 			}
 		}
 
