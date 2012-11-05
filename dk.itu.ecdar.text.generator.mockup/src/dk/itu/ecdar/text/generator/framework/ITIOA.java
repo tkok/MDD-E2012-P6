@@ -66,9 +66,11 @@ public abstract class ITIOA {
 	 * Currently, the system will exit if input must be handled during
 	 * non-preemptive task execution.
 	 * 
+	 * Synchronized so that state does not change during notification.
+	 * 
 	 * @param input Some action
 	 */
-	public void notify(String input) {
+	public synchronized void notify(String input) {
 		IEdgeControllable that = null;
 
 		// Check for an edge that accepts this input and for which
