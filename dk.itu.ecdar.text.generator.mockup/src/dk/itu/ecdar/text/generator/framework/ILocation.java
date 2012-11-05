@@ -11,51 +11,36 @@ package dk.itu.ecdar.text.generator.framework;
 public abstract class ILocation {
 
 	/**
-	 * Base class for thread implementations handling tasks on locations.
+	 * A thread executing the task of a location.
 	 */
-	public abstract class TaskThread extends Thread {
+	public class TaskThread extends Thread {
 		ILocation parent;
 
 		public TaskThread(ILocation parent) {
 			this.parent = parent;
 		}
-	}
-
-	/**
-	 * A thread executing the task of a location.
-	 */
-	public class TaskExecutor extends TaskThread {
-		public TaskExecutor(ILocation parent) {
-			super(parent);
-		}
 
 		public void run() {
+			
+			parent.parent.executing = true;
 			parent.task();
+			
+			// these need to be set "at the same time", therefore synchronized
+			synchronized (parent.parent) {
+				parent.parent.executing = false;
+				parent.parent.executed = true;
+			}
 		}
 	}
-
-	/**
-	 * A thread monitoring the task of a location.
-	 */
-	public class TaskMonitor extends TaskThread {
-		public TaskMonitor(ILocation parent) {
-			super(parent);
-		}
-
-		public void run() {
-			parent.internalExecute();
-		}
-	}
-
-	// reference the parent automaton to check invariant against it's clock
+	
+	// reference the parent automaton to forward execution states
 	protected ITIOA parent;
 
 	protected IEdgeUncontrollable[] outputEdges;
 	protected IEdgeControllable[] inputEdges;
 	String name;
 
-	TaskExecutor executor;
-	TaskMonitor monitor;
+	TaskThread executor;
 
 	public ILocation(String name, ITIOA parent) {
 		this.name = name;
@@ -66,35 +51,8 @@ public abstract class ILocation {
 	 * Executes the location's task
 	 */
 	public void execute() {
-		executor = new TaskExecutor(this);
-		monitor = new TaskMonitor(this);
-		monitor.run();
-	}
-
-	private void internalExecute() {
-
-		parent.executing = true;
-		executor.run();
-
-		while (executor.isAlive()) {
-			if (!checkInvariant()) {
-				try {
-					executor.join();
-				} catch (InterruptedException e) {
-					System.err.println(e.getMessage());
-				}
-
-				// TODO: handle a bit more gracefully.
-				System.err.println("ERROR: Invariant violation in location \""
-						+ name + "\"!");
-				System.exit(-1);
-			}
-		}
-
-		// if we got to this place, everything went well
-		// and the location executed successfully
-		parent.executing = false;
-		parent.executed = true;
+		executor = new TaskThread(this);
+		executor.run();		
 	}
 
 	/**
@@ -112,10 +70,9 @@ public abstract class ILocation {
 		} catch (InterruptedException e) {
 			System.err.println(e);
 		}
-
-		// remove the thread instances
-		executor = null;
-		monitor = null;
+		
+		parent.executing = false;
+		parent.executed = true;
 	}
 
 	/**

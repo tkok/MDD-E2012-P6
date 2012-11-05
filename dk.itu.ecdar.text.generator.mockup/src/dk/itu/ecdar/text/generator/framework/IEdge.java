@@ -10,12 +10,13 @@ public abstract class IEdge {
 	protected ITIOA parent;
 	
 	// pointing to the l
-	protected ILocation to;
+	protected ILocation from, to;
 	
 	// the input this edge is bound to
 	protected String signal;
 
-	public IEdge(ILocation to, String signal, ITIOA parent) {
+	public IEdge(ILocation from, ILocation to, String signal, ITIOA parent) {
+		this.from = from;
 		this.to = to;
 		this.signal = signal;
 		this.parent = parent;
