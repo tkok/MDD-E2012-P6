@@ -26,7 +26,7 @@ public abstract class IEdge {
 	/**
 	 * @return True if the guard holds, false otherwise
 	 */
-	public abstract boolean checkGuard();
+	public abstract boolean checkGuard(long time);
 	
 	/**
 	 * @param input Some input

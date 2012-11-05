@@ -1,20 +1,57 @@
 package dk.itu.ecdar.text.generator.framework;
 
+
 /**
  * Base class for timed I/O automata implementations.
  */
 public abstract class ITIOA {
 
+	/**
+	 * This thread monitors transitions between uncontrollable
+	 * edges. It will go sleeping each time no edge is available
+	 * until there is at least one edge available.
+	 */
+	class TransitionThread extends Thread {
+		ITIOA parent;
+		
+		public TransitionThread (ITIOA parent) {
+			super();
+			this.parent = parent;
+		}
+		
+		public void run () {
+			while (true) {
+				parent.transition();
+			}
+		}
+	}
+	
 	public AutomatonTimer timer;
 	protected ILocation current;
 	boolean executing, executed;
+	private boolean running;
+	private TransitionThread transitionThread;
 
 	public ITIOA() {
 
 		// TODO: Replace this with RTS Java clock instance
 		timer = new AutomatonTimer();
+		
+		running = false;
+		transitionThread = new TransitionThread(this);
 	}
 
+	/**
+	 * Starts the automaton. Will only have effect once.
+	 */
+	public void run() {
+		if (!running) {
+			timer.reset();
+			transitionThread.run();
+			running = true;
+		}
+	}
+	
 	/**
 	 * Resets the ITIOA flags to false.
 	 */
@@ -37,7 +74,7 @@ public abstract class ITIOA {
 		// Check for an edge that accepts this input and for which
 		// the guard holds.
 		for (IEdgeControllable edge : current.inputEdges) {
-			if (edge.acceptInput(input) && edge.checkGuard()) {
+			if (edge.acceptInput(input) && edge.checkGuard(timer.getTime())) {
 				that = edge;
 			}
 		}
@@ -55,8 +92,7 @@ public abstract class ITIOA {
 			} else {
 
 				// TODO: Maybe instead just ignore the input?
-				System.err
-						.println("ERROR: Received input during execution of non-preemptive task!");
+				System.err.println("ERROR: Received input during execution of non-preemptive task!");
 				System.exit(1);
 			}
 		}
@@ -70,33 +106,66 @@ public abstract class ITIOA {
 	 * Executes the task at the current location if it hasn't been executed
 	 * before.
 	 */
-	public void execute() {
+	private void execute() {
 		if (!executing && !executed) {
 			current.execute();
 		}
 	}
 
 	/**
+	 * This is used to employ lazy waiting during transitions.
+	 * 
+	 * @return The minimum waiting time as long until the first edge becomes available.
+	 */
+	private long getMinWaitingTime() {
+		boolean check = false;
+		long time = 0;
+		
+		while (!check) {
+			time++;
+			for (IEdge e : current.inputEdges) {
+				check = e.checkGuard(time);
+				if (check)
+					break;
+			}			
+		}
+		
+		return time;
+	}
+	
+	/**
 	 * Performs a transition on the automaton
 	 * 
 	 * The transition should ideally be highly optimized and take very few time.
-	 * However, this implementation grounds on the synchrony hypothesis.
+	 * However, this implementation grounds on the <b>synchrony hypothesis</b>.
+	 * 
+	 * Synchronized so the state stays the same during execution.
 	 */
-	public void transition() {
-
+	private synchronized void transition() {
+		
 		// An uncontrollable transition is only possible if the task
 		// at the current location has been performed.
-		if (!executing && executed)
-			return;
-
-		for (IEdge edge : current.outputEdges) {
-			if (edge.checkGuard()) {
-				current = edge.traverse();
-
-				// Reset only if sure that traversal has happened
-				reset();
-				return;
+		if (!executing && executed) {
+			for (IEdge edge : current.outputEdges) {
+				if (edge.checkGuard(timer.getTime())) {
+					current = edge.traverse();
+	
+					// Reset only if sure that traversal has happened
+					reset();
+					execute();
+					return;
+				}
 			}
+		}
+		
+		// Put this thread to sleep while waiting for the first
+		// edge to become available (lazy waiting)
+		try {
+			Thread.sleep(getMinWaitingTime());
+		} catch (InterruptedException e) {
+			
+			// TODO: What to do here?
+			e.printStackTrace();
 		}
 	}
 }

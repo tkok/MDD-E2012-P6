@@ -24,28 +24,12 @@ public abstract class IController {
 	}
 	
 	/**
-	 * Performs a transition on the automata
-	 */
-	private void transition() {
-		for (ITIOA a: automata)
-			a.transition();
-	}
-	
-	/**
-	 * Performs execution of tasks on the automata
-	 */
-	private void execute() {
-		for (ITIOA a: automata)
-			a.execute();
-	}
-	
-	/**
-	 * Executes the controller
+	 * Executes the controller.
+	 * 
+	 * Synchrony hypothesis: every automaton is started at the same time.
 	 */
 	public void run() {
-		while (true) {
-			execute();
-			transition();
-		}
+		for (ITIOA a: automata)
+			a.run();
 	}
 }
