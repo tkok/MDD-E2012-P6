@@ -30,7 +30,7 @@ public abstract class ILocation {
 
 	protected IEdgeUncontrollable[] outputEdges;
 	protected IEdgeControllable[] inputEdges;
-	String name;
+	protected String name;
 
 	TaskThread executor;
 
@@ -44,7 +44,7 @@ public abstract class ILocation {
 	 */
 	public void execute() {
 		executor = new TaskThread();
-		executor.run();		
+		executor.start();		
 	}
 
 	/**

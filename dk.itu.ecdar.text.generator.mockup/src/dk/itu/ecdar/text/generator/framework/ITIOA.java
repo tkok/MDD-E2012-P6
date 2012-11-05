@@ -56,7 +56,7 @@ public abstract class ITIOA {
 			// Execute the initial location
 			current.execute();
 			
-			transitionThread.run();
+			transitionThread.start();
 			running = true;
 		}
 	}
@@ -167,7 +167,7 @@ public abstract class ITIOA {
 			for (IEdge edge : current.outputEdges) {
 				if (edge.checkGuard(getTime())) {
 					current = edge.traverse();
-	
+
 					// Reset only if sure that traversal has happened
 					reset();
 					execute();
