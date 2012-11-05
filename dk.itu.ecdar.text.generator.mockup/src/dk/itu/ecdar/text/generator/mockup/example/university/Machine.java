@@ -128,7 +128,7 @@ public class Machine extends ITIOA {
 
 		@Override
 		public void task() {
-			//Log.log("Executing task at " + name + " in Machine");
+			Log.log("Executing task at " + name + " in Machine");
 		}
 	}
 	
@@ -164,7 +164,7 @@ public class Machine extends ITIOA {
 
 		@Override
 		public void task() {
-			//Log.log("Executing task at " + name + "in Machine.");
+			Log.log("Executing task at " + name + "in Machine.");
 		}		
 	}
 	
