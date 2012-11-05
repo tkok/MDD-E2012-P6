@@ -51,7 +51,7 @@ public abstract class ITIOA {
 	 */
 	public void run() {
 		if (!running) {
-			timer.reset();
+			resetTime();
 			
 			// Execute the initial location
 			current.execute();
@@ -85,7 +85,7 @@ public abstract class ITIOA {
 		// Check for an edge that accepts this input and for which
 		// the guard holds.
 		for (IEdgeControllable edge : current.inputEdges) {
-			if (edge.acceptInput(input) && edge.checkGuard(timer.getTime())) {
+			if (edge.acceptInput(input) && edge.checkGuard(getTime())) {
 				that = edge;
 			}
 		}
@@ -142,7 +142,7 @@ public abstract class ITIOA {
 			for (IEdge e : current.inputEdges) {
 				
 				// TODO: Time will continue. How should we handle this? Synchrony hypothesis?
-				check = e.checkGuard(timer.getTime() + time);
+				check = e.checkGuard(getTime() + time);
 				if (check)
 					break;
 			}			
@@ -165,7 +165,7 @@ public abstract class ITIOA {
 		// at the current location has been performed.
 		if (!executing && executed) {
 			for (IEdge edge : current.outputEdges) {
-				if (edge.checkGuard(timer.getTime())) {
+				if (edge.checkGuard(getTime())) {
 					current = edge.traverse();
 	
 					// Reset only if sure that traversal has happened
@@ -175,5 +175,27 @@ public abstract class ITIOA {
 				}
 			}
 		}
+	}
+	
+	/**
+	 * This is a wrapper for getting the current time.
+	 * By using the wrapper instead of manipulating the
+	 * timer object directly, it is easier to alter
+	 * the implementation.
+	 * 
+	 * @return The current time on the automaton
+	 */
+	public final long getTime() {
+		return timer.getTime();
+	}
+	
+	/**
+	 * This is a wrapper for resetting the current time.
+	 * By using the wrapper instead of manipulating the
+	 * timer object directly, it is easier to alter
+	 * the implementation.
+	 */
+	public final void resetTime() {
+		timer.reset();
 	}
 }
