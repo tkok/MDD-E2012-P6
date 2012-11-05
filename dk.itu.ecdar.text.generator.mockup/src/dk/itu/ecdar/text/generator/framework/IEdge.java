@@ -42,7 +42,7 @@ public abstract class IEdge {
 	 * @return The ILocation this edge points to
 	 */
 	public ILocation traverse() {
-		QuickLog.log("Traversing from " + from.name + " to " + to.name, 10);
+		QuickLog.log("Traversing from " + from.name + " to " + to.name, 13);
 		onTraverse();
 		return to;
 	}
