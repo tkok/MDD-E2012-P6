@@ -12,21 +12,14 @@ public abstract class ITIOA {
 	 * until there is at least one edge available.
 	 */
 	class TransitionThread extends Thread {
-		ITIOA parent;
-		
-		public TransitionThread (ITIOA parent) {
-			super();
-			this.parent = parent;
-		}
-		
 		public void run () {
 			while (true) {
-				parent.transition();
+				transition();
 				
 				// Put this thread to sleep while waiting for the first
 				// edge to become available (lazy waiting)
 				try {
-					super.sleep(parent.getMinWaitingTime());
+					super.sleep(getMinWaitingTime());
 				} catch (InterruptedException e) {
 					
 					// TODO: What to do here?
@@ -50,7 +43,7 @@ public abstract class ITIOA {
 		timer = new AutomatonTimer();
 		
 		running = false;
-		transitionThread = new TransitionThread(this);
+		transitionThread = new TransitionThread();
 	}
 
 	/**
