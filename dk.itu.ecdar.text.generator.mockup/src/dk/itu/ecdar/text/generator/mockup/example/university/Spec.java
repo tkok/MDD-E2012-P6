@@ -227,6 +227,7 @@ public class Spec extends ITIOA {
 	ILocation start, end, grant;
 	
 	public Spec() {
+		super();
 		
 		start = new Start(this);
 		end = new End(this);
