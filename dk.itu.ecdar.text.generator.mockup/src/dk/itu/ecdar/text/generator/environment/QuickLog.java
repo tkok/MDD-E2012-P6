@@ -22,7 +22,7 @@ public class QuickLog {
 		
 		console = true;
 		
-		DateFormat format = new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss");
+		DateFormat format = new SimpleDateFormat("yyyy-mm-dd-HH-mm-ss");
 		Date date = new Date();
 		
 		prefix = null;
