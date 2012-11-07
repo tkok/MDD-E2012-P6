@@ -94,11 +94,11 @@ public class QuickLog {
 				+ String.valueOf(time) + ","
 				+ message;
 		
+		String filename = destination;
+		if (prefix != null)
+			filename = prefix + "-" + destination;
+		
 		try {
-			String filename = destination;
-			if (prefix != null)
-				filename = prefix + "-" + destination;
-			
 			FileWriter fileWriter = new FileWriter(filename, true);
 			BufferedWriter outBuffer = new BufferedWriter(fileWriter);
 
@@ -107,7 +107,7 @@ public class QuickLog {
 
 			outBuffer.close();
 		} catch (Exception e) {
-			System.err.println("ERROR: Could not write to file " + destination);
+			System.err.println("ERROR: Could not write to file " + filename);
 		}
 	}
 }
