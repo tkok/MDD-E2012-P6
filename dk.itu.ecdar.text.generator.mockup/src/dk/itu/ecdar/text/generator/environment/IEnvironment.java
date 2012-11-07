@@ -80,8 +80,6 @@ public abstract class IEnvironment {
 	 * Executes the environment.
 	 */
 	public void run() {
-		
-		//QuickLog.logToFile();
 		QuickLog.print("Starting controller...");
 		controller.run();
 		
