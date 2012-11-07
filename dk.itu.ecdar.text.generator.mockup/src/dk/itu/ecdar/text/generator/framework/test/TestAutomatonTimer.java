@@ -1,13 +1,14 @@
 package dk.itu.ecdar.text.generator.framework.test;
 
-import dk.itu.ecdar.text.generator.framework.AutomatonTimer;
 import junit.framework.Assert;
 import junit.framework.TestCase;
+import dk.itu.ecdar.text.generator.framework.AutomatonTimer;
 
 public class TestAutomatonTimer extends TestCase {
 
 	AutomatonTimer timer;
 	
+	@Override
 	protected void setUp() throws Exception {
 		timer = new AutomatonTimer();
 	}
