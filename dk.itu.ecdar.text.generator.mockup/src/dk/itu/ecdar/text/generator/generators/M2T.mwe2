@@ -1,0 +1,55 @@
+module episode13m2t.trip.generators.M2T
+
+Workflow {
+
+	bean = org.eclipse.emf.mwe.utils.StandaloneSetup {
+		platformUri = "../"
+		registerGeneratedEPackage = "tripLoose.TripLoosePackage"
+		registerEcoreFile = "platform:/resource/episode10xtext.tripLoose/model/tripLoose.ecore"
+	}
+
+//	component = org.eclipse.emf.mwe.utils.Reader {
+//		uri = "input/SonderborgTrip.xmi"
+//		modelSlot = "tripmodel"
+//	}
+
+// The above seems to load just one file (more convenient and works).
+// Still produces some errors later on
+// http://www.eclipse.org/forums/index.php?t=msg&goto=548891&
+	
+	component = org.eclipse.xtext.mwe.Reader {
+		//path = "../episode10xtext.trip/model-archive/"
+		path = "input/"
+		register = episode10xtext.tripLoose.xtext.TTripLooseStandaloneSetup { }
+					
+		load = {
+			slot = "tripmodel"
+			type = "TripModel"
+			firstOnly = true
+		}
+	}
+
+	component = org.eclipse.emf.mwe.utils.DirectoryCleaner {
+		directory = "../episode13m2t.trip/model-gen/"
+	}
+
+	component = org.eclipse.xpand2.Generator {
+		
+		metaModel = org.eclipse.xtend.typesystem.emf.EmfMetaModel { 
+			metaModelPackage = "tripLoose.TripLoosePackage"
+			metaModelFile = "platform:/resource/episode10xtext.tripLoose/model/tripLoose.ecore"
+		}
+		metaModel = org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel {}
+		//expand = "episode13m2t::trip::templates::DoNothing::main FOREACH tripmodel"
+		expand = "episode13m2t::trip::templates::DoSQL::main FOR tripmodel"
+		outlet = { path = "model-gen/" }
+	}
+
+	component = org.eclipse.emf.mwe.utils.Writer {
+		modelSlot = "tripmodel"
+		// file extension is important here. 
+		// ".ttripLoose" (so the declared xtext syntax extension) saves in textual syntax
+		// ".xmi" or ".ecore" saves in xmi syntax.
+		uri = "platform:/resource/episode13m2t.trip/model-gen/output.xmi"
+	}
+}

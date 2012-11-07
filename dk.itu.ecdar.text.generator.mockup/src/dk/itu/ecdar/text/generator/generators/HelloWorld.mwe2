@@ -1,0 +1,10 @@
+// essentially taken from the official MWE2 tutorial
+// works frozen 
+
+module episode13m2t.trip.generators.HelloWorld
+
+Workflow {
+	
+	component = SayHello { message = "Hello!" }
+	
+}

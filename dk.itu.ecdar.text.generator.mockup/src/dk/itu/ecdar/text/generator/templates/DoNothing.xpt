@@ -1,0 +1,6 @@
+«IMPORT tripLoose»
+«DEFINE main FOR tripLoose::TripModel»
+«FILE "test.html"»
+nothing
+«ENDFILE»
+«ENDDEFINE»
