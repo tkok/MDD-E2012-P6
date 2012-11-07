@@ -5,7 +5,7 @@ import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
 import dk.itu.ecdar.text.generator.framework.ILocation;
 import dk.itu.ecdar.text.generator.framework.ITIOA;
 
-public class Spec extends ITIOA {
+public class University2 extends ITIOA {
 
 	// Controllable edges
 	class A_GRANT_B extends IEdgeControllable {
@@ -180,7 +180,7 @@ public class Spec extends ITIOA {
 	// Locations
 	class A extends ILocation {
 
-		public A(Spec parent) {
+		public A(University2 parent) {
 			super("A", parent);
 		}
 
@@ -213,7 +213,7 @@ public class Spec extends ITIOA {
 	
 	class B extends ILocation {
 
-		public B(Spec parent) {
+		public B(University2 parent) {
 			super("B", parent);
 		}
 
@@ -247,7 +247,7 @@ public class Spec extends ITIOA {
 	
 	class C extends ILocation {
 
-		public C(Spec parent) {
+		public C(University2 parent) {
 			super("C", parent);
 		}
 
@@ -264,6 +264,7 @@ public class Spec extends ITIOA {
 
 		@Override
 		public boolean checkInvariant(long time) {
+			return true;
 		}
 
 		@Override
@@ -280,7 +281,7 @@ public class Spec extends ITIOA {
 
 	class D extends ILocation {
 
-		public D(Spec parent) {
+		public D(University2 parent) {
 			super("D", parent);
 		}
 
@@ -315,7 +316,7 @@ public class Spec extends ITIOA {
 
 	ILocation A, B, C, D;
 	
-	public University() {
+	public University2() {
 		super();
 		
 		A = new A(this);
