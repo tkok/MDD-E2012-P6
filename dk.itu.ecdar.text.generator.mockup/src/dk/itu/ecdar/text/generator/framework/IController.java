@@ -32,4 +32,9 @@ public abstract class IController {
 		for (ITIOA a: automata)
 			a.run();
 	}
+	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
+	}
 }

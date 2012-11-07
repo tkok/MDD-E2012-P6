@@ -1,5 +1,7 @@
 package dk.itu.ecdar.text.generator.framework;
 
+import dk.itu.ecdar.text.generator.environment.QuickLog;
+
 /**
  * Base class for timed I/O automata implementations.
  */
@@ -22,6 +24,7 @@ public abstract class ITIOA {
 					super.sleep(getMinWaitingTime());
 				} catch (InterruptedException e) {
 					// don't do anything but continue
+					QuickLog.log(toString(), getTime(), "Transition thread got interrupted!", 12);
 				}
 			}
 		}
@@ -84,6 +87,7 @@ public abstract class ITIOA {
 		// the guard holds.
 		for (IEdgeControllable edge : current.inputEdges) {
 			if (edge.acceptInput(input) && edge.checkGuard(getTime())) {
+				QuickLog.log(toString(), getTime(), "Edge " + edge + " accepts input " + input, 11);
 				that = edge;
 			}
 		}
@@ -99,7 +103,7 @@ public abstract class ITIOA {
 			if (current.isPreemptive()) {
 				current.kill();
 			} else {
-				System.err.println("Received input during execution of non-preemptive task! Input will be ignored.");
+				QuickLog.log(toString(), getTime(), "Received input during execution of non-preemptive task! Input will be ignored.");
 			}
 		}
 
@@ -143,6 +147,7 @@ public abstract class ITIOA {
 			}			
 		}
 		
+		QuickLog.log(toString(), getTime(), "Calculated getMinWaitingTime: " + String.valueOf(time), 20);
 		return time;
 	}
 	
@@ -163,6 +168,8 @@ public abstract class ITIOA {
 				if (edge.checkGuard(getTime())/* && current != edge.to*/) { // TODO: Should redundant edges be checked here?
 					current = edge.traverse();
 
+					QuickLog.log(toString(), getTime(), "Traversing from " + edge.from + " to " + edge.to, 10);
+					
 					// Reset only if sure that traversal has happened
 					reset();
 					execute();
@@ -192,5 +199,10 @@ public abstract class ITIOA {
 	 */
 	public final void resetTime() {
 		timer.reset();
+	}
+	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
 	}
 }

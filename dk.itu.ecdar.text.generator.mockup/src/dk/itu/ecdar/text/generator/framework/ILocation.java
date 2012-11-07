@@ -45,7 +45,7 @@ public abstract class ILocation {
 	 * Executes the location's task
 	 */
 	public void execute() {
-		QuickLog.log("Executing task at " + name + " in " + parent, 10);
+		QuickLog.log(parent.toString(), parent.getTime(), "Executing task.", 10);
 		executor = new TaskThread();
 		executor.start();		
 	}
@@ -90,4 +90,9 @@ public abstract class ILocation {
 	 * location should be placed.
 	 */
 	public abstract void task();
+	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
+	}
 }

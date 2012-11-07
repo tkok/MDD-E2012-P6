@@ -1,6 +1,5 @@
 package dk.itu.ecdar.text.generator.framework;
 
-import dk.itu.ecdar.text.generator.environment.QuickLog;
 
 /**
  * Base class for edge implementations. 
@@ -42,9 +41,12 @@ public abstract class IEdge {
 	 * @return The ILocation this edge points to
 	 */
 	public ILocation traverse() {
-		QuickLog.log("Traversing from " + from.name + " to " + to.name, 13);
 		onTraverse();
 		return to;
 	}
 	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
+	}
 }
