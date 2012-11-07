@@ -16,7 +16,7 @@ public class Spec extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && time <= 2;
+			return to.checkInvariant(time) && time <= 2;
 		}
 
 		@Override
@@ -35,7 +35,7 @@ public class Spec extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -53,7 +53,7 @@ public class Spec extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && time > 2;
+			return to.checkInvariant(time) && time > 2;
 		}
 
 		@Override
@@ -71,7 +71,7 @@ public class Spec extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -90,7 +90,7 @@ public class Spec extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -109,7 +109,7 @@ public class Spec extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override

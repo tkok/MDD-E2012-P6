@@ -16,7 +16,7 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -34,7 +34,7 @@ public class Researcher extends ITIOA {
 		
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && time <= 15;
+			return to.checkInvariant(time) && time <= 15;
 		}
 		
 		@Override
@@ -52,7 +52,7 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && time > 15;
+			return to.checkInvariant(time) && time > 15;
 		}
 
 		@Override
@@ -69,7 +69,7 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -86,7 +86,7 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -104,7 +104,7 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && time >= 2;
+			return to.checkInvariant(time) && time >= 2;
 		}
 
 		@Override
@@ -122,7 +122,7 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && time >= 4;
+			return to.checkInvariant(time) && time >= 4;
 		}
 
 		@Override
@@ -140,7 +140,7 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override

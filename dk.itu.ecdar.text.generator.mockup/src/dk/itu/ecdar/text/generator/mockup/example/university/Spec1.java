@@ -16,7 +16,7 @@ public class Spec1 extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time);
+			return to.checkInvariant(time);
 		}
 
 		@Override
@@ -35,7 +35,7 @@ public class Spec1 extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -54,7 +54,7 @@ public class Spec1 extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override

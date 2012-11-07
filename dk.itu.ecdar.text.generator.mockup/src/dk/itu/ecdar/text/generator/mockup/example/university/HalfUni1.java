@@ -16,7 +16,7 @@ public class HalfUni1 extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -34,7 +34,7 @@ public class HalfUni1 extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -51,7 +51,7 @@ public class HalfUni1 extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -68,7 +68,7 @@ public class HalfUni1 extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -86,7 +86,7 @@ public class HalfUni1 extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -103,7 +103,7 @@ public class HalfUni1 extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
@@ -120,7 +120,7 @@ public class HalfUni1 extends ITIOA {
 
 		@Override
 		public boolean checkGuard(long time) {
-			return from.checkInvariant(time) && true;
+			return to.checkInvariant(time) && true;
 		}
 
 		@Override
