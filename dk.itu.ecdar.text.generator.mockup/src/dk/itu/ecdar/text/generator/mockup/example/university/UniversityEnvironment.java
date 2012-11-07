@@ -12,6 +12,7 @@ public class UniversityEnvironment extends IEnvironment {
 
 	public static void main(String[] args) {
 		QuickLog.setLogLevel(20);
+		QuickLog.logToFile("university");
 		IEnvironment universityEnvironment = new UniversityEnvironment();
 		universityEnvironment.parse(args[0]);
 		universityEnvironment.run();
