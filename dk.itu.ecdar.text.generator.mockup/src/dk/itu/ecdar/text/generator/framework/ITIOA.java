@@ -13,6 +13,7 @@ public abstract class ITIOA {
 	 * until there is at least one edge available.
 	 */
 	class TransitionThread extends Thread {
+		@Override
 		public void run () {
 			
 			while (true) {

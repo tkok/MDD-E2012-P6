@@ -1,0 +1,30 @@
+module dk.itu.ecdar.text.generator.generators.M2T
+
+Workflow {
+
+	bean = org.eclipse.emf.mwe.utils.StandaloneSetup {
+		platformUri = "../"
+		registerGeneratedEPackage = "tripLoose.TripLoosePackage"
+		registerEcoreFile = "platform:/resource/episode10xtext.tripLoose/model/tripLoose.ecore"
+	}
+	
+	component = org.eclipse.xtext.mwe.Reader {
+		path = "input/"
+		register = episode10xtext.tripLoose.xtext.TTripLooseStandaloneSetup { }
+					
+		load = {
+			slot = "tripmodel"
+			type = "TripModel"
+			firstOnly = true
+		}
+	}
+
+	component = org.eclipse.emf.mwe.utils.DirectoryCleaner {
+		directory = "../episode13m2t.trip/model-gen/"
+	}
+
+	component = org.eclipse.emf.mwe.utils.Writer {
+		modelSlot = "tripmodel"
+		uri = "platform:/resource/episode13m2t.trip/model-gen/output.xmi"
+	}
+}

@@ -1,0 +1,29 @@
+
+
+«IMPORT tripLoose»
+
+«DEFINE main FOR TripModel»
+«FILE this.name + ".html"»
+<html><head><title>Report for Model "«name»"</title></head>
+<body>
+<h1>Trip Model Report for Model "«name»" </h1>
+«FOREACH elements AS e»«EXPAND entry FOR e»«ENDFOREACH»
+</body>
+«ENDFILE»
+«ENDDEFINE» 
+
+«DEFINE entry FOR NamedElement»
+«ENDDEFINE»
+
+«DEFINE entry FOR Car»
+	<strong>Car</strong> «name»<br/>
+«ENDDEFINE»
+«DEFINE entry FOR Person»
+	<strong>Person</strong> «name»<br/>
+«ENDDEFINE»
+«DEFINE entry FOR Trip»
+	<strong>Trip</strong> «name»
+	<ol>
+	«FOREACH passengers AS p»<li>«EXPAND entry FOR p»«ENDFOREACH»</li>
+	</ol>
+«ENDDEFINE»

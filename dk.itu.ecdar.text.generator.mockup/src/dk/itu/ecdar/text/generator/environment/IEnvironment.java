@@ -6,7 +6,8 @@ import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import dk.itu.ecdar.text.generator.framework.*;
+import dk.itu.ecdar.text.generator.framework.AutomatonTimer;
+import dk.itu.ecdar.text.generator.framework.IController;
 
 /**
  * Base class for environment implementations.

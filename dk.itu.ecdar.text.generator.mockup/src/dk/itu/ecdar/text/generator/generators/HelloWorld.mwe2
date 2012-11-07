@@ -1,0 +1,10 @@
+// essentially taken from the official MWE2 tutorial
+// works frozen 
+
+module dk.itu.ecdar.text.generator.generators.HelloWorld
+
+Workflow {
+	
+	component = SayHello { message = "Hello!" }
+	
+}
