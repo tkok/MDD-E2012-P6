@@ -1,4 +1,4 @@
-module episode13m2t.trip.generators.M2T
+module dk.itu.ecdar.text.generator.generators.M2T
 
 Workflow {
 

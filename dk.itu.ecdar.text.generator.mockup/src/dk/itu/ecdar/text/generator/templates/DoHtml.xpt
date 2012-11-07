@@ -1,29 +1,29 @@
 
 
-Â«IMPORT tripLooseÂ»
+«IMPORT tripLoose»
 
-Â«DEFINE main FOR TripModelÂ»
-Â«FILE this.name + ".html"Â»
-<html><head><title>Report for Model "Â«nameÂ»"</title></head>
+«DEFINE main FOR TripModel»
+«FILE this.name + ".html"»
+<html><head><title>Report for Model "«name»"</title></head>
 <body>
-<h1>Trip Model Report for Model "Â«nameÂ»" </h1>
-Â«FOREACH elements AS eÂ»Â«EXPAND entry FOR eÂ»Â«ENDFOREACHÂ»
+<h1>Trip Model Report for Model "«name»" </h1>
+«FOREACH elements AS e»«EXPAND entry FOR e»«ENDFOREACH»
 </body>
-Â«ENDFILEÂ»
-Â«ENDDEFINEÂ» 
+«ENDFILE»
+«ENDDEFINE» 
 
-Â«DEFINE entry FOR NamedElementÂ»
-Â«ENDDEFINEÂ»
+«DEFINE entry FOR NamedElement»
+«ENDDEFINE»
 
-Â«DEFINE entry FOR CarÂ»
-	<strong>Car</strong> Â«nameÂ»<br/>
-Â«ENDDEFINEÂ»
-Â«DEFINE entry FOR PersonÂ»
-	<strong>Person</strong> Â«nameÂ»<br/>
-Â«ENDDEFINEÂ»
-Â«DEFINE entry FOR TripÂ»
-	<strong>Trip</strong> Â«nameÂ»
+«DEFINE entry FOR Car»
+	<strong>Car</strong> «name»<br/>
+«ENDDEFINE»
+«DEFINE entry FOR Person»
+	<strong>Person</strong> «name»<br/>
+«ENDDEFINE»
+«DEFINE entry FOR Trip»
+	<strong>Trip</strong> «name»
 	<ol>
-	Â«FOREACH passengers AS pÂ»<li>Â«EXPAND entry FOR pÂ»Â«ENDFOREACHÂ»</li>
+	«FOREACH passengers AS p»<li>«EXPAND entry FOR p»«ENDFOREACH»</li>
 	</ol>
-Â«ENDDEFINEÂ»
+«ENDDEFINE»

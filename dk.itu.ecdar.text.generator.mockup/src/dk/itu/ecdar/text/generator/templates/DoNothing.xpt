@@ -1,6 +1,6 @@
-Â«IMPORT tripLooseÂ»
-Â«DEFINE main FOR tripLoose::TripModelÂ»
-Â«FILE "test.html"Â»
+«IMPORT tripLoose»
+«DEFINE main FOR tripLoose::TripModel»
+«FILE "test.html"»
 nothing
-Â«ENDFILEÂ»
-Â«ENDDEFINEÂ»
+«ENDFILE»
+«ENDDEFINE»

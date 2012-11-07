@@ -1,22 +1,22 @@
 
-Â«IMPORT tripLooseÂ»
+«IMPORT tripLoose»
 
-Â«DEFINE insert FOR NamedElementÂ»Â«ENDDEFINEÂ»
-Â«DEFINE insert FOR PersonÂ»
-	INSERT INTO PERSONS VALUES ('Â«nameÂ»')
-Â«ENDDEFINEÂ»
-Â«DEFINE insert FOR VehicleÂ»
-	INSERT INTO CARS(regnr,seats) VALUES ('Â«nameÂ»','Â«nrOfSeatsÂ»')
-Â«ENDDEFINEÂ»
-Â«DEFINE insert FOR TripÂ»
-	INSERT INTO TRIPS (id,name) VALUES ('Â«nameÂ»','Â«nameÂ»')
-	Â«FOREACH passengers AS pÂ»
-	INSERT INTO PASSENGERS (tripid,personid) VALUES ('Â«nameÂ»','Â«p.nameÂ»')
-	Â«ENDFOREACHÂ»
-Â«ENDDEFINEÂ»
+«DEFINE insert FOR NamedElement»«ENDDEFINE»
+«DEFINE insert FOR Person»
+	INSERT INTO PERSONS VALUES ('«name»')
+«ENDDEFINE»
+«DEFINE insert FOR Vehicle»
+	INSERT INTO CARS(regnr,seats) VALUES ('«name»','«nrOfSeats»')
+«ENDDEFINE»
+«DEFINE insert FOR Trip»
+	INSERT INTO TRIPS (id,name) VALUES ('«name»','«name»')
+	«FOREACH passengers AS p»
+	INSERT INTO PASSENGERS (tripid,personid) VALUES ('«name»','«p.name»')
+	«ENDFOREACH»
+«ENDDEFINE»
 
-Â«DEFINE main FOR TripModelÂ»
-Â«FILE this.name + ".sql"Â»
-Â«FOREACH elements AS eÂ»Â«EXPAND insert FOR eÂ»Â«ENDFOREACHÂ»
-Â«ENDFILEÂ»
-Â«ENDDEFINEÂ» 
+«DEFINE main FOR TripModel»
+«FILE this.name + ".sql"»
+«FOREACH elements AS e»«EXPAND insert FOR e»«ENDFOREACH»
+«ENDFILE»
+«ENDDEFINE» 

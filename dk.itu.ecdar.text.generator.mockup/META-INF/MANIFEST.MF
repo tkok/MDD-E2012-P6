@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: episode13m2t.trip
-Bundle-SymbolicName: episode13m2t.trip; singleton:=true
+Bundle-Name: dk.itu.ecdar.text.generator.mockup
+Bundle-SymbolicName: dk.itu.ecdar.text.generator.mockup;singleton:=true
 Bundle-Version: 1.0.0
 Require-Bundle: org.eclipse.jdt.core;bundle-version="3.5.0",
  org.eclipse.xtend.profiler;resolution:=optional,
@@ -17,6 +17,6 @@ Require-Bundle: org.eclipse.jdt.core;bundle-version="3.5.0",
  org.eclipse.xtend;bundle-version="0.7.0",
  org.eclipse.xtend.typesystem.emf;bundle-version="0.7.0",
  org.eclipse.emf.mwe2.launch;bundle-version="2.3.0",
- episode10xtext.tripLoose;bundle-version="1.0.0";visibility:=reexport,
- episode10xtext.tripLoose.xtext;bundle-version="1.0.0";visibility:=reexport
+ dk.itu.ecdar.text;bundle-version="1.0.0";visibility:=reexport,
+ dk.itu.ecdar.text;bundle-version="1.0.0";visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
