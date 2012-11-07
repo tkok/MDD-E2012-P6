@@ -14,7 +14,7 @@ public class QuickLog {
 	private volatile int counter;
 	
 	private boolean console ;
-	private String destination;
+	private String prefix, destination;
 	
 	private QuickLog() {
 		logLevel = 0;
@@ -25,6 +25,7 @@ public class QuickLog {
 		DateFormat format = new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss");
 		Date date = new Date();
 		
+		prefix = null;
 		destination = "log-" + format.format(date) + ".csv";
 	}
 	
@@ -54,6 +55,11 @@ public class QuickLog {
 	
 	public static void logToFile() {
 		getInstance().console = false;
+	}
+	
+	public static void logToFile(String prefix) {
+		logToFile();
+		getInstance().prefix = prefix;
 	}
 	
 	public static void setDestination(String filepath) {
@@ -89,7 +95,11 @@ public class QuickLog {
 				+ message;
 		
 		try {
-			FileWriter fileWriter = new FileWriter(destination, true);
+			String filename = destination;
+			if (prefix != null)
+				filename = prefix + "-" + destination;
+			
+			FileWriter fileWriter = new FileWriter(filename, true);
 			BufferedWriter outBuffer = new BufferedWriter(fileWriter);
 
 			String newLine = System.getProperty("line.separator");
