@@ -10,6 +10,13 @@ public abstract class IController {
 	
 	ITIOA[] automata;
 	
+	// TODO: find a nicer solution for singleton behavior. Maybe just remove abstract from IController?
+	protected static IController controllerInstance;
+	
+	public static IController getInstance() {
+		return controllerInstance;
+	}
+	
 	public IController(ITIOA[] automata) {
 		this.automata = automata;
 	}

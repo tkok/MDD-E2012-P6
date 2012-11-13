@@ -17,4 +17,9 @@ public abstract class IEdgeUncontrollable extends IEdge {
 		return false;
 	}
 
+	@Override
+	public ILocation traverse() {
+		IController.getInstance().notify(signal);
+		return super.traverse();
+	}
 }

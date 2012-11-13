@@ -7,6 +7,7 @@ public class UniversityController extends IController {
 
 	public UniversityController(ITIOA[] automata) {
 		super(automata);
+		IController.controllerInstance = this;
 	}
 	
 	/* These static factories should normally not be here but
