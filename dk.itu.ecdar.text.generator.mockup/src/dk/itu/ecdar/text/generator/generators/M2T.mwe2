@@ -4,52 +4,44 @@ Workflow {
 
 	bean = org.eclipse.emf.mwe.utils.StandaloneSetup {
 		platformUri = "../"
-		registerGeneratedEPackage = "tripLoose.TripLoosePackage"
-		registerEcoreFile = "platform:/resource/episode10xtext.tripLoose/model/tripLoose.ecore"
+		registerGeneratedEPackage = "dk.itu.ecdar.text.ecdarText.EcdarTextPackage"
+		registerEcoreFile = "platform:/resource/dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/EcdarText.ecore"
 	}
 
-//	component = org.eclipse.emf.mwe.utils.Reader {
-//		uri = "input/SonderborgTrip.xmi"
-//		modelSlot = "tripmodel"
-//	}
-
-// The above seems to load just one file (more convenient and works).
-// Still produces some errors later on
-// http://www.eclipse.org/forums/index.php?t=msg&goto=548891&
 	
 	component = org.eclipse.xtext.mwe.Reader {
-		//path = "../episode10xtext.trip/model-archive/"
 		path = "input/"
-		register = episode10xtext.tripLoose.xtext.TTripLooseStandaloneSetup { }
+		register = dk.itu.ecdar.text.EcdarTextStandaloneSetup { }
 					
 		load = {
-			slot = "tripmodel"
-			type = "TripModel"
+			slot = "etfile"
+			type = "ETFile"
 			firstOnly = true
 		}
 	}
 
 	component = org.eclipse.emf.mwe.utils.DirectoryCleaner {
-		directory = "../episode13m2t.trip/model-gen/"
+		directory = "../dk.itu.ecdar.text.generator.mockup/model-gen/"
 	}
 
 	component = org.eclipse.xpand2.Generator {
 		
 		metaModel = org.eclipse.xtend.typesystem.emf.EmfMetaModel { 
-			metaModelPackage = "tripLoose.TripLoosePackage"
-			metaModelFile = "platform:/resource/episode10xtext.tripLoose/model/tripLoose.ecore"
+			metaModelPackage = "dk.itu.ecdar.text.ecdarText.EcdarTextPackage"
+			metaModelFile = "platform:/resource/dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/EcdarText.ecore"
 		}
 		metaModel = org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel {}
-		//expand = "episode13m2t::trip::templates::DoNothing::main FOREACH tripmodel"
-		expand = "episode13m2t::trip::templates::DoSQL::main FOR tripmodel"
+		//expand = "dk::itu::ecdar::text::generator::templates::DoNothing::main FOREACH etfile"
+		expand = "dk::itu::ecdar::text::generator::templates::DoNothing::main FOR etfile"
+
 		outlet = { path = "model-gen/" }
 	}
 
 	component = org.eclipse.emf.mwe.utils.Writer {
-		modelSlot = "tripmodel"
+		modelSlot = "etfile"
 		// file extension is important here. 
 		// ".ttripLoose" (so the declared xtext syntax extension) saves in textual syntax
 		// ".xmi" or ".ecore" saves in xmi syntax.
-		uri = "platform:/resource/episode13m2t.trip/model-gen/output.xmi"
+		uri = "platform:/resource/dk.itu.ecdar.text.generator.mockup/model-gen/output.xmi"
 	}
 }
