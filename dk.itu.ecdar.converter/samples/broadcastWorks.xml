@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+		broadcast chan a, b, start;</declaration>
+	<template>
+		<name x="5" y="5">Spec</name>
+		<declaration>// Place local declarations here.
+		</declaration>
+		<location id="id0" x="88" y="-96"></location>
+		<location id="id1" x="-56" y="-96"></location>
+		<location id="id2" x="-208" y="-96"></location>
+		<init ref="id2" />
+		<transition controllable="false" action="">
+			<source ref="id1" />
+			<target ref="id0" />
+			<label kind="synchronisation" x="0" y="-120">b!</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id2" />
+			<target ref="id1" />
+			<label kind="synchronisation" x="-144" y="-120">a!</label>
+		</transition>
+	</template>
+	<template>
+		<name>Starter</name>
+		<location id="id3" x="-232" y="-96"></location>
+		<location id="id4" x="-472" y="-96"></location>
+		<init ref="id4" />
+		<transition controllable="false" action="">
+			<source ref="id4" />
+			<target ref="id3" />
+			<label kind="synchronisation" x="-412" y="-111">start!</label>
+		</transition>
+	</template>
+	<template>
+		<name>Pa</name>
+		<location id="id5" x="-24" y="-112"></location>
+		<location id="id6" x="-184" y="-112"></location>
+		<location id="id7" x="-336" y="-112"></location>
+		<location id="id8" x="-512" y="-112"></location>
+		<init ref="id8" />
+		<transition action="">
+			<source ref="id6" />
+			<target ref="id5" />
+			<label kind="synchronisation" x="-112" y="-128">b?</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id7" />
+			<target ref="id6" />
+			<label kind="synchronisation" x="-272" y="-128">a!</label>
+		</transition>
+		<transition action="">
+			<source ref="id8" />
+			<target ref="id7" />
+			<label kind="synchronisation" x="-448" y="-128">start?</label>
+		</transition>
+	</template>
+	<template>
+		<name>Pb</name>
+		<location id="id9" x="208" y="8"></location>
+		<location id="id10" x="64" y="8"></location>
+		<location id="id11" x="-96" y="8"></location>
+		<location id="id12" x="-264" y="8"></location>
+		<init ref="id12" />
+		<transition controllable="false" action="">
+			<source ref="id10" />
+			<target ref="id9" />
+			<label kind="synchronisation" x="128" y="-8">b!</label>
+		</transition>
+		<transition action="">
+			<source ref="id11" />
+			<target ref="id10" />
+			<label kind="synchronisation" x="-32" y="-8">a?</label>
+		</transition>
+		<transition action="">
+			<source ref="id12" />
+			<target ref="id11" />
+			<label kind="synchronisation" x="-208" y="-8">start?</label>
+		</transition>
+	</template>
+	<template>
+		<name>Dummy</name>
+		<location id="id13" x="-480" y="-96"></location>
+		<init ref="id13" />
+		<transition controllable="false" action="">
+			<source ref="id13" />
+			<target ref="id13" />
+			<label kind="synchronisation" x="-496" y="-192">start!</label>
+			<nail x="-528" y="-168" />
+			<nail x="-432" y="-168" />
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+
+		// List one or more processes to be composed into a system.
+		system Spec, Starter, Pa, Pb, Dummy;
+
+		IO Starter {start!}
+		IO Pa {a!, b?, start?}
+		IO Pb {b!, a?, start?}
+		IO Spec {a!, b!}
+		IO Dummy {start!}</system>
+</nta>

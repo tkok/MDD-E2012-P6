@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecdarDSL:File xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecdarDSL="http://www.itu.dk/ecdar/newEcdar/EcdarDSL" xsi:schemaLocation="http://www.itu.dk/ecdar/newEcdar/EcdarDSL java://dk.itu.ecdar.newEcdar.ecdarDSL.EcdarDSLPackage">
+  <components xsi:type="ecdarDSL:ComponentDefintion" name="Machine">
+    <initialLocation name="Idle">
+      <edges target="//@components.0/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.0.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.0/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.0.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+    </initialLocation>
+    <locations name="Inconsistent"/>
+    <locations name="Universal">
+      <edges target="//@components.0/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.0.2.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.0/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.0.2.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.0/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.0.2.1.1.2.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="Serving">
+      <edges target="//@components.0/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.0.2.2.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.0/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.0.2.2.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.0/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.0.2.2.1.2.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <clocks name="c"/>
+    <actions name="tea"/>
+    <actions name="coin"/>
+    <actions name="cof"/>
+  </components>
+  <components xsi:type="ecdarDSL:ComponentDefintion" name="Researcher">
+    <initialLocation name="Idle">
+      <edges target="//@components.1/@locations.2">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.1.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.1/@locations.3">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.1.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.1/@locations.4">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.1.1.1.2.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.1/@locations.5">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.1.1.1.3.4::0::/1"/>
+        </io>
+      </edges>
+    </initialLocation>
+    <locations name="Inconsistent"/>
+    <locations name="Universal">
+      <edges target="//@components.1/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.1.2.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.1/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.1.2.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.1/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.1.2.1.1.2.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="TestInconsistent"/>
+    <locations name="Stuck">
+      <edges target="//@components.1/@locations.3">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.1.2.3.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.1/@locations.3">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.1.2.3.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.1/@locations.3">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.1.2.3.1.2.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="Tea">
+      <edges target="//@components.1/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.1.2.4.1.0.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="Coffee">
+      <edges target="//@components.1/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.1.2.5.1.0.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+  </components>
+  <components xsi:type="ecdarDSL:ComponentDefintion" name="University2">
+    <initialLocation name="INIT">
+      <edges target="//@components.2/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.2/@locations.4">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+    </initialLocation>
+    <locations name="Inconsistent"/>
+    <locations name="Universal">
+      <edges target="//@components.2/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.2.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.2/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.2.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.2/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.2.1.1.2.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.2/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.2.1.1.3.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="id13">
+      <edges target="//@components.2/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.2.2.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.2/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.2.2.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.2/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.2.2.1.2.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="id14">
+      <edges target="//@components.2/@locations.3">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.2.3.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.2/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.2.3.1.1.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="id15">
+      <edges target="//@components.2/@locations.4">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.2.4.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.2/@locations.4">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.2.4.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.2/@locations.3">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.2.2.4.1.2.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+  </components>
+  <components xsi:type="ecdarDSL:ComponentDefintion" name="Spec1">
+    <initialLocation name="INIT">
+      <edges target="//@components.3/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.3.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+    </initialLocation>
+    <locations name="Inconsistent"/>
+    <locations name="Universal">
+      <edges target="//@components.3/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.3.2.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.3/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.3.2.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="id19">
+      <edges target="//@components.3/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.3.2.2.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.3/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.3.2.2.1.1.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+  </components>
+  <components xsi:type="ecdarDSL:ComponentDefintion" name="Spec">
+    <initialLocation name="Start">
+      <edges target="//@components.4/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.4.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.4/@locations.3">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.4.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+    </initialLocation>
+    <locations name="Inconsistent"/>
+    <locations name="Universal">
+      <edges target="//@components.4/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.4.2.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.4/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.4.2.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="End">
+      <edges target="//@components.4/@locations.2">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.4.2.2.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.4/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.4.2.2.1.1.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="Grant">
+      <edges target="//@components.4/@locations.3">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.4.2.3.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.4/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.4.2.3.1.1.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+  </components>
+  <components xsi:type="ecdarDSL:ComponentDefintion" name="University">
+    <initialLocation name="A">
+      <edges target="//@components.5/@locations.4">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+    </initialLocation>
+    <locations name="Inconsistent"/>
+    <locations name="Universal">
+      <edges target="//@components.5/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.2.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.5/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.2.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.5/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.2.1.1.2.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.5/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.2.1.1.3.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="D">
+      <edges target="//@components.5/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.2.2.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.5/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.2.2.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.5/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.2.2.1.2.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="C">
+      <edges target="//@components.5/@locations.3">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.2.3.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.5/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.2.3.1.1.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="B">
+      <edges target="//@components.5/@locations.4">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.2.4.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.5/@locations.4">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.2.4.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.5/@locations.3">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.5.2.4.1.2.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+  </components>
+  <components xsi:type="ecdarDSL:ComponentDefintion" name="HalfUni1">
+    <initialLocation name="A">
+      <edges target="//@components.6/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.6.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.6/@initialLocation">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.6.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.6/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.6.1.1.2.4::0::/1"/>
+        </io>
+      </edges>
+    </initialLocation>
+    <locations name="Inconsistent"/>
+    <locations name="Universal">
+      <edges target="//@components.6/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.6.2.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.6/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.6.2.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.6/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.6.2.1.1.2.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.6/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.6.2.1.1.3.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="B">
+      <edges target="//@components.6/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.6.2.2.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.6/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.6.2.2.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.6/@locations.2">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.6.2.2.1.2.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.6/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.6.2.2.1.3.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+  </components>
+  <components xsi:type="ecdarDSL:ComponentDefintion" name="HalfUni2">
+    <initialLocation name="C">
+      <edges target="//@components.7/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.7.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.7/@initialLocation">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.7.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.7/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.7.1.1.2.4::0::/1"/>
+        </io>
+      </edges>
+    </initialLocation>
+    <locations name="Inconsistent"/>
+    <locations name="Universal">
+      <edges target="//@components.7/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.7.2.1.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.7/@locations.1">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.7.2.1.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.7/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.7.2.1.1.2.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.7/@locations.1">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.7.2.1.1.3.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+    <locations name="D">
+      <edges target="//@components.7/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.7.2.2.1.0.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.7/@locations.2">
+        <io xsi:type="ecdarDSL:Input">
+          <action href="samples/university.ecdar#xtextLink_::0.1.7.2.2.1.1.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.7/@locations.2">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.7.2.2.1.2.4::0::/1"/>
+        </io>
+      </edges>
+      <edges target="//@components.7/@initialLocation">
+        <io xsi:type="ecdarDSL:Output">
+          <action href="samples/university.ecdar#xtextLink_::0.1.7.2.2.1.3.4::0::/1"/>
+        </io>
+      </edges>
+    </locations>
+  </components>
+</ecdarDSL:File>

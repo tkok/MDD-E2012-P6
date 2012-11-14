@@ -1,0 +1,241 @@
+const int delta = 0
+spec Machine {
+	clock y;
+	output tea!;
+	input coin?;
+	output cof!
+	initial Idle {
+		tea! : if (y >= 2) goto Idle;
+		coin? : {
+			y = 0;
+			goto Serving
+		}
+	}
+	Serving {
+		invariant y <= 6;
+		coin? : goto Serving;
+		tea! : goto Idle;
+		cof! : if (y >= 4) goto Idle
+	}
+}
+spec University2 {
+	clock z;
+	output coin!;
+	input grant?;
+	input pub?;
+	output patent!
+	initial id7 {
+		pub? : {
+			z = 0;
+			goto id2
+		};
+		grant? : {
+			z = 0;
+			goto id4
+		}
+	}
+	id2 {
+		invariant z <= 2;
+		pub? : goto id2;
+		grant? : goto id2;
+		patent! : goto id7
+	}
+	urgent Inconsistent {
+	}
+	id4 {
+		invariant z <= 2;
+		pub? : goto id4;
+		grant? : goto id4;
+		coin! : goto id6
+	}
+	Universal {
+		coin! : goto Universal;
+		grant? : goto Universal;
+		pub? : goto Universal;
+		patent! : goto Universal
+	}
+	id6 {
+		grant? : goto id6;
+		pub? : {
+			z = 0;
+			goto id2
+		}
+	}
+}
+spec Spec {
+	clock u;
+	output patent!;
+	input grant?
+	initial Start {
+		grant? : if (u > 2) goto End;
+		grant? : if (u <= 2) {
+			u = 0;
+			goto Grant
+		}
+	}
+	End {
+		patent! : goto End;
+		grant? : goto End
+	}
+	Grant {
+		invariant u <= 20;
+		grant? : goto Grant;
+		patent! : {
+			u = 0;
+			goto Start
+		}
+	}
+}
+spec University {
+	clock z;
+	input pub?;
+	input grant?;
+	output patent!;
+	output coin!
+	initial A {
+		pub? : goto A;
+		grant? : {
+			z = 0;
+			goto B
+		}
+	}
+	D {
+		invariant z <= 2;
+		pub? : goto D;
+		grant? : goto D;
+		patent! : goto A
+	}
+	C {
+		grant? : goto C;
+		pub? : {
+			z = 0;
+			goto D
+		}
+	}
+	B {
+		invariant z <= 2;
+		pub? : goto B;
+		grant? : goto B;
+		coin! : goto C
+	}
+}
+spec MachineImpl {
+	clock z;
+	output tea!;
+	input coin?;
+	output cof!
+	initial Idle {
+		invariant z <= 10;
+		tea! : if (z >= 10) {
+			z = 0;
+			goto Idle
+		};
+		coin? : {
+			z = 0;
+			goto Serving
+		}
+	}
+	Serving {
+		invariant z <= 5;
+		coin? : goto Serving;
+		cof! : if (z >= 5) goto Idle
+	}
+}
+spec MachineRef {
+	clock y;
+	output tea!;
+	input coin?;
+	output cof!
+	initial Idle {
+		tea! : if (y >= 2) goto Idle;
+		coin? : {
+			y = 0;
+			goto Serving
+		}
+	}
+	Serving {
+		invariant y <= 5;
+		coin? : goto Serving;
+		cof! : if (y >= 4) goto Idle
+	}
+}
+spec ResearcherImpl {
+	clock x;
+	input tea?;
+	input cof?;
+	output pub!
+	initial Idle {
+		tea? : if (x > 16) goto lu;
+		tea? : if (x <= 16) {
+			x = 0;
+			goto id22
+		};
+		cof? : {
+			x = 0;
+			goto id21
+		}
+	}
+	lu {
+		pub! : goto lu;
+		cof? : goto lu;
+		tea? : goto lu
+	}
+	id21 {
+		invariant x <= 3;
+		cof? : goto id21;
+		tea? : goto id21;
+		pub! : if (x >= 3) {
+			x = 0;
+			goto Idle
+		}
+	}
+	id22 {
+		invariant x <= 6;
+		tea? : goto id22;
+		cof? : goto id22;
+		pub! : if (x >= 6) {
+			x = 0;
+			goto Idle
+		}
+	}
+}
+spec Researcher {
+	clock x;
+	input tea?;
+	input cof?;
+	output pub!
+	initial Idle {
+		tea? : if (x > 15) goto UNIV;
+		tea? : if (x <= 15) {
+			x = 0;
+			goto T
+		};
+		cof? : {
+			x = 0;
+			goto C
+		}
+	}
+	UNIV {
+		pub! : goto UNIV;
+		cof? : goto UNIV;
+		tea? : goto UNIV
+	}
+	T {
+		invariant x <= 8;
+		tea? : goto T;
+		cof? : goto T;
+		pub! : if (x >= 4) {
+			x = 0;
+			goto Idle
+		}
+	}
+	C {
+		invariant x <= 4;
+		cof? : goto C;
+		tea? : goto C;
+		pub! : if (x >= 2) {
+			x = 0;
+			goto Idle
+		}
+	}
+}

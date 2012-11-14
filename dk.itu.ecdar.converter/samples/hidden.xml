@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta>
+	<declaration>
+		broadcast chan vis1;
+		broadcast chan vis2;
+		broadcast chan hidden;
+
+	</declaration>
+	<template>
+		<name x="5" y="5">RHSspec</name>
+		<location id="id0" x="-216" y="-176"></location>
+		<location id="id1" x="-312" y="-176">
+			<name x="-322" y="-206">T1</name>
+		</location>
+		<location id="id2" x="-96" y="-176">
+			<name x="-106" y="-206">T0</name>
+		</location>
+		<init ref="id1" />
+		<transition controllable="false" action="">
+			<source ref="id0" />
+			<target ref="id2" />
+			<label kind="synchronisation" x="-176" y="-200">vis2!</label>
+		</transition>
+		<transition action="">
+			<source ref="id1" />
+			<target ref="id0" />
+			<label kind="synchronisation" x="-280" y="-200">vis1?</label>
+		</transition>
+	</template>
+	<template>
+		<name>Impl1</name>
+		<location id="id3" x="-256" y="-344">
+			<name x="-266" y="-374">S2</name>
+		</location>
+		<location id="id4" x="-424" y="-344">
+			<name x="-434" y="-374">S1</name>
+		</location>
+		<location id="id5" x="-608" y="-344">
+			<name x="-618" y="-374">S0</name>
+		</location>
+		<init ref="id5" />
+		<transition controllable="false" action="">
+			<source ref="id4" />
+			<target ref="id3" />
+			<label kind="synchronisation" x="-376" y="-368">hidden!</label>
+		</transition>
+		<transition action="">
+			<source ref="id5" />
+			<target ref="id4" />
+			<label kind="synchronisation" x="-536" y="-368">vis1?</label>
+		</transition>
+	</template>
+	<template>
+		<name>Impl2</name>
+		<location id="id6" x="-104" y="-120"></location>
+		<location id="id7" x="-264" y="-120"></location>
+		<location id="id8" x="-448" y="-120"></location>
+		<init ref="id8" />
+		<transition controllable="false" action="">
+			<source ref="id7" />
+			<target ref="id6" />
+			<label kind="synchronisation" x="-208" y="-144">vis2!</label>
+		</transition>
+		<transition action="">
+			<source ref="id8" />
+			<target ref="id7" />
+			<label kind="synchronisation" x="-384" y="-144">hidden?</label>
+		</transition>
+	</template>
+	<template>
+		<name>outputLooper</name>
+		<location id="id9" x="-456" y="-136"></location>
+		<init ref="id9" />
+		<transition controllable="false" action="">
+			<source ref="id9" />
+			<target ref="id9" />
+			<label kind="synchronisation" x="-432" y="-160">hidden!</label>
+			<nail x="-360" y="-136" />
+			<nail x="-360" y="-56" />
+			<nail x="-448" y="-56" />
+		</transition>
+	</template>
+	<system>system Impl1, Impl2, RHSspec, outputLooper;
+		IO Impl1 { vis1?, hidden! }
+		IO Impl2 { hidden?, vis2! }
+		IO RHSspec { vis1?, vis2! }
+		IO outputLooper { hidden! }</system>
+</nta>

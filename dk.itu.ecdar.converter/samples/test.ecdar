@@ -1,0 +1,26 @@
+component Component1 {
+	initial Location1 {
+	}
+	location Location2 {
+	}
+}
+component HalfUni1 {
+	initial A {
+	}
+	location Inconsistent {
+	}
+	location Universal {
+	}
+	location B {
+	}
+}
+component HalfUni2 {
+	initial C {
+	}
+	location Inconsistent {
+	}
+	location Universal {
+	}
+	location D {
+	}
+}

@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+
+		typedef int [0,1] id_t ;
+
+		typedef int [0,2] im_status_t; // Type used to store status of the InputMapping
+
+		// Values used Input Mapping Status
+		const int IM_STO_ACTIVE = 0;
+		const int IM_SS1_ACTIVE = 1;
+		const int IM_DEACTIVE = 2;
+
+		// Values used for signals
+		const int HIGH = 1;
+		const int LOW = 0;
+		const int DEACTIVE = 1;
+		const int ACTIVE = 0;
+
+		// Config data
+		const int STO = 0;
+		const int SS1 = 1;
+		const int SAFETY_FUNCTION = SS1;
+		const int RESET_REQ = 1;
+
+		// Randomly chosen time intervals
+		const int REACTION_TIME = 30;
+		const int ES_TIMEOUT = 2;
+		const int SS1_DELAY = 20;
+		const int RED_BUTTON_DELAY = 100;
+
+
+		// Design choice
+		// Every broadcast channel is an array of two broadcast channels one for High and one for Low
+
+
+		// internal to environemnt
+		broadcast chan pressES, releaseES;
+		broadcast chan pressReset, releaseReset;
+
+		// inputs to system
+		broadcast chan ES[2][2]; // Emergency Switch 1 &amp; 2
+
+		broadcast chan RS; // Reset signal
+		broadcast chan FEF[2][2]; // Final element fail 1 &amp; 2
+
+
+		// outputs
+		broadcast chan DA[2][2]; // Diagnostic Actuator
+		broadcast chan RO[2][2]; // Redundant output 1 2
+		broadcast chan RampDownRequest; // Sent over CAN network
+
+		//internal to system
+		broadcast chan STO_signal[2][2]; // Safe Torque Off (Logical representation of whether this output has been emitted on one of the possible broadcast channels
+
+
+		// Output to environment
+		broadcast chan FinalElementSignal[2][2]; // Signal sent by FinalElements to enable Safe Torque Off
+		broadcast chan SS1_signal; // Datagram message on the CAN_bus
+
+
+
+		// ToDo
+
+		// Model diagnostics
+		// Set cotrolable (input/output)
+		// Compose system: Two groups making up a safe broadcast channel
+		// Check against SysReq
+
+
+		// Internal to system
+
+
+		//NC_input
+		broadcast chan NCIState[2];
+
+		//Input_Mapping
+		broadcast chan IMSTO[2]; //input mapping STO
+		broadcast chan IMSS1[2]; //input mapping SS1
+
+		//STO AUTOMAT
+		broadcast chan STOSTO[2]; // The STO subcomponents view on whether STO is ACTIVE or DEACTIVE
+
+		// diagnostics broadcast channels used for status variables
+		const int NUMBER_OF_DIAGNOSTICS = 5;
+
+		// REUSE of const for STO and SS1
+		//const int STO = 0;
+		//const int SS1 = 1;
+		const int NC_INPUT = 2;
+		const int NCIS = 3; //NC_input Status
+		const int IMS = 4; //Input Mapping Status
+
+		broadcast chan setHigh[NUMBER_OF_DIAGNOSTICS];
+		broadcast chan setLow[NUMBER_OF_DIAGNOSTICS];
+		broadcast chan readHigh[NUMBER_OF_DIAGNOSTICS];
+		broadcast chan readLow[NUMBER_OF_DIAGNOSTICS];
+
+
+		broadcast chan setFirst[NUMBER_OF_DIAGNOSTICS];
+		broadcast chan setSecond[NUMBER_OF_DIAGNOSTICS];
+		broadcast chan setThird[NUMBER_OF_DIAGNOSTICS];
+		broadcast chan readFirst[NUMBER_OF_DIAGNOSTICS];
+		broadcast chan readSecond[NUMBER_OF_DIAGNOSTICS];
+		broadcast chan readThird[NUMBER_OF_DIAGNOSTICS];
+
+		// Channels used to model shared variables
+		broadcast chan IMSsetSS1ACTIVE;
+		broadcast chan IMSsetSTOACTIVE;
+		broadcast chan IMSsetDEACTIVE;
+
+
+
+
+		// Tau channels
+		broadcast chan tau1;
+	</declaration>
+	<template>
+		<name x="5" y="5">ESM_SysReq</name>
+		<declaration>// Emergency stop module
+
+			clock x;
+		</declaration>
+		<location id="id0" x="-1544" y="-1376">
+			<name x="-1554" y="-1406">SS1_Active</name>
+			<label kind="invariant" x="-1528" y="-1368">x &lt;= SS1_DELAY</label>
+		</location>
+		<location id="id1" x="-1824" y="-1240">
+			<name x="-1848" y="-1272">S3</name>
+		</location>
+		<location id="id2" x="-1824" y="-1376">
+			<name x="-1834" y="-1406">S2</name>
+			<label kind="invariant" x="-1808" y="-1368">x &lt;= REACTION_TIME</label>
+			<urgent />
+		</location>
+		<location id="id3" x="-2024" y="-1376">
+			<name x="-2034" y="-1406">S1</name>
+			<label kind="invariant" x="-2034" y="-1361">x &lt;= ES_TIMEOUT</label>
+		</location>
+		<location id="id4" x="-2176" y="-1376">
+			<name x="-2184" y="-1408">S0</name>
+		</location>
+		<init ref="id4" />
+		<transition action="">
+			<source ref="id1" />
+			<target ref="id4" />
+			<label kind="synchronisation" x="-2112" y="-1232">pressReset?</label>
+			<nail x="-2176" y="-1240" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id0" />
+			<target ref="id1" />
+			<label kind="select" x="-1536" y="-1336">id:id_t</label>
+			<label kind="guard" x="-1536" y="-1320">x == SS1_DELAY</label>
+			<label kind="synchronisation" x="-1536" y="-1304">FinalElementSignal[id][ACTIVE]!</label>
+			<label kind="assignment" x="-1536" y="-1289">x := 0</label>
+			<nail x="-1544" y="-1240" />
+			<nail x="-1576" y="-1240" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id2" />
+			<target ref="id0" />
+			<label kind="guard" x="-1728" y="-1464">SAFETY_FUNCTION == SS1</label>
+			<label kind="synchronisation" x="-1728" y="-1448">SS1_signal!</label>
+			<label kind="assignment" x="-1728" y="-1424">x := 0</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id2" />
+			<target ref="id1" />
+			<label kind="select" x="-1816" y="-1320">id:id_t</label>
+			<label kind="guard" x="-1816" y="-1296">SAFETY_FUNCTION == STO</label>
+			<label kind="synchronisation" x="-1816" y="-1280">FinalElementSignal[id][ACTIVE]!</label>
+			<label kind="assignment" x="-1816" y="-1264">x := 0</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id3" />
+			<target ref="id2" />
+			<label kind="guard" x="-1984" y="-1406">x &gt;= ES_TIMEOUT</label>
+			<label kind="synchronisation" x="-1984" y="-1391">tau1!</label>
+			<label kind="assignment" x="-1984" y="-1376">x := 0</label>
+		</transition>
+		<transition action="">
+			<source ref="id3" />
+			<target ref="id4" />
+			<label kind="guard" x="-2088" y="-1344">0 &lt; x &amp;&amp; x &lt;
+				ES_TIMEOUT</label>
+			<label kind="synchronisation" x="-2136" y="-1328">releaseES?</label>
+			<label kind="assignment" x="-2160" y="-1352">x = 0</label>
+			<nail x="-2096" y="-1336" />
+		</transition>
+		<transition action="">
+			<source ref="id4" />
+			<target ref="id3" />
+			<label kind="guard" x="-2160" y="-1406">x &gt; 10</label>
+			<label kind="synchronisation" x="-2120" y="-1432">pressES?</label>
+			<label kind="assignment" x="-2080" y="-1416">x = 0</label>
+			<nail x="-2096" y="-1408" />
+		</transition>
+	</template>
+	<template>
+		<name>RedButton</name>
+		<declaration>clock local;</declaration>
+		<location id="id5" x="-592" y="-40"></location>
+		<location id="id6" x="-592" y="-168"></location>
+		<init ref="id6" />
+		<transition controllable="false" action="">
+			<source ref="id5" />
+			<target ref="id6" />
+			<label kind="guard" x="-840" y="-136">local &gt;= RED_BUTTON_DELAY</label>
+			<label kind="synchronisation" x="-704" y="-120">releaseES!</label>
+			<label kind="assignment" x="-688" y="-104">local = 0</label>
+			<nail x="-624" y="-112" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id6" />
+			<target ref="id5" />
+			<label kind="synchronisation" x="-560" y="-120">pressES!</label>
+			<label kind="assignment" x="-560" y="-104">local = 0</label>
+			<nail x="-568" y="-112" />
+		</transition>
+	</template>
+	<template>
+		<name>EmergencySwitch</name>
+		<parameter>id_t id</parameter>
+		<location id="id7" x="-1008" y="-392">
+			<committed />
+		</location>
+		<location id="id8" x="-880" y="-304"></location>
+		<location id="id9" x="-768" y="-368">
+			<committed />
+		</location>
+		<location id="id10" x="-888" y="-456"></location>
+		<init ref="id10" />
+		<transition action="">
+			<source ref="id8" />
+			<target ref="id7" />
+			<label kind="synchronisation" x="-944" y="-368">releaseES?</label>
+		</transition>
+		<transition action="">
+			<source ref="id10" />
+			<target ref="id9" />
+			<label kind="synchronisation" x="-800" y="-480">DA[id][HIGH]?</label>
+			<nail x="-768" y="-456" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id7" />
+			<target ref="id10" />
+			<label kind="synchronisation" x="-1032" y="-448">ES[id][LOW]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id8" />
+			<target ref="id7" />
+			<label kind="synchronisation" x="-1040" y="-304">DA[id][LOW]?</label>
+			<nail x="-1008" y="-304" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id9" />
+			<target ref="id8" />
+			<label kind="synchronisation" x="-824" y="-336">ES[id][HIGH]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id10" />
+			<target ref="id9" />
+			<label kind="synchronisation" x="-888" y="-408">pressES?</label>
+		</transition>
+	</template>
+	<template>
+		<name>ResetButton</name>
+		<location id="id11" x="-552" y="-216"></location>
+		<init ref="id11" />
+		<transition controllable="false" action="">
+			<source ref="id11" />
+			<target ref="id11" />
+			<label kind="synchronisation" x="-504" y="-176">pressReset!</label>
+			<nail x="-512" y="-168" />
+			<nail x="-600" y="-168" />
+		</transition>
+	</template>
+	<template>
+		<name>ResetSwitch</name>
+		<location id="id12" x="-512" y="-216"></location>
+		<location id="id13" x="-568" y="-272"></location>
+		<init ref="id13" />
+		<transition controllable="false" action="">
+			<source ref="id12" />
+			<target ref="id13" />
+			<label kind="synchronisation" x="-656" y="-240">RS!</label>
+			<nail x="-624" y="-216" />
+		</transition>
+		<transition action="">
+			<source ref="id13" />
+			<target ref="id12" />
+			<label kind="synchronisation" x="-536" y="-264">pressReset?</label>
+		</transition>
+	</template>
+	<template>
+		<name>CAN_bus</name>
+		<declaration>bool ramp_down_received = false;</declaration>
+		<location id="id14" x="-640" y="-208"></location>
+		<location id="id15" x="-536" y="-264"></location>
+		<init ref="id15" />
+		<transition controllable="false" action="">
+			<source ref="id14" />
+			<target ref="id15" />
+			<label kind="synchronisation" x="-640" y="-288">SS1_signal!</label>
+			<nail x="-616" y="-264" />
+		</transition>
+		<transition action="">
+			<source ref="id15" />
+			<target ref="id14" />
+			<label kind="synchronisation" x="-600" y="-200">RampDownRequest?</label>
+			<label kind="assignment" x="-600" y="-185">ramp_down_received = true</label>
+			<nail x="-560" y="-208" />
+		</transition>
+	</template>
+	<template>
+		<name>FinalElement</name>
+		<parameter>id_t id</parameter>
+		<location id="id16" x="-632" y="-216"></location>
+		<location id="id17" x="-576" y="-160"></location>
+		<location id="id18" x="-512" y="-216"></location>
+		<location id="id19" x="-568" y="-272"></location>
+		<init ref="id19" />
+		<transition controllable="false" action="">
+			<source ref="id16" />
+			<target ref="id19" />
+			<label kind="synchronisation" x="-848" y="-264">FinalElementSignal[id][DEACTIVE]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id17" />
+			<target ref="id16" />
+			<label kind="synchronisation" x="-744" y="-184">RO[id][DEACTIVE]?</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id18" />
+			<target ref="id17" />
+			<label kind="synchronisation" x="-536" y="-192">FinalElementSignal[id][ACTIVE]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id19" />
+			<target ref="id18" />
+			<label kind="synchronisation" x="-536" y="-264">RO[id][ACTIVE]?</label>
+		</transition>
+	</template>
+	<template>
+		<name>CoreSystem</name>
+		<declaration>clock x;</declaration>
+		<location id="id20" x="-1400" y="-1104">
+			<name x="-1410" y="-1134">S4</name>
+			<label kind="invariant" x="-1384" y="-1136">x &lt;= SS1_DELAY</label>
+		</location>
+		<location id="id21" x="-1856" y="-1104">
+			<name x="-1866" y="-1134">S3</name>
+			<urgent />
+		</location>
+		<location id="id22" x="-2264" y="-968">
+			<name x="-2288" y="-1000">S5</name>
+		</location>
+		<location id="id23" x="-2264" y="-1104">
+			<name x="-2272" y="-1136">S2</name>
+			<urgent />
+		</location>
+		<location id="id24" x="-2424" y="-1104">
+			<name x="-2434" y="-1134">S1</name>
+			<label kind="invariant" x="-2448" y="-1088">x &lt;= ES_TIMEOUT</label>
+		</location>
+		<location id="id25" x="-2606" y="-1103">
+			<name x="-2616" y="-1133">S0</name>
+		</location>
+		<init ref="id25" />
+		<transition action="">
+			<source ref="id22" />
+			<target ref="id25" />
+			<label kind="synchronisation" x="-2504" y="-968">RS?</label>
+			<nail x="-2608" y="-968" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id20" />
+			<target ref="id22" />
+			<label kind="guard" x="-1392" y="-1016">x == SS1_DELAY</label>
+			<label kind="synchronisation" x="-1392" y="-1000">RampDownRequest!</label>
+			<nail x="-1400" y="-960" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id21" />
+			<target ref="id20" />
+			<label kind="synchronisation" x="-1696" y="-1120">RO[1][ACTIVE]!</label>
+			<label kind="assignment" x="-1568" y="-1120">x = 0</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id23" />
+			<target ref="id21" />
+			<label kind="guard" x="-2120" y="-1134">SAFETY_FUNCTION == SS1</label>
+			<label kind="synchronisation" x="-2120" y="-1119">RO[0][ACTIVE]!</label>
+			<label kind="assignment" x="-2120" y="-1104">x = 0</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id23" />
+			<target ref="id22" />
+			<label kind="guard" x="-2256" y="-1048">SAFETY_FUNCTION == STO</label>
+			<label kind="synchronisation" x="-2256" y="-1033">RampDownRequest!</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id24" />
+			<target ref="id23" />
+			<label kind="guard" x="-2404" y="-1134">x &gt;= ES_TIMEOUT</label>
+			<label kind="synchronisation" x="-2404" y="-1119">tau1!</label>
+			<label kind="assignment" x="-2328" y="-1120">x = 0</label>
+		</transition>
+		<transition action="">
+			<source ref="id24" />
+			<target ref="id25" />
+			<label kind="select" x="-2552" y="-1064">id : id_t</label>
+			<label kind="guard" x="-2488" y="-1072">x &lt; ES_TIMEOUT</label>
+			<label kind="synchronisation" x="-2552" y="-1048">ES[id][LOW]?</label>
+			<label kind="assignment" x="-2600" y="-1080">x = 0</label>
+			<nail x="-2510" y="-1063" />
+		</transition>
+		<transition action="">
+			<source ref="id25" />
+			<target ref="id24" />
+			<label kind="select" x="-2568" y="-1176">id : id_t</label>
+			<label kind="synchronisation" x="-2566" y="-1159">ES[id][HIGH]?</label>
+			<label kind="assignment" x="-2472" y="-1144">x = 0</label>
+			<nail x="-2510" y="-1143" />
+		</transition>
+	</template>
+	<template>
+		<name>NCInput</name>
+		<location id="id26" x="-1856" y="-880">
+			<committed />
+		</location>
+		<location id="id27" x="-1656" y="-880">
+			<committed />
+		</location>
+		<location id="id28" x="-1008" y="-552">
+			<committed />
+		</location>
+		<location id="id29" x="-1424" y="-232"></location>
+		<location id="id30" x="-1008" y="-232">
+			<committed />
+		</location>
+		<location id="id31" x="-1424" y="-344">
+			<committed />
+		</location>
+		<location id="id32" x="-1424" y="-464">
+			<committed />
+		</location>
+		<location id="id33" x="-1424" y="-560"></location>
+		<location id="id34" x="-1424" y="-656">
+			<committed />
+		</location>
+		<location id="id35" x="-1424" y="-768"></location>
+		<init ref="id26" />
+		<transition controllable="false" action="">
+			<source ref="id26" />
+			<target ref="id27" />
+			<label kind="synchronisation" x="-1816" y="-896">NCIState[ACTIVE]!</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id27" />
+			<target ref="id35" />
+			<label kind="synchronisation" x="-1624" y="-896">setFirst[NCIS]!</label>
+			<nail x="-1520" y="-880" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id28" />
+			<target ref="id35" />
+			<label kind="synchronisation" x="-1272" y="-880">NCIState[ACTIVE]!</label>
+			<nail x="-1008" y="-848" />
+			<nail x="-1424" y="-848" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id31" />
+			<target ref="id29" />
+			<label kind="synchronisation" x="-1584" y="-296">NCIState[DEACTIVE]!</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id30" />
+			<target ref="id28" />
+			<label kind="synchronisation" x="-992" y="-344">setFirst[NCIS]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id35" />
+			<target ref="id32" />
+			<label kind="select" x="-1240" y="-632">id : id_t</label>
+			<label kind="guard" x="-1240" y="-648">RESET_REQ == 0</label>
+			<label kind="synchronisation" x="-1240" y="-616">ES[id][HIGH]?</label>
+			<nail x="-1256" y="-768" />
+			<nail x="-1256" y="-464" />
+		</transition>
+		<transition action="">
+			<source ref="id33" />
+			<target ref="id35" />
+			<label kind="select" x="-1608" y="-704">id : id_t</label>
+			<label kind="synchronisation" x="-1608" y="-688">ES[id][LOW]?</label>
+			<nail x="-1512" y="-560" />
+			<nail x="-1512" y="-768" />
+		</transition>
+		<transition action="">
+			<source ref="id29" />
+			<target ref="id30" />
+			<label kind="select" x="-1256" y="-256">id : id_t</label>
+			<label kind="synchronisation" x="-1256" y="-224">ES[id][LOW]?</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id32" />
+			<target ref="id31" />
+			<label kind="synchronisation" x="-1416" y="-432">setThird[NCIS]!</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id33" />
+			<target ref="id32" />
+			<label kind="synchronisation" x="-1416" y="-520">RS!</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id34" />
+			<target ref="id33" />
+			<label kind="synchronisation" x="-1416" y="-624">setSecond[NCIS]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id35" />
+			<target ref="id34" />
+			<label kind="select" x="-1416" y="-720">id : id_t</label>
+			<label kind="guard" x="-1416" y="-736">RESET_REQ == 1</label>
+			<label kind="synchronisation" x="-1416" y="-704">ES[id][HIGH]?</label>
+		</transition>
+	</template>
+	<template>
+		<name>InputMapping</name>
+		<declaration>// Local copy of Input Mapping Status
+			im_status_t local_im_status = IM_DEACTIVE;
+
+			// Copy of Input Mapping Status in other Diagnostics
+			im_status_t other_im_status = IM_DEACTIVE;</declaration>
+		<location id="id36" x="-312" y="40">
+			<name x="-336" y="8">S8</name>
+		</location>
+		<location id="id37" x="-136" y="40">
+			<name x="-128" y="8">S9</name>
+		</location>
+		<location id="id38" x="-456" y="-336">
+			<name x="-466" y="-366">S2</name>
+			<committed />
+		</location>
+		<location id="id39" x="-648" y="-336">
+			<name x="-658" y="-366">S1</name>
+			<committed />
+		</location>
+		<location id="id40" x="-856" y="-336">
+			<name x="-866" y="-366">S0</name>
+			<committed />
+		</location>
+		<location id="id41" x="-136" y="-64">
+			<name x="-128" y="-96">S7</name>
+			<committed />
+		</location>
+		<location id="id42" x="-136" y="-176">
+			<name x="-146" y="-206">S5</name>
+			<committed />
+		</location>
+		<location id="id43" x="-312" y="-64">
+			<name x="-336" y="-96">S6</name>
+			<committed />
+		</location>
+		<location id="id44" x="-312" y="-176">
+			<name x="-322" y="-206">S4</name>
+			<committed />
+		</location>
+		<location id="id45" x="-232" y="-272">
+			<name x="-242" y="-302">S3</name>
+		</location>
+		<init ref="id40" />
+		<transition action="">
+			<source ref="id37" />
+			<target ref="id40" />
+			<label kind="synchronisation" x="-680" y="72">NCIState[DEACTIVE]?</label>
+			<nail x="-136" y="96" />
+			<nail x="-896" y="96" />
+			<nail x="-896" y="-336" />
+		</transition>
+		<transition action="">
+			<source ref="id36" />
+			<target ref="id40" />
+			<label kind="synchronisation" x="-680" y="16">NCIState[DEACTIVE]?</label>
+			<nail x="-856" y="40" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id43" />
+			<target ref="id36" />
+			<label kind="synchronisation" x="-448" y="-40">IMSsetSTOACTIVE!</label>
+			<label kind="assignment" x="-560" y="-24">local_im_status =
+				IM_STO_ACTIVE</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id41" />
+			<target ref="id37" />
+			<label kind="synchronisation" x="-128" y="-32">IMSsetSS1ACTIVE!</label>
+			<label kind="assignment" x="-128" y="-16">local_im_status =
+				IM_SS1_ACTIVE</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id38" />
+			<target ref="id45" />
+			<label kind="synchronisation" x="-424" y="-376">IMSsetDEACTIVE!</label>
+			<label kind="assignment" x="-424" y="-360">local_im_status =
+				IM_DEACTIVE</label>
+			<nail x="-320" y="-336" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id39" />
+			<target ref="id38" />
+			<label kind="synchronisation" x="-616" y="-360">IMSS1[DEACTIVE]!</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id40" />
+			<target ref="id39" />
+			<label kind="synchronisation" x="-816" y="-360">IMSTO[DEACTIVE]!</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id42" />
+			<target ref="id41" />
+			<label kind="synchronisation" x="-128" y="-136">IMSS1[ACTIVE]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id45" />
+			<target ref="id42" />
+			<label kind="guard" x="-200" y="-264">SAFETY_FUNCTION == SS1</label>
+			<label kind="synchronisation" x="-176" y="-248">NCIState[ACTIVE]?</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id44" />
+			<target ref="id43" />
+			<label kind="synchronisation" x="-432" y="-136">IMSTO[ACTIVE]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id45" />
+			<target ref="id44" />
+			<label kind="guard" x="-448" y="-264">SAFETY_FUNCTION == STO</label>
+			<label kind="synchronisation" x="-408" y="-248">NCIState[ACTIVE]?</label>
+		</transition>
+	</template>
+	<template>
+		<name>STOinSafeChannel</name>
+		<location id="id46" x="-632" y="-64"></location>
+		<location id="id47" x="-448" y="-64">
+			<committed />
+		</location>
+		<location id="id48" x="-264" y="-64">
+			<committed />
+		</location>
+		<location id="id49" x="-264" y="-240"></location>
+		<location id="id50" x="-456" y="-240">
+			<committed />
+		</location>
+		<location id="id51" x="-632" y="-240">
+			<committed />
+		</location>
+		<init ref="id51" />
+		<transition action="">
+			<source ref="id46" />
+			<target ref="id51" />
+			<label kind="synchronisation" x="-752" y="-168">IMSTO[ACTIVE]?</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id47" />
+			<target ref="id46" />
+			<label kind="synchronisation" x="-576" y="-88">setLow[STO]!</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id48" />
+			<target ref="id47" />
+			<label kind="synchronisation" x="-424" y="-88">STOSTO[DEACTIVE]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id49" />
+			<target ref="id48" />
+			<label kind="synchronisation" x="-256" y="-168">IMSTO[DEACTIVE]?</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id50" />
+			<target ref="id49" />
+			<label kind="synchronisation" x="-416" y="-264">setHigh[STO]!</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id51" />
+			<target ref="id50" />
+			<label kind="synchronisation" x="-608" y="-264">STOSTO[ACTIVE]!</label>
+		</transition>
+	</template>
+	<template>
+		<name>SS1inSafeChannel</name>
+		<declaration>clock x;</declaration>
+		<location id="id52" x="-112" y="-16">
+			<name x="-96" y="-40">Ramp_down</name>
+			<label kind="invariant" x="-88" y="-16">x &lt;= SS1_DELAY</label>
+		</location>
+		<location id="id53" x="-112" y="104">
+			<committed />
+		</location>
+		<location id="id54" x="-112" y="224">
+			<committed />
+		</location>
+		<location id="id55" x="-296" y="312">
+			<name x="-408" y="304">SS1_Deactive</name>
+		</location>
+		<location id="id56" x="-296" y="112">
+			<committed />
+		</location>
+		<location id="id57" x="-296" y="-16">
+			<committed />
+		</location>
+		<location id="id58" x="-296" y="-184">
+			<name x="-392" y="-192">STO_Active</name>
+		</location>
+		<location id="id59" x="-296" y="-264">
+			<committed />
+		</location>
+		<location id="id60" x="-296" y="-344">
+			<committed />
+		</location>
+		<init ref="id60" />
+		<transition controllable="false" action="">
+			<source ref="id56" />
+			<target ref="id55" />
+			<label kind="synchronisation" x="-416" y="208">setSecond[SS1]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id52" />
+			<target ref="id57" />
+			<label kind="synchronisation" x="-264" y="-40">IMSS1[DEACTIVE]?</label>
+		</transition>
+		<transition action="">
+			<source ref="id52" />
+			<target ref="id60" />
+			<label kind="guard" x="-104" y="-160">x &gt;= SS1_DELAY</label>
+			<nail x="-112" y="-32" />
+			<nail x="-112" y="-344" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id53" />
+			<target ref="id52" />
+			<label kind="synchronisation" x="-104" y="40">SS1_signal!</label>
+			<label kind="assignment" x="-172" y="44">x = 0</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id54" />
+			<target ref="id53" />
+			<label kind="synchronisation" x="-104" y="152">setThird[SS1]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id55" />
+			<target ref="id54" />
+			<label kind="synchronisation" x="-240" y="312">IMSS1[ACTIVE]?</label>
+			<nail x="-112" y="312" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id57" />
+			<target ref="id56" />
+			<label kind="select" x="-448" y="24">id:id_t // temporary</label>
+			<label kind="synchronisation" x="-496" y="48">STO_signal[id][DEACTIVE]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id58" />
+			<target ref="id57" />
+			<label kind="synchronisation" x="-432" y="-104">IMSS1[DEACTIVE]?</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id59" />
+			<target ref="id58" />
+			<label kind="synchronisation" x="-392" y="-240">setFirst[SS1]!</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id60" />
+			<target ref="id59" />
+			<label kind="select" x="-432" y="-328">id:id_t // temporary</label>
+			<label kind="synchronisation" x="-464" y="-312">STO_signal[id][ACTIVE]!</label>
+		</transition>
+	</template>
+	<system>
+		// Two copies of the following has to be specified manually because of the IO definitions.
+		EmergencySwitch0 = EmergencySwitch(0);
+		EmergencySwitch1 = EmergencySwitch(1);
+		FinalElement0 = FinalElement(0);
+		FinalElement1 = FinalElement(1);
+
+
+		// List one or more processes to be composed into a system.
+		system ESM_SysReq, EmergencySwitch0, FinalElement0, CoreSystem;
+
+		/*system ESM_SysReq, EmergencySwitch0, EmergencySwitch1, RedButton, ResetButton,
+		ResetSwitch,  CAN_bus, FinalElement0, FinalElement1, CoreSystem, NCInput, InputMapping, STOinSafeChannel, SS1inSafeChannel;*/
+
+		IO ESM_SysReq {FinalElementSignal[0][ACTIVE]!, FinalElementSignal[1][ACTIVE]!, SS1_signal!, pressES?, releaseES?, pressReset?, tau1!}
+		//IO RedButton {pressES!, releaseES!}
+		IO EmergencySwitch0 {ES[0][HIGH]!, ES[0][LOW]!, DA[0][HIGH]?, DA[0][LOW]?, pressES?, releaseES?}
+		IO EmergencySwitch1 {ES[1][HIGH]!, ES[1][LOW]!, DA[1][HIGH]?, DA[1][LOW]?, pressES?, releaseES?}
+		//IO ResetButton {pressReset!}
+		//IO ResetSwitch {RS!, pressReset?}
+		IO CAN_bus {SS1_signal!, RampDownRequest?}
+		IO FinalElement0 {FinalElementSignal[0][ACTIVE]!, FinalElementSignal[0][DEACTIVE]!, RO[0][ACTIVE]?, RO[0][DEACTIVE]?}
+		IO FinalElement1 {FinalElementSignal[1][ACTIVE]!, FinalElementSignal[1][DEACTIVE]!, RO[1][ACTIVE]?, RO[1][DEACTIVE]?}
+		IO CoreSystem {RampDownRequest!, RO[0][ACTIVE]!, RO[1][ACTIVE]!, ES[0][HIGH]?, ES[0][LOW]?, ES[1][HIGH]?, ES[1][LOW]?, RS?, tau1!}
+		//IO InputMapping {IMSsetDEACTIVE!, IMSsetSTOACTIVE!, IMSsetSS1ACTIVE!}
+		//IO NCInput {NCIState[ACTIVE]!, NCIState[DEACTIVE]!, setFirst[NCIS]!, setSecond[NCIS]!, setThird[NCIS]!, RS!, ES[0][HIGH]?, ES[0][LOW]?, ES[1][HIGH]?, ES[1][LOW]?}
+
+		//IO STOinSafeChannel {IMSTO[ACTIVE]?, IMSTO[DEACTIVE]?, STOSTO[ACTIVE]!, STOSTO[DEACTIVE]!, setHigh[STO]!, setLow[STO]!}
+		//IO SS1inSafeChannel {IMSS1[ACTIVE]?, IMSS1[DEACTIVE]?, STO_signal[ACTIVE]!, STO_signal[DEACTIVE]!,  setFirst[SS1]!, setSecond[SS1]!, setThird[SS1]!}
+	</system>
+</nta>

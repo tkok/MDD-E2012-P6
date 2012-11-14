@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Converter
+Bundle-SymbolicName: dk.itu.ecdar.converter; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: converter.jar
+Require-Bundle: org.eclipse.emf.mwe2.launch;bundle-version="2.3.0",
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib

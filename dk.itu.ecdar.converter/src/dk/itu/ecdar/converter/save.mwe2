@@ -1,0 +1,16 @@
+module dk.itu.ecdar.converter.save
+
+import org.eclipse.emf.mwe.utils.Writer
+
+var inPath
+var outPath
+
+Workflow {
+	component = EcdarTextReader {
+        uri = inPath
+ 	}
+	component = Writer {
+		modelSlot = "model"
+		uri = outPath
+	}
+}

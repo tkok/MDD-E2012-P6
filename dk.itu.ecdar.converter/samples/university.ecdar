@@ -1,0 +1,271 @@
+spec Machine {
+	clock y;
+	input coin?;
+	output cof!;
+	output tea!
+	initial Idle {
+		tea! : if (y >= 2) goto Idle;
+		coin? : {
+			y = 0;
+			goto Serving
+		}
+	}
+	urgent Inconsistent {
+	}
+	universal UNIV {
+		coin? : goto UNIV;
+		cof! : goto UNIV;
+		tea! : goto UNIV
+	}
+	Serving {
+		invariant y <= 6;
+		coin? : goto Serving;
+		tea! : goto Idle;
+		cof! : if (y >= 4) goto Idle
+	}
+}
+spec Researcher {
+	clock x;
+	input cof?;
+	input tea?;
+	output pub!
+	initial Idle {
+		pub! : goto TestInconsistent;
+		tea? : if (x > 15) goto Stuck;
+		tea? : if (x <= 15) {
+			x = 0;
+			goto Tea
+		};
+		cof? : {
+			x = 0;
+			goto Coffee
+		}
+	}
+	urgent Inconsistent {
+	}
+	universal UNIV {
+		cof? : goto UNIV;
+		tea? : goto UNIV;
+		pub! : goto UNIV
+	}
+	urgent TestInconsistent {
+	}
+	Stuck {
+		pub! : goto Stuck;
+		cof? : goto Stuck;
+		tea? : goto Stuck
+	}
+	Tea {
+		invariant x <= 8;
+		pub! : if (x >= 4) {
+			x = 0;
+			goto Idle
+		}
+	}
+	Coffee {
+		invariant x <= 4;
+		pub! : if (x >= 2) {
+			x = 0;
+			goto Idle
+		}
+	}
+}
+spec University2 {
+	clock z;
+	output coin!;
+	input grant?;
+	input pub?;
+	output patent!
+	initial id16 {
+		pub? : {
+			z = 0;
+			goto id13
+		};
+		grant? : {
+			z = 0;
+			goto id15
+		}
+	}
+	urgent Inconsistent {
+	}
+	universal UNIV {
+		coin! : goto UNIV;
+		grant? : goto UNIV;
+		pub? : goto UNIV;
+		patent! : goto UNIV
+	}
+	id13 {
+		invariant z <= 2;
+		pub? : goto id13;
+		grant? : goto id13;
+		patent! : goto id16
+	}
+	id14 {
+		grant? : goto id14;
+		pub? : {
+			z = 0;
+			goto id13
+		}
+	}
+	id15 {
+		invariant z <= 2;
+		pub? : goto id15;
+		grant? : goto id15;
+		coin! : goto id14
+	}
+}
+spec Spec1 {
+	clock u;
+	input grant?;
+	output patent!
+	initial id20 {
+		grant? : {
+			u = 0;
+			goto id19
+		}
+	}
+	urgent Inconsistent {
+	}
+	universal UNIV {
+		grant? : goto UNIV;
+		patent! : goto UNIV
+	}
+	id19 {
+		invariant u <= 20;
+		grant? : goto id19;
+		patent! : {
+			u = 0;
+			goto id20
+		}
+	}
+}
+spec Spec {
+	clock u;
+	input grant?;
+	output patent!
+	initial Start {
+		grant? : if (u > 2) goto End;
+		grant? : if (u <= 2) {
+			u = 0;
+			goto Grant
+		}
+	}
+	urgent Inconsistent {
+	}
+	universal UNIV {
+		grant? : goto UNIV;
+		patent! : goto UNIV
+	}
+	End {
+		patent! : goto End;
+		grant? : goto End
+	}
+	Grant {
+		invariant u <= 20;
+		grant? : goto Grant;
+		patent! : {
+			u = 0;
+			goto Start
+		}
+	}
+}
+spec University {
+	clock z;
+	input grant?;
+	input pub?;
+	output coin!;
+	output patent!
+	initial A {
+		grant? : {
+			z = 0;
+			goto B
+		}
+	}
+	urgent Inconsistent {
+	}
+	universal UNIV {
+		grant? : goto UNIV;
+		pub? : goto UNIV;
+		coin! : goto UNIV;
+		patent! : goto UNIV
+	}
+	D {
+		invariant z <= 2;
+		pub? : goto D;
+		grant? : goto D;
+		patent! : goto A
+	}
+	C {
+		grant? : goto C;
+		pub? : {
+			z = 0;
+			goto D
+		}
+	}
+	B {
+		invariant z <= 2;
+		pub? : goto B;
+		grant? : goto B;
+		coin! : goto C
+	}
+}
+spec HalfUni1 {
+	clock x;
+	input pub?;
+	input grant?;
+	output patent!;
+	output coin!
+	initial A {
+		patent! : goto A;
+		pub? : goto A;
+		grant? : {
+			x = 0;
+			goto B
+		}
+	}
+	urgent Inconsistent {
+	}
+	universal UNIV {
+		pub? : goto UNIV;
+		grant? : goto UNIV;
+		patent! : goto UNIV;
+		coin! : goto UNIV
+	}
+	B {
+		invariant x <= 2;
+		grant? : goto B;
+		pub? : goto B;
+		patent! : goto B;
+		coin! : goto A
+	}
+}
+spec HalfUni2 {
+	clock y;
+	input pub?;
+	input grant?;
+	output coin!;
+	output patent!
+	initial C {
+		coin! : goto C;
+		grant? : goto C;
+		pub? : {
+			y = 0;
+			goto D
+		}
+	}
+	urgent Inconsistent {
+	}
+	universal UNIV {
+		pub? : goto UNIV;
+		grant? : goto UNIV;
+		coin! : goto UNIV;
+		patent! : goto UNIV
+	}
+	D {
+		invariant y <= 2;
+		grant? : goto D;
+		pub? : goto D;
+		coin! : goto D;
+		patent! : goto C
+	}
+}

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+
+		broadcast chan in, a, b;
+
+	</declaration>
+	<template>
+		<name x="5" y="5">SpecError</name>
+		<location id="id0" x="-1888" y="-1376">
+			<name x="-1898" y="-1406">Error</name>
+			<urgent />
+		</location>
+		<location id="id1" x="-2024" y="-1376">
+			<name x="-2034" y="-1406">S1</name>
+		</location>
+		<location id="id2" x="-2176" y="-1376">
+			<name x="-2184" y="-1408">S0</name>
+		</location>
+		<init ref="id2" />
+		<transition controllable="false" action="">
+			<source ref="id2" />
+			<target ref="id2" />
+			<label kind="synchronisation" x="-2240" y="-1376">b!</label>
+			<nail x="-2216" y="-1344" />
+			<nail x="-2216" y="-1392" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id2" />
+			<target ref="id2" />
+			<label kind="synchronisation" x="-2184" y="-1328">a!</label>
+			<nail x="-2200" y="-1336" />
+			<nail x="-2152" y="-1336" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id1" />
+			<target ref="id0" />
+			<label kind="synchronisation" x="-1968" y="-1424">b!</label>
+			<nail x="-1968" y="-1408" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id1" />
+			<target ref="id0" />
+			<label kind="synchronisation" x="-1968" y="-1368">a!</label>
+		</transition>
+		<transition action="">
+			<source ref="id2" />
+			<target ref="id1" />
+			<label kind="synchronisation" x="-2120" y="-1400">in?</label>
+		</transition>
+	</template>
+	<template>
+		<name>A</name>
+		<location id="id3" x="-320" y="-232"></location>
+		<location id="id4" x="-456" y="-232"></location>
+		<init ref="id4" />
+		<transition controllable="false" action="">
+			<source ref="id4" />
+			<target ref="id4" />
+			<label kind="synchronisation" x="-464" y="-176">a!</label>
+			<nail x="-488" y="-184" />
+			<nail x="-424" y="-184" />
+		</transition>
+		<transition action="">
+			<source ref="id4" />
+			<target ref="id3" />
+			<label kind="synchronisation" x="-392" y="-256">in?</label>
+		</transition>
+	</template>
+	<template>
+		<name>B</name>
+		<location id="id5" x="-384" y="-176"></location>
+		<location id="id6" x="-520" y="-176"></location>
+		<init ref="id6" />
+		<transition controllable="false" action="">
+			<source ref="id6" />
+			<target ref="id6" />
+			<label kind="synchronisation" x="-528" y="-120">b!</label>
+			<nail x="-544" y="-128" />
+			<nail x="-488" y="-128" />
+		</transition>
+		<transition action="">
+			<source ref="id6" />
+			<target ref="id5" />
+			<label kind="synchronisation" x="-472" y="-200">in?</label>
+		</transition>
+	</template>
+	<template>
+		<name x="5" y="5">Spec</name>
+		<location id="id7" x="-2024" y="-1376">
+			<name x="-2034" y="-1406">S1</name>
+		</location>
+		<location id="id8" x="-2176" y="-1376">
+			<name x="-2184" y="-1408">S0</name>
+		</location>
+		<init ref="id8" />
+		<transition controllable="false" action="">
+			<source ref="id8" />
+			<target ref="id8" />
+			<label kind="synchronisation" x="-2240" y="-1376">b!</label>
+			<nail x="-2216" y="-1344" />
+			<nail x="-2216" y="-1392" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id8" />
+			<target ref="id8" />
+			<label kind="synchronisation" x="-2184" y="-1328">a!</label>
+			<nail x="-2200" y="-1336" />
+			<nail x="-2152" y="-1336" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id7" />
+			<target ref="id7" />
+			<label kind="synchronisation" x="-1968" y="-1424">b!</label>
+			<nail x="-1968" y="-1408" />
+			<nail x="-2000" y="-1432" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id7" />
+			<target ref="id7" />
+			<label kind="synchronisation" x="-1968" y="-1368">a!</label>
+			<nail x="-1992" y="-1336" />
+			<nail x="-1976" y="-1360" />
+		</transition>
+		<transition action="">
+			<source ref="id8" />
+			<target ref="id7" />
+			<label kind="synchronisation" x="-2120" y="-1400">in?</label>
+		</transition>
+	</template>
+	<system>//system Spec, A, B;
+
+		system SpecError, A, B;
+
+		IO Spec { in?, a!, b! }
+		IO SpecError { in?, a!, b! }
+		IO A { in?, a! }
+		IO B { in?, b! }
+	</system>
+</nta>

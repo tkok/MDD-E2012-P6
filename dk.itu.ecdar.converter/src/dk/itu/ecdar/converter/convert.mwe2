@@ -1,0 +1,12 @@
+module dk.itu.ecdar.converter.convert
+
+import dk.itu.ecdar.converter.Uppaal2EcdarTextConverter
+
+var inPath
+var outPath
+
+Workflow {
+  component = UppaalReader { uri = inPath }
+  component = Uppaal2EcdarTextConverter {}
+  component = EcdarTextWriter { uri = outPath }
+}

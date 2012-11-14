@@ -1,0 +1,176 @@
+const int N = 8;
+const int D = 30;
+const int d = 10;
+typedef int[0, N - 1] id_t;
+const id_t foo = 0
+template NodeAlt (const id_t id) {
+	clock x, y;
+	input rec?;
+	output w!
+	initial id0 {
+		invariant x <= D;
+		rec[id]? : goto id0;
+		w[id]! : goto id2;
+		rec[(id + 1) % N]! : if (y > d) goto id1
+	}
+	id1 {
+		invariant x <= D;
+		rec[id]? : goto id1;
+		w[id]! : goto id3
+	}
+	id2 {
+		invariant x <= D;
+		rec[id]? : goto id2;
+		rec[(id + 1) % N]! : if (y > d) goto id3
+	}
+	id3 {
+		rec[id]? : {
+			x = 0;
+			y = 0;
+			goto id0
+		}
+	}
+}
+spec Spec1 {
+	clock z;
+	output rec!;
+	output w!
+	initial id4 {
+		invariant z <= 2 * D;
+		foreach (e:id_t) {
+			rec[e]! : goto id4
+		};
+		foreach (e:id_t) {
+			w[e]! : {
+				z = 0;
+				goto id4
+			}
+		}
+	}
+}
+template Node (const id_t id) {
+	clock x, y;
+	input rec?;
+	output w!
+	initial id8 {
+		rec[id]? : {
+			x = 0;
+			y = 0;
+			goto id5
+		}
+	}
+	id5 {
+		invariant x <= D;
+		rec[id]? : goto id5;
+		w[id]! : goto id7;
+		rec[(id + 1) % N]! : if (y > d) goto id6
+	}
+	id6 {
+		invariant x <= D;
+		rec[id]? : goto id6;
+		w[id]! : goto id8
+	}
+	id7 {
+		invariant x <= D;
+		rec[id]? : goto id7;
+		rec[(id + 1) % N]! : if (y > d) goto id8
+	}
+}
+template Spec (const id_t id) {
+	clock z;
+	output w!;
+	output rec!
+	initial id9 {
+		invariant z <= (N + 1) * D;
+		foreach (e:id_t) {
+			w[e]! : if (e != id) goto id9
+		};
+		foreach (e:id_t) {
+			rec[e]! : goto id9
+		};
+		w[id]! : {
+			z = 0;
+			goto id9
+		}
+	}
+}
+template SubSpec (const id_t id) {
+	clock x, y, z;
+	output w!;
+	input rec?
+	initial id13 {
+		rec[1]? : {
+			x = 0;
+			y = 0;
+			goto id12
+		}
+	}
+	id10 {
+		foreach (e:id_t) {
+			w[e]! : if (e > 0 and e <= id) goto id10
+		};
+		rec[1]? : goto id10;
+		rec[(id + 1) % N]! : goto id10
+	}
+	id11 {
+		foreach (e:id_t) {
+			w[e]! : if (e > 0 and e <= id) goto id11
+		};
+		rec[1]? : if (y > N * d) {
+			x = 0;
+			y = 0;
+			goto id12
+		};
+		rec[1]? : if (y <= N * d) goto id10
+	}
+	id12 {
+		invariant x <= id * D;
+		foreach (e:id_t) {
+			w[e]! : if (e > 0 and e <= id) goto id12
+		};
+		rec[(id + 1) % N]! : if (x >= id * d) goto id11;
+		rec[1]? : goto id10
+	}
+}
+template NonZeno (const id_t id) {
+	clock v;
+	output w!;
+	output rec!
+	initial id14 {
+		foreach (e:id_t) {
+			w[e]! : if (0 > e and e <= id and v >= d) {
+				v = 0;
+				goto id14
+			}
+		};
+		rec[(id + 1) % N]! : goto id14;
+		rec[1]? : goto id14
+	}
+}
+spec SimpleSpec {
+	input rec?
+	initial id15 {
+		rec[1]? : goto id15
+	}
+}
+let N0 = NodeAlt(0)
+let N1 = Node(1)
+let N2 = Node(2)
+let N3 = Node(3)
+let N4 = Node(4)
+let N5 = Node(5)
+let N6 = Node(6)
+let N7 = Node(7)
+let S0 = Spec(0)
+let S1 = Spec(1)
+let S2 = Spec(2)
+let S3 = Spec(3)
+let S4 = Spec(4)
+let S5 = Spec(5)
+let SS7 = SubSpec(7)
+let SS6 = SubSpec(6)
+let SS5 = SubSpec(5)
+let SS4 = SubSpec(4)
+let SS3 = SubSpec(3)
+let SS2 = SubSpec(2)
+let SS1 = SubSpec(1)

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta>
+	<declaration>//Insert declarations of global clocks, variables, constants and channels.
+
+		//clock time;
+
+		const int N = 6;
+		const int MaxD = 2;
+		const int MinD = 1;
+		typedef int[0,N-1] id_t;
+
+		const bool S5[N] = { 0 , 0 , 0 , 1 , 0 , 0};
+		const bool S4[N] = { 0 , 0 , 1 , 1 , 0 , 0};
+		const bool S3[N] = { 0 , 0 , 1 , 1 , 1 , 0};
+		const bool S2[N] = { 0 , 1 , 1 , 1 , 1 , 0};
+		const bool S1[N] = { 1 , 1 , 1 , 1 , 1 , 0};
+
+		broadcast chan In[N];
+		broadcast chan Out[N];
+		broadcast chan leader;
+
+
+	</declaration>
+	<template>
+		<name x="5" y="5">Phi1</name>
+		<parameter>const bool S[N]</parameter>
+		<declaration>// Place local declarations here.
+		</declaration>
+		<location id="id0" x="-40" y="-224">
+			<name x="-50" y="-254">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id1" x="-56" y="-392">
+			<name x="-40" y="-408">Universal</name>
+		</location>
+		<location id="id2" x="-328" y="-264"></location>
+		<location id="id3" x="-456" y="-264"></location>
+		<init ref="id3" />
+		<transition controllable="false" action="">
+			<source ref="id1" />
+			<target ref="id1" />
+			<label kind="select" x="-72" y="-336">e:id_t</label>
+			<label kind="synchronisation" x="-72" y="-320">Out[e]!</label>
+			<nail x="-72" y="-336" />
+			<nail x="-24" y="-336" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id1" />
+			<target ref="id1" />
+			<label kind="synchronisation" x="-176" y="-385">leader!</label>
+			<nail x="-104" y="-416" />
+			<nail x="-104" y="-368" />
+		</transition>
+		<transition action="">
+			<source ref="id1" />
+			<target ref="id1" />
+			<label kind="select" x="-72" y="-472">e:id_t</label>
+			<label kind="synchronisation" x="-72" y="-456">In[e]?</label>
+			<nail x="-72" y="-440" />
+			<nail x="-32" y="-440" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id2" />
+			<target ref="id2" />
+			<label kind="synchronisation" x="-272" y="-264">leader!</label>
+			<nail x="-280" y="-296" />
+			<nail x="-280" y="-248" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id2" />
+			<target ref="id2" />
+			<label kind="select" x="-296" y="-232">e : id_t</label>
+			<label kind="synchronisation" x="-312" y="-216">Out[e]!</label>
+			<nail x="-328" y="-208" />
+			<nail x="-288" y="-240" />
+		</transition>
+		<transition action="">
+			<source ref="id2" />
+			<target ref="id2" />
+			<label kind="select" x="-312" y="-352">e : id_t</label>
+			<label kind="synchronisation" x="-296" y="-336">In[e]?</label>
+			<nail x="-328" y="-320" />
+			<nail x="-288" y="-304" />
+		</transition>
+		<transition action="">
+			<source ref="id3" />
+			<target ref="id2" />
+			<label kind="select" x="-424" y="-320">e : id_t</label>
+			<label kind="guard" x="-424" y="-304">S[e]==1</label>
+			<label kind="synchronisation" x="-424" y="-288">In[e]?</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id3" />
+			<target ref="id3" />
+			<label kind="select" x="-560" y="-256">e : id_t</label>
+			<label kind="synchronisation" x="-576" y="-240">Out[e]!</label>
+			<nail x="-504" y="-256" />
+			<nail x="-504" y="-208" />
+		</transition>
+		<transition action="">
+			<source ref="id3" />
+			<target ref="id3" />
+			<label kind="select" x="-560" y="-328">e : id_t</label>
+			<label kind="guard" x="-560" y="-312">S[e]==0</label>
+			<label kind="synchronisation" x="-552" y="-296">In[e]?</label>
+			<nail x="-504" y="-320" />
+			<nail x="-504" y="-272" />
+		</transition>
+	</template>
+	<template>
+		<name>A1</name>
+		<parameter>const bool S[N]</parameter>
+		<declaration>// Assumption: Do not receive e (priority) that belongs
+			to the set of priorities in the subsection</declaration>
+		<location id="id4" x="-224" y="-64">
+			<name x="-234" y="-94">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id5" x="-232" y="-232">
+			<name x="-248" y="-288">Universal</name>
+		</location>
+		<location id="id6" x="-592" y="-216"></location>
+		<init ref="id6" />
+		<transition action="">
+			<source ref="id5" />
+			<target ref="id5" />
+			<label kind="synchronisation" x="-248" y="-168">leader?</label>
+			<nail x="-256" y="-176" />
+			<nail x="-200" y="-176" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id5" />
+			<target ref="id5" />
+			<label kind="select" x="-176" y="-256">e:id_t</label>
+			<label kind="synchronisation" x="-176" y="-224">In[e]!</label>
+			<nail x="-184" y="-256" />
+			<nail x="-184" y="-200" />
+		</transition>
+		<transition action="">
+			<source ref="id5" />
+			<target ref="id5" />
+			<label kind="select" x="-328" y="-240">e:id_t</label>
+			<label kind="synchronisation" x="-368" y="-224">Out[e]?</label>
+			<nail x="-280" y="-256" />
+			<nail x="-280" y="-192" />
+		</transition>
+		<transition action="">
+			<source ref="id6" />
+			<target ref="id6" />
+			<label kind="synchronisation" x="-616" y="-160">leader?</label>
+			<nail x="-620" y="-167" />
+			<nail x="-564" y="-167" />
+		</transition>
+		<transition action="">
+			<source ref="id6" />
+			<target ref="id6" />
+			<label kind="select" x="-684" y="-239">e:id_t</label>
+			<label kind="synchronisation" x="-724" y="-223">Out[e]?</label>
+			<nail x="-636" y="-247" />
+			<nail x="-636" y="-191" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id6" />
+			<target ref="id6" />
+			<label kind="select" x="-540" y="-247">e:id_t</label>
+			<label kind="guard" x="-540" y="-232">S[e]==0</label>
+			<label kind="synchronisation" x="-540" y="-217">In[e]!</label>
+			<nail x="-544" y="-248" />
+			<nail x="-544" y="-192" />
+		</transition>
+	</template>
+	<template>
+		<name>G1</name>
+		<parameter>const bool S[N]</parameter>
+		<declaration>// Guarantee: No leader declared
+		</declaration>
+		<location id="id7" x="-64" y="-48">
+			<name x="-74" y="-78">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id8" x="-72" y="-184">
+			<name x="-56" y="-192">Universal</name>
+		</location>
+		<location id="id9" x="-280" y="-96"></location>
+		<init ref="id9" />
+		<transition controllable="false" action="">
+			<source ref="id8" />
+			<target ref="id8" />
+			<label kind="synchronisation" x="-192" y="-178">leader!</label>
+			<nail x="-120" y="-216" />
+			<nail x="-120" y="-160" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id8" />
+			<target ref="id8" />
+			<label kind="select" x="-88" y="-136">e:id_t</label>
+			<label kind="synchronisation" x="-88" y="-120">Out[e]!</label>
+			<nail x="-96" y="-136" />
+			<nail x="-40" y="-136" />
+		</transition>
+		<transition action="">
+			<source ref="id8" />
+			<target ref="id8" />
+			<label kind="select" x="-104" y="-272">e:id_t</label>
+			<label kind="synchronisation" x="-104" y="-256">In[e]?</label>
+			<nail x="-104" y="-240" />
+			<nail x="-48" y="-240" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id9" />
+			<target ref="id9" />
+			<label kind="select" x="-304" y="-48">e:id_t</label>
+			<label kind="synchronisation" x="-304" y="-32">Out[e]!</label>
+			<nail x="-304" y="-48" />
+			<nail x="-248" y="-48" />
+		</transition>
+		<transition action="">
+			<source ref="id9" />
+			<target ref="id9" />
+			<label kind="select" x="-304" y="-184">e:id_t</label>
+			<label kind="synchronisation" x="-304" y="-168">In[e]?</label>
+			<nail x="-304" y="-144" />
+			<nail x="-256" y="-144" />
+		</transition>
+	</template>
+	<system>//Insert process assignments.
+
+		P15 := Phi1( S5 );
+		P11 := Phi1( S1 );
+
+		A15a := A1( S5 );
+		A15b := A1( S5 );
+		G15 := G1( S5 );
+
+		A11a := A1( S1 );
+		A11b := A1( S1 );
+		G11 := G1( S1 );
+
+		//system P11, A11a, A11b, G11;
+		system P15, A15a, A15b, G15;
+
+
+		IO P15 { leader!,
+		Out[0]!, Out[1]!, Out[2]!, Out[3]!, Out[4]!, Out[5]!,
+		In[0]?, In[1]?, In[2]?, In[3]?, In[4]?, In[5]? }
+
+		IO G15 { leader!,
+		Out[0]!, Out[1]!, Out[2]!, Out[3]!, Out[4]!, Out[5]!,
+		In[0]?, In[1]?, In[2]?, In[3]?, In[4]?, In[5]? }
+
+		IO A15a { leader?,
+		Out[0]?, Out[1]?, Out[2]?, Out[3]?, Out[4]?, Out[5]?,
+		In[0]!, In[1]!, In[2]!, In[3]!, In[4]!, In[5]! }
+
+		IO A15b { leader?,
+		Out[0]?, Out[1]?, Out[2]?, Out[3]?, Out[4]?, Out[5]?,
+		In[0]!, In[1]!, In[2]!, In[3]!, In[4]!, In[5]! }
+
+
+	</system>
+</nta>

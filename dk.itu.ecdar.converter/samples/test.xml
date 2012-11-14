@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nta>
+  <template>
+    <name>Component1</name>
+    <init ref="id1"/>
+    <location id="id1">
+      <name>Location1</name>
+    </location>
+    <location id="id2">
+      <name>Location2</name>
+    </location>
+    <transition>
+      <source ref="id1"/>
+      <target ref="id2"/>
+      <label kind="synchronisation">input?</label>
+    </transition>
+    <transition>
+      <source ref="id1"/>
+      <target ref="id1"/>
+      <label kind="synchronisation">output!</label>
+    </transition>
+    <transition>
+      <source ref="id2"/>
+      <target ref="id2"/>
+      <label kind="synchronisation">input?</label>
+    </transition>
+    <transition>
+      <source ref="id2"/>
+      <target ref="id1"/>
+      <label kind="synchronisation">output!</label>
+    </transition>
+  </template>
+
+   <template>
+    <name>HalfUni1</name>
+    <declaration>clock x;</declaration>
+    <location id="id32" x="-184" y="-224">
+      <name x="-194" y="-254">Inconsistent</name>
+      <urgent/>
+    </location>
+    <location id="id33" x="-184" y="-320">
+      <name x="-232" y="-352">Universal</name>
+    </location>
+    <location id="id34" x="-320" y="-224">
+      <name x="-304" y="-240">B</name>
+      <label kind="invariant" x="-304" y="-224">x&lt;=2</label>
+    </location>
+    <location id="id35" x="-320" y="-320">
+      <name x="-352" y="-328">A</name>
+    </location>
+    <init ref="id35"/>
+    <transition action="">
+      <source ref="id33"/>
+      <target ref="id33"/>
+      <label kind="synchronisation" x="-216" y="-288">pub?</label>
+      <nail x="-192" y="-288"/>
+      <nail x="-216" y="-288"/>
+    </transition>
+    <transition action="">
+      <source ref="id33"/>
+      <target ref="id33"/>
+      <label kind="synchronisation" x="-176" y="-288">grant?</label>
+      <nail x="-160" y="-288"/>
+      <nail x="-184" y="-288"/>
+    </transition>
+    <transition action="" controllable="false">
+      <source ref="id33"/>
+      <target ref="id33"/>
+      <label kind="synchronisation" x="-128" y="-352">patent!</label>
+      <nail x="-136" y="-328"/>
+      <nail x="-136" y="-352"/>
+    </transition>
+    <transition action="" controllable="false">
+      <source ref="id33"/>
+      <target ref="id33"/>
+      <label kind="synchronisation" x="-128" y="-320">coin!</label>
+      <nail x="-136" y="-320"/>
+      <nail x="-136" y="-296"/>
+    </transition>
+    <transition action="">
+      <source ref="id34"/>
+      <target ref="id34"/>
+      <label kind="synchronisation" x="-320" y="-176">grant?</label>
+      <nail x="-288" y="-184"/>
+      <nail x="-320" y="-176"/>
+    </transition>
+    <transition action="">
+      <source ref="id34"/>
+      <target ref="id34"/>
+      <label kind="synchronisation" x="-376" y="-184">pub?</label>
+      <nail x="-360" y="-192"/>
+      <nail x="-336" y="-176"/>
+    </transition>
+    <transition action="" controllable="false">
+      <source ref="id34"/>
+      <target ref="id34"/>
+      <label kind="synchronisation" x="-416" y="-240">patent!</label>
+      <nail x="-368" y="-240"/>
+      <nail x="-368" y="-208"/>
+    </transition>
+    <transition action="" controllable="false">
+      <source ref="id35"/>
+      <target ref="id35"/>
+      <label kind="synchronisation" x="-280" y="-368">patent!</label>
+      <nail x="-272" y="-336"/>
+      <nail x="-304" y="-368"/>
+    </transition>
+    <transition action="">
+      <source ref="id35"/>
+      <target ref="id35"/>
+      <label kind="synchronisation" x="-384" y="-368">pub?</label>
+      <nail x="-368" y="-336"/>
+      <nail x="-336" y="-368"/>
+    </transition>
+    <transition action="" controllable="false">
+      <source ref="id34"/>
+      <target ref="id35"/>
+      <label kind="synchronisation" x="-392" y="-288">coin!</label>
+      <nail x="-352" y="-256"/>
+      <nail x="-352" y="-288"/>
+    </transition>
+    <transition action="">
+      <source ref="id35"/>
+      <target ref="id34"/>
+      <label kind="synchronisation" x="-280" y="-288">grant?</label>
+      <label kind="assignment" x="-280" y="-272">x=0</label>
+      <nail x="-288" y="-288"/>
+      <nail x="-288" y="-256"/>
+    </transition>
+  </template>
+  <template>
+    <name>HalfUni2</name>
+    <declaration>clock y;</declaration>
+    <location id="id36" x="-192" y="-208">
+      <name x="-202" y="-238">Inconsistent</name>
+      <urgent/>
+    </location>
+    <location id="id37" x="-192" y="-312">
+      <name x="-248" y="-344">Universal</name>
+    </location>
+    <location id="id38" x="-320" y="-224">
+      <name x="-304" y="-240">D</name>
+      <label kind="invariant" x="-304" y="-224">y&lt;=2</label>
+    </location>
+    <location id="id39" x="-320" y="-320">
+      <name x="-352" y="-328">C</name>
+    </location>
+    <init ref="id39"/>
+    <transition action="">
+      <source ref="id37"/>
+      <target ref="id37"/>
+      <label kind="synchronisation" x="-224" y="-280">pub?</label>
+      <nail x="-200" y="-280"/>
+      <nail x="-224" y="-280"/>
+    </transition>
+    <transition action="">
+      <source ref="id37"/>
+      <target ref="id37"/>
+      <label kind="synchronisation" x="-192" y="-280">grant?</label>
+      <nail x="-168" y="-280"/>
+      <nail x="-192" y="-280"/>
+    </transition>
+    <transition action="" controllable="false">
+      <source ref="id37"/>
+      <target ref="id37"/>
+      <label kind="synchronisation" x="-144" y="-344">coin!</label>
+      <nail x="-144" y="-320"/>
+      <nail x="-144" y="-344"/>
+    </transition>
+    <transition action="" controllable="false">
+      <source ref="id37"/>
+      <target ref="id37"/>
+      <label kind="synchronisation" x="-144" y="-312">patent!</label>
+      <nail x="-144" y="-312"/>
+      <nail x="-144" y="-288"/>
+    </transition>
+    <transition action="">
+      <source ref="id38"/>
+      <target ref="id38"/>
+      <label kind="synchronisation" x="-320" y="-176">grant?</label>
+      <nail x="-288" y="-184"/>
+      <nail x="-320" y="-176"/>
+    </transition>
+    <transition action="">
+      <source ref="id38"/>
+      <target ref="id38"/>
+      <label kind="synchronisation" x="-376" y="-184">pub?</label>
+      <nail x="-360" y="-192"/>
+      <nail x="-336" y="-176"/>
+    </transition>
+    <transition action="" controllable="false">
+      <source ref="id38"/>
+      <target ref="id38"/>
+      <label kind="synchronisation" x="-400" y="-240">coin!</label>
+      <nail x="-368" y="-240"/>
+      <nail x="-368" y="-208"/>
+    </transition>
+    <transition action="" controllable="false">
+      <source ref="id39"/>
+      <target ref="id39"/>
+      <label kind="synchronisation" x="-280" y="-368">coin!</label>
+      <nail x="-272" y="-336"/>
+      <nail x="-304" y="-368"/>
+    </transition>
+    <transition action="">
+      <source ref="id39"/>
+      <target ref="id39"/>
+      <label kind="synchronisation" x="-384" y="-368">grant?</label>
+      <nail x="-368" y="-336"/>
+      <nail x="-336" y="-368"/>
+    </transition>
+    <transition action="" controllable="false">
+      <source ref="id38"/>
+      <target ref="id39"/>
+      <label kind="synchronisation" x="-400" y="-288">patent!</label>
+      <nail x="-352" y="-256"/>
+      <nail x="-352" y="-288"/>
+    </transition>
+    <transition action="">
+      <source ref="id39"/>
+      <target ref="id38"/>
+      <label kind="synchronisation" x="-280" y="-288">pub?</label>
+      <label kind="assignment" x="-280" y="-272">y=0</label>
+      <nail x="-288" y="-288"/>
+      <nail x="-288" y="-256"/>
+    </transition>
+  </template>
+</nta>

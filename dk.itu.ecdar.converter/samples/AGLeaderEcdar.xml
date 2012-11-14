@@ -1,0 +1,2166 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'>
+<nta>
+	<declaration>//Insert declarations of global clocks, variables, constants and channels.
+
+		//clock time;
+
+		const int N = 6;
+		const int MaxD = 2;
+		//const int MinD = 1;
+		typedef int[0,N-1] id_t;
+
+		const bool S5[N] = { 0 , 0 , 0 , 1 , 0 , 0};
+		const bool S4[N] = { 0 , 0 , 1 , 1 , 0 , 0};
+		const bool S3[N] = { 0 , 0 , 1 , 1 , 1 , 0};
+		const bool S2[N] = { 0 , 1 , 1 , 1 , 1 , 0};
+		const bool S1[N] = { 1 , 1 , 1 , 1 , 1 , 0};
+
+		broadcast chan send[N][N];
+		broadcast chan leader[N];
+
+
+	</declaration>
+	<template>
+		<name>Node</name>
+		<parameter>const id_t id, const id_t pr</parameter>
+		<declaration>id_t cur := pr;
+
+			clock x;</declaration>
+		<location id="id0" x="-536" y="-200">
+			<name x="-546" y="-230">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id1" x="-528" y="-368">
+			<name x="-496" y="-376">Universal</name>
+		</location>
+		<location id="id2" x="-824" y="-152">
+			<name x="-840" y="-144">Leader</name>
+		</location>
+		<location id="id3" x="-824" y="-224">
+			<urgent />
+		</location>
+		<location id="id4" x="-824" y="-312">
+			<label kind="invariant" x="-808" y="-336">x&lt;=MaxD</label>
+		</location>
+		<init ref="id4" />
+		<transition controllable="false" action="">
+			<source ref="id1" />
+			<target ref="id1" />
+			<label kind="synchronisation" x="-648" y="-344">leader[id]!</label>
+			<nail x="-568" y="-304" />
+			<nail x="-568" y="-368" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id1" />
+			<target ref="id1" />
+			<label kind="select" x="-496" y="-360">e:id_t</label>
+			<label kind="synchronisation" x="-496" y="-344">send[(id+1)%N][e]!</label>
+			<nail x="-504" y="-360" />
+			<nail x="-504" y="-304" />
+		</transition>
+		<transition action="">
+			<source ref="id1" />
+			<target ref="id1" />
+			<label kind="select" x="-560" y="-440">e:id_t</label>
+			<label kind="synchronisation" x="-560" y="-424">send[id][e]?</label>
+			<nail x="-496" y="-408" />
+			<nail x="-560" y="-408" />
+		</transition>
+		<transition action="">
+			<source ref="id2" />
+			<target ref="id2" />
+			<label kind="select" x="-920" y="-176">e:id_t</label>
+			<label kind="synchronisation" x="-952" y="-160">send[id][e]?</label>
+			<nail x="-872" y="-168" />
+			<nail x="-872" y="-136" />
+		</transition>
+		<transition action="">
+			<source ref="id3" />
+			<target ref="id3" />
+			<label kind="select" x="-912" y="-224">e:id_t</label>
+			<label kind="synchronisation" x="-944" y="-208">send[id][e]?</label>
+			<nail x="-872" y="-240" />
+			<nail x="-872" y="-200" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id3" />
+			<target ref="id2" />
+			<label kind="synchronisation" x="-856" y="-200">leader[id]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id4" />
+			<target ref="id4" />
+			<label kind="select" x="-896" y="-416">e:id_t</label>
+			<label kind="guard" x="-840" y="-416">e&gt;cur</label>
+			<label kind="synchronisation" x="-864" y="-392">send[id][e]?</label>
+			<label kind="assignment" x="-792" y="-416">cur=e</label>
+			<nail x="-752" y="-392" />
+			<nail x="-896" y="-392" />
+		</transition>
+		<transition>
+			<source ref="id4" />
+			<target ref="id3" />
+			<label kind="synchronisation" x="-864" y="-272">send[id][pr]?</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id4" />
+			<target ref="id4" />
+			<label kind="synchronisation" x="-752" y="-304">send[(id+1)%N][cur]!</label>
+			<label kind="assignment" x="-752" y="-288">x=0</label>
+			<nail x="-720" y="-312" />
+			<nail x="-720" y="-224" />
+		</transition>
+		<transition action="">
+			<source ref="id4" />
+			<target ref="id4" />
+			<label kind="select" x="-968" y="-368">e:id_t</label>
+			<label kind="guard" x="-968" y="-352">e&lt;=cur &amp;&amp;
+				!(e==pr)</label>
+			<label kind="synchronisation" x="-960" y="-304">send[id][e]?</label>
+			<nail x="-928" y="-312" />
+			<nail x="-928" y="-224" />
+		</transition>
+	</template>
+	<template>
+		<name>Spec</name>
+		<location id="id5" x="-32" y="-40">
+			<name x="-42" y="-70">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id6" x="-24" y="-264">
+			<name x="-34" y="-294">Universal</name>
+		</location>
+		<location id="id7" x="-224" y="-160"></location>
+		<init ref="id7" />
+		<transition controllable="false" action="">
+			<source ref="id6" />
+			<target ref="id6" />
+			<label kind="select" x="-48" y="-208">e:id_t</label>
+			<label kind="synchronisation" x="-48" y="-192">leader[e]!</label>
+			<nail x="-48" y="-216" />
+			<nail x="8" y="-216" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id7" />
+			<target ref="id7" />
+			<label kind="synchronisation" x="-248" y="-96">leader[0]!</label>
+			<nail x="-256" y="-96" />
+			<nail x="-192" y="-96" />
+		</transition>
+	</template>
+	<template>
+		<name x="5" y="5">Phi1</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>// Place local declarations here.
+		</declaration>
+		<location id="id8" x="-40" y="-224">
+			<name x="-50" y="-254">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id9" x="-56" y="-392">
+			<name x="-40" y="-408">Universal</name>
+		</location>
+		<location id="id10" x="-328" y="-264"></location>
+		<location id="id11" x="-456" y="-264"></location>
+		<init ref="id11" />
+		<transition controllable="false" action="">
+			<source ref="id9" />
+			<target ref="id9" />
+			<label kind="select" x="-72" y="-336">e:id_t</label>
+			<label kind="synchronisation" x="-72" y="-320">send[0][e]!</label>
+			<nail x="-72" y="-336" />
+			<nail x="-24" y="-336" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id9" />
+			<target ref="id9" />
+			<label kind="select" x="-176" y="-415">j:id_t</label>
+			<label kind="guard" x="-176" y="-400">j&gt;=i</label>
+			<label kind="synchronisation" x="-176" y="-385">leader[j]!</label>
+			<nail x="-104" y="-416" />
+			<nail x="-104" y="-368" />
+		</transition>
+		<transition action="">
+			<source ref="id9" />
+			<target ref="id9" />
+			<label kind="select" x="-72" y="-472">e:id_t</label>
+			<label kind="synchronisation" x="-72" y="-456">send[i][e]?</label>
+			<nail x="-72" y="-440" />
+			<nail x="-32" y="-440" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id10" />
+			<target ref="id10" />
+			<label kind="select" x="-272" y="-296">j : id_t</label>
+			<label kind="guard" x="-272" y="-280">j&gt;=i</label>
+			<label kind="synchronisation" x="-272" y="-264">leader[j]!</label>
+			<nail x="-280" y="-296" />
+			<nail x="-280" y="-248" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id10" />
+			<target ref="id10" />
+			<label kind="select" x="-296" y="-232">e : id_t</label>
+			<label kind="synchronisation" x="-312" y="-216">send[0][e]!</label>
+			<nail x="-328" y="-208" />
+			<nail x="-288" y="-240" />
+		</transition>
+		<transition action="">
+			<source ref="id10" />
+			<target ref="id10" />
+			<label kind="select" x="-312" y="-352">e : id_t</label>
+			<label kind="synchronisation" x="-296" y="-336">send[i][e]?</label>
+			<nail x="-328" y="-320" />
+			<nail x="-288" y="-304" />
+		</transition>
+		<transition action="">
+			<source ref="id11" />
+			<target ref="id10" />
+			<label kind="select" x="-424" y="-320">e : id_t</label>
+			<label kind="guard" x="-424" y="-304">S[e]==1</label>
+			<label kind="synchronisation" x="-424" y="-288">send[i][e]?</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id11" />
+			<target ref="id11" />
+			<label kind="select" x="-560" y="-256">e : id_t</label>
+			<label kind="synchronisation" x="-576" y="-240">send[0][e]!</label>
+			<nail x="-504" y="-256" />
+			<nail x="-504" y="-208" />
+		</transition>
+		<transition action="">
+			<source ref="id11" />
+			<target ref="id11" />
+			<label kind="select" x="-560" y="-328">e : id_t</label>
+			<label kind="guard" x="-560" y="-312">S[e]==0</label>
+			<label kind="synchronisation" x="-576" y="-296">send[i][e]?</label>
+			<nail x="-504" y="-320" />
+			<nail x="-504" y="-272" />
+		</transition>
+	</template>
+	<template>
+		<name>v1Phi2</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>clock x;
+			id_t g;</declaration>
+		<location id="id12" x="-128" y="128"></location>
+		<location id="id13" x="32" y="-32"></location>
+		<location id="id14" x="-128" y="-32">
+			<label kind="invariant" x="-104" y="-56">x&lt;=(N-i+1)* MaxD</label>
+		</location>
+		<location id="id15" x="-352" y="-32"></location>
+		<init ref="id15" />
+		<transition controllable="false" action="">
+			<source ref="id12" />
+			<target ref="id12" />
+			<label kind="select" x="-56" y="136">e:id_t</label>
+			<label kind="guard" x="-56" y="152">e&gt;=i</label>
+			<label kind="synchronisation" x="-56" y="168">leader[i]!</label>
+			<nail x="-72" y="176" />
+			<nail x="-64" y="152" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id12" />
+			<target ref="id12" />
+			<label kind="select" x="-168" y="184">e:id_t</label>
+			<label kind="synchronisation" x="-120" y="184">send[0][e]!</label>
+			<nail x="-152" y="184" />
+			<nail x="-96" y="184" />
+		</transition>
+		<transition action="">
+			<source ref="id12" />
+			<target ref="id12" />
+			<label kind="select" x="-224" y="144">e:id_t</label>
+			<label kind="synchronisation" x="-248" y="160">send[i][e]?</label>
+			<nail x="-176" y="152" />
+			<nail x="-176" y="184" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id13" />
+			<target ref="id12" />
+			<label kind="select" x="48" y="56">e:id_t</label>
+			<label kind="guard" x="48" y="72">e&gt;=i</label>
+			<label kind="synchronisation" x="24" y="88">leader[e]!</label>
+			<nail x="88" y="32" />
+			<nail x="88" y="128" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id14" />
+			<target ref="id12" />
+			<label kind="select" x="-120" y="64">e:id_t</label>
+			<label kind="guard" x="-120" y="80">e&gt;=i</label>
+			<label kind="synchronisation" x="-120" y="96">leader[e]!</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id15" />
+			<target ref="id12" />
+			<label kind="select" x="-304" y="57">e:id_t</label>
+			<label kind="guard" x="-304" y="72">e&gt;=i</label>
+			<label kind="synchronisation" x="-304" y="87">leader[e]!</label>
+			<nail x="-304" y="128" />
+		</transition>
+		<transition action="">
+			<source ref="id13" />
+			<target ref="id13" />
+			<label kind="select" x="8" y="-128">e : id_t</label>
+			<label kind="synchronisation" x="0" y="-112">send[i][e]?</label>
+			<nail x="0" y="-88" />
+			<nail x="64" y="-88" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id13" />
+			<target ref="id13" />
+			<label kind="select" x="-40" y="16">e : id_t</label>
+			<label kind="synchronisation" x="-40" y="32">send[0][e]!</label>
+			<nail x="0" y="24" />
+			<nail x="64" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id14" />
+			<target ref="id13" />
+			<label kind="synchronisation" x="-72" y="-32">send[0][g]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id14" />
+			<target ref="id14" />
+			<label kind="select" x="-152" y="-128">e : id_t</label>
+			<label kind="synchronisation" x="-152" y="-112">send[i][e]?</label>
+			<nail x="-160" y="-88" />
+			<nail x="-96" y="-88" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id14" />
+			<target ref="id14" />
+			<label kind="select" x="-216" y="8">e : id_t</label>
+			<label kind="guard" x="-216" y="24">e != g</label>
+			<label kind="synchronisation" x="-216" y="40">send[0][e]!</label>
+			<nail x="-160" y="24" />
+			<nail x="-96" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id15" />
+			<target ref="id14" />
+			<label kind="select" x="-328" y="-88">e : id_t</label>
+			<label kind="guard" x="-336" y="-72">( forall (j:id_t) S[j] imply
+				e&gt;j)</label>
+			<label kind="synchronisation" x="-328" y="-56">send[i][e]?</label>
+			<label kind="assignment" x="-232" y="-32">x=0, g=e</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id15" />
+			<target ref="id15" />
+			<label kind="select" x="-432" y="0">e : id_t</label>
+			<label kind="synchronisation" x="-432" y="16">send[0][e]!</label>
+			<nail x="-400" y="-8" />
+			<nail x="-352" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id15" />
+			<target ref="id15" />
+			<label kind="select" x="-432" y="-128">e : id_t</label>
+			<label kind="guard" x="-432" y="-112">(exists (j : id_t) S[j]
+				&amp;&amp; e&lt;=j)</label>
+			<label kind="synchronisation" x="-432" y="-96">send[i][e]?</label>
+			<label kind="comments">This model reflects the original specification!</label>
+			<nail x="-400" y="-64" />
+			<nail x="-352" y="-88" />
+		</transition>
+	</template>
+	<template>
+		<name>v2Phi2</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>clock x;
+			id_t g;</declaration>
+		<location id="id16" x="32" y="-32"></location>
+		<location id="id17" x="-128" y="-32">
+			<label kind="invariant" x="-112" y="-56">x&lt;=(N-i+1)* MaxD</label>
+		</location>
+		<location id="id18" x="-352" y="-32"></location>
+		<init ref="id18" />
+		<transition controllable="false" action="">
+			<source ref="id16" />
+			<target ref="id16" />
+			<label kind="select" x="104" y="-64">e:id_t</label>
+			<label kind="guard" x="104" y="-48">e&gt;=i</label>
+			<label kind="synchronisation" x="104" y="-24">leader[e]!</label>
+			<nail x="96" y="0" />
+			<nail x="96" y="-64" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id17" />
+			<target ref="id16" />
+			<label kind="select" x="-128" y="40">e:id_t</label>
+			<label kind="guard" x="-128" y="56">e&gt;=i</label>
+			<label kind="synchronisation" x="-128" y="24">leader[e]!</label>
+			<nail x="-128" y="24" />
+			<nail x="-72" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id18" />
+			<target ref="id16" />
+			<label kind="select" x="-328" y="32">e:id_t</label>
+			<label kind="guard" x="-328" y="48">e&gt;=i</label>
+			<label kind="synchronisation" x="-328" y="64">leader[e]!</label>
+			<nail x="-336" y="96" />
+			<nail x="-80" y="96" />
+		</transition>
+		<transition action="">
+			<source ref="id16" />
+			<target ref="id16" />
+			<label kind="select" x="8" y="-128">e : id_t</label>
+			<label kind="synchronisation" x="0" y="-112">send[i][e]?</label>
+			<nail x="0" y="-88" />
+			<nail x="64" y="-88" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id16" />
+			<target ref="id16" />
+			<label kind="select" x="16" y="24">e : id_t</label>
+			<label kind="synchronisation" x="16" y="40">send[0][e]!</label>
+			<nail x="0" y="24" />
+			<nail x="64" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id17" />
+			<target ref="id16" />
+			<label kind="synchronisation" x="-72" y="-32">send[0][g]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id17" />
+			<target ref="id16" />
+			<label kind="select" x="-112" y="-128">e : id_t</label>
+			<label kind="synchronisation" x="-112" y="-112">send[i][e]?</label>
+			<nail x="-160" y="-88" />
+			<nail x="-8" y="-88" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id17" />
+			<target ref="id17" />
+			<label kind="select" x="-216" y="8">e : id_t</label>
+			<label kind="guard" x="-208" y="24">e != g</label>
+			<label kind="synchronisation" x="-240" y="40">send[0][e]!</label>
+			<nail x="-168" y="-8" />
+			<nail x="-168" y="40" />
+			<nail x="-144" y="40" />
+		</transition>
+		<transition action="">
+			<source ref="id18" />
+			<target ref="id17" />
+			<label kind="select" x="-328" y="-88">e : id_t</label>
+			<label kind="guard" x="-336" y="-72">( forall (j:id_t) S[j] imply
+				e&gt;j)</label>
+			<label kind="synchronisation" x="-328" y="-56">send[i][e]?</label>
+			<label kind="assignment" x="-232" y="-32">x=0, g=e</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id18" />
+			<target ref="id18" />
+			<label kind="select" x="-432" y="0">e : id_t</label>
+			<label kind="synchronisation" x="-432" y="16">send[0][e]!</label>
+			<nail x="-400" y="-8" />
+			<nail x="-352" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id18" />
+			<target ref="id18" />
+			<label kind="select" x="-432" y="-128">e : id_t</label>
+			<label kind="guard" x="-432" y="-112">(exists (j : id_t) S[j]
+				&amp;&amp; e&lt;=j)</label>
+			<label kind="synchronisation" x="-432" y="-96">send[i][e]?</label>
+			<nail x="-400" y="-64" />
+			<nail x="-352" y="-88" />
+		</transition>
+	</template>
+	<template>
+		<name>v4Phi2</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>clock x;
+			id_t g;</declaration>
+		<location id="id19" x="32" y="-32"></location>
+		<location id="id20" x="-128" y="-32">
+			<label kind="invariant" x="-112" y="-56">x&lt;=(N-i+1)* MaxD</label>
+		</location>
+		<location id="id21" x="-352" y="-32"></location>
+		<init ref="id21" />
+		<transition action="">
+			<source ref="id20" />
+			<target ref="id20" />
+			<label kind="select" x="-360" y="-192">e:id_t</label>
+			<label kind="guard" x="-360" y="-176">(exists (j : id_t) S[j]
+				&amp;&amp; e&lt;=j)</label>
+			<label kind="synchronisation" x="-360" y="-160">send[i][e]?</label>
+			<nail x="-256" y="-136" />
+			<nail x="-368" y="-136" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id19" />
+			<target ref="id19" />
+			<label kind="select" x="104" y="-64">e:id_t</label>
+			<label kind="guard" x="104" y="-48">e&gt;=i</label>
+			<label kind="synchronisation" x="104" y="-24">leader[e]!</label>
+			<nail x="96" y="0" />
+			<nail x="96" y="-64" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id20" />
+			<target ref="id19" />
+			<label kind="select" x="-128" y="40">e:id_t</label>
+			<label kind="guard" x="-128" y="56">e&gt;=i</label>
+			<label kind="synchronisation" x="-128" y="24">leader[e]!</label>
+			<nail x="-128" y="24" />
+			<nail x="-72" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id21" />
+			<target ref="id19" />
+			<label kind="select" x="-328" y="32">e:id_t</label>
+			<label kind="guard" x="-328" y="48">e&gt;=i</label>
+			<label kind="synchronisation" x="-328" y="64">leader[e]!</label>
+			<nail x="-336" y="96" />
+			<nail x="-80" y="96" />
+		</transition>
+		<transition action="">
+			<source ref="id19" />
+			<target ref="id19" />
+			<label kind="select" x="24" y="-136">e : id_t</label>
+			<label kind="synchronisation" x="24" y="-120">send[i][e]?</label>
+			<nail x="16" y="-96" />
+			<nail x="48" y="-96" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id19" />
+			<target ref="id19" />
+			<label kind="select" x="16" y="24">e : id_t</label>
+			<label kind="synchronisation" x="16" y="40">send[0][e]!</label>
+			<nail x="0" y="24" />
+			<nail x="64" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id20" />
+			<target ref="id19" />
+			<label kind="synchronisation" x="-72" y="-32">send[0][g]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id20" />
+			<target ref="id20" />
+			<label kind="select" x="-112" y="-176">e : id_t</label>
+			<label kind="guard" x="-168" y="-160">(forall (j:id_t) S[j] imply
+				e&gt;j)</label>
+			<label kind="synchronisation" x="-112" y="-144">send[i][e]?</label>
+			<label kind="assignment" x="-96" y="-128">x=0, g=e</label>
+			<nail x="-128" y="-120" />
+			<nail x="-96" y="-120" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id20" />
+			<target ref="id20" />
+			<label kind="select" x="-216" y="8">e : id_t</label>
+			<label kind="guard" x="-208" y="24">e != g</label>
+			<label kind="synchronisation" x="-240" y="40">send[0][e]!</label>
+			<nail x="-168" y="-8" />
+			<nail x="-168" y="40" />
+			<nail x="-144" y="40" />
+		</transition>
+		<transition action="">
+			<source ref="id21" />
+			<target ref="id20" />
+			<label kind="select" x="-328" y="-88">e : id_t</label>
+			<label kind="guard" x="-336" y="-72">(forall (j:id_t) S[j] imply
+				e&gt;j)</label>
+			<label kind="synchronisation" x="-328" y="-56">send[i][e]?</label>
+			<label kind="assignment" x="-232" y="-32">x=0, g=e</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id21" />
+			<target ref="id21" />
+			<label kind="select" x="-432" y="0">e : id_t</label>
+			<label kind="synchronisation" x="-432" y="16">send[0][e]!</label>
+			<nail x="-400" y="-8" />
+			<nail x="-352" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id21" />
+			<target ref="id21" />
+			<label kind="select" x="-432" y="-128">e : id_t</label>
+			<label kind="guard" x="-432" y="-112">(exists (j : id_t) S[j]
+				&amp;&amp; e&lt;=j)</label>
+			<label kind="synchronisation" x="-432" y="-96">send[i][e]?</label>
+			<nail x="-400" y="-64" />
+			<nail x="-352" y="-88" />
+		</transition>
+	</template>
+	<template>
+		<name>v3Phi2</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>clock x;
+			id_t g;</declaration>
+		<location id="id22" x="32" y="-32"></location>
+		<location id="id23" x="-128" y="-32">
+			<label kind="invariant" x="-112" y="-56">x&lt;=(N-i+1)* MaxD</label>
+		</location>
+		<location id="id24" x="-352" y="-32"></location>
+		<init ref="id24" />
+		<transition action="">
+			<source ref="id23" />
+			<target ref="id22" />
+			<label kind="select" x="-96" y="-152">e:id_t</label>
+			<label kind="guard" x="-96" y="-136">e!=g</label>
+			<label kind="synchronisation" x="-96" y="-120">send[i][e]?</label>
+			<nail x="-104" y="-96" />
+			<nail x="0" y="-96" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id22" />
+			<target ref="id22" />
+			<label kind="select" x="104" y="-64">e:id_t</label>
+			<label kind="guard" x="104" y="-48">e&gt;=i</label>
+			<label kind="synchronisation" x="104" y="-24">leader[e]!</label>
+			<nail x="96" y="0" />
+			<nail x="96" y="-64" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id23" />
+			<target ref="id22" />
+			<label kind="select" x="-128" y="40">e:id_t</label>
+			<label kind="guard" x="-128" y="56">e&gt;=i</label>
+			<label kind="synchronisation" x="-128" y="24">leader[e]!</label>
+			<nail x="-128" y="24" />
+			<nail x="-72" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id24" />
+			<target ref="id22" />
+			<label kind="select" x="-328" y="32">e:id_t</label>
+			<label kind="guard" x="-328" y="48">e&gt;=i</label>
+			<label kind="synchronisation" x="-328" y="64">leader[e]!</label>
+			<nail x="-336" y="96" />
+			<nail x="-80" y="96" />
+		</transition>
+		<transition action="">
+			<source ref="id22" />
+			<target ref="id22" />
+			<label kind="select" x="24" y="-136">e : id_t</label>
+			<label kind="synchronisation" x="24" y="-120">send[i][e]?</label>
+			<nail x="16" y="-96" />
+			<nail x="48" y="-96" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id22" />
+			<target ref="id22" />
+			<label kind="select" x="16" y="24">e : id_t</label>
+			<label kind="synchronisation" x="16" y="40">send[0][e]!</label>
+			<nail x="0" y="24" />
+			<nail x="64" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id23" />
+			<target ref="id22" />
+			<label kind="synchronisation" x="-72" y="-32">send[0][g]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id23" />
+			<target ref="id23" />
+			<label kind="select" x="-176" y="-136">e : id_t</label>
+			<label kind="synchronisation" x="-184" y="-120">send[i][g]?</label>
+			<nail x="-176" y="-96" />
+			<nail x="-120" y="-96" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id23" />
+			<target ref="id23" />
+			<label kind="select" x="-216" y="8">e : id_t</label>
+			<label kind="guard" x="-208" y="24">e != g</label>
+			<label kind="synchronisation" x="-240" y="40">send[0][e]!</label>
+			<nail x="-168" y="-8" />
+			<nail x="-168" y="40" />
+			<nail x="-144" y="40" />
+		</transition>
+		<transition action="">
+			<source ref="id24" />
+			<target ref="id23" />
+			<label kind="select" x="-328" y="-88">e : id_t</label>
+			<label kind="guard" x="-336" y="-72">(forall (j:id_t) S[j] imply
+				e&gt;j)</label>
+			<label kind="synchronisation" x="-328" y="-56">send[i][e]?</label>
+			<label kind="assignment" x="-232" y="-32">x=0, g=e</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id24" />
+			<target ref="id24" />
+			<label kind="select" x="-432" y="0">e : id_t</label>
+			<label kind="synchronisation" x="-432" y="16">send[0][e]!</label>
+			<nail x="-400" y="-8" />
+			<nail x="-352" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id24" />
+			<target ref="id24" />
+			<label kind="select" x="-432" y="-128">e : id_t</label>
+			<label kind="guard" x="-432" y="-112">(exists (j : id_t) S[j]
+				&amp;&amp; e&lt;=j)</label>
+			<label kind="synchronisation" x="-432" y="-96">send[i][e]?</label>
+			<nail x="-400" y="-64" />
+			<nail x="-352" y="-88" />
+		</transition>
+	</template>
+	<template>
+		<name>v5Phi2</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>clock x;
+		</declaration>
+		<location id="id25" x="32" y="-32"></location>
+		<location id="id26" x="-128" y="-32">
+			<label kind="invariant" x="-168" y="-64">x&lt;=(N-i+1)* MaxD</label>
+		</location>
+		<location id="id27" x="-352" y="-32"></location>
+		<init ref="id27" />
+		<transition controllable="false" action="">
+			<source ref="id25" />
+			<target ref="id25" />
+			<label kind="select" x="104" y="-64">e:id_t</label>
+			<label kind="guard" x="104" y="-48">e&gt;=i</label>
+			<label kind="synchronisation" x="104" y="-24">leader[e]!</label>
+			<nail x="96" y="0" />
+			<nail x="96" y="-64" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id26" />
+			<target ref="id25" />
+			<label kind="select" x="-128" y="40">e:id_t</label>
+			<label kind="guard" x="-128" y="56">e&gt;=i</label>
+			<label kind="synchronisation" x="-128" y="24">leader[e]!</label>
+			<nail x="-128" y="24" />
+			<nail x="-72" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id27" />
+			<target ref="id25" />
+			<label kind="select" x="-328" y="32">e:id_t</label>
+			<label kind="guard" x="-328" y="48">e&gt;=i</label>
+			<label kind="synchronisation" x="-328" y="64">leader[e]!</label>
+			<nail x="-336" y="96" />
+			<nail x="-80" y="96" />
+		</transition>
+		<transition action="">
+			<source ref="id25" />
+			<target ref="id25" />
+			<label kind="select" x="24" y="-136">e : id_t</label>
+			<label kind="synchronisation" x="24" y="-120">send[i][e]?</label>
+			<nail x="16" y="-96" />
+			<nail x="48" y="-96" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id25" />
+			<target ref="id25" />
+			<label kind="select" x="16" y="24">e : id_t</label>
+			<label kind="synchronisation" x="16" y="40">send[0][e]!</label>
+			<nail x="0" y="24" />
+			<nail x="64" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id26" />
+			<target ref="id25" />
+			<label kind="select" x="-104" y="-48">e:id_t</label>
+			<label kind="guard" x="-112" y="-32">(forall (j:id_t) S[j] imply
+				e&gt;j)</label>
+			<label kind="synchronisation" x="-112" y="-16">send[0][e]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id26" />
+			<target ref="id26" />
+			<label kind="select" x="-208" y="-160">e : id_t</label>
+			<label kind="synchronisation" x="-224" y="-136">send[i][e]?</label>
+			<nail x="-200" y="-112" />
+			<nail x="-152" y="-112" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id26" />
+			<target ref="id26" />
+			<label kind="select" x="-216" y="-8">e : id_t</label>
+			<label kind="guard" x="-328" y="8">(exists (j : id_t) S[j]
+				&amp;&amp; e&lt;=j)</label>
+			<label kind="synchronisation" x="-232" y="24">send[0][e]!</label>
+			<nail x="-168" y="-8" />
+			<nail x="-168" y="40" />
+			<nail x="-144" y="40" />
+		</transition>
+		<transition action="">
+			<source ref="id27" />
+			<target ref="id26" />
+			<label kind="select" x="-328" y="-88">e : id_t</label>
+			<label kind="guard" x="-336" y="-72">(forall (j:id_t) S[j] imply
+				e&gt;j)</label>
+			<label kind="synchronisation" x="-328" y="-56">send[i][e]?</label>
+			<label kind="assignment" x="-208" y="-32">x=0</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id27" />
+			<target ref="id27" />
+			<label kind="select" x="-432" y="0">e : id_t</label>
+			<label kind="synchronisation" x="-432" y="16">send[0][e]!</label>
+			<nail x="-400" y="-8" />
+			<nail x="-352" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id27" />
+			<target ref="id27" />
+			<label kind="select" x="-432" y="-128">e : id_t</label>
+			<label kind="guard" x="-432" y="-112">(exists (j : id_t) S[j]
+				&amp;&amp; e&lt;=j)</label>
+			<label kind="synchronisation" x="-432" y="-96">send[i][e]?</label>
+			<label kind="comments">If a priority 'e' &gt; max Si is received
+				then some priority 'e' &gt; max Si will be delivered within (n-i+1)*MaxD</label>
+			<nail x="-400" y="-64" />
+			<nail x="-352" y="-88" />
+		</transition>
+	</template>
+	<template>
+		<name>Phi2Old</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>clock x;</declaration>
+		<location id="id28" x="32" y="-32"></location>
+		<location id="id29" x="-128" y="-32">
+			<label kind="invariant" x="-168" y="-64">x&lt;=(N-i+1)* MaxD</label>
+		</location>
+		<location id="id30" x="-320" y="-32"></location>
+		<init ref="id30" />
+		<transition controllable="false" action="">
+			<source ref="id28" />
+			<target ref="id28" />
+			<label kind="select" x="104" y="-64">e:id_t</label>
+			<label kind="guard" x="104" y="-48">e&gt;=i</label>
+			<label kind="synchronisation" x="104" y="-24">leader[e]!</label>
+			<nail x="96" y="0" />
+			<nail x="96" y="-64" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id29" />
+			<target ref="id28" />
+			<label kind="select" x="-128" y="40">e:id_t</label>
+			<label kind="guard" x="-128" y="56">e&gt;=i</label>
+			<label kind="synchronisation" x="-128" y="24">leader[e]!</label>
+			<nail x="-128" y="24" />
+			<nail x="-72" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id30" />
+			<target ref="id28" />
+			<label kind="select" x="-296" y="32">e:id_t</label>
+			<label kind="guard" x="-296" y="48">e&gt;=i</label>
+			<label kind="synchronisation" x="-296" y="64">leader[e]!</label>
+			<nail x="-304" y="96" />
+			<nail x="-64" y="96" />
+		</transition>
+		<transition action="">
+			<source ref="id28" />
+			<target ref="id28" />
+			<label kind="select" x="24" y="-136">e : id_t</label>
+			<label kind="synchronisation" x="24" y="-120">send[i][e]?</label>
+			<nail x="16" y="-96" />
+			<nail x="48" y="-96" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id28" />
+			<target ref="id28" />
+			<label kind="select" x="16" y="24">e : id_t</label>
+			<label kind="synchronisation" x="16" y="40">send[0][e]!</label>
+			<nail x="0" y="24" />
+			<nail x="64" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id29" />
+			<target ref="id28" />
+			<label kind="synchronisation" x="-104" y="-32">send[0][(N-1)]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id29" />
+			<target ref="id29" />
+			<label kind="select" x="-216" y="-152">e : id_t</label>
+			<label kind="synchronisation" x="-224" y="-136">send[i][e]?</label>
+			<nail x="-200" y="-112" />
+			<nail x="-152" y="-112" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id29" />
+			<target ref="id29" />
+			<label kind="select" x="-264" y="8">e : id_t</label>
+			<label kind="guard" x="-216" y="8">e&lt;(N-1)</label>
+			<label kind="synchronisation" x="-232" y="24">send[0][e]!</label>
+			<nail x="-168" y="-8" />
+			<nail x="-168" y="40" />
+			<nail x="-144" y="40" />
+		</transition>
+		<transition action="">
+			<source ref="id30" />
+			<target ref="id29" />
+			<label kind="synchronisation" x="-280" y="-56">send[i][(N-1)]?</label>
+			<label kind="assignment" x="-232" y="-32">x=0</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id30" />
+			<target ref="id30" />
+			<label kind="select" x="-400" y="0">e : id_t</label>
+			<label kind="synchronisation" x="-400" y="16">send[0][e]!</label>
+			<nail x="-368" y="-8" />
+			<nail x="-320" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id30" />
+			<target ref="id30" />
+			<label kind="select" x="-400" y="-112">e : id_t</label>
+			<label kind="guard" x="-352" y="-112">e&lt;(N-1)</label>
+			<label kind="synchronisation" x="-400" y="-96">send[i][e]?</label>
+			<label kind="comments">If a priority (N-1) is received
+				then priority (N-1) will be delivered within (n-i+1)*MaxD</label>
+			<nail x="-368" y="-64" />
+			<nail x="-320" y="-88" />
+		</transition>
+	</template>
+	<template>
+		<name>SpecTime</name>
+		<declaration>clock x;</declaration>
+		<location id="id31" x="144" y="-120">
+			<name x="134" y="-150">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id32" x="136" y="-272">
+			<name x="160" y="-280">Universal</name>
+		</location>
+		<location id="id33" x="-128" y="-160"></location>
+		<location id="id34" x="-256" y="-160">
+			<label kind="invariant" x="-320" y="-200">x&lt;=(N+1)*MaxD</label>
+		</location>
+		<init ref="id34" />
+		<transition controllable="false" action="">
+			<source ref="id32" />
+			<target ref="id32" />
+			<label kind="select" x="112" y="-344">e:id_t</label>
+			<label kind="synchronisation" x="112" y="-328">leader[e]!</label>
+			<nail x="112" y="-312" />
+			<nail x="160" y="-312" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id33" />
+			<target ref="id33" />
+			<label kind="select" x="-72" y="-184">e:id_t</label>
+			<label kind="synchronisation" x="-72" y="-168">leader[e]!</label>
+			<nail x="-80" y="-104" />
+			<nail x="-80" y="-208" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id34" />
+			<target ref="id33" />
+			<label kind="select" x="-224" y="-184">e:id_t</label>
+			<label kind="synchronisation" x="-224" y="-160">leader[e]!</label>
+		</transition>
+	</template>
+	<template>
+		<name>A1</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>// Assumption: Do not receive e (priority) that belongs
+			to the set of priorities in the subsection</declaration>
+		<location id="id35" x="-224" y="-64">
+			<name x="-234" y="-94">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id36" x="-232" y="-232">
+			<name x="-248" y="-288">Universal</name>
+		</location>
+		<location id="id37" x="-592" y="-216"></location>
+		<init ref="id37" />
+		<transition action="">
+			<source ref="id36" />
+			<target ref="id36" />
+			<label kind="select" x="-248" y="-176">e:id_t</label>
+			<label kind="guard" x="-248" y="-161">e&gt;=i</label>
+			<label kind="synchronisation" x="-248" y="-146">leader[e]?</label>
+			<nail x="-256" y="-176" />
+			<nail x="-200" y="-176" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id36" />
+			<target ref="id36" />
+			<label kind="select" x="-176" y="-256">e:id_t</label>
+			<label kind="synchronisation" x="-176" y="-224">send[i][e]!</label>
+			<nail x="-184" y="-256" />
+			<nail x="-184" y="-200" />
+		</transition>
+		<transition action="">
+			<source ref="id36" />
+			<target ref="id36" />
+			<label kind="select" x="-328" y="-240">e:id_t</label>
+			<label kind="synchronisation" x="-368" y="-224">send[0][e]?</label>
+			<nail x="-280" y="-256" />
+			<nail x="-280" y="-192" />
+		</transition>
+		<transition action="">
+			<source ref="id37" />
+			<target ref="id37" />
+			<label kind="select" x="-612" y="-166">e:id_t</label>
+			<label kind="guard" x="-612" y="-151">e&gt;=i</label>
+			<label kind="synchronisation" x="-612" y="-136">leader[e]?</label>
+			<nail x="-620" y="-167" />
+			<nail x="-564" y="-167" />
+		</transition>
+		<transition action="">
+			<source ref="id37" />
+			<target ref="id37" />
+			<label kind="select" x="-684" y="-239">e:id_t</label>
+			<label kind="synchronisation" x="-724" y="-223">send[0][e]?</label>
+			<nail x="-636" y="-247" />
+			<nail x="-636" y="-191" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id37" />
+			<target ref="id37" />
+			<label kind="select" x="-540" y="-247">e:id_t</label>
+			<label kind="guard" x="-540" y="-232">S[e]==0</label>
+			<label kind="synchronisation" x="-540" y="-217">send[i][e]!</label>
+			<nail x="-544" y="-248" />
+			<nail x="-544" y="-192" />
+		</transition>
+	</template>
+	<template>
+		<name>G1</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>// Guarantee: No leader declared
+		</declaration>
+		<location id="id38" x="-64" y="-48">
+			<name x="-74" y="-78">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id39" x="-72" y="-184">
+			<name x="-56" y="-192">Universal</name>
+		</location>
+		<location id="id40" x="-280" y="-96"></location>
+		<init ref="id40" />
+		<transition controllable="false" action="">
+			<source ref="id39" />
+			<target ref="id39" />
+			<label kind="select" x="-192" y="-208">e:id_t</label>
+			<label kind="guard" x="-192" y="-193">e&gt;=i</label>
+			<label kind="synchronisation" x="-192" y="-178">leader[e]!</label>
+			<nail x="-120" y="-216" />
+			<nail x="-120" y="-160" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id39" />
+			<target ref="id39" />
+			<label kind="select" x="-88" y="-136">e:id_t</label>
+			<label kind="synchronisation" x="-88" y="-120">send[0][e]!</label>
+			<nail x="-96" y="-136" />
+			<nail x="-40" y="-136" />
+		</transition>
+		<transition action="">
+			<source ref="id39" />
+			<target ref="id39" />
+			<label kind="select" x="-104" y="-272">e:id_t</label>
+			<label kind="synchronisation" x="-104" y="-256">send[i][e]?</label>
+			<nail x="-104" y="-240" />
+			<nail x="-48" y="-240" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id40" />
+			<target ref="id40" />
+			<label kind="select" x="-304" y="-48">e:id_t</label>
+			<label kind="synchronisation" x="-304" y="-32">send[0][e]!</label>
+			<nail x="-304" y="-48" />
+			<nail x="-248" y="-48" />
+		</transition>
+		<transition action="">
+			<source ref="id40" />
+			<target ref="id40" />
+			<label kind="select" x="-304" y="-184">e:id_t</label>
+			<label kind="synchronisation" x="-304" y="-168">send[i][e]?</label>
+			<nail x="-304" y="-144" />
+			<nail x="-256" y="-144" />
+		</transition>
+	</template>
+	<template>
+		<name>A2</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>clock x;</declaration>
+		<location id="id41" x="320" y="-144">
+			<name x="288" y="-184">Universal</name>
+		</location>
+		<location id="id42" x="320" y="72">
+			<name x="336" y="40">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id43" x="32" y="-32"></location>
+		<location id="id44" x="-128" y="-32">
+			<label kind="invariant" x="-168" y="-64">x&lt;=(N-i+1)* MaxD</label>
+		</location>
+		<location id="id45" x="-320" y="-32"></location>
+		<init ref="id45" />
+		<transition action="">
+			<source ref="id41" />
+			<target ref="id41" />
+			<label kind="select" x="304" y="-88">e:id_t</label>
+			<label kind="guard" x="304" y="-73">e&gt;=i</label>
+			<label kind="synchronisation" x="304" y="-58">leader[e]?</label>
+			<nail x="304" y="-96" />
+			<nail x="344" y="-96" />
+		</transition>
+		<transition action="">
+			<source ref="id41" />
+			<target ref="id41" />
+			<label kind="select" x="232" y="-160">e:id_t</label>
+			<label kind="synchronisation" x="192" y="-144">send[0][e]?</label>
+			<nail x="272" y="-168" />
+			<nail x="272" y="-120" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id41" />
+			<target ref="id41" />
+			<label kind="select" x="376" y="-168">e:id_t</label>
+			<label kind="synchronisation" x="376" y="-152">send[i][e]!</label>
+			<nail x="368" y="-168" />
+			<nail x="368" y="-120" />
+		</transition>
+		<transition action="">
+			<source ref="id43" />
+			<target ref="id43" />
+			<label kind="select" x="104" y="-64">e:id_t</label>
+			<label kind="guard" x="104" y="-48">e&gt;=i</label>
+			<label kind="synchronisation" x="104" y="-24">leader[e]?</label>
+			<nail x="96" y="0" />
+			<nail x="96" y="-64" />
+		</transition>
+		<transition action="">
+			<source ref="id44" />
+			<target ref="id43" />
+			<label kind="select" x="-128" y="40">e:id_t</label>
+			<label kind="guard" x="-128" y="56">e&gt;=i</label>
+			<label kind="synchronisation" x="-128" y="24">leader[e]?</label>
+			<nail x="-128" y="24" />
+			<nail x="-72" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id45" />
+			<target ref="id43" />
+			<label kind="select" x="-296" y="32">e:id_t</label>
+			<label kind="guard" x="-296" y="48">e&gt;=i</label>
+			<label kind="synchronisation" x="-296" y="64">leader[e]?</label>
+			<nail x="-304" y="96" />
+			<nail x="-64" y="96" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id43" />
+			<target ref="id43" />
+			<label kind="select" x="24" y="-136">e:id_t</label>
+			<label kind="synchronisation" x="24" y="-120">send[i][e]!</label>
+			<nail x="16" y="-96" />
+			<nail x="48" y="-96" />
+		</transition>
+		<transition action="">
+			<source ref="id43" />
+			<target ref="id43" />
+			<label kind="select" x="16" y="24">e:id_t</label>
+			<label kind="synchronisation" x="16" y="40">send[0][e]?</label>
+			<nail x="0" y="24" />
+			<nail x="64" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id44" />
+			<target ref="id43" />
+			<label kind="synchronisation" x="-104" y="-32">send[0][(N-1)]?</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id44" />
+			<target ref="id44" />
+			<label kind="select" x="-216" y="-152">e : id_t</label>
+			<label kind="synchronisation" x="-224" y="-136">send[i][e]!</label>
+			<nail x="-200" y="-112" />
+			<nail x="-152" y="-112" />
+		</transition>
+		<transition action="">
+			<source ref="id44" />
+			<target ref="id44" />
+			<label kind="select" x="-264" y="8">e : id_t</label>
+			<label kind="guard" x="-216" y="8">e&lt;(N-1)</label>
+			<label kind="synchronisation" x="-232" y="24">send[0][e]?</label>
+			<nail x="-168" y="-8" />
+			<nail x="-168" y="40" />
+			<nail x="-144" y="40" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id45" />
+			<target ref="id44" />
+			<label kind="synchronisation" x="-280" y="-56">send[i][(N-1)]!</label>
+			<label kind="assignment" x="-232" y="-32">x=0</label>
+		</transition>
+		<transition action="">
+			<source ref="id45" />
+			<target ref="id45" />
+			<label kind="select" x="-400" y="0">e : id_t</label>
+			<label kind="synchronisation" x="-400" y="16">send[0][e]?</label>
+			<nail x="-368" y="-8" />
+			<nail x="-320" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id45" />
+			<target ref="id45" />
+			<label kind="select" x="-400" y="-112">e : id_t</label>
+			<label kind="guard" x="-352" y="-112">e&lt;(N-1)</label>
+			<label kind="synchronisation" x="-400" y="-96">send[i][e]!</label>
+			<label kind="comments">If a priority (N-1) is received
+				then priority (N-1) will be delivered within (n-i+1)*MaxD</label>
+			<nail x="-368" y="-64" />
+			<nail x="-320" y="-88" />
+		</transition>
+	</template>
+	<template>
+		<name>G2</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>clock x;</declaration>
+		<location id="id46" x="328" y="128">
+			<name x="318" y="98">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id47" x="328" y="-136">
+			<name x="352" y="-152">Universal</name>
+		</location>
+		<location id="id48" x="32" y="-32"></location>
+		<location id="id49" x="-128" y="-32">
+			<label kind="invariant" x="-168" y="-64">x&lt;=(N-i+1)* MaxD</label>
+		</location>
+		<location id="id50" x="-320" y="-32"></location>
+		<init ref="id50" />
+		<transition controllable="false" action="">
+			<source ref="id47" />
+			<target ref="id47" />
+			<label kind="select" x="208" y="-158">e:id_t</label>
+			<label kind="guard" x="208" y="-143">e&gt;=i</label>
+			<label kind="synchronisation" x="208" y="-128">leader[e]!</label>
+			<nail x="280" y="-152" />
+			<nail x="280" y="-112" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id47" />
+			<target ref="id47" />
+			<label kind="select" x="304" y="-72">e:id_t</label>
+			<label kind="synchronisation" x="304" y="-56">send[0][e]!</label>
+			<nail x="304" y="-80" />
+			<nail x="352" y="-80" />
+		</transition>
+		<transition action="">
+			<source ref="id47" />
+			<target ref="id47" />
+			<label kind="select" x="304" y="-224">e:id_t</label>
+			<label kind="synchronisation" x="304" y="-208">send[i][e]?</label>
+			<nail x="304" y="-184" />
+			<nail x="352" y="-184" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id48" />
+			<target ref="id48" />
+			<label kind="select" x="104" y="-64">e:id_t</label>
+			<label kind="guard" x="104" y="-48">e&gt;=i</label>
+			<label kind="synchronisation" x="104" y="-24">leader[e]!</label>
+			<nail x="96" y="0" />
+			<nail x="96" y="-64" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id49" />
+			<target ref="id48" />
+			<label kind="select" x="-128" y="40">e:id_t</label>
+			<label kind="guard" x="-128" y="56">e&gt;=i</label>
+			<label kind="synchronisation" x="-128" y="24">leader[e]!</label>
+			<nail x="-128" y="24" />
+			<nail x="-72" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id50" />
+			<target ref="id48" />
+			<label kind="select" x="-296" y="32">e:id_t</label>
+			<label kind="guard" x="-296" y="48">e&gt;=i</label>
+			<label kind="synchronisation" x="-296" y="64">leader[e]!</label>
+			<nail x="-304" y="96" />
+			<nail x="-64" y="96" />
+		</transition>
+		<transition action="">
+			<source ref="id48" />
+			<target ref="id48" />
+			<label kind="select" x="24" y="-136">e : id_t</label>
+			<label kind="synchronisation" x="24" y="-120">send[i][e]?</label>
+			<nail x="16" y="-96" />
+			<nail x="48" y="-96" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id48" />
+			<target ref="id48" />
+			<label kind="select" x="16" y="24">e : id_t</label>
+			<label kind="synchronisation" x="16" y="40">send[0][e]!</label>
+			<nail x="0" y="24" />
+			<nail x="64" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id49" />
+			<target ref="id48" />
+			<label kind="synchronisation" x="-104" y="-32">send[0][(N-1)]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id49" />
+			<target ref="id49" />
+			<label kind="select" x="-216" y="-152">e : id_t</label>
+			<label kind="synchronisation" x="-224" y="-136">send[i][e]?</label>
+			<nail x="-200" y="-112" />
+			<nail x="-152" y="-112" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id49" />
+			<target ref="id49" />
+			<label kind="select" x="-264" y="8">e : id_t</label>
+			<label kind="guard" x="-216" y="8">e&lt;(N-1)</label>
+			<label kind="synchronisation" x="-232" y="24">send[0][e]!</label>
+			<nail x="-168" y="-8" />
+			<nail x="-168" y="40" />
+			<nail x="-144" y="40" />
+		</transition>
+		<transition action="">
+			<source ref="id50" />
+			<target ref="id49" />
+			<label kind="synchronisation" x="-280" y="-56">send[i][(N-1)]?</label>
+			<label kind="assignment" x="-232" y="-32">x=0</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id50" />
+			<target ref="id50" />
+			<label kind="select" x="-400" y="0">e : id_t</label>
+			<label kind="synchronisation" x="-400" y="16">send[0][e]!</label>
+			<nail x="-368" y="-8" />
+			<nail x="-320" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id50" />
+			<target ref="id50" />
+			<label kind="select" x="-400" y="-112">e : id_t</label>
+			<label kind="guard" x="-352" y="-112">e&lt;(N-1)</label>
+			<label kind="synchronisation" x="-400" y="-96">send[i][e]?</label>
+			<label kind="comments">If a priority (N-1) is received
+				then priority (N-1) will be delivered within (n-i+1)*MaxD</label>
+			<nail x="-368" y="-64" />
+			<nail x="-320" y="-88" />
+		</transition>
+	</template>
+	<template>
+		<name>Phi2</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>clock x;</declaration>
+		<location id="id51" x="328" y="128">
+			<name x="318" y="98">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id52" x="328" y="-136">
+			<name x="352" y="-152">Universal</name>
+		</location>
+		<location id="id53" x="32" y="-32"></location>
+		<location id="id54" x="-128" y="-32">
+			<label kind="invariant" x="-168" y="-64">x&lt;=(N-i+1)* MaxD</label>
+		</location>
+		<location id="id55" x="-320" y="-32"></location>
+		<init ref="id55" />
+		<transition controllable="false" action="">
+			<source ref="id52" />
+			<target ref="id52" />
+			<label kind="select" x="208" y="-158">e:id_t</label>
+			<label kind="guard" x="208" y="-143">e&gt;=i</label>
+			<label kind="synchronisation" x="208" y="-128">leader[e]!</label>
+			<nail x="280" y="-152" />
+			<nail x="280" y="-112" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id52" />
+			<target ref="id52" />
+			<label kind="select" x="304" y="-72">e:id_t</label>
+			<label kind="synchronisation" x="304" y="-56">send[0][e]!</label>
+			<nail x="304" y="-80" />
+			<nail x="352" y="-80" />
+		</transition>
+		<transition action="">
+			<source ref="id52" />
+			<target ref="id52" />
+			<label kind="select" x="304" y="-224">e:id_t</label>
+			<label kind="synchronisation" x="304" y="-208">send[i][e]?</label>
+			<nail x="304" y="-184" />
+			<nail x="352" y="-184" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id53" />
+			<target ref="id53" />
+			<label kind="select" x="104" y="-64">e:id_t</label>
+			<label kind="guard" x="104" y="-48">e&gt;=i</label>
+			<label kind="synchronisation" x="104" y="-24">leader[e]!</label>
+			<nail x="96" y="0" />
+			<nail x="96" y="-64" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id54" />
+			<target ref="id53" />
+			<label kind="select" x="-128" y="40">e:id_t</label>
+			<label kind="guard" x="-128" y="56">e&gt;=i</label>
+			<label kind="synchronisation" x="-128" y="24">leader[e]!</label>
+			<nail x="-128" y="24" />
+			<nail x="-72" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id55" />
+			<target ref="id53" />
+			<label kind="select" x="-296" y="32">e:id_t</label>
+			<label kind="guard" x="-296" y="48">e&gt;=i</label>
+			<label kind="synchronisation" x="-296" y="64">leader[e]!</label>
+			<nail x="-304" y="96" />
+			<nail x="-64" y="96" />
+		</transition>
+		<transition action="">
+			<source ref="id53" />
+			<target ref="id53" />
+			<label kind="select" x="24" y="-136">e : id_t</label>
+			<label kind="synchronisation" x="24" y="-120">send[i][e]?</label>
+			<nail x="16" y="-96" />
+			<nail x="48" y="-96" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id53" />
+			<target ref="id53" />
+			<label kind="select" x="16" y="24">e : id_t</label>
+			<label kind="synchronisation" x="16" y="40">send[0][e]!</label>
+			<nail x="0" y="24" />
+			<nail x="64" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id54" />
+			<target ref="id53" />
+			<label kind="synchronisation" x="-104" y="-32">send[0][(N-1)]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id54" />
+			<target ref="id54" />
+			<label kind="select" x="-216" y="-152">e : id_t</label>
+			<label kind="synchronisation" x="-224" y="-136">send[i][e]?</label>
+			<nail x="-200" y="-112" />
+			<nail x="-152" y="-112" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id54" />
+			<target ref="id54" />
+			<label kind="select" x="-264" y="8">e : id_t</label>
+			<label kind="guard" x="-216" y="8">e&lt;(N-1)</label>
+			<label kind="synchronisation" x="-232" y="24">send[0][e]!</label>
+			<nail x="-168" y="-8" />
+			<nail x="-168" y="40" />
+			<nail x="-144" y="40" />
+		</transition>
+		<transition action="">
+			<source ref="id55" />
+			<target ref="id54" />
+			<label kind="synchronisation" x="-280" y="-56">send[i][(N-1)]?</label>
+			<label kind="assignment" x="-232" y="-32">x=0</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id55" />
+			<target ref="id55" />
+			<label kind="select" x="-400" y="0">e : id_t</label>
+			<label kind="synchronisation" x="-400" y="16">send[0][e]!</label>
+			<nail x="-368" y="-8" />
+			<nail x="-320" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id55" />
+			<target ref="id55" />
+			<label kind="select" x="-400" y="-112">e : id_t</label>
+			<label kind="guard" x="-352" y="-112">e&lt;(N-1)</label>
+			<label kind="synchronisation" x="-400" y="-96">send[i][e]?</label>
+			<label kind="comments">If a priority (N-1) is received
+				then priority (N-1) will be delivered within (n-i+1)*MaxD</label>
+			<nail x="-368" y="-64" />
+			<nail x="-320" y="-88" />
+		</transition>
+	</template>
+	<template>
+		<name>v2A2</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>clock x;</declaration>
+		<location id="id56" x="320" y="-144">
+			<name x="288" y="-184">Universal</name>
+		</location>
+		<location id="id57" x="320" y="72">
+			<name x="336" y="40">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id58" x="32" y="-32"></location>
+		<location id="id59" x="-208" y="-32"></location>
+		<init ref="id59" />
+		<transition action="">
+			<source ref="id56" />
+			<target ref="id56" />
+			<label kind="select" x="304" y="-88">e:id_t</label>
+			<label kind="guard" x="304" y="-73">e&gt;=i</label>
+			<label kind="synchronisation" x="304" y="-58">leader[e]?</label>
+			<nail x="304" y="-96" />
+			<nail x="344" y="-96" />
+		</transition>
+		<transition action="">
+			<source ref="id56" />
+			<target ref="id56" />
+			<label kind="select" x="232" y="-160">e:id_t</label>
+			<label kind="synchronisation" x="192" y="-144">send[0][e]?</label>
+			<nail x="272" y="-168" />
+			<nail x="272" y="-120" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id56" />
+			<target ref="id56" />
+			<label kind="select" x="376" y="-168">e:id_t</label>
+			<label kind="synchronisation" x="376" y="-152">send[i][e]!</label>
+			<nail x="368" y="-168" />
+			<nail x="368" y="-120" />
+		</transition>
+		<transition action="">
+			<source ref="id58" />
+			<target ref="id58" />
+			<label kind="select" x="104" y="-64">e:id_t</label>
+			<label kind="guard" x="104" y="-48">e&gt;=i</label>
+			<label kind="synchronisation" x="104" y="-24">leader[e]?</label>
+			<nail x="96" y="0" />
+			<nail x="96" y="-64" />
+		</transition>
+		<transition action="">
+			<source ref="id59" />
+			<target ref="id58" />
+			<label kind="select" x="-128" y="-88">e:id_t</label>
+			<label kind="guard" x="-128" y="-72">e&gt;=i</label>
+			<label kind="synchronisation" x="-128" y="-56">leader[e]?</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id58" />
+			<target ref="id58" />
+			<label kind="select" x="24" y="-136">e:id_t</label>
+			<label kind="synchronisation" x="24" y="-120">send[i][e]!</label>
+			<nail x="16" y="-96" />
+			<nail x="48" y="-96" />
+		</transition>
+		<transition action="">
+			<source ref="id58" />
+			<target ref="id58" />
+			<label kind="select" x="16" y="24">e:id_t</label>
+			<label kind="synchronisation" x="16" y="40">send[0][e]?</label>
+			<nail x="0" y="24" />
+			<nail x="64" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id59" />
+			<target ref="id59" />
+			<label kind="select" x="-288" y="0">e : id_t</label>
+			<label kind="synchronisation" x="-288" y="16">send[0][e]?</label>
+			<nail x="-256" y="-8" />
+			<nail x="-208" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id59" />
+			<target ref="id59" />
+			<label kind="select" x="-288" y="-112">e : id_t</label>
+			<label kind="synchronisation" x="-288" y="-96">send[i][e]!</label>
+			<label kind="comments">If a priority (N-1) is received
+				then priority (N-1) will be delivered within (n-i+1)*MaxD</label>
+			<nail x="-256" y="-64" />
+			<nail x="-208" y="-88" />
+		</transition>
+	</template>
+	<template>
+		<name>v2G2</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>clock x;</declaration>
+		<location id="id60" x="328" y="128">
+			<name x="318" y="98">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id61" x="328" y="-136">
+			<name x="352" y="-152">Universal</name>
+		</location>
+		<location id="id62" x="32" y="-32"></location>
+		<location id="id63" x="-128" y="-32">
+			<label kind="invariant" x="-168" y="-64">x&lt;=(N-i+1)* MaxD</label>
+		</location>
+		<location id="id64" x="-320" y="-32"></location>
+		<init ref="id64" />
+		<transition controllable="false" action="">
+			<source ref="id61" />
+			<target ref="id61" />
+			<label kind="select" x="208" y="-158">e:id_t</label>
+			<label kind="guard" x="208" y="-143">e&gt;=i</label>
+			<label kind="synchronisation" x="208" y="-128">leader[e]!</label>
+			<nail x="280" y="-152" />
+			<nail x="280" y="-112" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id61" />
+			<target ref="id61" />
+			<label kind="select" x="304" y="-72">e:id_t</label>
+			<label kind="synchronisation" x="304" y="-56">send[0][e]!</label>
+			<nail x="304" y="-80" />
+			<nail x="352" y="-80" />
+		</transition>
+		<transition action="">
+			<source ref="id61" />
+			<target ref="id61" />
+			<label kind="select" x="304" y="-224">e:id_t</label>
+			<label kind="synchronisation" x="304" y="-208">send[i][e]?</label>
+			<nail x="304" y="-184" />
+			<nail x="352" y="-184" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id62" />
+			<target ref="id62" />
+			<label kind="select" x="104" y="-64">e:id_t</label>
+			<label kind="guard" x="104" y="-48">e&gt;=i</label>
+			<label kind="synchronisation" x="104" y="-24">leader[e]!</label>
+			<nail x="96" y="0" />
+			<nail x="96" y="-64" />
+		</transition>
+		<transition action="">
+			<source ref="id62" />
+			<target ref="id62" />
+			<label kind="select" x="24" y="-136">e : id_t</label>
+			<label kind="synchronisation" x="24" y="-120">send[i][e]?</label>
+			<nail x="16" y="-96" />
+			<nail x="48" y="-96" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id62" />
+			<target ref="id62" />
+			<label kind="select" x="16" y="24">e : id_t</label>
+			<label kind="synchronisation" x="16" y="40">send[0][e]!</label>
+			<nail x="0" y="24" />
+			<nail x="64" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id63" />
+			<target ref="id62" />
+			<label kind="synchronisation" x="-104" y="-32">send[0][(N-1)]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id63" />
+			<target ref="id63" />
+			<label kind="select" x="-216" y="-152">e : id_t</label>
+			<label kind="synchronisation" x="-224" y="-136">send[i][e]?</label>
+			<nail x="-200" y="-112" />
+			<nail x="-152" y="-112" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id63" />
+			<target ref="id63" />
+			<label kind="select" x="-264" y="8">e : id_t</label>
+			<label kind="guard" x="-216" y="8">e&lt;(N-1)</label>
+			<label kind="synchronisation" x="-232" y="24">send[0][e]!</label>
+			<nail x="-168" y="-8" />
+			<nail x="-168" y="40" />
+			<nail x="-144" y="40" />
+		</transition>
+		<transition action="">
+			<source ref="id64" />
+			<target ref="id63" />
+			<label kind="synchronisation" x="-280" y="-56">send[i][(N-1)]?</label>
+			<label kind="assignment" x="-232" y="-32">x=0</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id64" />
+			<target ref="id64" />
+			<label kind="select" x="-400" y="0">e : id_t</label>
+			<label kind="synchronisation" x="-400" y="16">send[0][e]!</label>
+			<nail x="-368" y="-8" />
+			<nail x="-320" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id64" />
+			<target ref="id64" />
+			<label kind="select" x="-400" y="-112">e : id_t</label>
+			<label kind="guard" x="-352" y="-112">e&lt;(N-1)</label>
+			<label kind="synchronisation" x="-400" y="-96">send[i][e]?</label>
+			<label kind="comments">If a priority (N-1) is received
+				then priority (N-1) will be delivered within (n-i+1)*MaxD</label>
+			<nail x="-368" y="-64" />
+			<nail x="-320" y="-88" />
+		</transition>
+	</template>
+	<template>
+		<name>v3G2</name>
+		<parameter>const bool S[N], const id_t i</parameter>
+		<declaration>clock x;</declaration>
+		<location id="id65" x="328" y="128">
+			<name x="318" y="98">Inconsistent</name>
+			<urgent />
+		</location>
+		<location id="id66" x="328" y="-136">
+			<name x="352" y="-152">Universal</name>
+		</location>
+		<location id="id67" x="32" y="-32"></location>
+		<location id="id68" x="-128" y="-32">
+			<label kind="invariant" x="-168" y="-64">x&lt;=(N-i+1)* MaxD</label>
+		</location>
+		<location id="id69" x="-320" y="-32"></location>
+		<init ref="id69" />
+		<transition controllable="false" action="">
+			<source ref="id66" />
+			<target ref="id66" />
+			<label kind="select" x="208" y="-158">e:id_t</label>
+			<label kind="guard" x="208" y="-143">e&gt;=i</label>
+			<label kind="synchronisation" x="208" y="-128">leader[e]!</label>
+			<nail x="280" y="-152" />
+			<nail x="280" y="-112" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id66" />
+			<target ref="id66" />
+			<label kind="select" x="304" y="-72">e:id_t</label>
+			<label kind="synchronisation" x="304" y="-56">send[0][e]!</label>
+			<nail x="304" y="-80" />
+			<nail x="352" y="-80" />
+		</transition>
+		<transition action="">
+			<source ref="id66" />
+			<target ref="id66" />
+			<label kind="select" x="304" y="-224">e:id_t</label>
+			<label kind="synchronisation" x="304" y="-208">send[i][e]?</label>
+			<nail x="304" y="-184" />
+			<nail x="352" y="-184" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id67" />
+			<target ref="id67" />
+			<label kind="select" x="104" y="-64">e:id_t</label>
+			<label kind="guard" x="104" y="-48">e&gt;=i</label>
+			<label kind="synchronisation" x="104" y="-24">leader[e]!</label>
+			<nail x="96" y="0" />
+			<nail x="96" y="-64" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id68" />
+			<target ref="id67" />
+			<label kind="select" x="-128" y="40">e:id_t</label>
+			<label kind="guard" x="-128" y="56">e&gt;=i</label>
+			<label kind="synchronisation" x="-128" y="24">leader[e]!</label>
+			<nail x="-128" y="24" />
+			<nail x="-72" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id69" />
+			<target ref="id67" />
+			<label kind="select" x="-296" y="32">e:id_t</label>
+			<label kind="guard" x="-296" y="48">e&gt;=i</label>
+			<label kind="synchronisation" x="-296" y="64">leader[e]!</label>
+			<nail x="-304" y="96" />
+			<nail x="-64" y="96" />
+		</transition>
+		<transition action="">
+			<source ref="id67" />
+			<target ref="id67" />
+			<label kind="select" x="24" y="-136">e : id_t</label>
+			<label kind="synchronisation" x="24" y="-120">send[i][e]?</label>
+			<nail x="16" y="-96" />
+			<nail x="48" y="-96" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id67" />
+			<target ref="id67" />
+			<label kind="select" x="16" y="24">e : id_t</label>
+			<label kind="synchronisation" x="16" y="40">send[0][e]!</label>
+			<nail x="0" y="24" />
+			<nail x="64" y="24" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id68" />
+			<target ref="id67" />
+			<label kind="synchronisation" x="-104" y="-32">send[0][(N-1)]!</label>
+		</transition>
+		<transition action="">
+			<source ref="id68" />
+			<target ref="id68" />
+			<label kind="select" x="-216" y="-152">e : id_t</label>
+			<label kind="synchronisation" x="-224" y="-136">send[i][e]?</label>
+			<nail x="-200" y="-112" />
+			<nail x="-152" y="-112" />
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id68" />
+			<target ref="id68" />
+			<label kind="select" x="-264" y="8">e : id_t</label>
+			<label kind="guard" x="-216" y="8">e&lt;(N-1)</label>
+			<label kind="synchronisation" x="-232" y="24">send[0][e]!</label>
+			<nail x="-168" y="-8" />
+			<nail x="-168" y="40" />
+			<nail x="-144" y="40" />
+		</transition>
+		<transition action="">
+			<source ref="id69" />
+			<target ref="id68" />
+			<label kind="synchronisation" x="-280" y="-56">send[i][(N-1)]?</label>
+			<label kind="assignment" x="-232" y="-32">x=0</label>
+		</transition>
+		<transition controllable="false" action="">
+			<source ref="id69" />
+			<target ref="id69" />
+			<label kind="select" x="-400" y="0">e : id_t</label>
+			<label kind="synchronisation" x="-400" y="16">send[0][e]!</label>
+			<nail x="-368" y="-8" />
+			<nail x="-320" y="24" />
+		</transition>
+		<transition action="">
+			<source ref="id69" />
+			<target ref="id69" />
+			<label kind="select" x="-400" y="-112">e : id_t</label>
+			<label kind="guard" x="-352" y="-112">e&lt;(N-1)</label>
+			<label kind="synchronisation" x="-400" y="-96">send[i][e]?</label>
+			<label kind="comments">If a priority (N-1) is received
+				then priority (N-1) will be delivered within (n-i+1)*MaxD</label>
+			<nail x="-368" y="-64" />
+			<nail x="-320" y="-88" />
+		</transition>
+	</template>
+	<system>//Insert process assignments.
+
+		N0 := Node(0,5);
+		N1 := Node(1,0);
+		N2 := Node(2,1);
+		N3 := Node(3,4);
+		N4 := Node(4,2);
+		N5 := Node(5,3);
+
+		P15 := Phi1( S5, 5 );
+		P14 := Phi1( S4, 4 );
+		P13 := Phi1( S3, 3 );
+		P12 := Phi1( S2, 2 );
+		P11 := Phi1( S1, 1 );
+
+		A15a := A1( S5, 5 );
+		A15b := A1( S5, 5 );
+		G15 := G1( S5, 5 );
+
+		A14a := A1( S4, 4 );
+		A14b := A1( S4, 4 );
+		G14 := G1( S4, 4 );
+
+		A13a := A1( S3, 3 );
+		A13b := A1( S3, 3 );
+		G13 := G1( S3, 3 );
+
+		A12a := A1( S2, 2 );
+		A12b := A1( S2, 2 );
+		G12 := G1( S2, 2 );
+
+		A11a := A1( S1, 1 );
+		A11b := A1( S1, 1 );
+		G11 := G1( S1, 1 );
+
+		A25a := v2A2( S5, 5 );
+		A25b := v2A2( S5, 5 );
+		G25 := v2G2( S5, 5 );
+
+		A24a := v2A2( S4, 4 );
+		A24b := v2A2( S4, 4 );
+		G24 := v2G2( S4, 4 );
+
+		A23a := v2A2( S3, 3 );
+		A23b := v2A2( S3, 3 );
+		G23 := v2G2( S3, 3 );
+
+		A22a := v2A2( S2, 2 );
+		A22b := v2A2( S2, 2 );
+		G22 := v2G2( S2, 2 );
+
+		A21a := v2A2( S1, 1 );
+		A21b := v2A2( S1, 1 );
+		G21 := v2G2( S1, 1 );
+
+		P25 := Phi2( S5, 5 );
+		P24 := Phi2( S4, 4 );
+		P23 := Phi2( S3, 3 );
+		P22 := Phi2( S2, 2 );
+		P21 := Phi2( S1, 1 );
+
+		//Edit system definition.
+		//system N0, N1, N2, N3, N4, N5;
+		system N0, N1, N2, N3, N4, N5, Spec, SpecTime;
+		//system P15, N5;
+		//system P15, N4, P14;
+		//system P14, N3, P13;
+		//system P13, N2, P12;
+		//system P12, N1, P11;
+		//system P11, N0, Spec;
+
+		//system P25, N5;
+		//system P25, N4, P24;
+		//system P24, N3, P23;
+		//system P23, N2, P22;
+		//system P22, N1, P21;
+		//system P21, N0, SpecTime;
+
+		//system Spec, A11a, A11b, G11, N0;
+
+		//system N5, A15a, A15b, G15;
+		//system A15a, A15b, G15, N4, A14a, A14b, G14;
+		//system P14, A14a, A14b, G14;
+
+		//system N5, A25a, A25b, G25;
+		//system A25a, A25b, G25, N4, A24a, A24b, G24;
+		//system P25, A25a, A25b, G25;
+
+		//system N5, A25a, A25b, G25, A15a, A15b, G15;
+
+		//system P21, G21, A21a, A21b;
+
+		//system N0, G21, A21a, A21b, SpecTime;
+
+		IO N0 { send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?,
+		send[0][5]?,
+		send[1][0]!, send[1][1]!, send[1][2]!, send[1][3]!, send[1][4]!, send[1][5]!,
+		leader[0]!}
+		IO N1 { send[1][0]?, send[1][1]?, send[1][2]?, send[1][3]?, send[1][4]?,
+		send[1][5]?,
+		send[2][0]!, send[2][1]!, send[2][2]!, send[2][3]!, send[2][4]!, send[2][5]!,
+		leader[1]!}
+		IO N2 { send[2][0]?, send[2][1]?, send[2][2]?, send[2][3]?, send[2][4]?,
+		send[2][5]?,
+		send[3][0]!, send[3][1]!, send[3][2]!, send[3][3]!, send[3][4]!, send[3][5]!,
+		leader[2]!}
+		IO N3 { send[3][0]?, send[3][1]?, send[3][2]?, send[3][3]?, send[3][4]?,
+		send[3][5]?,
+		send[4][0]!, send[4][1]!, send[4][2]!, send[4][3]!, send[4][4]!, send[4][5]!,
+		leader[3]!}
+		IO N4 { send[4][0]?, send[4][1]?, send[4][2]?, send[4][3]?, send[4][4]?,
+		send[4][5]?,
+		send[5][0]!, send[5][1]!, send[5][2]!, send[5][3]!, send[5][4]!, send[5][5]!,
+		leader[4]!}
+		IO N5 { send[5][0]?, send[5][1]?, send[5][2]?, send[5][3]?, send[5][4]?,
+		send[5][5]?,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		leader[5]!}
+		IO Spec { leader[0]!, leader[1]!, leader[2]!, leader[3]!, leader[4]!,
+		leader[5]! }
+		IO SpecTime { leader[0]!, leader[1]!, leader[2]!, leader[3]!,
+		leader[4]!, leader[5]! }
+
+		IO P15 { leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[5][0]?, send[5][1]?, send[5][2]?, send[5][3]?, send[5][4]?,
+		send[5][5]? }
+
+		IO A15a { leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[5][0]!, send[5][1]!, send[5][2]!, send[5][3]!, send[5][4]!,
+		send[5][5]! }
+
+		IO A15b { leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[5][0]!, send[5][1]!, send[5][2]!, send[5][3]!, send[5][4]!,
+		send[5][5]! }
+
+		IO G15 { leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[5][0]?, send[5][1]?, send[5][2]?, send[5][3]?, send[5][4]?,
+		send[5][5]? }
+
+
+		IO P14 { leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[4][0]?, send[4][1]?, send[4][2]?, send[4][3]?, send[4][4]?,
+		send[4][5]? }
+
+		IO A14a { leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[4][0]!, send[4][1]!, send[4][2]!, send[4][3]!, send[4][4]!,
+		send[4][5]! }
+
+		IO A14b { leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[4][0]!, send[4][1]!, send[4][2]!, send[4][3]!, send[4][4]!,
+		send[4][5]! }
+
+
+		IO G14 { leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[4][0]?, send[4][1]?, send[4][2]?, send[4][3]?, send[4][4]?,
+		send[4][5]? }
+
+
+		IO P13 { leader[3]!, leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[3][0]?, send[3][1]?, send[3][2]?, send[3][3]?, send[3][4]?,
+		send[3][5]? }
+
+
+		IO A13a { leader[3]?, leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[3][0]!, send[3][1]!, send[3][2]!, send[3][3]!, send[3][4]!,
+		send[3][5]! }
+
+		IO A13b { leader[3]?, leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[3][0]!, send[3][1]!, send[3][2]!, send[3][3]!, send[3][4]!,
+		send[3][5]! }
+
+
+		IO G13 { leader[3]!, leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[3][0]?, send[3][1]?, send[3][2]?, send[3][3]?, send[3][4]?,
+		send[3][5]? }
+
+
+
+		IO P12 { leader[2]!, leader[3]!, leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[2][0]?, send[2][1]?, send[2][2]?, send[2][3]?, send[2][4]?,
+		send[2][5]? }
+
+		IO A12a { leader[2]?, leader[3]?, leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[2][0]!, send[2][1]!, send[2][2]!, send[2][3]!, send[2][4]!,
+		send[2][5]! }
+
+		IO A12b { leader[2]?, leader[3]?, leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[2][0]!, send[2][1]!, send[2][2]!, send[2][3]!, send[2][4]!,
+		send[2][5]! }
+
+
+		IO G12 { leader[2]!, leader[3]!, leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[2][0]?, send[2][1]?, send[2][2]?, send[2][3]?, send[2][4]?,
+		send[4][5]? }
+
+
+
+		IO P11 { leader[1]!, leader[2]!, leader[3]!, leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!,
+		send[0][5]!,
+		send[1][0]?, send[1][1]?, send[1][2]?, send[1][3]?, send[1][4]?, send[1][5]? }
+
+		IO A11a { leader[1]?, leader[2]?, leader[3]?, leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?,
+		send[0][5]?,
+		send[1][0]!, send[1][1]!, send[1][2]!, send[1][3]!, send[1][4]!, send[1][5]! }
+
+		IO A11b { leader[1]?, leader[2]?, leader[3]?, leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?,
+		send[0][5]?,
+		send[1][0]!, send[1][1]!, send[1][2]!, send[1][3]!, send[1][4]!, send[1][5]! }
+
+
+		IO G11 { leader[1]!, leader[2]!, leader[3]!, leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!,
+		send[0][5]!,
+		send[1][0]?, send[1][1]?, send[1][2]?, send[1][3]?, send[1][4]?, send[1][5]? }
+
+
+
+		IO P25 { leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[5][0]?, send[5][1]?, send[5][2]?, send[5][3]?, send[5][4]?,
+		send[5][5]? }
+
+		IO A25a { leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[5][0]!, send[5][1]!, send[5][2]!, send[5][3]!, send[5][4]!,
+		send[5][5]! }
+
+		IO A25b { leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[5][0]!, send[5][1]!, send[5][2]!, send[5][3]!, send[5][4]!,
+		send[5][5]! }
+
+		IO G25 { leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[5][0]?, send[5][1]?, send[5][2]?, send[5][3]?, send[5][4]?,
+		send[5][5]? }
+
+		IO P24 { leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[4][0]?, send[4][1]?, send[4][2]?, send[4][3]?, send[4][4]?,
+		send[4][5]? }
+
+		IO A24a { leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[4][0]!, send[4][1]!, send[4][2]!, send[4][3]!, send[4][4]!,
+		send[4][5]! }
+
+		IO A24b { leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[4][0]!, send[4][1]!, send[4][2]!, send[4][3]!, send[4][4]!,
+		send[4][5]! }
+
+
+		IO G24 { leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[4][0]?, send[4][1]?, send[4][2]?, send[4][3]?, send[4][4]?,
+		send[4][5]? }
+
+
+		IO P23 { leader[3]!, leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[3][0]?, send[3][1]?, send[3][2]?, send[3][3]?, send[3][4]?,
+		send[3][5]? }
+
+		IO A23a { leader[3]?, leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[3][0]!, send[3][1]!, send[3][2]!, send[3][3]!, send[3][4]!,
+		send[3][5]! }
+
+		IO A23b { leader[3]?, leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[3][0]!, send[3][1]!, send[3][2]!, send[3][3]!, send[3][4]!,
+		send[3][5]! }
+
+
+		IO G23 { leader[3]!, leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[3][0]?, send[3][1]?, send[3][2]?, send[3][3]?, send[3][4]?,
+		send[3][5]? }
+
+		IO P22 { leader[2]!, leader[3]!, leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[2][0]?, send[2][1]?, send[2][2]?, send[2][3]?, send[2][4]?,
+		send[2][5]? }
+
+		IO A22a { leader[2]?, leader[3]?, leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[2][0]!, send[2][1]!, send[2][2]!, send[2][3]!, send[2][4]!,
+		send[2][5]! }
+
+		IO A22b { leader[2]?, leader[3]?, leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?, send[0][5]?,
+		send[2][0]!, send[2][1]!, send[2][2]!, send[2][3]!, send[2][4]!,
+		send[2][5]! }
+
+
+		IO G22 { leader[2]!, leader[3]!, leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!, send[0][5]!,
+		send[2][0]?, send[2][1]?, send[2][2]?, send[2][3]?, send[2][4]?,
+		send[2][5]? }
+
+
+		IO P21 { leader[1]!, leader[2]!, leader[3]!, leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!,
+		send[0][5]!,
+		send[1][0]?, send[1][1]?, send[1][2]?, send[1][3]?, send[1][4]?, send[1][5]? }
+
+		IO A21a { leader[1]?, leader[2]?, leader[3]?, leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?,
+		send[0][5]?,
+		send[1][0]!, send[1][1]!, send[1][2]!, send[1][3]!, send[1][4]!, send[1][5]! }
+
+		IO A21b { leader[1]?, leader[2]?, leader[3]?, leader[4]?, leader[5]?,
+		send[0][0]?, send[0][1]?, send[0][2]?, send[0][3]?, send[0][4]?,
+		send[0][5]?,
+		send[1][0]!, send[1][1]!, send[1][2]!, send[1][3]!, send[1][4]!, send[1][5]! }
+
+
+		IO G21 { leader[1]!, leader[2]!, leader[3]!, leader[4]!, leader[5]!,
+		send[0][0]!, send[0][1]!, send[0][2]!, send[0][3]!, send[0][4]!,
+		send[0][5]!,
+		send[1][0]?, send[1][1]?, send[1][2]?, send[1][3]?, send[1][4]?, send[1][5]? }
+
+
+
+	</system>
+</nta>
