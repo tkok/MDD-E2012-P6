@@ -1,0 +1,480 @@
+grammar org.uppaal.xml.description.Description with org.eclipse.xtext.common.Terminals
+
+generate description "http://www.uppaal.org/xml/description/Description"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+/* NOTE:
+ * Rules/Names are prefixed with UA (UppAal) for convenience
+ * reasons to differentiate them from equal names in the ECDAR DSL.
+ * Otherwise, it's necessary to use fully qualified identifiers
+ * in code using both models, as neither Java nor Xtend support
+ * type/import aliasing yet. For Xtend, see:
+ * http://bugs.eclipse.org/bugs/show_bug.cgi?id=382915
+ */
+
+/* NOTE:
+ * Top rule can be ignored, only exists to mention all
+ * rules, so they aren't ignored by the Xtext generator.
+ * Rules are actually used independently.
+ */
+
+Top:
+	"SYSTEM" UASystemDefinition
+	| "DECLARATIONS" UADeclarations
+	| "PARAMS" UAParameters
+	| "EXPRESSION" UAExpression
+	| "SELECT" UASelectList
+	| "UPDATE" UAUpdate
+	| "SYNC" UASynchronisation
+;
+
+UASystemDefinition:
+	{UASystemDefinition}
+	(definitions+=UADefinition ';'?)*
+	(system=UASystem ';'?)?
+;
+
+UADefinition:
+	UADeclaration
+	| UAInstantiation
+;
+
+UAInstantiation:
+	name=ID
+	('(' parameters=UAParameters  ')')?
+	(':='|'=')
+	target=ID
+	'(' arguments+=UAExpression
+		(',' arguments+=UAExpression)* ')'
+;
+
+UASystem:
+	'system' systems+=UASystemID
+		((',' | '<') systems+=UASystemID)*
+;
+
+UASystemID:
+	name=ID
+;
+
+//// Declarations
+
+/* NOTE:
+ * Definition of higher-level grammar would require
+ * duplicate definition. For example, variable
+ * declarations support multiple names, comma-separated,
+ * but individual parameters are also comma separated.
+ *
+ * Uses only names, as cross-references don't work,
+ * because the parser is used directly instead of
+ * using the EMF API. This is required as several
+ * declaration blocks may exist throughout the file.
+ *
+ * Use of semicolon is more permissive
+ */
+
+/*
+ * UPPAAL grammar:
+ * (See http://www.it.uu.se/research/group/darts/uppaal/help.php?file=System_Descriptions/Declarations.shtml)
+ */
+
+UAArrayDeclaration:
+	'[' size=UAExpression ']'
+;
+
+UADeclarations:
+	declarations+=UADeclaration
+	(';' declarations+=UADeclaration)*
+	';'?
+;
+
+UADeclaration:
+	UAVariableDeclaration
+	| UATypeDeclaration
+	// TODO: | UAFunction
+	// TODO: | UAChannelPritority
+;
+
+UAType:
+	modifiers=UATypeModifiers
+	identifier=UATypeIdentifier
+;
+
+UATypeModifiers:
+	{UATypeModifiers}
+	((urgent?='urgent')? &
+		(broadcast?= 'broadcast')? &
+		(meta?='meta')? &
+		(const?='const')?)
+;
+
+UAVariableDeclaration:
+	type=UAType
+	variables+=UAVariableID
+	(',' variables+=UAVariableID)*
+;
+
+UAVariableID:
+	name=ID
+	dimensions+=UAArrayDeclaration*
+	('=' initialiser=UAInitialiser)?
+;
+
+
+UAInitialiser:
+	UASingleInitialiser
+	| UAMultiInitialiser
+;
+
+UASingleInitialiser:
+	expression=UAExpression
+;
+
+UAMultiInitialiser:
+	'{'
+	initialisers+=UAInitialiser
+	(',' initialisers+=UAInitialiser)*
+	'}'
+;
+
+UATypeDeclaration:
+	'typedef' baseType=UAType
+	types+=UATypeID
+	(',' types+=UATypeID)*
+;
+
+UATypeID:
+	name=ID
+	dimensions+=UAArrayDeclaration*
+;
+
+UATypeIdentifier:
+	UAIntegerType
+	| UAClockType
+	| UAChannelType
+	| UABooleanType
+	| UAScalarType
+	| UAStructType
+	| ({UAUserType} name=ID)
+;
+
+UAIntegerType:
+	{UAIntegerType}
+	'int'
+	('[' min=UAExpression ',' max=UAExpression ']')?
+;
+
+UAClockType:
+	{UAClockType}
+	'clock'
+;
+
+UAChannelType:
+	{UAChannelType}
+	'chan'
+;
+
+UABooleanType:
+	{UABooleanType}
+	'bool'
+;
+
+UAScalarType:
+	{UAScalarType}
+	'scalar' '[' size=UAExpression ']'
+;
+
+UAStructType:
+	{UAStructType}
+	'struct' '{'
+	declarations+=UAFieldDeclaration
+	(';' declarations+=UAFieldDeclaration)*
+	';'?
+	'}'
+;
+
+UAFieldDeclaration:
+	type=UAType
+	fields+=UAFieldID
+	(',' fields+=UAFieldID)*
+;
+
+UAFieldID:
+	name=ID
+	dimensions+=UAArrayDeclaration*
+;
+
+//// Parameters
+
+/*
+ * UPPAAL grammar:
+ * (See http://www.it.uu.se/research/group/darts/uppaal/help.php?file=System_Descriptions/Parameters.shtml)
+ */
+
+UAParameters:
+	parameters+=UAParameter
+	(',' parameters+=UAParameter)*
+;
+
+UAParameter:
+	type=UAType
+	(byReference?='&')? name=ID
+	dimensions+=UAArrayDeclaration*
+;
+
+//// Expression
+
+/*
+ * UPPAAL grammar:
+ * (See http://www.it.uu.se/research/group/darts/uppaal/help.php?file=System_Descriptions/Expressions.shtml)
+ */
+
+// unary right
+UAExpression returns UAExpression:
+	UAImplyLogicOrExpression
+	| ((({UAForallExpression} 'forall')
+		| ({UAExistsExpression} 'exists'))
+		'(' name=ID ':' type=UAType ')'
+		expression=UAExpression)
+;
+
+// left
+UAImplyLogicOrExpression returns UAExpression:
+	UALogicAndExpression1
+	((({UAImplyExpression.left=current} 'imply')
+	| ({UALogicOrExpression.left=current} 'or'))
+		right=UALogicAndExpression1)*
+;
+
+// left
+UALogicAndExpression1 returns UAExpression:
+	UALogicNotExpression1
+	(({UALogicAndExpression.left=current} 'and')
+		right=UALogicNotExpression1)*
+;
+
+// unary right
+UALogicNotExpression1 returns UAExpression:
+	UAAssignmentExpression
+// TODO: causes duplicate method definition by Xtext
+//	| ({UALogicNotExpression} 'not'
+//		expression=UALogicNotExpression1)
+;
+
+
+// right
+UAAssignmentExpression returns UAExpression:
+	UAConditionalExpression
+	((({UAAssignmentExpression.left=current} '=')
+		| ({UAAssignmentExpression.left=current} ':=')
+		| ({UAAdditionAssignmentExpression.left=current} '+=')
+		| ({UASubtractionAssignmentExpression.left=current} '-=')
+		| ({UAMultiplicationAssignmentExpression.left=current} '*=')
+		| ({UADivisionAssignmentExpression.left=current} '/=')
+		| ({UAModuloAssignmentExpression.left=current} '%=')
+		| ({UABitOrAssignmentExpression.left=current} '|=')
+		| ({UABitAndAssignmentExpression.left=current} '&=')
+		| ({UABitXORAssignmentExpression.left=current} '^=')
+		| ({UABitLeftAssignmentExpression.left=current} '<<=')
+		| ({UABitRightAssignmentExpression.left=current} '>>='))
+		right=UAAssignmentExpression)?
+;
+
+// right
+UAConditionalExpression returns UAExpression:
+	UALogicOrExpression2
+	({UAConditionalExpression.condition=current}
+	'?' then=UALogicOrExpression2
+	':' else=UAConditionalExpression)?
+;
+
+// left
+UALogicOrExpression2 returns UAExpression:
+	UALogicAndExpression2
+	(({UALogicOrExpression.left=current} '||')
+		right=UALogicAndExpression2)*
+;
+
+// left
+UALogicAndExpression2 returns UAExpression:
+	UABitOrExpression
+	(({UALogicAndExpression.left=current} '&&')
+		right=UABitOrExpression)*
+;
+
+// left
+UABitOrExpression returns UAExpression:
+	UABitXORExpression
+	(({UABitOrExpression.left=current} '|')
+		right=UABitXORExpression)*
+;
+
+
+// left
+UABitXORExpression returns UAExpression:
+	UABitAndExpression
+	(({UABitXORExpression.left=current} '^')
+		right=UABitAndExpression)*
+;
+
+// left
+UABitAndExpression returns UAExpression:
+	UAEqualityExpression
+	(({UABitAndExpression.left=current} '&')
+		right=UAEqualityExpression)*
+;
+
+// left
+UAEqualityExpression returns UAExpression:
+	UAInequalityExpression
+	((({UAEqualExpression.left=current} '==')
+	|({UAUnequalExpression.left=current} '!='))
+		right=UAInequalityExpression)*
+;
+
+// left
+UAInequalityExpression returns UAExpression:
+	UAMinMaxExpression
+	((({UALessExpression.left=current} '<')
+		| ({UALessEqualExpression.left=current} '<=')
+		| ({UAGreaterEqualExpression.left=current} '>=')
+		| ({UAGreaterExpression.left=current} '>'))
+		right=UAMinMaxExpression)*
+;
+
+// left
+UAMinMaxExpression returns UAExpression:
+	UABitLeftBRightExpression
+	((({UAMinExpression.left=current} '<?')
+		| ({UAMaxExpression.left=current} '>?'))
+		right=UABitLeftBRightExpression)*
+;
+
+// left
+UABitLeftBRightExpression returns UAExpression:
+	UAAdditiveExpression
+	((({UABitLeftExpression.left=current} '<<')
+		| ({UABitRightExpression.left=current} '>>'))
+		right=UAAdditiveExpression)*
+;
+
+// left
+UAAdditiveExpression returns UAExpression:
+	UAMultiplicativeExpression
+	((({UAAddExpression.left=current} '+')
+		| ({UASubtractExpression.left=current} '-'))
+		right=UAMultiplicativeExpression)*
+;
+
+// left
+UAMultiplicativeExpression returns UAExpression:
+	UAPrefixExpression
+	((({UAMultiplyExpression.left=current} '*')
+		| ({UADivideExpression.left=current} '/')
+		| ({UAModuloExpression.left=current} '%'))
+		right=UAPrefixExpression)*
+;
+
+
+// unary right
+UAPrefixExpression returns UAExpression:
+	UAUnaryExpression
+	| ((({UAPreIncrementExpression} '++')
+		| ({UAPreDecrementExpression} '--'))
+		expression=UAPrefixExpression)
+;
+
+
+// unary right
+UAUnaryExpression returns UAExpression:
+	UAPostfixExpression
+	| ((({UALogicNotExpression} '!')
+		| ({UAMinusExpression} '-'))
+		expression=UAUnaryExpression)
+;
+
+// unary left
+UAPostfixExpression returns UAExpression:
+	UAStructExpression
+	(({UAPostIncrementExpression.expression=current} '++')
+		| ({UAPostDecrementExpression.expression=current} '--'))*
+;
+
+// left
+UAStructExpression returns UAExpression:
+	UAArrayExpression
+	({UAStructExpression.left=current}
+		'.' right=ID)*
+;
+
+
+// left
+UAArrayExpression returns UAExpression:
+	UAPrimaryExpression
+	({UAArrayExpression.left=current}
+		'[' right=UAExpression ']')*
+;
+
+UAPrimaryExpression returns UAExpression:
+	UAReference
+	| UANumberLiteral
+	| UABooleanLiteral
+	| UAParenthesizedExpression
+;
+
+// NOTE: member access handled by ID terminal
+UAReference returns UAExpression:
+	{UAReference}
+	name=ID
+;
+
+UABooleanLiteral returns UAExpression:
+	{UABooleanLiteral}
+	value=BOOL
+;
+
+BOOL returns ecore::EBooleanObject:
+	'true' | 'false';
+
+
+UANumberLiteral returns UAExpression:
+	{UANumberLiteral}
+	value=INT
+;
+
+UAParenthesizedExpression returns UAExpression:
+	'(' UAExpression ')'
+;
+
+//// Select, Update
+
+/*
+ * UPPAAL grammar:
+ * (See http://www.it.uu.se/research/group/darts/uppaal/help.php?file=System_Descriptions/Edges.shtml)
+ */
+
+UASelectList:
+	selects+=UASelect
+	(',' selects+=UASelect)*
+;
+
+UASelect:
+	name=ID ':' type=UAType
+;
+
+UAUpdate:
+	{UAUpdate}
+	(expressions+=UAExpression
+	(',' expressions+=UAExpression)*)?
+;
+
+UASynchronisation:
+	expression=UAExpression
+	type=UASynchronisationType
+;
+
+enum UASynchronisationType:
+	EMISSION='!'
+	| RECEPTION='?'
+;

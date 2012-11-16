@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.uppaal.xml.description
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.uppaal.xml.description; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.uppaal.xml.description,
+ org.uppaal.xml.description.services,
+ org.uppaal.xml.description.description,
+ org.uppaal.xml.description.description.impl,
+ org.uppaal.xml.description.description.util,
+ org.uppaal.xml.description.serializer,
+ org.uppaal.xml.description.parser.antlr,
+ org.uppaal.xml.description.parser.antlr.internal,
+ org.uppaal.xml.description.validation,
+ org.uppaal.xml.description.scoping,
+ org.uppaal.xml.description.generator,
+ org.uppaal.xml.description.formatting
+

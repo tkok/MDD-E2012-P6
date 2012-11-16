@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+	<xs:element name="nta">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="imports" />
+				<xs:element minOccurs="0" ref="declaration" />
+				<xs:element maxOccurs="unbounded" ref="template" />
+				<xs:element minOccurs="0" ref="instantiation" />
+				<xs:element ref="system" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="imports" type="xs:string" />
+	<xs:element name="declaration" type="xs:string" />
+	<xs:element name="template">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name" />
+				<xs:element minOccurs="0" ref="parameter" />
+				<xs:element minOccurs="0" ref="declaration" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="location" />
+				<xs:element minOccurs="0" ref="init" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="transition" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="name">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="x" type="xs:int" />
+					<xs:attribute name="y" type="xs:int" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="parameter">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="x" type="xs:int" />
+					<xs:attribute name="y" type="xs:int" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="location">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="name" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="label" />
+				<xs:element minOccurs="0" ref="urgent" />
+				<xs:element minOccurs="0" ref="committed" />
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:ID" />
+			<xs:attribute name="x" type="xs:int" />
+			<xs:attribute name="y" type="xs:int" />
+			<xs:attribute name="color" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="init">
+		<xs:complexType>
+			<xs:attribute name="ref" type="xs:IDREF" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="urgent">
+		<xs:complexType />
+	</xs:element>
+	<xs:element name="committed">
+		<xs:complexType />
+	</xs:element>
+	<xs:element name="transition">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="source" />
+				<xs:element ref="target" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="label" />
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="nail" />
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:ID" />
+			<xs:attribute name="x" type="xs:int" />
+			<xs:attribute name="y" type="xs:int" />
+			<xs:attribute name="color" />
+			<xs:attribute name="action" />
+			<xs:attribute name="controllable" type="xs:boolean" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="source">
+		<xs:complexType>
+			<xs:attribute name="ref" use="required" type="xs:IDREF" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="target">
+		<xs:complexType>
+			<xs:attribute name="ref" use="required" type="xs:IDREF" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="label">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="kind" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="synchronisation" />
+								<xs:enumeration value="invariant" />
+								<xs:enumeration value="assignment" />
+								<xs:enumeration value="guard" />
+								<xs:enumeration value="select" />
+								<xs:enumeration value="comments" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="x" type="xs:int" />
+					<xs:attribute name="y" type="xs:int" />
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="nail">
+		<xs:complexType>
+			<xs:attribute name="x" use="required" type="xs:int" />
+			<xs:attribute name="y" use="required" type="xs:int" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="instantiation" type="xs:string" />
+	<xs:element name="system" type="xs:string" />
+</xs:schema>

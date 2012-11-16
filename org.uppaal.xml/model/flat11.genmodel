@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.uppaal.xml/src" modelPluginID="org.uppaal.xml"
+    modelName="Flat11" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>flat11.ecore</foreignModel>
+  <genPackages prefix="Flat11" basePackage="org.uppaal.xml" resource="XML" disposableProviderFactory="true"
+      ecorePackage="flat11.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="flat11.ecore#//KindType">
+      <genEnumLiterals ecoreEnumLiteral="flat11.ecore#//KindType/synchronisation"/>
+      <genEnumLiterals ecoreEnumLiteral="flat11.ecore#//KindType/invariant"/>
+      <genEnumLiterals ecoreEnumLiteral="flat11.ecore#//KindType/assignment"/>
+      <genEnumLiterals ecoreEnumLiteral="flat11.ecore#//KindType/guard"/>
+      <genEnumLiterals ecoreEnumLiteral="flat11.ecore#//KindType/select"/>
+      <genEnumLiterals ecoreEnumLiteral="flat11.ecore#//KindType/comments"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="flat11.ecore#//KindTypeObject"/>
+    <genClasses ecoreClass="flat11.ecore#//CommittedType"/>
+    <genClasses ecoreClass="flat11.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/committed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//DocumentRoot/declaration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//DocumentRoot/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/init"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//DocumentRoot/instantiation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/nail"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/nta"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//DocumentRoot/system"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/template"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/transition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//DocumentRoot/urgent"/>
+    </genClasses>
+    <genClasses ecoreClass="flat11.ecore#//InitType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//InitType/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="flat11.ecore#//LabelType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//LabelType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//LabelType/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//LabelType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//LabelType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="flat11.ecore#//LocationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//LocationType/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//LocationType/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//LocationType/urgent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//LocationType/committed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//LocationType/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//LocationType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//LocationType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//LocationType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="flat11.ecore#//NailType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//NailType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//NailType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="flat11.ecore#//NameType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//NameType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//NameType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//NameType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="flat11.ecore#//NtaType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//NtaType/imports"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//NtaType/declaration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//NtaType/template"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//NtaType/instantiation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//NtaType/system"/>
+    </genClasses>
+    <genClasses ecoreClass="flat11.ecore#//ParameterType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//ParameterType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//ParameterType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//ParameterType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="flat11.ecore#//SourceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//SourceType/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="flat11.ecore#//TargetType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//TargetType/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="flat11.ecore#//TemplateType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//TemplateType/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//TemplateType/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//TemplateType/declaration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//TemplateType/location"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//TemplateType/init"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//TemplateType/transition"/>
+    </genClasses>
+    <genClasses ecoreClass="flat11.ecore#//TransitionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//TransitionType/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//TransitionType/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//TransitionType/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flat11.ecore#//TransitionType/nail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//TransitionType/action"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//TransitionType/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//TransitionType/controllable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//TransitionType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//TransitionType/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flat11.ecore#//TransitionType/y"/>
+    </genClasses>
+    <genClasses ecoreClass="flat11.ecore#//UrgentType"/>
+  </genPackages>
+</genmodel:GenModel>

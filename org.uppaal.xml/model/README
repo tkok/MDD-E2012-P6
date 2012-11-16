@@ -1,0 +1,6 @@
+
+flat11.genmodel is used for generating model code of flat11.ecore!
+
+It should NOT be used to load flat11.xsd! This was only done once,
+then the package name in the resulting flat11.ecore was changed
+to lowercase and the genmodel was discarded.

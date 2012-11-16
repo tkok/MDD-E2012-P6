@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.uppaal.xml.description/src-gen" editDirectory="/org.uppaal.xml.description.edit/src"
+    editorDirectory="/org.uppaal.xml.description.editor/src" modelPluginID="org.uppaal.xml.description"
+    forceOverwrite="true" modelName="Description" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.uppaal.xml.description.edit"
+    editorPluginID="org.uppaal.xml.description.editor" runtimeVersion="2.8">
+  <genPackages prefix="Description" basePackage="org.uppaal.xml.description" disposableProviderFactory="true"
+      ecorePackage="Description.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Description.ecore#//UASynchronisationType">
+      <genEnumLiterals ecoreEnumLiteral="Description.ecore#//UASynchronisationType/EMISSION"/>
+      <genEnumLiterals ecoreEnumLiteral="Description.ecore#//UASynchronisationType/RECEPTION"/>
+    </genEnums>
+    <genClasses ecoreClass="Description.ecore#//Top"/>
+    <genClasses ecoreClass="Description.ecore#//UASystemDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UASystemDefinition/definitions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UASystemDefinition/system"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UADefinition"/>
+    <genClasses ecoreClass="Description.ecore#//UAInstantiation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UAInstantiation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAInstantiation/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UAInstantiation/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAInstantiation/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UASystem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UASystem/systems"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UASystemID">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UASystemID/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAArrayDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAArrayDeclaration/size"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UADeclarations">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UADeclarations/declarations"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UADeclaration"/>
+    <genClasses ecoreClass="Description.ecore#//UAType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAType/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAType/identifier"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UATypeModifiers">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UATypeModifiers/urgent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UATypeModifiers/broadcast"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UATypeModifiers/meta"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UATypeModifiers/const"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAVariableDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAVariableDeclaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAVariableDeclaration/variables"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAVariableID">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UAVariableID/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAVariableID/dimensions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAVariableID/initialiser"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAInitialiser"/>
+    <genClasses ecoreClass="Description.ecore#//UASingleInitialiser">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UASingleInitialiser/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAMultiInitialiser">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAMultiInitialiser/initialisers"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UATypeDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UATypeDeclaration/baseType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UATypeDeclaration/types"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UATypeID">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UATypeID/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UATypeID/dimensions"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UATypeIdentifier"/>
+    <genClasses ecoreClass="Description.ecore#//UAIntegerType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAIntegerType/min"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAIntegerType/max"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAClockType"/>
+    <genClasses ecoreClass="Description.ecore#//UAChannelType"/>
+    <genClasses ecoreClass="Description.ecore#//UABooleanType"/>
+    <genClasses ecoreClass="Description.ecore#//UAScalarType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAScalarType/size"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAStructType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAStructType/declarations"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAFieldDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAFieldDeclaration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAFieldDeclaration/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAFieldID">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UAFieldID/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAFieldID/dimensions"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAParameters">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAParameters/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAParameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAParameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UAParameter/byReference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UAParameter/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAParameter/dimensions"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAExpression"/>
+    <genClasses ecoreClass="Description.ecore#//UASelectList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UASelectList/selects"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UASelect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UASelect/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UASelect/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAUpdate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAUpdate/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UASynchronisation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UASynchronisation/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UASynchronisation/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAUserType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UAUserType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAForallExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UAForallExpression/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAForallExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAForallExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAExistsExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UAExistsExpression/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAExistsExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAExistsExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAImplyExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAImplyExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAImplyExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UALogicOrExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UALogicOrExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UALogicOrExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UALogicAndExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UALogicAndExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UALogicAndExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAAdditionAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAAdditionAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAAdditionAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UASubtractionAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UASubtractionAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UASubtractionAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAMultiplicationAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAMultiplicationAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAMultiplicationAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UADivisionAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UADivisionAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UADivisionAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAModuloAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAModuloAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAModuloAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UABitOrAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitOrAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitOrAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UABitAndAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitAndAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitAndAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UABitXORAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitXORAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitXORAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UABitLeftAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitLeftAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitLeftAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UABitRightAssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitRightAssignmentExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitRightAssignmentExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAConditionalExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAConditionalExpression/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAConditionalExpression/then"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAConditionalExpression/else"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UABitOrExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitOrExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitOrExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UABitXORExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitXORExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitXORExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UABitAndExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitAndExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitAndExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAEqualExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAEqualExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAEqualExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAUnequalExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAUnequalExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAUnequalExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UALessExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UALessExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UALessExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UALessEqualExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UALessEqualExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UALessEqualExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAGreaterEqualExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAGreaterEqualExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAGreaterEqualExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAGreaterExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAGreaterExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAGreaterExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAMinExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAMinExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAMinExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAMaxExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAMaxExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAMaxExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UABitLeftExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitLeftExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitLeftExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UABitRightExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitRightExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UABitRightExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAAddExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAAddExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAAddExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UASubtractExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UASubtractExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UASubtractExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAMultiplyExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAMultiplyExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAMultiplyExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UADivideExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UADivideExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UADivideExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAModuloExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAModuloExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAModuloExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAPreIncrementExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAPreIncrementExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAPreDecrementExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAPreDecrementExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UALogicNotExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UALogicNotExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAMinusExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAMinusExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAPostIncrementExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAPostIncrementExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAPostDecrementExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAPostDecrementExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAStructExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAStructExpression/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UAStructExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAArrayExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAArrayExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Description.ecore#//UAArrayExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UAReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UAReference/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UABooleanLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UABooleanLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Description.ecore#//UANumberLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Description.ecore#//UANumberLiteral/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
