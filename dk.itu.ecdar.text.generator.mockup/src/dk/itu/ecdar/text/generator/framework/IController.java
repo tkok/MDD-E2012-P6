@@ -1,5 +1,7 @@
 package dk.itu.ecdar.text.generator.framework;
 
+import dk.itu.ecdar.text.generator.environment.QuickLog;
+
 /**
  * Base class for controller implementations.
  * 
@@ -8,6 +10,7 @@ package dk.itu.ecdar.text.generator.framework;
  */
 public abstract class IController {
 	
+	AutomatonTimer timer;
 	ITIOA[] automata;
 	
 	// TODO: find a nicer solution for singleton behavior. Maybe just remove abstract from IController?
@@ -19,6 +22,7 @@ public abstract class IController {
 	
 	public IController(ITIOA[] automata) {
 		this.automata = automata;
+		timer = new AutomatonTimer();
 	}
 	
 	/**
@@ -26,6 +30,7 @@ public abstract class IController {
 	 * @param input Some input
 	 */
 	public void notify(String input) {
+		QuickLog.log(toString(), timer.getTime(), "Received input " + input);
 		for (ITIOA a: automata)
 			a.notify(input);
 	}
