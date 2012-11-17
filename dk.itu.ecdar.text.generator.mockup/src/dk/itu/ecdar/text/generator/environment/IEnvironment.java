@@ -87,12 +87,19 @@ public abstract class IEnvironment {
 		
 		while(!inputs.isEmpty()) {
 			if (inputs.get(0).getKey() <= timer.getTime()) {
-				QuickLog.print("Signaling \"" + inputs.get(0).getValue() + "\" at " + String.valueOf(timer.getTime()), 3);
-				controller.notify(inputs.get(0).getValue());
+				synchronized (controller) {
+					QuickLog.log(toString(), timer.getTime(), "Signaling " + inputs.get(0).getValue());
+					controller.notify(inputs.get(0).getValue());
+				}
 				inputs.remove(0);
 			}
 		}
 		
 		QuickLog.print("All instructions sent.");
+	}
+	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
 	}
 }
