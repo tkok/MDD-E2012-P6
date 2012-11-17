@@ -24,8 +24,6 @@ public abstract class ITIOA {
 				try {
 					super.sleep(getMinWaitingTime());
 				} catch (InterruptedException e) {
-					// don't do anything but continue
-					QuickLog.log(ITIOA.this.toString(), getTime(), "Transition thread got interrupted!", 12);
 				}
 			}
 		}
