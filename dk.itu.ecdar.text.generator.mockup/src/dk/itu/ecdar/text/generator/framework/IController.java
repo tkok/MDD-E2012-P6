@@ -41,6 +41,7 @@ public abstract class IController {
 	 * Synchrony hypothesis: every automaton is started at the same time.
 	 */
 	public void run() {
+		timer.reset();
 		for (ITIOA a: automata)
 			a.run();
 	}
