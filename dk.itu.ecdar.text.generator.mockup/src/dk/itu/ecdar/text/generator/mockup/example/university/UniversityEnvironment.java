@@ -7,7 +7,7 @@ public class UniversityEnvironment extends IEnvironment {
 
 	@Override
 	public void generateController() {
-		controller = UniversityController.system_Machine_Researcher_University_Spec();
+		controller = UniversityController.system_Machine_Researcher_University2_Spec();
 	}
 
 	public static void main(String[] args) {
