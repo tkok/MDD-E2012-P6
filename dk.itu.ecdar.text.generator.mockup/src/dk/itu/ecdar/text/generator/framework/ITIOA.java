@@ -88,7 +88,6 @@ public abstract class ITIOA {
 		// the guard holds.
 		for (IEdgeControllable edge : current.inputEdges) {
 			if (edge.acceptInput(input) && edge.checkGuard(getTime())) {
-				QuickLog.log(toString(), getTime(), "Edge " + edge + " accepts input " + input, 11);
 				that = edge;
 			}
 		}
