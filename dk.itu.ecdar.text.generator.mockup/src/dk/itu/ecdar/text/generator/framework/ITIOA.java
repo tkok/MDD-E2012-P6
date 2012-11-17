@@ -148,7 +148,7 @@ public abstract class ITIOA {
 			}			
 		}
 		
-		QuickLog.log(toString(), getTime(), "Calculated getMinWaitingTime: " + String.valueOf(time), 20);
+		//QuickLog.log(toString(), getTime(), "Calculated getMinWaitingTime: " + String.valueOf(time), 20);
 		return time;
 	}
 	
