@@ -24,7 +24,7 @@ public class QuickLog {
 		
 		console = true;
 		
-		DateFormat format = new SimpleDateFormat("yyyy-mm-dd-HH-mm-ss");
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
 		Date date = new Date();
 		
 		destination = "log-" + format.format(date) + ".csv";
