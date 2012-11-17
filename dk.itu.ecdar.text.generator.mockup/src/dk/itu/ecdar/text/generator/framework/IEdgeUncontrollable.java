@@ -1,5 +1,7 @@
 package dk.itu.ecdar.text.generator.framework;
 
+import dk.itu.ecdar.text.generator.environment.QuickLog;
+
 /**
  * Base class for uncontrollable edge implementations.
  * 
@@ -19,6 +21,7 @@ public abstract class IEdgeUncontrollable extends IEdge {
 
 	@Override
 	public ILocation traverse() {
+		QuickLog.log(from.parent.toString(), from.parent.getTime(), "Signaling " + signal);
 		IController.getInstance().notify(signal);
 		return super.traverse();
 	}
