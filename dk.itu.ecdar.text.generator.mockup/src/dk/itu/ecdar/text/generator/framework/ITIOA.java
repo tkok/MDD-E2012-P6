@@ -169,7 +169,7 @@ public abstract class ITIOA {
 				if (edge.checkGuard(getTime())/* && current != edge.to*/) { // TODO: Should redundant edges be checked here?
 					current = edge.traverse();
 
-					QuickLog.log(toString(), getTime(), "Traversing from " + edge.from + " to " + edge.to, 10);
+					//QuickLog.log(toString(), getTime(), "Traversing from " + edge.from + " to " + edge.to, 10);
 					
 					// Reset only if sure that traversal has happened
 					reset();
