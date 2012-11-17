@@ -27,9 +27,11 @@ public abstract class IController {
 	
 	/**
 	 * Notifies the controller about some input
+	 * Synchronized because input needs to be handled immediately.
+	 *
 	 * @param input Some input
 	 */
-	public void notify(String input) {
+	public synchronized void notify(String input) {
 		QuickLog.log(toString(), timer.getTime(), "Received input " + input);
 		for (ITIOA a: automata)
 			a.notify(input);
