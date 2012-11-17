@@ -7,15 +7,19 @@ public class UniversityEnvironment extends IEnvironment {
 
 	@Override
 	public void generateController() {
-		controller = UniversityController.system_Machine_Researcher_University_HalfUni1_HalfUni2_Spec();
+		controller = UniversityController.system_Machine_Researcher_University_Spec();
 	}
 
 	public static void main(String[] args) {
 		QuickLog.setLogLevel(20);
-		QuickLog.logToFile("university");
+		QuickLog.logToFile();
+		
 		IEnvironment universityEnvironment = new UniversityEnvironment();
 		universityEnvironment.parse(args[0]);
 		universityEnvironment.run();
+		
+		QuickLog.writeToFile("university");
+		System.exit(0);
 	}
 
 }

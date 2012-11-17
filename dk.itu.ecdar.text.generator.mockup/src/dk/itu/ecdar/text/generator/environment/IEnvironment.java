@@ -93,7 +93,6 @@ public abstract class IEnvironment {
 			}
 		}
 		
-		QuickLog.print("All instructions sent, exiting...");
-		System.exit(0);
+		QuickLog.print("All instructions sent.");
 	}
 }

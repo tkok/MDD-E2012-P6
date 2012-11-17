@@ -7,14 +7,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class QuickLog {
-
+	
 	private static QuickLog _instance = null;
 	
 	private int logLevel;
 	private volatile int counter;
 	
 	private boolean console ;
-	private String prefix, destination;
+	private String destination;
+	
+	private StringBuffer log;
 	
 	private QuickLog() {
 		logLevel = 0;
@@ -25,8 +27,9 @@ public class QuickLog {
 		DateFormat format = new SimpleDateFormat("yyyy-mm-dd-HH-mm-ss");
 		Date date = new Date();
 		
-		prefix = null;
 		destination = "log-" + format.format(date) + ".csv";
+		
+		log = new StringBuffer();
 	}
 	
 	private static QuickLog getInstance() {
@@ -57,11 +60,6 @@ public class QuickLog {
 		getInstance().console = false;
 	}
 	
-	public static void logToFile(String prefix) {
-		logToFile();
-		getInstance().prefix = prefix;
-	}
-	
 	public static void setDestination(String filepath) {
 		getInstance().destination = filepath;
 	}
@@ -70,7 +68,7 @@ public class QuickLog {
 		log(source, time, message, 0);
 	}
 	
-	public static synchronized void log(String source, long time, String message, int level) {
+	public static void log(String source, long time, String message, int level) {
 		getInstance().internal_log(source, time, message, level);
 	}
 	
@@ -83,29 +81,42 @@ public class QuickLog {
 		}
 	}
 	
-	private synchronized void internal_logToConsole(String source, long time, String message) {
+	private void internal_logToConsole(String source, long time, String message) {
 		System.err.println("[" + String.valueOf(++counter) + "] ["
 				+ source + "] [T=" + String.valueOf(time) + "] " + message);
 	}
 	
-	private synchronized void internal_logToFile(String source, long time, String message) {
+	private void internal_logToFile(String source, long time, String message) {
 		String msg = String.valueOf(++counter) + ","
 				+ source + ","
 				+ String.valueOf(time) + ","
-				+ message;
+				+ message
+				+ "\n";
 		
+		synchronized (this) {
+			log.append(msg);
+		}
+	}
+	
+	public static void writeToFile(String prefix) {
+		getInstance().internal_writeToFile(prefix);
+	}
+	
+	private void internal_writeToFile(String prefix) {
 		String filename = destination;
 		if (prefix != null)
 			filename = prefix + "-" + destination;
 		
+		print("Writing log to " + filename);
 		try {
 			FileWriter fileWriter = new FileWriter(filename, true);
 			BufferedWriter outBuffer = new BufferedWriter(fileWriter);
-
-			String newLine = System.getProperty("line.separator");
-			outBuffer.write(msg + newLine);
-
+			
+			synchronized(this) {
+				outBuffer.write(getInstance().log.toString());
+			}
 			outBuffer.close();
+			
 		} catch (Exception e) {
 			System.err.println("ERROR: Could not write to file " + filename);
 		}
