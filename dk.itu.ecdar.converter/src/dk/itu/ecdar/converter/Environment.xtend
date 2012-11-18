@@ -24,7 +24,7 @@ class Environment {
 		for (variable : declaration.variables) {
 			if (definitions.containsKey(variable.name))
 				throw new Error('''
-					multiple variables with same name "Â«variable.nameÂ»"
+					multiple variables with same name "«variable.name»"
 				''')
 			else
 				definitions.put(variable.name, variable)
@@ -37,7 +37,7 @@ class Environment {
 		for (type : declaration.types) {
 			if (definitions.containsKey(type.name))
 				throw new Error('''
-					multiple types with same name "Â«type.nameÂ»"
+					multiple types with same name "«type.name»"
 				''')
 			else
 				definitions.put(type.name, type)
@@ -48,7 +48,7 @@ class Environment {
 	def define(String name, EObject id) {
 		if (find(name) != null)
 			throw new Error('''
-				redefinition of Â«nameÂ»
+				redefinition of «name»
 			''')
 		else
 			definitions.put(name, id)

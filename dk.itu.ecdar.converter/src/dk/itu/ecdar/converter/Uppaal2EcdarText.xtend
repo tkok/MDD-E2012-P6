@@ -220,7 +220,7 @@ class Uppaal2EcdarText {
 		create factory.createETExpression
 		transformUAExpression(UAExpression expression, Environment env) {
 			throw new Error('''
-				unable to transform expression Â«expressionÂ»
+				unable to transform expression «expression»
 			''')
 		}
 
@@ -529,7 +529,7 @@ class Uppaal2EcdarText {
 		transformUAExpression(UAReference e, Environment env) {
 			val t = env.find(e.name)
 			if (t == null)
-				throw new Error('''Couldn't find "Â«e.nameÂ»"''')
+				throw new Error('''Couldn't find "«e.name»"''')
 			else
 				target = t
 		}
@@ -546,7 +546,7 @@ class Uppaal2EcdarText {
 		create factory.createETDeclaration
 		transformUADeclaration(UADeclaration declaration, Environment env) {
 			throw new Error('''
-				unable to transform declaration Â«declarationÂ»''')
+				unable to transform declaration «declaration»''')
 		}
 
 	def dispatch ETVariableDeclaration
@@ -582,7 +582,7 @@ class Uppaal2EcdarText {
 		create factory.createETInitialiser
 		transformUAInitialiser(UAInitialiser initialiser, Environment env) {
 			throw new Error('''
-				unable to transform initialiser Â«initialiserÂ»''')
+				unable to transform initialiser «initialiser»''')
 		}
 
 	def dispatch ETSingleInitialiser
