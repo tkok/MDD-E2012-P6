@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecdarText:ETLocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecdarText="http://www.itu.dk/ecdar/text/EcdarText" xsi:schemaLocation="http://www.itu.dk/ecdar/text/EcdarText java://dk.itu.ecdar.text.ecdarText.EcdarTextPackage" name="Idle">
+  <edges target="/">
+    <io type="!">
+      <expression xsi:type="ecdarText:ETReference">
+        <target href="file:/C:/Users/Eduro/workspace_MMD/MDD-E2012-P6/dk.itu.ecdar.text.generator.mockup/input/universitySimple.ecdar#//@specifications.0/@body/@declarations/@declarations.1/@variables.0"/>
+      </expression>
+    </io>
+    <guard xsi:type="ecdarText:ETGreaterEqualExpression">
+      <left xsi:type="ecdarText:ETReference">
+        <target href="file:/C:/Users/Eduro/workspace_MMD/MDD-E2012-P6/dk.itu.ecdar.text.generator.mockup/input/universitySimple.ecdar#//@specifications.0/@body/@declarations/@declarations.0/@variables.0"/>
+      </left>
+      <right xsi:type="ecdarText:ETNumberLiteral" value="2"/>
+    </guard>
+  </edges>
+  <edges>
+    <io>
+      <expression xsi:type="ecdarText:ETReference">
+        <target href="file:/C:/Users/Eduro/workspace_MMD/MDD-E2012-P6/dk.itu.ecdar.text.generator.mockup/input/universitySimple.ecdar#//@specifications.0/@body/@declarations/@declarations.2/@variables.0"/>
+      </expression>
+    </io>
+    <target href="file:/C:/Users/Eduro/workspace_MMD/MDD-E2012-P6/dk.itu.ecdar.text.generator.mockup/input/universitySimple.ecdar#//@specifications.0/@body/@locations.0"/>
+    <updates xsi:type="ecdarText:ETAssignmentExpression">
+      <left xsi:type="ecdarText:ETReference">
+        <target href="file:/C:/Users/Eduro/workspace_MMD/MDD-E2012-P6/dk.itu.ecdar.text.generator.mockup/input/universitySimple.ecdar#//@specifications.0/@body/@declarations/@declarations.0/@variables.0"/>
+      </left>
+      <right xsi:type="ecdarText:ETNumberLiteral"/>
+    </updates>
+  </edges>
+</ecdarText:ETLocation>

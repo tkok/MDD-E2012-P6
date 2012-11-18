@@ -14,8 +14,8 @@ Workflow {
 		register = dk.itu.ecdar.text.EcdarTextStandaloneSetup { }
 					
 		load = {
-			slot = "etfile"
-			type = "ETFile"
+			slot = "etlocation"
+			type = "ETLocation"
 			firstOnly = true
 		}
 	}
@@ -32,13 +32,13 @@ Workflow {
 		}
 		metaModel = org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel {}
 		//expand = "dk::itu::ecdar::text::generator::templates::DoNothing::main FOREACH etfile"
-		expand = "dk::itu::ecdar::text::generator::templates::DoNothing::main FOR etfile"
+		expand = "dk::itu::ecdar::text::generator::templates::DoNothing::main FOR etlocation"
 
 		outlet = { path = "model-gen/" }
 	}
 
 	component = org.eclipse.emf.mwe.utils.Writer {
-		modelSlot = "etfile"
+		modelSlot = "etlocation"
 		// file extension is important here. 
 		// ".ttripLoose" (so the declared xtext syntax extension) saves in textual syntax
 		// ".xmi" or ".ecore" saves in xmi syntax.

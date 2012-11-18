@@ -1,5 +1,5 @@
 «IMPORT ecdarText»
-«DEFINE main FOR ecdarText::ETFile»
+«DEFINE main FOR ecdarText::ETLocation»
 «FILE "test.html"»
 nothing
 «ENDFILE»
