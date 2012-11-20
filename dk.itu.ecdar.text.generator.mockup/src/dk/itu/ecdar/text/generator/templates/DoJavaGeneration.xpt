@@ -1,6 +1,39 @@
 «IMPORT ecdarText»
-«DEFINE main FOR ecdarText::ETFile»
-«FILE "test.html"»
-nothing
+«DEFINE main FOR ecdarText::ETSpecificationDefinition»
+«FILE this.name + ".java"»
+package dk.itu.ecdar.text.generator.mockup;
+
+import dk.itu.ecdar.text.generator.framework.IEdgeControllable;
+import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
+import dk.itu.ecdar.text.generator.framework.ILocation;
+import dk.itu.ecdar.text.generator.framework.ITIOA;
+
+«REM»
+   Test of various info within a specification
+«ENDREM»
+
+
+«REM»
+   initial location
+«ENDREM»
+
+«this.body.initialLocation.name»
+
+«REM»
+   Iterate over this specifications locations
+«ENDREM»
+
+«FOREACH body.locations AS l ITERATOR iter»
+   «iter.counter1» : «l»
+«ENDFOREACH»
+
+«REM»
+   Iterate over this specifications locations edges
+«ENDREM»
+
+«FOREACH body.locations.edges AS e ITERATOR iter»
+   «iter.counter1» : «e»
+«ENDFOREACH»
+
 «ENDFILE»
 «ENDDEFINE»
