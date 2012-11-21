@@ -156,7 +156,7 @@ public abstract class ITIOA {
 	 * 
 	 * Synchronized so the state stays the same during execution.
 	 */
-	private void transition() {
+	private synchronized void transition() {
 		
 		// An uncontrollable transition is only possible if the task
 		// at the current location has been performed.
