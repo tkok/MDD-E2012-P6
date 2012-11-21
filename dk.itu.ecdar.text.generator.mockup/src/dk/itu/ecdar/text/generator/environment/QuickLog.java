@@ -6,6 +6,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import dk.itu.ecdar.text.generator.framework.AutomatonTimer;
+
 public class QuickLog {
 	
 	private static QuickLog _instance = null;
@@ -18,6 +20,8 @@ public class QuickLog {
 	
 	private StringBuffer log;
 	
+	AutomatonTimer timer;
+	
 	private QuickLog() {
 		logLevel = 0;
 		counter = 0;
@@ -29,6 +33,7 @@ public class QuickLog {
 		
 		destination = "log-" + format.format(date) + ".csv";
 		
+		timer = new AutomatonTimer();
 		log = new StringBuffer();
 	}
 	
@@ -89,6 +94,7 @@ public class QuickLog {
 	private void internal_logToFile(String source, long time, String message) {
 		String msg = String.valueOf(++counter) + ","
 				+ source + ","
+				+ String.valueOf(timer.getTime()) + ","
 				+ String.valueOf(time) + ","
 				+ message
 				+ "\n";
@@ -112,9 +118,7 @@ public class QuickLog {
 			FileWriter fileWriter = new FileWriter(filename, true);
 			BufferedWriter outBuffer = new BufferedWriter(fileWriter);
 			
-			synchronized(this) {
-				outBuffer.write(getInstance().log.toString());
-			}
+			outBuffer.write(getInstance().log.toString());
 			outBuffer.close();
 			
 		} catch (Exception e) {
