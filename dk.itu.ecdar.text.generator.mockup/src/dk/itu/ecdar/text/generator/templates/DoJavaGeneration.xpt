@@ -1,5 +1,8 @@
 «IMPORT ecdarText»
 «DEFINE main FOR ecdarText::ETSpecificationDefinition»
+«REM»
+   «DEFINE main FOR ecdarText::ETSpecificationDefinition»
+«ENDREM»
 «FILE this.name + ".java"»
 package dk.itu.ecdar.text.generator.mockup;
 
@@ -8,32 +11,101 @@ import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
 import dk.itu.ecdar.text.generator.framework.ILocation;
 import dk.itu.ecdar.text.generator.framework.ITIOA;
 
-«REM»
-   Test of various info within a specification
-«ENDREM»
-
-
-«REM»
-   initial location
-«ENDREM»
-
-«this.body.initialLocation.name»
-
-«REM»
-   Iterate over this specifications locations
-«ENDREM»
-
-«FOREACH body.locations AS l ITERATOR iter»
-   «iter.counter1» : «l»
-«ENDFOREACH»
+public class «this.name» extends ITIOA {
 
 «REM»
    Iterate over this specifications locations edges
 «ENDREM»
+//Edges
+«FOREACH body.locations.edges AS edge ITERATOR iter»
+   	/*
+   	-INFO-
+   	Number: «iter.counter1»
+ 	Name: «edge.toString()» of edge
+ 	*/
+   
+   //Generic class for one location edge
+   	class «iter.counter1» extends IEdgeControllable {
 
-«FOREACH body.locations.edges AS e ITERATOR iter»
-   «iter.counter1» : «e»
+		public «iter.counter1»() {
+			//super(A, B, "grant");
+		}
+
+		@Override
+		public boolean checkGuard(long time) {
+			return to.checkInvariant(time);
+		}
+
+		@Override
+		public void onTraverse() {
+			resetTime();
+		}
+	} 
 «ENDFOREACH»
 
+«REM»
+   initial location
+«ENDREM»
+//Init Location Name: «this.body.initialLocation.name»
+«REM»Iterate over this specifications locations«ENDREM»
+//Locations
+
+«REM»First we add the initial location to the list of locations«ENDREM»
+//«body.locations.add(this.body.initialLocation)»
+
+«FOREACH body.locations.reverse() AS location ITERATOR iter»
+   	/*
+   	-INFO-
+   	Number: «iter.counter1» 
+   	Name: «location.name»
+   	*/
+   
+   	//Generic class for one Location
+	class «location.name» extends ILocation {
+
+		public «location.name»(University parent) {
+			super("«location.name»", parent);
+		}
+
+		@Override
+		public void setupEdges() {
+			outputEdges = new IEdgeUncontrollable[]{
+				«FOREACH location.edges AS edge»
+					«IF edge.controllable == false»
+						«REM»We have the uncontrollable edges here«ENDREM»
+						//«edge.toString()»
+					«ENDIF»					
+				«ENDFOREACH»
+			};
+			
+			inputEdges = new IEdgeControllable[]{
+				«REM»new A_GRANT_B()«ENDREM»
+				«FOREACH (location.edges) AS edge»
+					«IF edge.controllable == true»
+						«REM»We have the controllable edges here«ENDREM»
+						//«edge.toString()»
+						//«edge.selects.toString()»
+					«ENDIF»					
+				«ENDFOREACH»
+			};
+		}
+
+		@Override
+		public boolean checkInvariant(long time) {
+			return true;
+		}
+
+		@Override
+		public boolean isPreemptive() {
+			return false;
+		}
+
+		@Override
+		public void task() {
+			
+		}	
+	}
+«ENDFOREACH»
+}
 «ENDFILE»
 «ENDDEFINE»

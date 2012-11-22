@@ -40,7 +40,11 @@ Workflow {
 		metaModel = org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel {}
 		//expand = "dk::itu::ecdar::text::generator::templates::DoNothing::main FOR et"
 		expand = "dk::itu::ecdar::text::generator::templates::DoJavaGeneration::main FOREACH et"
-		outlet = { path = "model-gen/" }
+		outlet = { 
+					path = "model-gen/"
+					//Should be able to add a postprocessor, which cleans up the JAVA (when our DoJavaGen produces legal code)
+					//postprocessor = org.eclipse.xpand2.output.JavaBeautifier {}
+		}
 	}
 
 	component = org.eclipse.emf.mwe.utils.Writer {
