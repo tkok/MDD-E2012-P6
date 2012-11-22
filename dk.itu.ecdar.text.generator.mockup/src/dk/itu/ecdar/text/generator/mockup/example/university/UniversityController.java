@@ -23,8 +23,7 @@ public class UniversityController extends IController {
 				new Researcher(),
 				new University(),
 				new HalfUni1(),
-				new HalfUni2(),
-				new Spec()});
+				new HalfUni2()});
 	}
 	
 	public static UniversityController
@@ -32,8 +31,7 @@ public class UniversityController extends IController {
 		return new UniversityController(new ITIOA[]{new Machine(),
 				new Researcher(),
 				new HalfUni1(),
-				new HalfUni2(),
-				new Spec()});
+				new HalfUni2()});
 	}
 	
 	public static UniversityController
@@ -48,8 +46,8 @@ public class UniversityController extends IController {
 	system_Machine_Researcher_University_Spec() {
 		return new UniversityController(new ITIOA[]{new Machine(),
 				new Researcher(),
-				new University(),
-				new Spec()});
+				new University()
+});
 	}
 	
 	public static UniversityController
