@@ -38,8 +38,7 @@ public class UniversityController extends IController {
 	system_Machine_Researcher_University2_Spec() {
 		return new UniversityController(new ITIOA[]{new Machine(),
 				new Researcher(),
-				new University2(),
-				new Spec()});
+				new University2()});
 	}
 	
 	public static UniversityController
