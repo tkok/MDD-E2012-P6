@@ -94,6 +94,13 @@ public abstract class IEnvironment {
 		}
 		
 		QuickLog.print("All instructions sent.");
+		
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			QuickLog.print(e.getMessage());
+		}
+		
 	}
 	
 	@Override
