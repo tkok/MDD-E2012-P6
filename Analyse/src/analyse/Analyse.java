@@ -4,10 +4,8 @@
  */
 package analyse;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.File;
+import java.util.Scanner;
 
 /**
  *
@@ -48,37 +46,31 @@ public class Analyse {
 
     public static void main(String[] args) {
         // TODO code application logic here
-
-        try {
-            // Open file to FileInputStram
-            FileInputStream fstream = new FileInputStream("log2.csv");
-            // Get the object of DataInputStream
-            DataInputStream in = new DataInputStream(fstream);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
-            String strLine;
-            //Read File Line By Line
-
-            for (int i = 0; i < br.readLine().length(); i++) {
-                if (br.readLine() != null) {
-                    strLine = br.readLine();
-                    System.out.println(strLine);
-                    if (strLine.matches(".*\\bSignaling grant\\b.*")) {
-                        //System.out.println(">> GRANT!");
-                        setFlag("GRANT");
-                    } else if (strLine.matches(".*\\bSignaling coin\\b.*")) {
-                        //System.out.println(">> COIN!");
-                        setFlag("COIN");
-                    } else if (strLine.matches(".*\\bSignaling tea\\b.*")) {
-                        //System.out.println(">> TEA!");
-                        setFlag("TEA");
-                    }
-
+    	
+    	try {
+    		String strLine;
+    		
+			Scanner scanner = new Scanner(new File("log2.csv"));
+			
+			while (scanner.hasNext()) {
+				strLine = scanner.nextLine();
+				
+				System.out.println(strLine);
+                if (strLine.matches(".*\\bSignaling grant\\b.*")) {
+                    //System.out.println(">> GRANT!");
+                    setFlag("GRANT");
+                } else if (strLine.matches(".*\\bSignaling coin\\b.*")) {
+                    //System.out.println(">> COIN!");
+                    setFlag("COIN");
+                } else if (strLine.matches(".*\\bSignaling tea\\b.*")) {
+                    //System.out.println(">> TEA!");
+                    setFlag("TEA");
                 }
-            }
+			}
+			
+			// Close the input stream
+			scanner.close();
 
-
-            //Close the input stream
-            in.close();
         } catch (Exception e) {//Catch exception if any
             System.err.println("Error: " + e.getMessage());
         }
