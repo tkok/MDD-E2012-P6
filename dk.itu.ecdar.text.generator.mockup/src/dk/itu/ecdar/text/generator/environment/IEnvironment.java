@@ -87,10 +87,8 @@ public abstract class IEnvironment {
 		
 		while(!inputs.isEmpty()) {
 			if (inputs.get(0).getKey() <= timer.getTime()) {
-				synchronized (controller) {
-					QuickLog.log(toString(), timer.getTime(), "Signaling " + inputs.get(0).getValue());
-					controller.notify(inputs.get(0).getValue());
-				}
+				QuickLog.log(toString(), timer.getTime(), "Signaling " + inputs.get(0).getValue());
+				controller.notify(inputs.get(0).getValue());
 				inputs.remove(0);
 			}
 		}
