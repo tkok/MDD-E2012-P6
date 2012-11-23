@@ -2,6 +2,7 @@ package dk.itu.ecdar.text.generator.mockup.example.university;
 
 import dk.itu.ecdar.text.generator.environment.IEnvironment;
 import dk.itu.ecdar.text.generator.environment.QuickLog;
+import dk.itu.ecdar.text.generator.framework.AutomatonTimer;
 
 public class UniversityEnvironment extends IEnvironment {
 
@@ -11,6 +12,10 @@ public class UniversityEnvironment extends IEnvironment {
 	}
 
 	public static void main(String[] args) {
+		
+		// Set timer resolution for this test to 10 milliseconds
+		AutomatonTimer.setResolution(10);
+		
 		QuickLog.setLogLevel(20);
 		QuickLog.logToFile();
 		
