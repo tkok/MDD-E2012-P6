@@ -6,7 +6,7 @@ package dk.itu.ecdar.text.generator.framework;
 public class AutomatonTimer {
 
 	// resolution the timer has to the user
-	private int resolution;
+	static private int resolution;
 	
 	// time stamp for starting and pausing the timer
 	private long t_start, t_pause;
@@ -41,5 +41,9 @@ public class AutomatonTimer {
 		else
 			time = t_pause - t_start;
 		return time / resolution;
+	}
+	
+	public static void setResolution(int resolution) {
+		AutomatonTimer.resolution = resolution;
 	}
 }
