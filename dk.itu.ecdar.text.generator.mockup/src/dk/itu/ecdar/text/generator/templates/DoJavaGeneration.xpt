@@ -111,6 +111,17 @@ public class «this.name» extends ITIOA {
 		}	
 	}
 «ENDFOREACH»
+	«REM»Instantiate«ENDREM»
+	ILocation «FOREACH body.locations.withoutLast() AS location ITERATOR iter»«location.name.toString()», «ENDFOREACH»«body.locations.last().name.toString()»;
+	
+	public «this.name»() {
+		super();
+		«FOREACH body.locations.reverse() AS location ITERATOR iter»
+		«location.name.toString()» = new «location.name.toString()»(this);
+		«location.name.toString()».setupEdges();
+		«ENDFOREACH»
+		current = «body.locations.last().name.toString()»;
+	}
 }
 «ENDFILE»
 «ENDDEFINE»
