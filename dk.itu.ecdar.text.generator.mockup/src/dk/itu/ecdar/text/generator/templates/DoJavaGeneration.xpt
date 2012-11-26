@@ -4,8 +4,8 @@
    «DEFINE main FOR ecdarText::ETSpecificationDefinition»
 «ENDREM»
 «FILE this.name + ".java"»
-package dk.itu.ecdar.text.generator.mockup;
 
+package dk.itu.ecdar.text.generator.mockup;
 import dk.itu.ecdar.text.generator.framework.IEdgeControllable;
 import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
 import dk.itu.ecdar.text.generator.framework.ILocation;
@@ -16,17 +16,18 @@ public class «this.name» extends ITIOA {
 «REM»
    Iterate over this specifications locations edges
 «ENDREM»
-//Edges
-«FOREACH body.locations.edges AS edge ITERATOR iter»
-   	/*
-   	-INFO-
-   	Number: «iter.counter1»
- 	Name: «edge.toString()» of edge
- 	*/
-   
-   //Generic class for one location edge
-   	class «iter.counter1» extends IEdgeControllable {
 
+/* Generating all edges */
+«FOREACH body.locations.edges AS edge ITERATOR iter»
+   	/*	Number: «iter.counter1»
+ 		Name: «edge.toString()» of edge
+ 		Controllable: «edge.controllable» 	*/
+ 		
+   	«IF (edge.controllable)»
+   	class «iter.counter1» extends IEdgeControllable {
+   	«ELSE»
+   	class «iter.counter1» extends IEdgeUncontrollable {
+   	«ENDIF»    	 
 		public «iter.counter1»() {
 			//super(A, B, "grant");
 		}
@@ -44,25 +45,17 @@ public class «this.name» extends ITIOA {
 «ENDFOREACH»
 
 «REM»
-   initial location
+   initial location Name: «this.body.initialLocation.name»
 «ENDREM»
-//Init Location Name: «this.body.initialLocation.name»
-«REM»Iterate over this specifications locations«ENDREM»
-//Locations
-
 «REM»First we add the initial location to the list of locations«ENDREM»
 //«body.locations.add(this.body.initialLocation)»
 
+/* Generating all locations */
 «FOREACH body.locations.reverse() AS location ITERATOR iter»
-   	/*
-   	-INFO-
-   	Number: «iter.counter1» 
-   	Name: «location.name»
-   	*/
-   
-   	//Generic class for one Location
+   	/* 	Number: «iter.counter1» 
+   		Name: «location.name.toString()» */
+   		
 	class «location.name» extends ILocation {
-
 		public «location.name»(University parent) {
 			super("«location.name»", parent);
 		}
@@ -73,18 +66,17 @@ public class «this.name» extends ITIOA {
 				«FOREACH location.edges AS edge»
 					«IF edge.controllable == false»
 						«REM»We have the uncontrollable edges here«ENDREM»
-						//«edge.toString()»
+						//«edge»
 					«ENDIF»					
 				«ENDFOREACH»
 			};
 			
 			inputEdges = new IEdgeControllable[]{
 				«REM»new A_GRANT_B()«ENDREM»
-				«FOREACH (location.edges) AS edge»
-					«IF edge.controllable == true»
+				«FOREACH location.edges AS edge»
+					«IF edge.controllable»
 						«REM»We have the controllable edges here«ENDREM»
-						//«edge.toString()»
-						//«edge.selects.toString()»
+						//«edge»
 					«ENDIF»					
 				«ENDFOREACH»
 			};
@@ -92,17 +84,30 @@ public class «this.name» extends ITIOA {
 
 		@Override
 		public boolean checkInvariant(long time) {
+			«IF (!location.invariants.isEmpty)»
+			//IS NOT EMPTY
+				«LET location.invariants.eContents.typeSelect(ETNumberLiteral).value.get(0) AS invariantValue»
+				return time
+				«IF location.invariants.get(0).metaType == ecdarText::ETLessEqualExpression»
+				<=
+				«ENDIF»
+				«invariantValue»;
+				«ENDLET»
+			«ELSE»
+			//IS EMPTY
 			return true;
+			«ENDIF»			
 		}
 
 		@Override
 		public boolean isPreemptive() {
+			//Is always false atm
 			return false;
 		}
 
 		@Override
 		public void task() {
-			
+			//Is empty??
 		}	
 	}
 «ENDFOREACH»
