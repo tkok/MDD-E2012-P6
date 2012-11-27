@@ -6,8 +6,8 @@
 «FILE this.name + ".java"»
 
 package dk.itu.ecdar.text.generator.mockup;
-import dk.itu.ecdar.text.generator.framework.IEdgeControllable;
-import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
+import dk.itu.ecdar.text.generator.framework.IInputEdge;
+import dk.itu.ecdar.text.generator.framework.IOutputEdge;
 import dk.itu.ecdar.text.generator.framework.ILocation;
 import dk.itu.ecdar.text.generator.framework.ITIOA;
 
@@ -24,9 +24,9 @@ public class «this.name» extends ITIOA {
  		Controllable: «edge.controllable» 	*/
  		
    	«IF (edge.controllable)»
-   	class «iter.counter1» extends IEdgeControllable {
+   	class «iter.counter1» extends IInputEdge {
    	«ELSE»
-   	class «iter.counter1» extends IEdgeUncontrollable {
+   	class «iter.counter1» extends IOutputEdge {
    	«ENDIF»    	 
 		public «iter.counter1»() {
 			//super(A, B, "grant");
@@ -62,7 +62,7 @@ public class «this.name» extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 				«FOREACH location.edges AS edge»
 					«IF edge.controllable == false»
 						«REM»We have the uncontrollable edges here«ENDREM»
@@ -71,7 +71,7 @@ public class «this.name» extends ITIOA {
 				«ENDFOREACH»
 			};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 				«REM»new A_GRANT_B()«ENDREM»
 				«FOREACH location.edges AS edge»
 					«IF edge.controllable»
