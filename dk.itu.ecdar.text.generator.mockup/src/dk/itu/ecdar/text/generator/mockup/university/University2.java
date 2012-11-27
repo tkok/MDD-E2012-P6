@@ -1,14 +1,14 @@
 package dk.itu.ecdar.text.generator.mockup.university;
 
-import dk.itu.ecdar.text.generator.framework.IEdgeControllable;
-import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
+import dk.itu.ecdar.text.generator.framework.IInputEdge;
+import dk.itu.ecdar.text.generator.framework.IOutputEdge;
 import dk.itu.ecdar.text.generator.framework.ILocation;
 import dk.itu.ecdar.text.generator.framework.ITIOA;
 
 public class University2 extends ITIOA {
 
 	// Controllable edges
-	class A_GRANT_B extends IEdgeControllable {
+	class A_GRANT_B extends IInputEdge {
 
 		public A_GRANT_B() {
 			super(A, B, "grant");
@@ -26,7 +26,7 @@ public class University2 extends ITIOA {
 		
 	}
 
-	class A_PUB_D extends IEdgeControllable {
+	class A_PUB_D extends IInputEdge {
 
 		public A_PUB_D() {
 			super(A, D, "pub");
@@ -44,7 +44,7 @@ public class University2 extends ITIOA {
 		
 	}
 
-	class B_GRANT_B extends IEdgeControllable {
+	class B_GRANT_B extends IInputEdge {
 
 		public B_GRANT_B() {
 			super(B, B, "grant");
@@ -62,7 +62,7 @@ public class University2 extends ITIOA {
 		
 	}
 
-	class B_PUB_B extends IEdgeControllable {
+	class B_PUB_B extends IInputEdge {
 
 		public B_PUB_B() {
 			super(B, B, "grant");
@@ -80,7 +80,7 @@ public class University2 extends ITIOA {
 		
 	}
 	
-	class C_GRANT_C extends IEdgeControllable {
+	class C_GRANT_C extends IInputEdge {
 		
 		public C_GRANT_C() {
 			super(C, C, "grant");
@@ -95,7 +95,7 @@ public class University2 extends ITIOA {
 		public void onTraverse() {}
 	}
 	
-	class C_PUB_D extends IEdgeControllable {
+	class C_PUB_D extends IInputEdge {
 		
 		public C_PUB_D() {
 			super(C, D, "pub");
@@ -112,7 +112,7 @@ public class University2 extends ITIOA {
 		}
 	}
 	
-	class D_PUB_D extends IEdgeControllable {
+	class D_PUB_D extends IInputEdge {
 		
 		
 		public D_PUB_D() {
@@ -129,7 +129,7 @@ public class University2 extends ITIOA {
 		}
 	}
 
-	class D_GRANT_D extends IEdgeControllable {
+	class D_GRANT_D extends IInputEdge {
 		
 		
 		public D_GRANT_D() {
@@ -147,7 +147,7 @@ public class University2 extends ITIOA {
 	}
 
 	// Uncontrollable edges
-	class B_COIN_C extends IEdgeUncontrollable {
+	class B_COIN_C extends IOutputEdge {
 		public B_COIN_C() {
 			super(B, C, "coin");
 		}
@@ -162,7 +162,7 @@ public class University2 extends ITIOA {
 		}
 	}
 	
-	class D_PATENT_A extends IEdgeUncontrollable {
+	class D_PATENT_A extends IOutputEdge {
 		public D_PATENT_A() {
 			super(D, A, "patent");
 		}
@@ -186,9 +186,9 @@ public class University2 extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{};
+			outputEdges = new IOutputEdge[]{};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 					new A_GRANT_B(),
 					new A_PUB_D()
 			};
@@ -219,11 +219,11 @@ public class University2 extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 					new B_COIN_C()
 			};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 					new B_GRANT_B(),
 					new B_PUB_B()
 			};			
@@ -253,10 +253,10 @@ public class University2 extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 			};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 					new C_GRANT_C(),
 					new C_PUB_D()
 			};
@@ -287,11 +287,11 @@ public class University2 extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 					new D_PATENT_A()
 			};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 					new D_GRANT_D(),
 					new D_PUB_D()
 			};

@@ -80,11 +80,11 @@ public abstract class ITIOA {
 	 * @param input Some action
 	 */
 	public synchronized void notify(String input) {
-		IEdgeControllable that = null;
+		IInputEdge that = null;
 
 		// Check for an edge that accepts this input and for which
 		// the guard holds.
-		for (IEdgeControllable edge : current.inputEdges) {
+		for (IInputEdge edge : current.inputEdges) {
 			if (edge.acceptInput(input) && edge.checkGuard(getTime())) {
 				that = edge;
 			}

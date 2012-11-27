@@ -1,14 +1,14 @@
 package dk.itu.ecdar.text.generator.mockup.university;
 
-import dk.itu.ecdar.text.generator.framework.IEdgeControllable;
-import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
+import dk.itu.ecdar.text.generator.framework.IInputEdge;
+import dk.itu.ecdar.text.generator.framework.IOutputEdge;
 import dk.itu.ecdar.text.generator.framework.ILocation;
 import dk.itu.ecdar.text.generator.framework.ITIOA;
 
 public class HalfUni2 extends ITIOA {
 
 	// Controllable Edges
-	class C_GRANT_C extends IEdgeControllable {
+	class C_GRANT_C extends IInputEdge {
 
 		public C_GRANT_C() {
 			super(c, c, "grant");
@@ -25,7 +25,7 @@ public class HalfUni2 extends ITIOA {
 		}
 	}
 	
-	class C_PUB_D extends IEdgeControllable {
+	class C_PUB_D extends IInputEdge {
 
 		public C_PUB_D() {
 			super(c, d, "pub");
@@ -43,7 +43,7 @@ public class HalfUni2 extends ITIOA {
 		}
 	}
 	
-	class D_GRANT_D extends IEdgeControllable {
+	class D_GRANT_D extends IInputEdge {
 
 		public D_GRANT_D() {
 			super(d, d, "grant");
@@ -60,7 +60,7 @@ public class HalfUni2 extends ITIOA {
 		}
 	}
 	
-	class D_PUB_D extends IEdgeControllable {
+	class D_PUB_D extends IInputEdge {
 
 		public D_PUB_D() {
 			super(d, d, "pub");
@@ -78,7 +78,7 @@ public class HalfUni2 extends ITIOA {
 	}
 	
 	// Uncontrollable Edges
-	class C_COIN_C extends IEdgeUncontrollable {
+	class C_COIN_C extends IOutputEdge {
 
 		public C_COIN_C() {
 			super(c, c, "coin");
@@ -95,7 +95,7 @@ public class HalfUni2 extends ITIOA {
 		}
 	}
 	
-	class D_COIN_D extends IEdgeUncontrollable {
+	class D_COIN_D extends IOutputEdge {
 
 		public D_COIN_D() {
 			super(d, d, "coin");
@@ -112,7 +112,7 @@ public class HalfUni2 extends ITIOA {
 		}
 	}
 	
-	class D_PATENT_C extends IEdgeUncontrollable {
+	class D_PATENT_C extends IOutputEdge {
 
 		public D_PATENT_C() {
 			super(d, c, "patent");
@@ -138,11 +138,11 @@ public class HalfUni2 extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 					new C_COIN_C()
 			};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 				new C_GRANT_C(),
 				new C_PUB_D()
 			};			
@@ -172,12 +172,12 @@ public class HalfUni2 extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 					new D_COIN_D(),
 					new D_PATENT_C()
 				};
 				
-				inputEdges = new IEdgeControllable[]{
+				inputEdges = new IInputEdge[]{
 						new D_PUB_D(),
 						new D_GRANT_D()
 				};			

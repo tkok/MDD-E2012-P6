@@ -31,8 +31,8 @@ public abstract class ILocation {
 	// reference the parent automaton to forward execution states
 	protected ITIOA parent;
 
-	protected IEdgeUncontrollable[] outputEdges;
-	protected IEdgeControllable[] inputEdges;
+	protected IOutputEdge[] outputEdges;
+	protected IInputEdge[] inputEdges;
 	public String name;
 
 	TaskThread executor;

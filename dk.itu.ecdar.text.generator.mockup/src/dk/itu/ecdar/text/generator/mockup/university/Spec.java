@@ -1,14 +1,14 @@
 package dk.itu.ecdar.text.generator.mockup.university;
 
-import dk.itu.ecdar.text.generator.framework.IEdgeControllable;
-import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
+import dk.itu.ecdar.text.generator.framework.IInputEdge;
+import dk.itu.ecdar.text.generator.framework.IOutputEdge;
 import dk.itu.ecdar.text.generator.framework.ILocation;
 import dk.itu.ecdar.text.generator.framework.ITIOA;
 
 public class Spec extends ITIOA {
 
 	// Controllable edges
-	class Start_GRANT_Grant extends IEdgeControllable {
+	class Start_GRANT_Grant extends IInputEdge {
 
 		public Start_GRANT_Grant() {
 			super(start, grant, "grant");
@@ -27,7 +27,7 @@ public class Spec extends ITIOA {
 		
 	}
 	
-	class Grant_GRANT_Grant extends IEdgeControllable {
+	class Grant_GRANT_Grant extends IInputEdge {
 
 		public Grant_GRANT_Grant() {
 			super(grant, grant, "grant");
@@ -45,7 +45,7 @@ public class Spec extends ITIOA {
 		
 	}
 	
-	class Start_GRANT_End extends IEdgeControllable {
+	class Start_GRANT_End extends IInputEdge {
 
 		public Start_GRANT_End() {
 			super(start, end, "grant");
@@ -63,7 +63,7 @@ public class Spec extends ITIOA {
 		
 	}
 	
-	class End_GRANT_End extends IEdgeControllable {
+	class End_GRANT_End extends IInputEdge {
 
 		public End_GRANT_End() {
 			super(end, end, "grant");
@@ -82,7 +82,7 @@ public class Spec extends ITIOA {
 	}
 	
 	// Uncontrollable edges
-	class Grant_PATENT_Start extends IEdgeUncontrollable {
+	class Grant_PATENT_Start extends IOutputEdge {
 
 		public Grant_PATENT_Start() {
 			super(grant, start, "patent");
@@ -101,7 +101,7 @@ public class Spec extends ITIOA {
 		
 	}
 	
-	class End_PATENT_End extends IEdgeUncontrollable {
+	class End_PATENT_End extends IOutputEdge {
 
 		public End_PATENT_End() {
 			super(end, end, "patent");
@@ -128,9 +128,9 @@ public class Spec extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{};
+			outputEdges = new IOutputEdge[]{};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 					new Start_GRANT_Grant(),
 					new Start_GRANT_End()
 			};
@@ -161,11 +161,11 @@ public class Spec extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 					new End_PATENT_End()
 			};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 					new End_GRANT_End()
 			};			
 		}
@@ -195,11 +195,11 @@ public class Spec extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 					new Grant_PATENT_Start()
 			};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 					new Grant_GRANT_Grant()
 			};
 		}

@@ -8,9 +8,9 @@ import dk.itu.ecdar.text.generator.environment.QuickLog;
  * Uncontrollable edges are defined as producing input
  * for the environment.
  */
-public abstract class IEdgeUncontrollable extends IEdge {
+public abstract class IOutputEdge extends IEdge {
 
-	public IEdgeUncontrollable(ILocation from, ILocation to, String signal) {
+	public IOutputEdge(ILocation from, ILocation to, String signal) {
 		super(from, to, signal);
 	}
 

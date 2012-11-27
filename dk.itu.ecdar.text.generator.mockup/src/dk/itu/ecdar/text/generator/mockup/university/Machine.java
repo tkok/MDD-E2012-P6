@@ -1,14 +1,14 @@
 package dk.itu.ecdar.text.generator.mockup.university;
 
-import dk.itu.ecdar.text.generator.framework.IEdgeControllable;
-import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
+import dk.itu.ecdar.text.generator.framework.IInputEdge;
+import dk.itu.ecdar.text.generator.framework.IOutputEdge;
 import dk.itu.ecdar.text.generator.framework.ILocation;
 import dk.itu.ecdar.text.generator.framework.ITIOA;
 
 public class Machine extends ITIOA {
 	
 	// Controllable edges
-	class Idle_COIN_Serving extends IEdgeControllable {
+	class Idle_COIN_Serving extends IInputEdge {
 
 		public Idle_COIN_Serving() {
 			super(idle, serving, "coin");
@@ -26,7 +26,7 @@ public class Machine extends ITIOA {
 		}
 	}
 	
-	class Serving_COIN_Serving extends IEdgeControllable {
+	class Serving_COIN_Serving extends IInputEdge {
 
 		public Serving_COIN_Serving() {
 			super(serving, serving, "coin");
@@ -44,7 +44,7 @@ public class Machine extends ITIOA {
 	}
 	
 	// Uncontrollable edges
-	class Idle_TEA_Idle extends IEdgeUncontrollable {
+	class Idle_TEA_Idle extends IOutputEdge {
 
 		public Idle_TEA_Idle() {
 			super(idle, idle, "tea");
@@ -61,7 +61,7 @@ public class Machine extends ITIOA {
 		}
 	}
 	
-	class Serving_TEA_Idle extends IEdgeUncontrollable {
+	class Serving_TEA_Idle extends IOutputEdge {
 
 		public Serving_TEA_Idle() {
 			super(serving, idle, "tea");
@@ -79,7 +79,7 @@ public class Machine extends ITIOA {
 		
 	}
 	
-	class Serving_COF_Idle extends IEdgeUncontrollable {
+	class Serving_COF_Idle extends IOutputEdge {
 
 		public Serving_COF_Idle() {
 			super(serving, idle, "cof");
@@ -106,11 +106,11 @@ public class Machine extends ITIOA {
 		
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 					new Idle_TEA_Idle()
 			};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 					new Idle_COIN_Serving()
 			};
 		}
@@ -140,12 +140,12 @@ public class Machine extends ITIOA {
 		@Override
 		public void setupEdges() {
 
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 					new Serving_TEA_Idle(),
 					new Serving_COF_Idle()
 			};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 					new Serving_COIN_Serving()
 			};
 			

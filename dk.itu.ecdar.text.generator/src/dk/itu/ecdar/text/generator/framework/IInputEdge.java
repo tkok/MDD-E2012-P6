@@ -6,9 +6,9 @@ package dk.itu.ecdar.text.generator.framework;
  *  A controllable edge is defined as an edge being controlled
  *  by input.
  */
-public abstract class IEdgeControllable extends IEdge {
+public abstract class IInputEdge extends IEdge {
 
-	public IEdgeControllable(ILocation from, ILocation to, String signal) {
+	public IInputEdge(ILocation from, ILocation to, String signal) {
 		super(from, to, signal);
 	}
 

@@ -1,14 +1,14 @@
 package dk.itu.ecdar.text.generator.mockup.university;
 
-import dk.itu.ecdar.text.generator.framework.IEdgeControllable;
-import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
+import dk.itu.ecdar.text.generator.framework.IInputEdge;
+import dk.itu.ecdar.text.generator.framework.IOutputEdge;
 import dk.itu.ecdar.text.generator.framework.ILocation;
 import dk.itu.ecdar.text.generator.framework.ITIOA;
 
 public class Researcher extends ITIOA {
 
 	// Controllable edges
-	class Idle_COF_Coffee extends IEdgeControllable {
+	class Idle_COF_Coffee extends IInputEdge {
 
 		public Idle_COF_Coffee() {
 			super(idle, coffee, "cof");
@@ -26,7 +26,7 @@ public class Researcher extends ITIOA {
 		}
 	}
 	
-	class Idle_TEA_Tea extends IEdgeControllable {
+	class Idle_TEA_Tea extends IInputEdge {
 
 		public Idle_TEA_Tea() {
 			super(idle, tea, "tea");
@@ -44,7 +44,7 @@ public class Researcher extends ITIOA {
 		}
 	}
 	
-	class Idle_PUB_Stuck extends IEdgeControllable {
+	class Idle_PUB_Stuck extends IInputEdge {
 
 		public Idle_PUB_Stuck() {
 			super(idle, stuck, "tea");
@@ -61,7 +61,7 @@ public class Researcher extends ITIOA {
 		}
 	}
 
-	class Stuck_TEA_Stuck extends IEdgeControllable {
+	class Stuck_TEA_Stuck extends IInputEdge {
 
 		public Stuck_TEA_Stuck() {
 			super(stuck, stuck, "tea");
@@ -78,7 +78,7 @@ public class Researcher extends ITIOA {
 		}
 	}
 	
-	class Stuck_COF_Stuck extends IEdgeControllable {
+	class Stuck_COF_Stuck extends IInputEdge {
 
 		public Stuck_COF_Stuck() {
 			super(stuck, stuck, "cof");
@@ -96,7 +96,7 @@ public class Researcher extends ITIOA {
 	}
 
 	// Uncontrollable edges
-	class Coffe_PUB_Idle extends IEdgeUncontrollable {
+	class Coffe_PUB_Idle extends IOutputEdge {
 
 		public Coffe_PUB_Idle() {
 			super(coffee, idle, "pub");
@@ -114,7 +114,7 @@ public class Researcher extends ITIOA {
 		}
 	}
 	
-	class Tea_PUB_Idle extends IEdgeUncontrollable {
+	class Tea_PUB_Idle extends IOutputEdge {
 
 		public Tea_PUB_Idle() {
 			super(tea, idle, "pub");
@@ -132,7 +132,7 @@ public class Researcher extends ITIOA {
 		}
 	}
 
-	class Stuck_PUB_Stuck extends IEdgeUncontrollable {
+	class Stuck_PUB_Stuck extends IOutputEdge {
 
 		public Stuck_PUB_Stuck() {
 			super(stuck, stuck, "pub");
@@ -158,9 +158,9 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{};
+			outputEdges = new IOutputEdge[]{};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 					new Idle_COF_Coffee(),
 					new Idle_TEA_Tea(),
 					new Idle_PUB_Stuck()
@@ -191,11 +191,11 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 					new Coffe_PUB_Idle()	
 			};
 			
-			inputEdges = new IEdgeControllable[]{};
+			inputEdges = new IInputEdge[]{};
 		}
 		
 		@Override
@@ -222,11 +222,11 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 					new Tea_PUB_Idle()
 			};
 			
-			inputEdges = new IEdgeControllable[]{};
+			inputEdges = new IInputEdge[]{};
 		}
 		
 		@Override
@@ -253,11 +253,11 @@ public class Researcher extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 					new Stuck_PUB_Stuck()
 			};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 					new Stuck_COF_Stuck(),
 					new Stuck_TEA_Stuck()
 			};
