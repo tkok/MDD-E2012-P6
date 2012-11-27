@@ -1,4 +1,4 @@
-package dk.itu.ecdar.text.generator.framework.test;
+package dk.itu.ecdar.text.generator.framework;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;

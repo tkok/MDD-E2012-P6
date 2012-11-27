@@ -1,4 +1,4 @@
-package dk.itu.ecdar.text.generator.mockup.example.university;
+package dk.itu.ecdar.text.generator.mockup.university;
 
 import dk.itu.ecdar.text.generator.environment.IEnvironment;
 import dk.itu.ecdar.text.generator.environment.QuickLog;
