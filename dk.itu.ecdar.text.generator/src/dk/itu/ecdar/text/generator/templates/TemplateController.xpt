@@ -1,0 +1,6 @@
+«IMPORT ecdarText»
+«DEFINE main FOR ecdarText::ETSpecificationDefinition»
+«FILE "Controller.java"»
+Controller
+«ENDFILE»
+«ENDDEFINE»

@@ -20,15 +20,10 @@ Workflow {
 		load = {
 			slot = "et"
 			type = "ETSpecificationDefinition"
-			
-			// To only get first specification:
-			//firstOnly = true
+
+			firstOnly = true
 		}
 
-	}
-
-	component = org.eclipse.emf.mwe.utils.DirectoryCleaner {
-		directory = "../dk.itu.ecdar.text.generator/model-gen/"
 	}
 
 	component = org.eclipse.xpand2.Generator {
@@ -38,8 +33,7 @@ Workflow {
 			metaModelFile = "platform:/resource/dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/EcdarText.ecore"
 		}
 		metaModel = org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel {}
-		//expand = "dk::itu::ecdar::text::generator::templates::DoNothing::main FOR et"
-		expand = "dk::itu::ecdar::text::generator::templates::DoJavaGeneration::main FOREACH et"
+		expand = "dk::itu::ecdar::text::generator::templates::TemplateController::main FOR et"
 		outlet = { 
 					path = "model-gen/"
 					//Should be able to add a postprocessor, which cleans up the JAVA (when our DoJavaGen produces legal code)
@@ -50,7 +44,7 @@ Workflow {
 	component = org.eclipse.emf.mwe.utils.Writer {
 		modelSlot = "et"
 		// file extension is important here. 
-		// ".ttripLoose" (so the declared xtext syntax extension) saves in textual syntax
+		// ".ecdar" (so the declared xtext syntax extension) saves in textual syntax
 		// ".xmi" or ".ecore" saves in xmi syntax.
 		uri = "platform:/resource/dk.itu.ecdar.text.generator/model-gen/output.xmi"
 	}
