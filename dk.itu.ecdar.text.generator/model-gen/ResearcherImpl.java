@@ -13,7 +13,7 @@ public class ResearcherImpl extends ITIOA {
 /* Generating all edges */
 
    	/*	Number: 1
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6b4a1c3c (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@67645a8 (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
@@ -25,7 +25,10 @@ public class ResearcherImpl extends ITIOA {
 			// Edge properties
 
 			
+			
+			// testing target
 			lu
+			!
 			
 		}
 
@@ -41,7 +44,7 @@ public class ResearcherImpl extends ITIOA {
 	} 
 
    	/*	Number: 2
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3cbfc8df (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4107e577 (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
@@ -53,7 +56,10 @@ public class ResearcherImpl extends ITIOA {
 			// Edge properties
 
 			
+			
+			// testing target
 			lu
+			?
 			
 		}
 
@@ -69,7 +75,7 @@ public class ResearcherImpl extends ITIOA {
 	} 
 
    	/*	Number: 3
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3ed71be8 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4711b313 (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
@@ -81,7 +87,10 @@ public class ResearcherImpl extends ITIOA {
 			// Edge properties
 
 			
+			
+			// testing target
 			lu
+			?
 			
 		}
 
@@ -97,7 +106,7 @@ public class ResearcherImpl extends ITIOA {
 	} 
 
    	/*	Number: 4
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7a99d0af (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@65196761 (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
@@ -109,7 +118,10 @@ public class ResearcherImpl extends ITIOA {
 			// Edge properties
 
 			
+			
+			// testing target
 			id21
+			?
 			
 		}
 
@@ -125,7 +137,7 @@ public class ResearcherImpl extends ITIOA {
 	} 
 
    	/*	Number: 5
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6e53c251 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@56b8ed99 (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
@@ -137,7 +149,10 @@ public class ResearcherImpl extends ITIOA {
 			// Edge properties
 
 			
+			
+			// testing target
 			id21
+			?
 			
 		}
 
@@ -153,7 +168,7 @@ public class ResearcherImpl extends ITIOA {
 	} 
 
    	/*	Number: 6
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@66d24521 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3c4a5663 (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
@@ -165,9 +180,12 @@ public class ResearcherImpl extends ITIOA {
 			// Edge properties
 
 			
-			[dk.itu.ecdar.text.ecdarText.impl.ETNumberLiteralImpl@1b610267 (value: 0), dk.itu.ecdar.text.ecdarText.impl.ETReferenceImpl@83df40b]
+			[dk.itu.ecdar.text.ecdarText.impl.ETReferenceImpl@1f68e7c4, dk.itu.ecdar.text.ecdarText.impl.ETNumberLiteralImpl@204804f8 (value: 0)]
 			
+			
+			// testing target
 			Idle
+			!
 			
 		}
 
@@ -183,7 +201,7 @@ public class ResearcherImpl extends ITIOA {
 	} 
 
    	/*	Number: 7
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@583e4656 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@51608d63 (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
@@ -195,7 +213,10 @@ public class ResearcherImpl extends ITIOA {
 			// Edge properties
 
 			
+			
+			// testing target
 			id22
+			?
 			
 		}
 
@@ -211,7 +232,7 @@ public class ResearcherImpl extends ITIOA {
 	} 
 
    	/*	Number: 8
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6e32bbd8 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@49188ce3 (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
@@ -223,7 +244,10 @@ public class ResearcherImpl extends ITIOA {
 			// Edge properties
 
 			
+			
+			// testing target
 			id22
+			?
 			
 		}
 
@@ -239,7 +263,7 @@ public class ResearcherImpl extends ITIOA {
 	} 
 
    	/*	Number: 9
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@19e28852 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1f83de4 (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
@@ -251,9 +275,12 @@ public class ResearcherImpl extends ITIOA {
 			// Edge properties
 
 			
-			[dk.itu.ecdar.text.ecdarText.impl.ETReferenceImpl@15923f50, dk.itu.ecdar.text.ecdarText.impl.ETNumberLiteralImpl@347aa840 (value: 0)]
+			[dk.itu.ecdar.text.ecdarText.impl.ETNumberLiteralImpl@24c4bc13 (value: 0), dk.itu.ecdar.text.ecdarText.impl.ETReferenceImpl@6954692b]
 			
+			
+			// testing target
 			Idle
+			!
 			
 		}
 
@@ -271,7 +298,7 @@ public class ResearcherImpl extends ITIOA {
 
 
 
-//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@455354c6 (urgent: false, universal: false, name: lu), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@6d6a08fb (urgent: false, universal: false, name: id21), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@7de4c63b (urgent: false, universal: false, name: id22), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@4f38f663 (urgent: false, universal: false, name: Idle)]
+//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@3cbfc8df (urgent: false, universal: false, name: lu), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@7a99d0af (urgent: false, universal: false, name: id21), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@583e4656 (urgent: false, universal: false, name: id22), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@1235eb8d (urgent: false, universal: false, name: Idle)]
 
 /* Generating all locations */
 
@@ -289,17 +316,17 @@ public class ResearcherImpl extends ITIOA {
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@2da017b6 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1663e9b7 (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7984f8dc (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@16457b0c (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@2addbc17 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@794b66f0 (controllable: false)
 										
 				
 			};
@@ -350,17 +377,17 @@ public class ResearcherImpl extends ITIOA {
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@583e4656 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@51608d63 (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6e32bbd8 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@49188ce3 (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@19e28852 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1f83de4 (controllable: false)
 										
 				
 			};
@@ -417,17 +444,17 @@ public class ResearcherImpl extends ITIOA {
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7a99d0af (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@65196761 (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6e53c251 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@56b8ed99 (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@66d24521 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3c4a5663 (controllable: false)
 										
 				
 			};
@@ -484,17 +511,17 @@ public class ResearcherImpl extends ITIOA {
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6b4a1c3c (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@67645a8 (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3cbfc8df (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4107e577 (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3ed71be8 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4711b313 (controllable: false)
 										
 				
 			};

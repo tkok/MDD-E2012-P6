@@ -31,14 +31,9 @@ public class «this.name» extends ITIOA {
 		public «iter.counter1»() {
 			//super(A, B, "grant");
 
-			// Edge properties
-
-			«FOREACH edge.updates AS io ITERATOR iter3»
-			«io.eAllContents.toString()»
-			«ENDFOREACH»
-			
-			// testing target
+			// testing target and IO type
 			«edge.target.name»
+			«edge.io.type»
 			
 		}
 

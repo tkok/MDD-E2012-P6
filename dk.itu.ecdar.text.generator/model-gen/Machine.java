@@ -13,7 +13,7 @@ public class Machine extends ITIOA {
 /* Generating all edges */
 
    	/*	Number: 1
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6dd8e0c6 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@293b9077 (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
@@ -25,7 +25,10 @@ public class Machine extends ITIOA {
 			// Edge properties
 
 			
+			
+			// testing target
 			Serving
+			?
 			
 		}
 
@@ -41,7 +44,7 @@ public class Machine extends ITIOA {
 	} 
 
    	/*	Number: 2
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1465d8d2 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7cc6400e (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
@@ -53,7 +56,10 @@ public class Machine extends ITIOA {
 			// Edge properties
 
 			
+			
+			// testing target
 			Idle
+			!
 			
 		}
 
@@ -69,7 +75,7 @@ public class Machine extends ITIOA {
 	} 
 
    	/*	Number: 3
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@58989c7 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5f5f6fd6 (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
@@ -81,7 +87,10 @@ public class Machine extends ITIOA {
 			// Edge properties
 
 			
+			
+			// testing target
 			Idle
+			!
 			
 		}
 
@@ -99,7 +108,7 @@ public class Machine extends ITIOA {
 
 
 
-//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@1684e343 (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@3c9f91aa (urgent: false, universal: false, name: Idle)]
+//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@45c2a4e9 (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@3fecfb6 (urgent: false, universal: false, name: Idle)]
 
 /* Generating all locations */
 
@@ -117,12 +126,12 @@ public class Machine extends ITIOA {
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1355966d (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@492848bf (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@49d7800a (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5d375575 (controllable: false)
 										
 				
 			};
@@ -171,17 +180,17 @@ public class Machine extends ITIOA {
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6dd8e0c6 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@293b9077 (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1465d8d2 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7cc6400e (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@58989c7 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5f5f6fd6 (controllable: false)
 										
 				
 			};
