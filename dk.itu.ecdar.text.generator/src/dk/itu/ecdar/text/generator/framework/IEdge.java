@@ -8,15 +8,13 @@ import dk.itu.ecdar.text.generator.environment.QuickLog;
  */
 public abstract class IEdge {
 	
-	// pointing to the location coming from (for guard checking)
-	// and to the new location
-	protected ILocation from, to;
+	// pointing to the new location
+	protected ILocation to;
 	
 	// the input this edge is bound to
 	protected String signal;
 
-	public IEdge(ILocation from, ILocation to, String signal) {
-		this.from = from;
+	public IEdge(ILocation to, String signal) {
 		this.to = to;
 		this.signal = signal;
 	}
@@ -44,9 +42,9 @@ public abstract class IEdge {
 	 */
 	public ILocation traverse() {
 		onTraverse();
-		QuickLog.log(from.parent.toString(),
-				from.parent.getTime(),
-				"Traversing from " + from
+		QuickLog.log(to.parent.toString(),
+				to.parent.getTime(),
+				"Traversing from " + to.parent.current.toString()
 				+ " to " + to 
 				+ " via " + toString());
 		return to;

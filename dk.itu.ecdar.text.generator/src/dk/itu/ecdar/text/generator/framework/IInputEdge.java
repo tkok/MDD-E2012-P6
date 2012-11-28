@@ -8,8 +8,8 @@ package dk.itu.ecdar.text.generator.framework;
  */
 public abstract class IInputEdge extends IEdge {
 
-	public IInputEdge(ILocation from, ILocation to, String signal) {
-		super(from, to, signal);
+	public IInputEdge(ILocation to, String signal) {
+		super(to, signal);
 	}
 
 	@Override

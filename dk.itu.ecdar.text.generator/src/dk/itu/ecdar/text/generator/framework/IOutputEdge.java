@@ -10,8 +10,8 @@ import dk.itu.ecdar.text.generator.environment.QuickLog;
  */
 public abstract class IOutputEdge extends IEdge {
 
-	public IOutputEdge(ILocation from, ILocation to, String signal) {
-		super(from, to, signal);
+	public IOutputEdge(ILocation to, String signal) {
+		super(to, signal);
 	}
 
 	@Override
@@ -21,7 +21,7 @@ public abstract class IOutputEdge extends IEdge {
 
 	@Override
 	public ILocation traverse() {
-		QuickLog.log(from.parent.toString(), from.parent.getTime(), "Signaling " + signal);
+		QuickLog.log(to.parent.toString(), to.parent.getTime(), "Signaling " + signal);
 		IController.getInstance().notify(signal);
 		return super.traverse();
 	}
