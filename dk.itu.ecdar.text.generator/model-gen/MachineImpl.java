@@ -1,8 +1,8 @@
 
 
 package dk.itu.ecdar.text.generator.mockup;
-import dk.itu.ecdar.text.generator.framework.IEdgeControllable;
-import dk.itu.ecdar.text.generator.framework.IEdgeUncontrollable;
+import dk.itu.ecdar.text.generator.framework.IInputEdge;
+import dk.itu.ecdar.text.generator.framework.IOutputEdge;
 import dk.itu.ecdar.text.generator.framework.ILocation;
 import dk.itu.ecdar.text.generator.framework.ITIOA;
 
@@ -13,14 +13,20 @@ public class MachineImpl extends ITIOA {
 /* Generating all edges */
 
    	/*	Number: 1
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6d258c1b (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@740476b6 (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
-   	class 1 extends IEdgeUncontrollable {
+   	class 1 extends IOutputEdge {
    	    	 
 		public 1() {
 			//super(A, B, "grant");
+
+			// Edge properties
+
+			
+			Serving
+			
 		}
 
 		@Override
@@ -35,14 +41,20 @@ public class MachineImpl extends ITIOA {
 	} 
 
    	/*	Number: 2
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@58bbaf09 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4b4ebc5b (controllable: false) of edge
  		Controllable: false 	*/
  		
    	
-   	class 2 extends IEdgeUncontrollable {
+   	class 2 extends IOutputEdge {
    	    	 
 		public 2() {
 			//super(A, B, "grant");
+
+			// Edge properties
+
+			
+			Idle
+			
 		}
 
 		@Override
@@ -59,7 +71,7 @@ public class MachineImpl extends ITIOA {
 
 
 
-//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@5c19f8f0 (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@4c2dbcf0 (urgent: false, universal: false, name: Idle)]
+//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@2d69982c (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@6fa0b93e (urgent: false, universal: false, name: Idle)]
 
 /* Generating all locations */
 
@@ -73,21 +85,21 @@ public class MachineImpl extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@73cf64f8 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3c602175 (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@58e4533b (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@2c5f87e4 (controllable: false)
 										
 				
 			};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 				
 				
 										
@@ -133,21 +145,21 @@ public class MachineImpl extends ITIOA {
 
 		@Override
 		public void setupEdges() {
-			outputEdges = new IEdgeUncontrollable[]{
+			outputEdges = new IOutputEdge[]{
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6d258c1b (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@740476b6 (controllable: false)
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@58bbaf09 (controllable: false)
+						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4b4ebc5b (controllable: false)
 										
 				
 			};
 			
-			inputEdges = new IEdgeControllable[]{
+			inputEdges = new IInputEdge[]{
 				
 				
 										

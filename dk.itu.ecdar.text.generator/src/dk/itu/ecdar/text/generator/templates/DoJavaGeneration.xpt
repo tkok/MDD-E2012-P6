@@ -30,6 +30,16 @@ public class «this.name» extends ITIOA {
    	«ENDIF»    	 
 		public «iter.counter1»() {
 			//super(A, B, "grant");
+
+			// Edge properties
+
+			«FOREACH edge.updates AS io ITERATOR iter3»
+			«io.eAllContents.toString()»
+			«ENDFOREACH»
+			
+			// testing target
+			«edge.target.name»
+			
 		}
 
 		@Override

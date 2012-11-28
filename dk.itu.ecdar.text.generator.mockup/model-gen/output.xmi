@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecdarText="http://www.itu.dk/ecdar/text/EcdarText" xsi:schemaLocation="http://www.itu.dk/ecdar/text/EcdarText java://dk.itu.ecdar.text.ecdarText.EcdarTextPackage">
+  <ecdarText:ETSpecificationDefinition name="Machine">
+    <body>
+      <declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETClockType"/>
+          </type>
+          <variables name="y"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="tea" ioType="!"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETInputType"/>
+          </type>
+          <variables name="coin"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="cof" ioType="!"/>
+        </declarations>
+      </declarations>
+      <locations name="Serving">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/0/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="6"/>
+        </invariants>
+        <edges target="/0/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/0/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/0/@body/@locations.1">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/0/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/0/@body/@locations.1">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/0/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/0/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="4"/>
+          </guard>
+        </edges>
+      </locations>
+      <locations name="Idle">
+        <edges target="/0/@body/@locations.1">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/0/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/0/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="2"/>
+          </guard>
+        </edges>
+        <edges target="/0/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/0/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/0/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+    </body>
+  </ecdarText:ETSpecificationDefinition>
+  <ecdarText:ETSpecificationDefinition name="University2">
+    <body>
+      <declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETClockType"/>
+          </type>
+          <variables name="z"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="coin" ioType="!"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETInputType"/>
+          </type>
+          <variables name="grant"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETInputType"/>
+          </type>
+          <variables name="pub"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="patent" ioType="!"/>
+        </declarations>
+      </declarations>
+      <locations name="id2">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="2"/>
+        </invariants>
+        <edges target="/1/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/1/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/1/@body/@locations.5">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.4/@variables.0"/>
+          </io>
+        </edges>
+      </locations>
+      <locations urgent="true" name="Inconsistent"/>
+      <locations name="id4">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="2"/>
+        </invariants>
+        <edges target="/1/@body/@locations.2">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/1/@body/@locations.2">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/1/@body/@locations.4">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+      </locations>
+      <locations name="Universal">
+        <edges target="/1/@body/@locations.3">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/1/@body/@locations.3">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/1/@body/@locations.3">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/1/@body/@locations.3">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.4/@variables.0"/>
+          </io>
+        </edges>
+      </locations>
+      <locations name="id6">
+        <edges target="/1/@body/@locations.4">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/1/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+      <locations name="id7">
+        <edges target="/1/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+        <edges target="/1/@body/@locations.2">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/1/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+    </body>
+  </ecdarText:ETSpecificationDefinition>
+  <ecdarText:ETSpecificationDefinition name="Spec">
+    <body>
+      <declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETClockType"/>
+          </type>
+          <variables name="u"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="patent" ioType="!"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETInputType"/>
+          </type>
+          <variables name="grant"/>
+        </declarations>
+      </declarations>
+      <locations name="End">
+        <edges target="/2/@body/@locations.0">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/2/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/2/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/2/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+      </locations>
+      <locations name="Grant">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/2/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="20"/>
+        </invariants>
+        <edges target="/2/@body/@locations.1">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/2/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/2/@body/@locations.2">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/2/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/2/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+      <locations name="Start">
+        <edges target="/2/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/2/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterExpression">
+            <left xsi:type="ecdarText:ETReference" target="/2/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="2"/>
+          </guard>
+        </edges>
+        <edges target="/2/@body/@locations.1">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/2/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETLessEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/2/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="2"/>
+          </guard>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/2/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+    </body>
+  </ecdarText:ETSpecificationDefinition>
+  <ecdarText:ETSpecificationDefinition name="University">
+    <body>
+      <declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETClockType"/>
+          </type>
+          <variables name="z"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETInputType"/>
+          </type>
+          <variables name="pub"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETInputType"/>
+          </type>
+          <variables name="grant"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="patent" ioType="!"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="coin" ioType="!"/>
+        </declarations>
+      </declarations>
+      <locations name="D">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="2"/>
+        </invariants>
+        <edges target="/3/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/3/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/3/@body/@locations.3">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+        </edges>
+      </locations>
+      <locations name="C">
+        <edges target="/3/@body/@locations.1">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/3/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+      <locations name="B">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="2"/>
+        </invariants>
+        <edges target="/3/@body/@locations.2">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/3/@body/@locations.2">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/3/@body/@locations.1">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.4/@variables.0"/>
+          </io>
+        </edges>
+      </locations>
+      <locations name="A">
+        <edges target="/3/@body/@locations.3">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/3/@body/@locations.2">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/3/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+    </body>
+  </ecdarText:ETSpecificationDefinition>
+  <ecdarText:ETSpecificationDefinition name="MachineImpl">
+    <body>
+      <declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETClockType"/>
+          </type>
+          <variables name="z"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="tea" ioType="!"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETInputType"/>
+          </type>
+          <variables name="coin"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="cof" ioType="!"/>
+        </declarations>
+      </declarations>
+      <locations name="Serving">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/4/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="5"/>
+        </invariants>
+        <edges target="/4/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/4/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/4/@body/@locations.1">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/4/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/4/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="5"/>
+          </guard>
+        </edges>
+      </locations>
+      <locations name="Idle">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/4/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="10"/>
+        </invariants>
+        <edges target="/4/@body/@locations.1">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/4/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/4/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="10"/>
+          </guard>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/4/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+        <edges target="/4/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/4/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/4/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+    </body>
+  </ecdarText:ETSpecificationDefinition>
+  <ecdarText:ETSpecificationDefinition name="MachineRef">
+    <body>
+      <declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETClockType"/>
+          </type>
+          <variables name="y"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="tea" ioType="!"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETInputType"/>
+          </type>
+          <variables name="coin"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="cof" ioType="!"/>
+        </declarations>
+      </declarations>
+      <locations name="Serving">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/5/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="5"/>
+        </invariants>
+        <edges target="/5/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/5/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/5/@body/@locations.1">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/5/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/5/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="4"/>
+          </guard>
+        </edges>
+      </locations>
+      <locations name="Idle">
+        <edges target="/5/@body/@locations.1">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/5/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/5/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="2"/>
+          </guard>
+        </edges>
+        <edges target="/5/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/5/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/5/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+    </body>
+  </ecdarText:ETSpecificationDefinition>
+  <ecdarText:ETSpecificationDefinition name="ResearcherImpl">
+    <body>
+      <declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETClockType"/>
+          </type>
+          <variables name="x"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETInputType"/>
+          </type>
+          <variables name="tea"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETInputType"/>
+          </type>
+          <variables name="cof"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="pub" ioType="!"/>
+        </declarations>
+      </declarations>
+      <locations name="lu">
+        <edges target="/6/@body/@locations.0">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/6/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/6/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+      </locations>
+      <locations name="id21">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="3"/>
+        </invariants>
+        <edges target="/6/@body/@locations.1">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/6/@body/@locations.1">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/6/@body/@locations.3">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="3"/>
+          </guard>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+      <locations name="id22">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="6"/>
+        </invariants>
+        <edges target="/6/@body/@locations.2">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/6/@body/@locations.2">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/6/@body/@locations.3">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="6"/>
+          </guard>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+      <locations name="Idle">
+        <edges target="/6/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterExpression">
+            <left xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="16"/>
+          </guard>
+        </edges>
+        <edges target="/6/@body/@locations.2">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETLessEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="16"/>
+          </guard>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+        <edges target="/6/@body/@locations.1">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/6/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+    </body>
+  </ecdarText:ETSpecificationDefinition>
+  <ecdarText:ETSpecificationDefinition name="Researcher">
+    <body>
+      <declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETClockType"/>
+          </type>
+          <variables name="x"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETInputType"/>
+          </type>
+          <variables name="tea"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETInputType"/>
+          </type>
+          <variables name="cof"/>
+        </declarations>
+        <declarations xsi:type="ecdarText:ETVariableDeclaration">
+          <type>
+            <modifiers/>
+            <identifier xsi:type="ecdarText:ETOutputType"/>
+          </type>
+          <variables name="pub" ioType="!"/>
+        </declarations>
+      </declarations>
+      <locations name="UNIV">
+        <edges target="/7/@body/@locations.0">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/7/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/7/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+      </locations>
+      <locations name="T">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="8"/>
+        </invariants>
+        <edges target="/7/@body/@locations.1">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/7/@body/@locations.1">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/7/@body/@locations.3">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="4"/>
+          </guard>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+      <locations name="C">
+        <invariants xsi:type="ecdarText:ETLessEqualExpression">
+          <left xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.0/@variables.0"/>
+          <right xsi:type="ecdarText:ETNumberLiteral" value="4"/>
+        </invariants>
+        <edges target="/7/@body/@locations.2">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/7/@body/@locations.2">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+        </edges>
+        <edges target="/7/@body/@locations.3">
+          <io type="!">
+            <expression xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.3/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="2"/>
+          </guard>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+      <locations name="Idle">
+        <edges target="/7/@body/@locations.0">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETGreaterExpression">
+            <left xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="15"/>
+          </guard>
+        </edges>
+        <edges target="/7/@body/@locations.1">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.1/@variables.0"/>
+          </io>
+          <guard xsi:type="ecdarText:ETLessEqualExpression">
+            <left xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral" value="15"/>
+          </guard>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+        <edges target="/7/@body/@locations.2">
+          <io>
+            <expression xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.2/@variables.0"/>
+          </io>
+          <updates xsi:type="ecdarText:ETAssignmentExpression">
+            <left xsi:type="ecdarText:ETReference" target="/7/@body/@declarations/@declarations.0/@variables.0"/>
+            <right xsi:type="ecdarText:ETNumberLiteral"/>
+          </updates>
+        </edges>
+      </locations>
+    </body>
+  </ecdarText:ETSpecificationDefinition>
+</xmi:XMI>

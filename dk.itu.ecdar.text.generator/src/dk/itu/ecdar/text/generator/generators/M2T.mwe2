@@ -28,7 +28,7 @@ Workflow {
 	}
 
 	component = org.eclipse.emf.mwe.utils.DirectoryCleaner {
-		directory = "../dk.itu.ecdar.text.generator.mockup/model-gen/"
+		directory = "../dk.itu.ecdar.text.generator/model-gen/"
 	}
 
 	component = org.eclipse.xpand2.Generator {
@@ -52,6 +52,6 @@ Workflow {
 		// file extension is important here. 
 		// ".ttripLoose" (so the declared xtext syntax extension) saves in textual syntax
 		// ".xmi" or ".ecore" saves in xmi syntax.
-		uri = "platform:/resource/dk.itu.ecdar.text.generator.mockup/model-gen/output.xmi"
+		uri = "platform:/resource/dk.itu.ecdar.text.generator/model-gen/output.xmi"
 	}
 }
