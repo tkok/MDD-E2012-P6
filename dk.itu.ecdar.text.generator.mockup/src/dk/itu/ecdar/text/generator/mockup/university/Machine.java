@@ -11,7 +11,7 @@ public class Machine extends ITIOA {
 	class Idle_COIN_Serving extends IInputEdge {
 
 		public Idle_COIN_Serving() {
-			super(idle, serving, "coin");
+			super(serving, "coin");
 		}
 
 		@Override
@@ -29,7 +29,7 @@ public class Machine extends ITIOA {
 	class Serving_COIN_Serving extends IInputEdge {
 
 		public Serving_COIN_Serving() {
-			super(serving, serving, "coin");
+			super(serving, "coin");
 		}
 
 		@Override
@@ -47,7 +47,7 @@ public class Machine extends ITIOA {
 	class Idle_TEA_Idle extends IOutputEdge {
 
 		public Idle_TEA_Idle() {
-			super(idle, idle, "tea");
+			super(idle, "tea");
 		}
 
 		@Override
@@ -64,7 +64,7 @@ public class Machine extends ITIOA {
 	class Serving_TEA_Idle extends IOutputEdge {
 
 		public Serving_TEA_Idle() {
-			super(serving, idle, "tea");
+			super(idle, "tea");
 		}
 
 		@Override
@@ -82,7 +82,7 @@ public class Machine extends ITIOA {
 	class Serving_COF_Idle extends IOutputEdge {
 
 		public Serving_COF_Idle() {
-			super(serving, idle, "cof");
+			super(idle, "cof");
 		}
 
 		@Override

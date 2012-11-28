@@ -11,7 +11,7 @@ public class Spec extends ITIOA {
 	class Start_GRANT_Grant extends IInputEdge {
 
 		public Start_GRANT_Grant() {
-			super(start, grant, "grant");
+			super(grant, "grant");
 		}
 
 		@Override
@@ -30,7 +30,7 @@ public class Spec extends ITIOA {
 	class Grant_GRANT_Grant extends IInputEdge {
 
 		public Grant_GRANT_Grant() {
-			super(grant, grant, "grant");
+			super(grant, "grant");
 		}
 
 		@Override
@@ -48,7 +48,7 @@ public class Spec extends ITIOA {
 	class Start_GRANT_End extends IInputEdge {
 
 		public Start_GRANT_End() {
-			super(start, end, "grant");
+			super(end, "grant");
 		}
 
 		@Override
@@ -66,7 +66,7 @@ public class Spec extends ITIOA {
 	class End_GRANT_End extends IInputEdge {
 
 		public End_GRANT_End() {
-			super(end, end, "grant");
+			super(end, "grant");
 		}
 
 		@Override
@@ -85,7 +85,7 @@ public class Spec extends ITIOA {
 	class Grant_PATENT_Start extends IOutputEdge {
 
 		public Grant_PATENT_Start() {
-			super(grant, start, "patent");
+			super(start, "patent");
 		}
 
 		@Override
@@ -104,7 +104,7 @@ public class Spec extends ITIOA {
 	class End_PATENT_End extends IOutputEdge {
 
 		public End_PATENT_End() {
-			super(end, end, "patent");
+			super(end, "patent");
 		}
 
 		@Override

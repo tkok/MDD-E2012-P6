@@ -11,7 +11,7 @@ public class Researcher extends ITIOA {
 	class Idle_COF_Coffee extends IInputEdge {
 
 		public Idle_COF_Coffee() {
-			super(idle, coffee, "cof");
+			super(coffee, "cof");
 		}
 
 		@Override
@@ -29,7 +29,7 @@ public class Researcher extends ITIOA {
 	class Idle_TEA_Tea extends IInputEdge {
 
 		public Idle_TEA_Tea() {
-			super(idle, tea, "tea");
+			super(tea, "tea");
 		}
 		
 		@Override
@@ -47,7 +47,7 @@ public class Researcher extends ITIOA {
 	class Idle_PUB_Stuck extends IInputEdge {
 
 		public Idle_PUB_Stuck() {
-			super(idle, stuck, "tea");
+			super(stuck, "tea");
 		}
 
 		@Override
@@ -64,7 +64,7 @@ public class Researcher extends ITIOA {
 	class Stuck_TEA_Stuck extends IInputEdge {
 
 		public Stuck_TEA_Stuck() {
-			super(stuck, stuck, "tea");
+			super(stuck, "tea");
 		}
 
 		@Override
@@ -81,7 +81,7 @@ public class Researcher extends ITIOA {
 	class Stuck_COF_Stuck extends IInputEdge {
 
 		public Stuck_COF_Stuck() {
-			super(stuck, stuck, "cof");
+			super(stuck, "cof");
 		}
 
 		@Override
@@ -99,7 +99,7 @@ public class Researcher extends ITIOA {
 	class Coffe_PUB_Idle extends IOutputEdge {
 
 		public Coffe_PUB_Idle() {
-			super(coffee, idle, "pub");
+			super(idle, "pub");
 		}
 
 		@Override
@@ -117,7 +117,7 @@ public class Researcher extends ITIOA {
 	class Tea_PUB_Idle extends IOutputEdge {
 
 		public Tea_PUB_Idle() {
-			super(tea, idle, "pub");
+			super(idle, "pub");
 		}
 
 		@Override
@@ -135,7 +135,7 @@ public class Researcher extends ITIOA {
 	class Stuck_PUB_Stuck extends IOutputEdge {
 
 		public Stuck_PUB_Stuck() {
-			super(stuck, stuck, "pub");
+			super(stuck, "pub");
 		}
 
 		@Override

@@ -11,7 +11,7 @@ public class University extends ITIOA {
 	class A_GRANT_B extends IInputEdge {
 
 		public A_GRANT_B() {
-			super(A, B, "grant");
+			super(B, "grant");
 		}
 
 		@Override
@@ -29,7 +29,7 @@ public class University extends ITIOA {
 	class B_GRANT_B extends IInputEdge {
 
 		public B_GRANT_B() {
-			super(B, B, "grant");
+			super(B, "grant");
 		}
 
 		@Override
@@ -47,7 +47,7 @@ public class University extends ITIOA {
 	class B_PUB_B extends IInputEdge {
 
 		public B_PUB_B() {
-			super(B, B, "grant");
+			super(B, "grant");
 		}
 
 		@Override
@@ -65,7 +65,7 @@ public class University extends ITIOA {
 	class C_GRANT_C extends IInputEdge {
 		
 		public C_GRANT_C() {
-			super(C, C, "grant");
+			super(C, "grant");
 		}
 		
 		@Override
@@ -80,7 +80,7 @@ public class University extends ITIOA {
 	class C_PUB_D extends IInputEdge {
 		
 		public C_PUB_D() {
-			super(C, D, "pub");
+			super(D, "pub");
 		}
 		
 		@Override
@@ -98,7 +98,7 @@ public class University extends ITIOA {
 		
 		
 		public D_PUB_D() {
-			super(D, D, "pub");
+			super(D, "pub");
 		}
 		
 		@Override
@@ -115,7 +115,7 @@ public class University extends ITIOA {
 		
 		
 		public D_GRANT_D() {
-			super(D, D, "grant");
+			super(D, "grant");
 		}
 		
 		@Override
@@ -131,7 +131,7 @@ public class University extends ITIOA {
 	// Uncontrollable edges
 	class B_COIN_C extends IOutputEdge {
 		public B_COIN_C() {
-			super(B, C, "coin");
+			super(C, "coin");
 		}
 
 		@Override
@@ -146,7 +146,7 @@ public class University extends ITIOA {
 	
 	class D_PATENT_A extends IOutputEdge {
 		public D_PATENT_A() {
-			super(D, A, "patent");
+			super(A, "patent");
 		}
 
 		@Override

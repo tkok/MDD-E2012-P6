@@ -11,7 +11,7 @@ public class HalfUni2 extends ITIOA {
 	class C_GRANT_C extends IInputEdge {
 
 		public C_GRANT_C() {
-			super(c, c, "grant");
+			super(c, "grant");
 		}
 
 		@Override
@@ -28,7 +28,7 @@ public class HalfUni2 extends ITIOA {
 	class C_PUB_D extends IInputEdge {
 
 		public C_PUB_D() {
-			super(c, d, "pub");
+			super(d, "pub");
 		}
 
 		@Override
@@ -46,7 +46,7 @@ public class HalfUni2 extends ITIOA {
 	class D_GRANT_D extends IInputEdge {
 
 		public D_GRANT_D() {
-			super(d, d, "grant");
+			super(d, "grant");
 		}
 
 		@Override
@@ -63,7 +63,7 @@ public class HalfUni2 extends ITIOA {
 	class D_PUB_D extends IInputEdge {
 
 		public D_PUB_D() {
-			super(d, d, "pub");
+			super(d, "pub");
 		}
 
 		@Override
@@ -81,7 +81,7 @@ public class HalfUni2 extends ITIOA {
 	class C_COIN_C extends IOutputEdge {
 
 		public C_COIN_C() {
-			super(c, c, "coin");
+			super(c, "coin");
 		}
 
 		@Override
@@ -98,7 +98,7 @@ public class HalfUni2 extends ITIOA {
 	class D_COIN_D extends IOutputEdge {
 
 		public D_COIN_D() {
-			super(d, d, "coin");
+			super(d, "coin");
 		}
 
 		@Override
@@ -115,7 +115,7 @@ public class HalfUni2 extends ITIOA {
 	class D_PATENT_C extends IOutputEdge {
 
 		public D_PATENT_C() {
-			super(d, c, "patent");
+			super(c, "patent");
 		}
 
 		@Override
