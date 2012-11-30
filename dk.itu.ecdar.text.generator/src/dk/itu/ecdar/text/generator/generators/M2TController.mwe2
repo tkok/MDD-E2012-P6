@@ -7,7 +7,8 @@ Workflow {
 		registerGeneratedEPackage = "dk.itu.ecdar.text.ecdarText.EcdarTextPackage"
 		registerEcoreFile = "platform:/resource/dk.itu.ecdar.text/src-gen/dk/itu/ecdar/text/EcdarText.ecore"
 	}
-
+	
+	
 	
 	component = org.eclipse.xtext.mwe.Reader {
 		
