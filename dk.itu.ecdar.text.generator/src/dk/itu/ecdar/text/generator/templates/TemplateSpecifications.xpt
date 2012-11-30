@@ -82,7 +82,12 @@ public class «this.name» extends ITIOA {
 				«FOREACH location.edges AS edge»
 					«IF edge.io.type.toString() == "!"»
 						«REM»We have the uncontrollable edges here«ENDREM»
-						//«edge.target.edges»
+							«FOREACH body.locations.edges AS edgeToMatch ITERATOR edgeIter»
+							«IF edge.toString() == edgeToMatch.toString()»
+								//Matching: «edgeToMatch.toString()» = «edge.toString()»
+								new «"Edge" + edgeIter.counter1»()
+							«ENDIF»
+						«ENDFOREACH»
 					«ENDIF»					
 				«ENDFOREACH»
 			};
@@ -92,9 +97,12 @@ public class «this.name» extends ITIOA {
 				«FOREACH location.edges AS edge»
 					«IF edge.io.type.toString() == "?"»
 						«REM»We have the controllable edges here«ENDREM»
-						
-						//«edge.target.edges»
-						
+						«FOREACH body.locations.edges AS edgeToMatch ITERATOR edgeIter»
+							«IF edge.toString() == edgeToMatch.toString()»
+								//Matching: «edgeToMatch.toString()» = «edge.toString()»
+								new «"Edge" + edgeIter.counter1»()
+							«ENDIF»
+						«ENDFOREACH»
 					«ENDIF»					
 				«ENDFOREACH»
 			};
