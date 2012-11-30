@@ -1,17 +1,15 @@
 «IMPORT ecdarText»
 «DEFINE main FOR ecdarText::ETSpecificationDefinition»
 «FILE "Environment.java"»
-package dk.itu.ecdar.text.generator.mockup.university;
-
+package dk.itu.ecdar.text.generator;
 import dk.itu.ecdar.text.generator.environment.IEnvironment;
 import dk.itu.ecdar.text.generator.environment.QuickLog;
 import dk.itu.ecdar.text.generator.framework.AutomatonTimer;
 
-public class UniversityEnvironment extends IEnvironment {
-
+public class Environment extends IEnvironment {
 	@Override
 	public void generateController() {
-		controller = UniversityController.system_Machine_Researcher_University2_Spec();
+		controller = Controller();
 	}
 
 	public static void main(String[] args) {
@@ -22,11 +20,11 @@ public class UniversityEnvironment extends IEnvironment {
 		QuickLog.setLogLevel(20);
 		QuickLog.logToFile();
 		
-		IEnvironment universityEnvironment = new UniversityEnvironment();
-		universityEnvironment.parse(args[0]);
-		universityEnvironment.run();
+		IEnvironment Environment = new Environment();
+		Environment.parse(args[0]);
+		Environment.run();
 		
-		QuickLog.writeToFile("university");
+		QuickLog.writeToFile("log");
 		System.exit(0);
 	}
 

@@ -20,7 +20,6 @@ Workflow {
 		load = {
 			slot = "et"
 			type = "ETSpecificationDefinition"
-			
 			firstOnly = true
 		}
 
