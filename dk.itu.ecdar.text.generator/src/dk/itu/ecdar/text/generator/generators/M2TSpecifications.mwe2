@@ -27,9 +27,9 @@ Workflow {
 
 	}
 
-	component = org.eclipse.emf.mwe.utils.DirectoryCleaner {
+	/*component = org.eclipse.emf.mwe.utils.DirectoryCleaner {
 		directory = "../dk.itu.ecdar.text.generator/model-gen/"
-	}
+	}*/
 
 	component = org.eclipse.xpand2.Generator {
 		

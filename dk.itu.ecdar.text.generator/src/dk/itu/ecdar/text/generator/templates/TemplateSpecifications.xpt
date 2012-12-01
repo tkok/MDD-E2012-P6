@@ -129,7 +129,7 @@ public class «this.name» extends ITIOA {
 
 		@Override
 		public void task() {
-			//Is always empty??
+			Controller.«this.name»«location.name.toFirstUpper()»();
 		}	
 	}
 «ENDFOREACH»

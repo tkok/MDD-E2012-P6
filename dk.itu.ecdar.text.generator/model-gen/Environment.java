@@ -1,0 +1,29 @@
+
+package dk.itu.ecdar.text.generator;
+import dk.itu.ecdar.text.generator.environment.IEnvironment;
+import dk.itu.ecdar.text.generator.environment.QuickLog;
+import dk.itu.ecdar.text.generator.framework.AutomatonTimer;
+
+public class Environment extends IEnvironment {
+	@Override
+	public void generateController() {
+		controller = Controller();
+	}
+
+	public static void main(String[] args) {
+		
+		// Set timer resolution for this test to 10 milliseconds
+		AutomatonTimer.setResolution(10);
+		
+		QuickLog.setLogLevel(20);
+		QuickLog.logToFile();
+		
+		IEnvironment Environment = new Environment();
+		Environment.parse(args[0]);
+		Environment.run();
+		
+		QuickLog.writeToFile("log");
+		System.exit(0);
+	}
+
+}

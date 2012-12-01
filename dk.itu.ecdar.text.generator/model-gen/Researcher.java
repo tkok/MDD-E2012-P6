@@ -10,31 +10,29 @@ public class Researcher extends ITIOA {
 
 
 
-/* Generating all edges */
+//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@29c50e17 (urgent: false, universal: false, name: UNIV), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@7a5cd4b6 (urgent: false, universal: false, name: T), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@543f8418 (urgent: false, universal: false, name: C), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@4c627d22 (urgent: false, universal: false, name: Idle)]
+
+/* Generating all edges - NOTE: Edges with IO type "!" is OutputEdge, "?" is InputEdge	 */
 
    	/*	Number: 1
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@43418cb1 (controllable: false) of edge
- 		Controllable: false 	*/
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@346c0419 (controllable: false) of edge
+ 		Controllable: false
+ 		Edge IO Type: !	*/ 
  		
    	
-   	class 1 extends IOutputEdge {
+   	class Edge1 extends IOutputEdge {
    	    	 
-		public 1() {
-			//super(A, B, "grant");
-
-			// Edge properties
-
-			
-			
-			// testing target
-			UNIV
-			!
-			
+		public Edge1() {
+			//Target: UNIV
+			//Will be rewritten to match super(TargetEdge, Signal)
+			super(UNIV, "SIGNAL");
 		}
 
 		@Override
 		public boolean checkGuard(long time) {
+			
 			return to.checkInvariant(time);
+			
 		}
 
 		@Override
@@ -44,28 +42,24 @@ public class Researcher extends ITIOA {
 	} 
 
    	/*	Number: 2
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@326fda17 (controllable: false) of edge
- 		Controllable: false 	*/
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@77cb817b (controllable: false) of edge
+ 		Controllable: false
+ 		Edge IO Type: ?	*/ 
  		
    	
-   	class 2 extends IOutputEdge {
+   	class Edge2 extends IInputEdge {
    	    	 
-		public 2() {
-			//super(A, B, "grant");
-
-			// Edge properties
-
-			
-			
-			// testing target
-			UNIV
-			?
-			
+		public Edge2() {
+			//Target: UNIV
+			//Will be rewritten to match super(TargetEdge, Signal)
+			super(UNIV, "SIGNAL");
 		}
 
 		@Override
 		public boolean checkGuard(long time) {
+			
 			return to.checkInvariant(time);
+			
 		}
 
 		@Override
@@ -75,28 +69,24 @@ public class Researcher extends ITIOA {
 	} 
 
    	/*	Number: 3
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@13e49516 (controllable: false) of edge
- 		Controllable: false 	*/
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4ff0ed17 (controllable: false) of edge
+ 		Controllable: false
+ 		Edge IO Type: ?	*/ 
  		
    	
-   	class 3 extends IOutputEdge {
+   	class Edge3 extends IInputEdge {
    	    	 
-		public 3() {
-			//super(A, B, "grant");
-
-			// Edge properties
-
-			
-			
-			// testing target
-			UNIV
-			?
-			
+		public Edge3() {
+			//Target: UNIV
+			//Will be rewritten to match super(TargetEdge, Signal)
+			super(UNIV, "SIGNAL");
 		}
 
 		@Override
 		public boolean checkGuard(long time) {
+			
 			return to.checkInvariant(time);
+			
 		}
 
 		@Override
@@ -106,28 +96,24 @@ public class Researcher extends ITIOA {
 	} 
 
    	/*	Number: 4
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1438de7f (controllable: false) of edge
- 		Controllable: false 	*/
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4f38f663 (controllable: false) of edge
+ 		Controllable: false
+ 		Edge IO Type: ?	*/ 
  		
    	
-   	class 4 extends IOutputEdge {
+   	class Edge4 extends IInputEdge {
    	    	 
-		public 4() {
-			//super(A, B, "grant");
-
-			// Edge properties
-
-			
-			
-			// testing target
-			T
-			?
-			
+		public Edge4() {
+			//Target: T
+			//Will be rewritten to match super(TargetEdge, Signal)
+			super(T, "SIGNAL");
 		}
 
 		@Override
 		public boolean checkGuard(long time) {
+			
 			return to.checkInvariant(time);
+			
 		}
 
 		@Override
@@ -137,28 +123,24 @@ public class Researcher extends ITIOA {
 	} 
 
    	/*	Number: 5
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@15c29923 (controllable: false) of edge
- 		Controllable: false 	*/
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6974c520 (controllable: false) of edge
+ 		Controllable: false
+ 		Edge IO Type: ?	*/ 
  		
    	
-   	class 5 extends IOutputEdge {
+   	class Edge5 extends IInputEdge {
    	    	 
-		public 5() {
-			//super(A, B, "grant");
-
-			// Edge properties
-
-			
-			
-			// testing target
-			T
-			?
-			
+		public Edge5() {
+			//Target: T
+			//Will be rewritten to match super(TargetEdge, Signal)
+			super(T, "SIGNAL");
 		}
 
 		@Override
 		public boolean checkGuard(long time) {
+			
 			return to.checkInvariant(time);
+			
 		}
 
 		@Override
@@ -168,30 +150,29 @@ public class Researcher extends ITIOA {
 	} 
 
    	/*	Number: 6
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@594d7f1e (controllable: false) of edge
- 		Controllable: false 	*/
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@11fb7f52 (controllable: false) of edge
+ 		Controllable: false
+ 		Edge IO Type: !	*/ 
  		
    	
-   	class 6 extends IOutputEdge {
+   	class Edge6 extends IOutputEdge {
    	    	 
-		public 6() {
-			//super(A, B, "grant");
-
-			// Edge properties
-
-			
-			[dk.itu.ecdar.text.ecdarText.impl.ETNumberLiteralImpl@5ad20aca (value: 0), dk.itu.ecdar.text.ecdarText.impl.ETReferenceImpl@9af67f5]
-			
-			
-			// testing target
-			Idle
-			!
-			
+		public Edge6() {
+			//Target: Idle
+			//Will be rewritten to match super(TargetEdge, Signal)
+			super(Idle, "SIGNAL");
 		}
 
 		@Override
 		public boolean checkGuard(long time) {
-			return to.checkInvariant(time);
+			
+			
+			
+					return to.checkInvariant(time) && time >=4;
+					
+			
+			
+			
 		}
 
 		@Override
@@ -201,28 +182,24 @@ public class Researcher extends ITIOA {
 	} 
 
    	/*	Number: 7
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3de74140 (controllable: false) of edge
- 		Controllable: false 	*/
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@528b376 (controllable: false) of edge
+ 		Controllable: false
+ 		Edge IO Type: ?	*/ 
  		
    	
-   	class 7 extends IOutputEdge {
+   	class Edge7 extends IInputEdge {
    	    	 
-		public 7() {
-			//super(A, B, "grant");
-
-			// Edge properties
-
-			
-			
-			// testing target
-			C
-			?
-			
+		public Edge7() {
+			//Target: C
+			//Will be rewritten to match super(TargetEdge, Signal)
+			super(C, "SIGNAL");
 		}
 
 		@Override
 		public boolean checkGuard(long time) {
+			
 			return to.checkInvariant(time);
+			
 		}
 
 		@Override
@@ -232,28 +209,24 @@ public class Researcher extends ITIOA {
 	} 
 
    	/*	Number: 8
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@2c639467 (controllable: false) of edge
- 		Controllable: false 	*/
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@455354c6 (controllable: false) of edge
+ 		Controllable: false
+ 		Edge IO Type: ?	*/ 
  		
    	
-   	class 8 extends IOutputEdge {
+   	class Edge8 extends IInputEdge {
    	    	 
-		public 8() {
-			//super(A, B, "grant");
-
-			// Edge properties
-
-			
-			
-			// testing target
-			C
-			?
-			
+		public Edge8() {
+			//Target: C
+			//Will be rewritten to match super(TargetEdge, Signal)
+			super(C, "SIGNAL");
 		}
 
 		@Override
 		public boolean checkGuard(long time) {
+			
 			return to.checkInvariant(time);
+			
 		}
 
 		@Override
@@ -263,30 +236,120 @@ public class Researcher extends ITIOA {
 	} 
 
    	/*	Number: 9
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5f4960eb (controllable: false) of edge
- 		Controllable: false 	*/
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4e83de2b (controllable: false) of edge
+ 		Controllable: false
+ 		Edge IO Type: !	*/ 
  		
    	
-   	class 9 extends IOutputEdge {
+   	class Edge9 extends IOutputEdge {
    	    	 
-		public 9() {
-			//super(A, B, "grant");
-
-			// Edge properties
-
-			
-			[dk.itu.ecdar.text.ecdarText.impl.ETReferenceImpl@4beb407, dk.itu.ecdar.text.ecdarText.impl.ETNumberLiteralImpl@41d3a00 (value: 0)]
-			
-			
-			// testing target
-			Idle
-			!
-			
+		public Edge9() {
+			//Target: Idle
+			//Will be rewritten to match super(TargetEdge, Signal)
+			super(Idle, "SIGNAL");
 		}
 
 		@Override
 		public boolean checkGuard(long time) {
+			
+			
+			
+					return to.checkInvariant(time) && time >=2;
+					
+			
+			
+			
+		}
+
+		@Override
+		public void onTraverse() {
+			resetTime();
+		}
+	} 
+
+   	/*	Number: 10
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7d89a87b (controllable: false) of edge
+ 		Controllable: false
+ 		Edge IO Type: ?	*/ 
+ 		
+   	
+   	class Edge10 extends IInputEdge {
+   	    	 
+		public Edge10() {
+			//Target: UNIV
+			//Will be rewritten to match super(TargetEdge, Signal)
+			super(UNIV, "SIGNAL");
+		}
+
+		@Override
+		public boolean checkGuard(long time) {
+			
+			
+			
+					return to.checkInvariant(time) && time >15;
+					
+			
+			
+			
+		}
+
+		@Override
+		public void onTraverse() {
+			resetTime();
+		}
+	} 
+
+   	/*	Number: 11
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4f6333f9 (controllable: false) of edge
+ 		Controllable: false
+ 		Edge IO Type: ?	*/ 
+ 		
+   	
+   	class Edge11 extends IInputEdge {
+   	    	 
+		public Edge11() {
+			//Target: T
+			//Will be rewritten to match super(TargetEdge, Signal)
+			super(T, "SIGNAL");
+		}
+
+		@Override
+		public boolean checkGuard(long time) {
+			
+			
+			
+					return to.checkInvariant(time) && time <=15;
+					
+			
+			
+			
+		}
+
+		@Override
+		public void onTraverse() {
+			resetTime();
+		}
+	} 
+
+   	/*	Number: 12
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@2ec9cbbb (controllable: false) of edge
+ 		Controllable: false
+ 		Edge IO Type: ?	*/ 
+ 		
+   	
+   	class Edge12 extends IInputEdge {
+   	    	 
+		public Edge12() {
+			//Target: C
+			//Will be rewritten to match super(TargetEdge, Signal)
+			super(C, "SIGNAL");
+		}
+
+		@Override
+		public boolean checkGuard(long time) {
+			
 			return to.checkInvariant(time);
+			
 		}
 
 		@Override
@@ -298,15 +361,14 @@ public class Researcher extends ITIOA {
 
 
 
-//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@54b78bc (urgent: false, universal: false, name: UNIV), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@52af2320 (urgent: false, universal: false, name: T), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@13c2825b (urgent: false, universal: false, name: C), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@42e97022 (urgent: false, universal: false, name: Idle)]
-
 /* Generating all locations */
 
    	/* 	Number: 1 
-   		Name: Idle */
+   		Name: Idle
+   		Name: ecdarText::ETLocation */
    		
 	class Idle extends ILocation {
-		public Idle(University parent) {
+		public Idle(Researcher parent) {
 			super("Idle", parent);
 		}
 
@@ -314,19 +376,10 @@ public class Researcher extends ITIOA {
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
 				
-					
-						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@46636f1d (controllable: false)
 										
 				
-					
-						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6505ef (controllable: false)
 										
 				
-					
-						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@12a90e78 (controllable: false)
 										
 				
 			};
@@ -334,10 +387,100 @@ public class Researcher extends ITIOA {
 			inputEdges = new IInputEdge[]{
 				
 				
+					
+						
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7d89a87b (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7d89a87b (controllable: false)
+								new Edge10()
+							
+						
+							
+						
+							
+						
 										
 				
+					
+						
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4f6333f9 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4f6333f9 (controllable: false)
+								new Edge11()
+							
+						
+							
+						
 										
 				
+					
+						
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@2ec9cbbb (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@2ec9cbbb (controllable: false)
+								new Edge12()
+							
+						
 										
 				
 			};
@@ -352,22 +495,21 @@ public class Researcher extends ITIOA {
 		}
 
 		@Override
-		public boolean isPreemptive() {
-			//Is always false atm
-			return false;
-		}
-
-		@Override
 		public void task() {
-			//Is empty??
+			
+			
+			Controller.ResearcherIdle();
+			
+			
 		}	
 	}
 
    	/* 	Number: 2 
-   		Name: C */
+   		Name: C
+   		Name: ecdarText::ETLocation */
    		
 	class C extends ILocation {
-		public C(University parent) {
+		public C(Researcher parent) {
 			super("C", parent);
 		}
 
@@ -375,19 +517,40 @@ public class Researcher extends ITIOA {
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
 				
-					
-						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3de74140 (controllable: false)
+										
+				
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@2c639467 (controllable: false)
-										
-				
-					
+							
+							
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5f4960eb (controllable: false)
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4e83de2b (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4e83de2b (controllable: false)
+								new Edge9()
+							
+						
+							
+						
+							
+						
+							
+						
 										
 				
 			};
@@ -395,8 +558,68 @@ public class Researcher extends ITIOA {
 			inputEdges = new IInputEdge[]{
 				
 				
+					
+						
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@528b376 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@528b376 (controllable: false)
+								new Edge7()
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
 										
 				
+					
+						
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@455354c6 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@455354c6 (controllable: false)
+								new Edge8()
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
 										
 				
 										
@@ -409,32 +632,30 @@ public class Researcher extends ITIOA {
 			
 			//IS NOT EMPTY
 				
-				return time
 				
-				<=
+					return time<=4;
+					
 				
-				4;
 				
 						
 		}
 
 		@Override
-		public boolean isPreemptive() {
-			//Is always false atm
-			return false;
-		}
-
-		@Override
 		public void task() {
-			//Is empty??
+			
+			
+			Controller.ResearcherC();
+			
+			
 		}	
 	}
 
    	/* 	Number: 3 
-   		Name: T */
+   		Name: T
+   		Name: ecdarText::ETLocation */
    		
 	class T extends ILocation {
-		public T(University parent) {
+		public T(Researcher parent) {
 			super("T", parent);
 		}
 
@@ -442,19 +663,40 @@ public class Researcher extends ITIOA {
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
 				
-					
-						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1438de7f (controllable: false)
+										
+				
 										
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@15c29923 (controllable: false)
-										
-				
-					
+							
+							
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@594d7f1e (controllable: false)
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@11fb7f52 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@11fb7f52 (controllable: false)
+								new Edge6()
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
 										
 				
 			};
@@ -462,8 +704,68 @@ public class Researcher extends ITIOA {
 			inputEdges = new IInputEdge[]{
 				
 				
+					
+						
+						
+							
+						
+							
+						
+							
+						
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4f38f663 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4f38f663 (controllable: false)
+								new Edge4()
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
 										
 				
+					
+						
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6974c520 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6974c520 (controllable: false)
+								new Edge5()
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
 										
 				
 										
@@ -476,32 +778,30 @@ public class Researcher extends ITIOA {
 			
 			//IS NOT EMPTY
 				
-				return time
 				
-				<=
+					return time<=8;
+					
 				
-				8;
 				
 						
 		}
 
 		@Override
-		public boolean isPreemptive() {
-			//Is always false atm
-			return false;
-		}
-
-		@Override
 		public void task() {
-			//Is empty??
+			
+			
+			Controller.ResearcherT();
+			
+			
 		}	
 	}
 
    	/* 	Number: 4 
-   		Name: UNIV */
+   		Name: UNIV
+   		Name: ecdarText::ETLocation */
    		
 	class UNIV extends ILocation {
-		public UNIV(University parent) {
+		public UNIV(Researcher parent) {
 			super("UNIV", parent);
 		}
 
@@ -511,17 +811,38 @@ public class Researcher extends ITIOA {
 				
 					
 						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@43418cb1 (controllable: false)
+							
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@346c0419 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@346c0419 (controllable: false)
+								new Edge1()
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
 										
 				
-					
-						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@326fda17 (controllable: false)
 										
 				
-					
-						
-						//dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@13e49516 (controllable: false)
 										
 				
 			};
@@ -531,8 +852,68 @@ public class Researcher extends ITIOA {
 				
 										
 				
+					
+						
+						
+							
+						
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@77cb817b (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@77cb817b (controllable: false)
+								new Edge2()
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
 										
 				
+					
+						
+						
+							
+						
+							
+						
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4ff0ed17 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4ff0ed17 (controllable: false)
+								new Edge3()
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
 										
 				
 			};
@@ -547,14 +928,12 @@ public class Researcher extends ITIOA {
 		}
 
 		@Override
-		public boolean isPreemptive() {
-			//Is always false atm
-			return false;
-		}
-
-		@Override
 		public void task() {
-			//Is empty??
+			
+			
+			Controller.ResearcherUNIV();
+			
+			
 		}	
 	}
 
