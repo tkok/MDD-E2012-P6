@@ -1,5 +1,7 @@
 «IMPORT ecdarText»
+
 «DEFINE main FOR ecdarText::ETSpecificationDefinition»
+
 «FILE "Controller.java"»
 package dk.itu.ecdar.text.generator;
 import dk.itu.ecdar.text.generator.framework.IController;
@@ -11,6 +13,10 @@ public class Controller extends IController {
          super(new ITIOA[]{
          	
          		 //Insert new + specnames() here
+         		 
+				«FOREACH this.body.eRootContainer.eContents.select(e|e.metaType == ecdarText::ETSpecificationDefinition) AS spec»
+					//«spec.toString()»
+				«ENDFOREACH»
                  
                  });
          IController.controllerInstance = this;
