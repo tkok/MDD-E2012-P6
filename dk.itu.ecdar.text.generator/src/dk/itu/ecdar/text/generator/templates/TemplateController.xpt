@@ -19,8 +19,11 @@ public class Controller extends IController {
      }
    
     // Define tasks for every spec->location
-     
      «FOREACH this.body.eRootContainer.eContents.typeSelect(ETSpecificationDefinition) AS spec-»
+				«REM»
+				   Add initial location also
+				«ENDREM»
+				//«spec.body.locations.add(spec.body.initialLocation)»
 				
 				«FOREACH spec.body.locations AS loc-»
 	public static void «spec.name»«loc.name»() {
