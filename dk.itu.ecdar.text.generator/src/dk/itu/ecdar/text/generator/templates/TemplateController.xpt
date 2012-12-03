@@ -11,25 +11,27 @@ public class Controller extends IController {
 
 	public Controller() {
          super(new ITIOA[]{
-         	
-         		 //Insert new + specnames() here
-				«FOREACH this.body.eRootContainer.eContents.typeSelect(ETSpecificationDefinition) AS spec-»
-				SPEC: «spec.name»
-				Location: «spec.body.locations.name» 
+				«FOREACH this.body.eRootContainer.eContents.typeSelect(ETSpecificationDefinition) AS spec ITERATOR specIterate-»
+				new «spec.name»()«IF (!specIterate.lastIteration)»,«ENDIF»
 				«ENDFOREACH-»
                  });
          IController.controllerInstance = this;
      }
-     
+   
     // Define tasks for every spec->location
      
-    public static void classnameLocationname() {
+     «FOREACH this.body.eRootContainer.eContents.typeSelect(ETSpecificationDefinition) AS spec-»
+				
+				«FOREACH spec.body.locations AS loc-»
+	public static void «spec.name»«loc.name»() {
         
-        System.out.print("testing task");
-    
+        // define task here
+   
     }
-     
-     
+    			«ENDFOREACH-»
+    
+	«ENDFOREACH-»
+
 }
 
 «ENDFILE»
