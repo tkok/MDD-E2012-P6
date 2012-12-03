@@ -13,9 +13,15 @@ public class Controller extends IController {
          super(new ITIOA[]{
          	
          		 //Insert new + specnames() here
+					//«this.name»
+					//«this.metaType.toString()»
          		 
-				«FOREACH this.body.eRootContainer.eContents.select(e|e.metaType == ecdarText::ETSpecificationDefinition) AS spec»
+				«REM»«FOREACH this.body.eRootContainer.eContents.select(e|e.metaType == ecdarText::ETSpecificationDefinition) AS spec»
 					//«spec.toString()»
+				«ENDFOREACH»«ENDREM»
+				«FOREACH this.body.eRootContainer.eContents.typeSelect(ETSpecificationDefinition) AS spec»
+				SPEC: «spec.name»
+				Location: «spec.body.locations.name» 
 				«ENDFOREACH»
                  
                  });
@@ -34,4 +40,10 @@ public class Controller extends IController {
 }
 
 «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE Root FOR ETSpecificationDefinition»
+«FOREACH this.body.eRootContainer.eContents.typeSelect(ETSpecificationDefinition) AS name»
+«name.name»
+«ENDFOREACH»
 «ENDDEFINE»
