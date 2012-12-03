@@ -33,8 +33,13 @@ public class «this.name» extends ITIOA {
    	«ENDIF»    	 
 		public «"Edge" + iter.counter1»() {
 			//Target: «edge.target.name»
-			//Will be rewritten to match super(TargetEdge, Signal)
-			super(«edge.target.name», "SIGNAL");
+			«FOREACH edge.io.eContents.typeSelect(ecdarText::ETReference).target.eContainer.eContents.typeSelect(ETVariableID).toList() AS var ITERATOR iterVars-»
+			«IF iterVars.firstIteration-»
+				super(«edge.target.name», "«var.name»");
+			«ELSE-»
+				//super(«edge.target.name», "«var.name»");
+			«ENDIF-»					
+			«ENDFOREACH-»
 		}
 
 		@Override
@@ -80,51 +85,51 @@ public class «this.name» extends ITIOA {
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
 				«LET location.edges.select(e|e.io.type.toString() == "!") AS edgesMatch-»
-				«FOREACH edgesMatch AS edge ITERATOR iteratingEdges»
+				«FOREACH edgesMatch AS edge ITERATOR iteratingEdges-»
 						«REM»We have the uncontrollable edges here«ENDREM»
 							«FOREACH body.locations.edges AS edgeToMatch ITERATOR edgeAllIterate-»
-							«IF edge.toString() == edgeToMatch.toString()»
+							«IF edge.toString() == edgeToMatch.toString()-»
 								//Matching: «edgeToMatch.toString()» = «edge.toString()»
-								new «"Edge" + edgeAllIterate.counter1»()«IF (!iteratingEdges.lastIteration)»,«ENDIF»
-							«ENDIF»
-							«ENDFOREACH»				
-				«ENDFOREACH»
-				«ENDLET»
+								new «"Edge" + edgeAllIterate.counter1»()«IF (!iteratingEdges.lastIteration)-»,«ENDIF-»
+							«ENDIF-»
+							«ENDFOREACH-»				
+				«ENDFOREACH-»
+				«ENDLET-»
 			};
 			
 			inputEdges = new IInputEdge[]{
 				«REM»new A_GRANT_B()«ENDREM»
 				«LET location.edges.select(e|e.io.type.toString() == "?") AS edgesMatch-»
-				«FOREACH edgesMatch AS edge ITERATOR iteratingEdges»
+				«FOREACH edgesMatch AS edge ITERATOR iteratingEdges-»
 						«REM»We have the controllable edges here«ENDREM»
 						«FOREACH body.locations.edges AS edgeToMatch ITERATOR edgeIter-»
-							«IF edge.toString() == edgeToMatch.toString()»
-								//Matching: «edgeToMatch.toString()» = «edge.toString()»
-								new «"Edge" + edgeIter.counter1»()«IF (!iteratingEdges.lastIteration)»,«ENDIF»
-							«ENDIF»
-						«ENDFOREACH»				
-				«ENDFOREACH»
-				«ENDLET»
+							«IF edge.toString() == edgeToMatch.toString()-»
+								//Matching: «edgeToMatch.toString()-» = «edge.toString()»
+								new «"Edge" + edgeIter.counter1»()«IF (!iteratingEdges.lastIteration)-»,«ENDIF-»
+							«ENDIF-»
+						«ENDFOREACH-»				
+				«ENDFOREACH-»
+				«ENDLET-»
 			};
 		}
 
 		@Override
 		public boolean checkInvariant(long time) {
-			«IF (!location.invariants.isEmpty)»
+			«IF (!location.invariants.isEmpty)-»
 			//IS NOT EMPTY
-				«LET location.invariants.eContents.typeSelect(ETNumberLiteral).value.get(0) AS value»
-				«LET location.invariants.get(0).metaType AS metaType»
+				«LET location.invariants.eContents.typeSelect(ETNumberLiteral).value.get(0) AS value-»
+				«LET location.invariants.get(0).metaType AS metaType-»
 					«IF metaType == ecdarText::ETLessEqualExpression»return time<=«value»;
 					«ELSEIF metaType == ecdarText::ETLessExpression»return time<«value»;
 					«ELSEIF metaType == ecdarText::ETGreaterEqualExpression»return time>=«value»;
 					«ELSEIF metaType == ecdarText::ETGreaterExpression»return time>«value»;
 					«ENDIF»
-				«ENDLET»
-				«ENDLET»
+				«ENDLET-»
+				«ENDLET-»
 			«ELSE»
 			//IS EMPTY
 			return true;
-			«ENDIF»			
+			«ENDIF-»			
 		}
 
 		@Override
