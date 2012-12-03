@@ -26,7 +26,7 @@ public class Controller extends IController {
 				//«spec.body.locations.add(spec.body.initialLocation)»
 				
 				«FOREACH spec.body.locations AS loc-»
-	public static void «spec.name»«loc.name»() {
+	public static void «spec.name»«loc.name.toFirstUpper()»() {
         
         // define task here
    
@@ -38,10 +38,4 @@ public class Controller extends IController {
 }
 
 «ENDFILE»
-«ENDDEFINE»
-
-«DEFINE Root FOR ETSpecificationDefinition»
-«FOREACH this.body.eRootContainer.eContents.typeSelect(ETSpecificationDefinition) AS name»
-«name.name»
-«ENDFOREACH»
 «ENDDEFINE»

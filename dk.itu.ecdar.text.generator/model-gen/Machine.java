@@ -10,12 +10,12 @@ public class Machine extends ITIOA {
 
 
 
-//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@48b13bf0 (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@646c717d (urgent: false, universal: false, name: Idle)]
+//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@492848bf (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@499e542d (urgent: false, universal: false, name: Idle)]
 
 /* Generating all edges - NOTE: Edges with IO type "!" is OutputEdge, "?" is InputEdge	 */
 
    	/*	Number: 1
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6f0bdd2a (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1dea3610 (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: ?	*/ 
  		
@@ -42,7 +42,7 @@ public class Machine extends ITIOA {
 	} 
 
    	/*	Number: 2
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4694ef64 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@73e5295a (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: !	*/ 
  		
@@ -69,7 +69,7 @@ public class Machine extends ITIOA {
 	} 
 
    	/*	Number: 3
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3ae7178d (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5bf0b26f (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: !	*/ 
  		
@@ -101,7 +101,7 @@ public class Machine extends ITIOA {
 	} 
 
    	/*	Number: 4
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@b14fdea (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@76ab9389 (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: !	*/ 
  		
@@ -133,7 +133,7 @@ public class Machine extends ITIOA {
 	} 
 
    	/*	Number: 5
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1355966d (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3a938d20 (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: ?	*/ 
  		
@@ -177,50 +177,34 @@ public class Machine extends ITIOA {
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
 				
-					
 						
 							
 							
-						
 							
-						
 							
-						
-							
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@b14fdea (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@b14fdea (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@76ab9389 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@76ab9389 (controllable: false)
 								new Edge4()
 							
-						
 							
-						
-										
+											
 				
-										
 				
 			};
 			
 			inputEdges = new IInputEdge[]{
 				
 				
-										
-				
-					
-						
 						
 							
-						
 							
-						
 							
-						
 							
-						
 							
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1355966d (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1355966d (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3a938d20 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3a938d20 (controllable: false)
 								new Edge5()
 							
-						
 										
+				
 				
 			};
 		}
@@ -235,11 +219,7 @@ public class Machine extends ITIOA {
 
 		@Override
 		public void task() {
-			
-			
 			Controller.MachineIdle();
-			
-			
 		}	
 	}
 
@@ -256,70 +236,45 @@ public class Machine extends ITIOA {
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
 				
-										
+						
+							
+							
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@73e5295a (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@73e5295a (controllable: false)
+								new Edge2(),
+							
+							
+							
+							
+											
 				
-					
 						
 							
 							
-						
 							
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4694ef64 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4694ef64 (controllable: false)
-								new Edge2()
-							
-						
-							
-						
-							
-						
-							
-						
-										
-				
-					
-						
-							
-							
-						
-							
-						
-							
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3ae7178d (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3ae7178d (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5bf0b26f (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5bf0b26f (controllable: false)
 								new Edge3()
 							
-						
 							
-						
 							
-						
-										
+											
+				
 				
 			};
 			
 			inputEdges = new IInputEdge[]{
 				
 				
-					
-						
 						
 							
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6f0bdd2a (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@6f0bdd2a (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1dea3610 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1dea3610 (controllable: false)
 								new Edge1()
 							
-						
 							
-						
 							
-						
 							
-						
 							
-						
 										
 				
-										
-				
-										
 				
 			};
 		}
@@ -339,11 +294,7 @@ public class Machine extends ITIOA {
 
 		@Override
 		public void task() {
-			
-			
 			Controller.MachineServing();
-			
-			
 		}	
 	}
 

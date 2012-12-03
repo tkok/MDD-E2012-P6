@@ -21,7 +21,7 @@ public class Controller extends IController {
    
     // Define tasks for every spec->location
 				
-				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@14028a1d (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@492848bf (urgent: false, universal: false, name: Idle)]
+				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@56809629 (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@4506eae8 (urgent: false, universal: false, name: Idle)]
 				
 	public static void MachineServing() {
         
@@ -35,9 +35,9 @@ public class Controller extends IController {
     }
     
 				
-				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@73bad293 (urgent: false, universal: false, name: id2), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@2315e9ca (urgent: true, universal: false, name: Inconsistent), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@1212512e (urgent: false, universal: false, name: id4), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@17a5f5a5 (urgent: false, universal: false, name: Universal), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@10144efe (urgent: false, universal: false, name: id6), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@534ddbc5 (urgent: false, universal: false, name: id7)]
+				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@35d2165f (urgent: false, universal: false, name: id2), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@2a8b5b48 (urgent: true, universal: false, name: Inconsistent), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@73a7dec4 (urgent: false, universal: false, name: id4), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@4473f04f (urgent: false, universal: false, name: Universal), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@3c9f91aa (urgent: false, universal: false, name: id6), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@7e21a6cc (urgent: false, universal: false, name: id7)]
 				
-	public static void University2id2() {
+	public static void University2Id2() {
         
         // define task here
    
@@ -47,7 +47,7 @@ public class Controller extends IController {
         // define task here
    
     }
-	public static void University2id4() {
+	public static void University2Id4() {
         
         // define task here
    
@@ -57,19 +57,19 @@ public class Controller extends IController {
         // define task here
    
     }
-	public static void University2id6() {
+	public static void University2Id6() {
         
         // define task here
    
     }
-	public static void University2id7() {
+	public static void University2Id7() {
         
         // define task here
    
     }
     
 				
-				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@281fb795 (urgent: false, universal: false, name: End), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@4e727e0e (urgent: false, universal: false, name: Grant), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@5f5f6fd6 (urgent: false, universal: false, name: Start)]
+				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@796c1a02 (urgent: false, universal: false, name: End), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@863c657 (urgent: false, universal: false, name: Grant), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@5d431617 (urgent: false, universal: false, name: Start)]
 				
 	public static void SpecEnd() {
         
@@ -88,7 +88,7 @@ public class Controller extends IController {
     }
     
 				
-				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@6a047f1b (urgent: false, universal: false, name: D), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@7fc29cb8 (urgent: false, universal: false, name: C), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@49695b00 (urgent: false, universal: false, name: B), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@5aad33e4 (urgent: false, universal: false, name: A)]
+				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@9b962c9 (urgent: false, universal: false, name: D), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@7e4d38a7 (urgent: false, universal: false, name: C), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@5d46a6af (urgent: false, universal: false, name: B), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@1bfe654f (urgent: false, universal: false, name: A)]
 				
 	public static void UniversityD() {
         
@@ -112,7 +112,7 @@ public class Controller extends IController {
     }
     
 				
-				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@14a77b98 (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@7b97ab3 (urgent: false, universal: false, name: Idle)]
+				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@3fd66596 (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@a637589 (urgent: false, universal: false, name: Idle)]
 				
 	public static void MachineImplServing() {
         
@@ -126,7 +126,7 @@ public class Controller extends IController {
     }
     
 				
-				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@56f5a599 (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@78a8dc3c (urgent: false, universal: false, name: Idle)]
+				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@19e43b5e (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@1ecc5427 (urgent: false, universal: false, name: Idle)]
 				
 	public static void MachineRefServing() {
         
@@ -140,19 +140,19 @@ public class Controller extends IController {
     }
     
 				
-				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@33d2a07e (urgent: false, universal: false, name: lu), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@510de23b (urgent: false, universal: false, name: id21), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@68360655 (urgent: false, universal: false, name: id22), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@7cece9af (urgent: false, universal: false, name: Idle)]
+				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@2c5f87e4 (urgent: false, universal: false, name: lu), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@740476b6 (urgent: false, universal: false, name: id21), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@6806188d (urgent: false, universal: false, name: id22), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@e7e29d7 (urgent: false, universal: false, name: Idle)]
 				
-	public static void ResearcherImpllu() {
+	public static void ResearcherImplLu() {
         
         // define task here
    
     }
-	public static void ResearcherImplid21() {
+	public static void ResearcherImplId21() {
         
         // define task here
    
     }
-	public static void ResearcherImplid22() {
+	public static void ResearcherImplId22() {
         
         // define task here
    
@@ -164,7 +164,7 @@ public class Controller extends IController {
     }
     
 				
-				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@46009124 (urgent: false, universal: false, name: UNIV), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@5e74207c (urgent: false, universal: false, name: T), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@67645a8 (urgent: false, universal: false, name: C), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@602110ff (urgent: false, universal: false, name: Idle)]
+				//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@4229cbc3 (urgent: false, universal: false, name: UNIV), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@8ee71d8 (urgent: false, universal: false, name: T), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@531cc7a1 (urgent: false, universal: false, name: C), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@4fa983e (urgent: false, universal: false, name: Idle)]
 				
 	public static void ResearcherUNIV() {
         

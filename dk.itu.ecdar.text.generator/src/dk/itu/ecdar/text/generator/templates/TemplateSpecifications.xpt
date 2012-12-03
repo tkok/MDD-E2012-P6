@@ -79,10 +79,10 @@ public class «this.name» extends ITIOA {
 		@Override
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
-				«LET location.edges.select(e|e.io.type.toString() == "!") AS edgesMatch»
+				«LET location.edges.select(e|e.io.type.toString() == "!") AS edgesMatch-»
 				«FOREACH edgesMatch AS edge ITERATOR iteratingEdges»
 						«REM»We have the uncontrollable edges here«ENDREM»
-							«FOREACH body.locations.edges AS edgeToMatch ITERATOR edgeAllIterate»
+							«FOREACH body.locations.edges AS edgeToMatch ITERATOR edgeAllIterate-»
 							«IF edge.toString() == edgeToMatch.toString()»
 								//Matching: «edgeToMatch.toString()» = «edge.toString()»
 								new «"Edge" + edgeAllIterate.counter1»()«IF (!iteratingEdges.lastIteration)»,«ENDIF»
@@ -94,10 +94,10 @@ public class «this.name» extends ITIOA {
 			
 			inputEdges = new IInputEdge[]{
 				«REM»new A_GRANT_B()«ENDREM»
-				«LET location.edges.select(e|e.io.type.toString() == "?") AS edgesMatch»
+				«LET location.edges.select(e|e.io.type.toString() == "?") AS edgesMatch-»
 				«FOREACH edgesMatch AS edge ITERATOR iteratingEdges»
 						«REM»We have the controllable edges here«ENDREM»
-						«FOREACH body.locations.edges AS edgeToMatch ITERATOR edgeIter»
+						«FOREACH body.locations.edges AS edgeToMatch ITERATOR edgeIter-»
 							«IF edge.toString() == edgeToMatch.toString()»
 								//Matching: «edgeToMatch.toString()» = «edge.toString()»
 								new «"Edge" + edgeIter.counter1»()«IF (!iteratingEdges.lastIteration)»,«ENDIF»
