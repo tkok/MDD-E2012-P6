@@ -1,7 +1,6 @@
 «IMPORT ecdarText»
 «DEFINE main FOR ecdarText::ETSpecificationDefinition»
 «FILE "Environment.java"»
-package dk.itu.ecdar.text.generator;
 import dk.itu.ecdar.text.generator.environment.IEnvironment;
 import dk.itu.ecdar.text.generator.environment.QuickLog;
 import dk.itu.ecdar.text.generator.framework.AutomatonTimer;
@@ -9,7 +8,7 @@ import dk.itu.ecdar.text.generator.framework.AutomatonTimer;
 public class Environment extends IEnvironment {
 	@Override
 	public void generateController() {
-		controller = Controller();
+		controller = new Controller();
 	}
 
 	public static void main(String[] args) {

@@ -4,8 +4,6 @@
    «DEFINE main FOR ecdarText::ETSpecificationDefinition»
 «ENDREM»
 «FILE this.name + ".java"»
-
-package dk.itu.ecdar.text.generator.mockup;
 import dk.itu.ecdar.text.generator.framework.IInputEdge;
 import dk.itu.ecdar.text.generator.framework.IOutputEdge;
 import dk.itu.ecdar.text.generator.framework.ILocation;
@@ -130,6 +128,11 @@ public class «this.name» extends ITIOA {
 			//IS EMPTY
 			return true;
 			«ENDIF-»			
+		}
+		
+		@Override
+		public boolean isPreemptive() {
+			return false;
 		}
 
 		@Override
