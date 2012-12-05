@@ -4,6 +4,7 @@
    «DEFINE main FOR ecdarText::ETSpecificationDefinition»
 «ENDREM»
 «FILE this.name + ".java"»
+pakage dk.itu.ecdar.text.generator.generated;
 import dk.itu.ecdar.text.generator.framework.IInputEdge;
 import dk.itu.ecdar.text.generator.framework.IOutputEdge;
 import dk.itu.ecdar.text.generator.framework.ILocation;
