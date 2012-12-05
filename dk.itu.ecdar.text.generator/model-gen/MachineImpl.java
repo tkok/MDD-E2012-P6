@@ -1,5 +1,4 @@
 
-pakage dk.itu.ecdar.text.generator.generated;
 import dk.itu.ecdar.text.generator.framework.IInputEdge;
 import dk.itu.ecdar.text.generator.framework.IOutputEdge;
 import dk.itu.ecdar.text.generator.framework.ILocation;
@@ -9,12 +8,12 @@ public class MachineImpl extends ITIOA {
 
 
 
-//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@1925fa1a (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@21ac8e20 (urgent: false, universal: false, name: Idle)]
+//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@7d172643 (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@3cdd9094 (urgent: false, universal: false, name: Idle)]
 
 /* Generating all edges - NOTE: Edges with IO type "!" is OutputEdge, "?" is InputEdge	 */
 
    	/*	Number: 1
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3f7188a9 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7393358c (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: ?	*/ 
  		
@@ -40,7 +39,7 @@ public class MachineImpl extends ITIOA {
 	} 
 
    	/*	Number: 2
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4fcd93bd (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7e2ab45d (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: !	*/ 
  		
@@ -71,7 +70,7 @@ public class MachineImpl extends ITIOA {
 	} 
 
    	/*	Number: 3
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3949cc16 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@679e900a (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: !	*/ 
  		
@@ -102,7 +101,7 @@ public class MachineImpl extends ITIOA {
 	} 
 
    	/*	Number: 4
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4e94e021 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@16d2eead (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: ?	*/ 
  		
@@ -145,13 +144,13 @@ public class MachineImpl extends ITIOA {
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
 						
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3949cc16 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3949cc16 (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@679e900a (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@679e900a (controllable: false)
 								new Edge3()																																							};
 			
 			inputEdges = new IInputEdge[]{
 				
 						
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4e94e021 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4e94e021 (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@16d2eead (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@16d2eead (controllable: false)
 								new Edge4()																								};
 		}
 
@@ -186,13 +185,13 @@ public class MachineImpl extends ITIOA {
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
 						
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4fcd93bd (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@4fcd93bd (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7e2ab45d (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7e2ab45d (controllable: false)
 								new Edge2()																																																					};
 			
 			inputEdges = new IInputEdge[]{
 				
 						
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3f7188a9 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3f7188a9 (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7393358c (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7393358c (controllable: false)
 								new Edge1()																																																															};
 		}
 
@@ -219,13 +218,12 @@ public class MachineImpl extends ITIOA {
 	
 	public MachineImpl() {
 		super();
-		
 		Idle = new Idle(this);
-		Idle.setupEdges();
-		
 		Serving = new Serving(this);
-		Serving.setupEdges();
 		
 		current = Idle;
+		
+		Idle.setupEdges();
+		Serving.setupEdges();
 	}
 }

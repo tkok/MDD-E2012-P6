@@ -1,5 +1,5 @@
 
-pakage dk.itu.ecdar.text.generator.generated;
+//package dk.itu.ecdar.text.generator.generated;
 import dk.itu.ecdar.text.generator.environment.IEnvironment;
 import dk.itu.ecdar.text.generator.environment.QuickLog;
 import dk.itu.ecdar.text.generator.framework.AutomatonTimer;
