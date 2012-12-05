@@ -3,7 +3,7 @@
 «DEFINE main FOR ecdarText::ETSpecificationDefinition»
 
 «FILE "Controller.java"»
-package dk.itu.ecdar.text.generator.generated;
+//package dk.itu.ecdar.text.generator.generated;
 import dk.itu.ecdar.text.generator.framework.IController;
 import dk.itu.ecdar.text.generator.framework.ITIOA;
 
