@@ -4,7 +4,6 @@
    «DEFINE main FOR ecdarText::ETSpecificationDefinition»
 «ENDREM»
 «FILE this.name + ".java"»
-//package dk.itu.ecdar.text.generator.generated;
 import dk.itu.ecdar.text.generator.framework.IInputEdge;
 import dk.itu.ecdar.text.generator.framework.IOutputEdge;
 import dk.itu.ecdar.text.generator.framework.ILocation;
@@ -147,11 +146,15 @@ public class «this.name» extends ITIOA {
 	
 	public «this.name»() {
 		super();
-		«FOREACH body.locations.reverse() AS location ITERATOR iter»
+		«FOREACH body.locations.reverse() AS location ITERATOR iter-»
 		«location.name.toString()» = new «location.name.toString().toFirstUpper()»(this);
-		«location.name.toString()».setupEdges();
-		«ENDFOREACH»
+		«ENDFOREACH-»
+		
 		current = «body.locations.last().name.toString()»;
+		
+		«FOREACH body.locations.reverse() AS location ITERATOR iter-»
+		«location.name.toString()».setupEdges();
+		«ENDFOREACH-»
 	}
 }
 «ENDFILE»
