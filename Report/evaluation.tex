@@ -1,15 +1,19 @@
 \subsection{Testing}
 \label{Testing}
-In order to test our solution we have incorporated a logfile analysis program. A small program verifying that signals in the generator are fired in the right order according to the input model. The analysis program is hardcoded to match our testing model (see figure~\ref{simple-model} on page~\pageref{simple-model}). Thus it is checking for signals like: GRANT, COIN and TEA, in the specifyied order. If a signal is called in the generator before it is supposed too (e.g TEA before COIN) the analysis program will call for an ERROR. 
+In order to test our software solution three different testing methods have been arranged.
 
+\subsubsection{Compiling properly}
+Making sure every output compiles properly.
 
-\begin{enumerate}
-\item Logfile testing with timestamps compared with Ecdar Tool
-    \subitem Test with manuel implementation
-    \subitem Test with compiled code
-\item Compiling properly?
-\item Manually step-by-step comparison of a simple graphical atomaton model and generated code (verified by Andrzej Wasowski).
-\end{enumerate}
+\subsubsection{Logfile testing}
+For the project an logfile analysis program have been incorporated. A small program verifying that the signals in the generator code are fired in the right order according to the input model. 
+The analysis program is hardcoded to match our testing model (see figure~\ref{simple-model} on page~\pageref{simple-model}). Thus it is checking for signals like: GRANT, COIN and TEA, in the specifyied order. If a signal is called within the generator before it is supposed too (e.g TEA before COIN) the analysis program will call for an ERROR. 
+
+The logfile contain timestamps of global time from each atomaton in a model. The global time can then be verified by comparison with time assigned within the ECDAR modelling tool.
+
+\subsubsection{Manual Comparison}
+Final testing procedure is a manual step-by-step comparison of a simple graphical atomaton model and the corisponding code generated. Cycling through the times, comparing each step with the output.
+%(verified by Andrzej Wasowski).
 
 \subsection{Presumptions and Resulting Motivations\label{implementation-presumptions}}
 

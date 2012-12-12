@@ -1,6 +1,6 @@
 %% BACKGROUND (Wiktor) %%% 
 
-% LAST UPDATE: applying changes from Andrzej's comments (27.11.2012) % 
+% LAST UPDATE: Grammar (12.12.2012) % 
 
 
 \subsection{Timed Input/Output Automata \label{background-tioa}}
@@ -19,7 +19,7 @@ as “timed I/O automaton” (TIOA) \cite{Kaynar:2006:TTI:1203437}. TIOA has bee
 \end{figure}
 
 The preceding figure (see fig. \ref{bev-machine}) illustrates the model of beverage-serving machine. Given a coin (\emph{coin}), it serves either coffee (\emph{cof}) 
-or tea (\emph{tea}) within a given time interval. Moreover, free tea is served once in awhile. In the example, the TIOA consists of and two locations represented by 
+or tea (\emph{tea}) within a given time interval. Moreover, free tea is served once in a while. In the example, the TIOA consists of and two locations represented by 
 circles: \emph{Idle} and \emph{Serving}. \emph{Idle} represents the starting location, and the state of machine waiting for coin input (\emph{coin?}).  
  The flow of TIOA is controlled by three types of labels: \emph{invariants}, \emph{guards} and \emph{clock-reset operations}. 
 Invariants are defined on locations ($y\leq 6$) and represent constraints for the clocks in order for the control to remain in particular location until time requirement is fulfilled.  
