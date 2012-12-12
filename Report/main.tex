@@ -9,6 +9,46 @@
 \usepackage{graphicx} % so we can include images
 \usepackage[utf8]{inputenc} % display all characters properly
 \usepackage[unicode=true,english,american]{babel} % doesn't change anything?
+
+\usepackage{url}
+\usepackage{listings} % for listing code
+\usepackage{color} % colors are nice
+
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{gray}{rgb}{0.6,0.6,0.6}
+\definecolor{white}{rgb}{1,1,1}
+
+\definecolor{keywords}{rgb}{0.5,0,0.6}
+\definecolor{strings}{rgb}{0,0.4,0}
+\definecolor{comments}{rgb}{0.5,0.5,0.5}
+
+\lstset{ %
+  language=Java,                  % the language of the code
+  basicstyle=\ttfamily\footnotesize,       % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                     % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  tabsize=2,
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,
+  breakatwhitespace=true,
+  %title=\lstname,                 % show the filename of files included with \lstinputlisting;
+  keywordstyle=\color{keywords},
+  commentstyle=\color{comments},
+  stringstyle=\color{strings},
+  %escapeinside={\%*}{*)},        % if you want to add LaTeX within your code
+  %morekeywords={*,...},          % if you want to add more keywords to the set
+  %deletekeywords={}           % if you want to delete keywords from the given language
+}
+
 %
 \begin{document}
 %
@@ -26,61 +66,25 @@
 %                                     \toctitle is used
 %
 \author{Rasmus Berntsen \and Florian Biermann \and Lauge Groes \and Nicolas Wainach Lundqvist Jensen \and Thomas Kokholm \and Piort Stawiski \and Wiktor Michal Zdziechowski}
-%
+
 \authorrunning{Rasmus Berntsen et al.} % abbreviated author list (for running head)
-%
+
 %%%% list of authors for the TOC (use if author list has to be modified)
 \tocauthor{Rasmus Berntsen, Florian Biermann, Lauge Groes, Nicolas Wainach Lundqvist Jensen, Thomas Kokholm, Piort Stawiski, Wiktor Michal Zdziechowski}
-%
-\institute{IT University of Copenhagen, Rued Langgards Vej 7, DK-2300 Copenhagen, Denmark,\\
-\email{\{raber, fbier, lgro, nicl, tkok, psta, wmic\}@itu.dk},\\ 
-WWW home page: \texttt{http://www.itu.dk}
+
+\institute{IT University of Copenhagen, Denmark\\
+\email{\{raber, fbier, lgro, nicl, tkok, psta, wmic\}@itu.dk}
 }
 \maketitle % typeset the title of the contribution
 
 \begin{abstract}
-The following paper is examining the possibilities of utilising code generation in regards to Timed Input Output Automata (TIOA). The basis is ECDAR, a TIOA modeller based on UPPAAL, which we have developed a generator for real-time java. Since there already exist a TIOA model code generator, Times Tool, this paper will review the differences in implementation and their implications.
-dots
-\keywords{Model Driven Development, ECDAR, Real Time Systems, Code Generation}
+
 \end{abstract}
-%
 
 \section{Introduction\label{introduction}}
-%
-In the preceeding years a new level of abstraction in development is evolving. Utilizing a higher level of abstraction, than high-level programming languages, we have Model Driven Development. This new paradigm is bla bla bla
+\input{introduction}
 
-Real time systems are all around us, we find them in planes, cars, buildings, supermarkets, and even in ourself (Pacemakers). BLABLA LBALBLA ever importance of testing and securing stability and not the least MODELING - blablabla
 
-ECDAR
-
--Something about Model Driven Development (Code generation + platform independencies)\newline
--Models of limited value if used af documentation\newline
-
--Real time systems\newline
--Something about Timed Input/Output\newline
--Something about ECDAR\newline
--Something about code generation of ECDAR\newline
-%
-
-\section{Thesis Statement (Copy/Paste from project proposal)}
-%
-SHOULD BE REWRITTEN TO MATCH THE FINAL PRODUCT
-\newline
-As complexity of Software Projects grows, it becomes necessary to lift abstraction to a higher level. This is very useful when experts from specific domains who are not familiar with classical programming need to develop systems. Instead of educating programmers in these domains, we can increase productivity by giving aforementioned experts the proper tools to develop these systems which also enables re-usability.
-\newline
-These tools usually create models which specify the desired program. Since a model is just an abstract representation, the need for tools that generate actual executable program code is obvious. This project focuses on ECDAR, a modelling language for the specification of Timed I/O Automata.
-%
-
-\section{Method (Copy/Paste from project proposal)}
-%
-SHOULD BE REWRITTEN TO MATCH THE FINAL PRODUCT
-\newline
-Our main goal is to be able to translate simple ECDAR models into compilable and executable code. The target language is yet to be determined. We will base our implementation on a parser generated from an already existing ECDAR meta-model. This will possibly be altered to fit our needs. Furthermore we will use relevant literature as our theoretical basis for code generation. 
-\newline
-An extended goal of this project is to implement code generation for composed TIOA. Here, we will focus on the parallel-composition operator which combines two TIOA to run in parallel on the same system. 
-\newline
-The result of this project will be a code generation tool for simple TIOA, possibly extended to generating code for parallel automata. This, together with the report, can build a foundation for further projects aiming to generate code from ECDAR models. It is also an important step towards additional value for the industry to encourage using high-level TIOA modelling.
-%
 
 %%% Begin of background
 
@@ -88,8 +92,6 @@ The result of this project will be a code generation tool for simple TIOA, possi
 \input{background}
 
 %%% End of background
-
-
 
 %%% Begin of implementation
 
@@ -99,13 +101,8 @@ The result of this project will be a code generation tool for simple TIOA, possi
 %%% End of implementation
 
 \section{Evaluation and Discussion}
-\begin{enumerate}
-\item Logfile testing with timestamps compared with Ecdar Tool
-    \subitem Test with manuel implementation
-    \subitem Test with compiled code
-\item Compiling properly?
-\item Manually step-by-step comparison of a simple graphical atomatom model and generated code (verified by Andrzej Wasowski).
-\end{enumerate}
+\input{evaluation}
+
 
 
 \section{Related Work\label{related}}
@@ -113,9 +110,8 @@ The result of this project will be a code generation tool for simple TIOA, possi
 
 
 \section{Conclusion}
-\begin{enumerate}
-\item ...
-\end{enumerate}
+\input{conclusion}
+
 %
 ...
 %

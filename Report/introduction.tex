@@ -1,0 +1,34 @@
+In the preceeding years a new level of abstraction in development have been evolving. Utilizing a higher level of abstraction, than high-level programming languages, we have Model Driven Development. This new paradigm is combining a focus on automatisation and code generation, to enable a new way of black boxing solutions within a multitude of specialists outside traditional programming while securing platform independency.  
+
+\subsection {Real Time Computing \label{introduction-rts}}
+%
+Real-time computing is the study of hardware and software systems that must satisfy explicit 
+response-time constraints or risk severe consequences, including failure. Timed systems are 
+used in a wide range of domains including communications, embedded systems, real-time and automated control. 
+They can be easily found in our environment; one of simple examples is the airbag system in a car. 
+The real-time constraint in this system is the reaction time between crash sensors receiving input and 
+the deployment of airbags. Among some of the important characteristics of real-time systems we can distinguish 
+extreme reliability and safety as they are very often safety-critical.    
+
+\subsection{ECDAR \label{introduction-ecdar}}
+%
+The “Environment for Compositional Design and Analysis of Real Time Systems” (ECDAR) - is a graphical tool based on UPPAAL TIGA \cite{behrmann_uppaal-tiga:_2006} that 
+allows to visually create models of real-time systems. Unlike UPPAAL \cite{larsen_uppaal_1997}, it is implementing a complete specification theory for 
+real time systems \cite{David:2010:TIA:1755952.1755967,conf/atva/DavidLLNW10}. In ECDAR, components of the system are described as automatons extended with clocks (timed automata), 
+that can be combined to form larger comprehensive system descriptions. Correct specification of composition is supported by 
+well defined compositional reasoning theory, consisting of operators like: parallel composition, conjunction, satisfaction 
+checking and refinement. On the top of that, the tool allows for scalable verification of models by querying the 
+implementation with verification questions \cite{conf/atva/DavidLLNW10}.
+%
+
+\subsection{Project \label{introduction-problemfield}}
+This paper will follow an implementation of code generation from ECDAR to Java. The proposed implementation of the ECDAR code generator is split up in two parts. The first part is a framework of abstract classes, implementing in as much detail as possible the single parts of ECDAR specifcations (i.e. edges, locations, TIOA). The second is the actual code generation. Our code generator generates sources which inherit from the abstract framework to minimize the amount of code that needs actually to be generated.
+The paper will also detail the different testing issues and benefits of implementing code generation for TIOA, and reflect upon how this could be implemented concretely for Real Time Systems. 
+
+\begin{itemize}
+\item Simple extension of ECDAR
+\item Design of the code generated software
+\item Including a runtime framework and model framework completion
+\item Some test plan
+\item Analysis and criteria of Java RT
+\end{itemize}

@@ -1,0 +1,10 @@
+\newline
+Our example input is defined in a file modeled and exported from the ECDAR-framework, known as University.xml. This file contains all the information needed for us to understand and work with the input; It includes a list over every location, edge, variable, signal etc. A short glimpse of the input code looks like figur 7.
+
+\begin{figure}[t]
+\lstinputlisting[linerange={444-452}]{code/University.xml}
+\lstinputlisting[linerange={475-481}]{code/University.xml}
+\caption{Example of a locations data in XML. \label{location-xml-example}}
+\end{figure}
+
+The interesting things to note from the XML in figure 7 are that we are working with a template with a name of "University". The university has a declaraton clock, which is refered to as "z". We have a number of locations under this template, actually six in total. Each location refers to a transition, that contains a label of kind "Synchronization", which has a signal, for instance "grant?". This is bascially all of the data that we want to work with, besides from the fact that the snippet above is only a couple of lines, compared to the complete XML-file, that consists of 756 lines, which means that we have a lot of locations, transitions, declarations etc.

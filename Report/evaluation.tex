@@ -1,0 +1,46 @@
+\subsection{Testing}
+\label{Testing}
+In order to test our solution we have incorporated a logfile analysis program. A small program verifying that signals in the generator are fired in the right order according to the input model. The analysis program is hardcoded to match our testing model (see figure~\ref{simple-model} on page~\pageref{simple-model}). Thus it is checking for signals like: GRANT, COIN and TEA, in the specifyied order. If a signal is called in the generator before it is supposed too (e.g TEA before COIN) the analysis program will call for an ERROR. 
+
+
+\begin{enumerate}
+\item Logfile testing with timestamps compared with Ecdar Tool
+    \subitem Test with manuel implementation
+    \subitem Test with compiled code
+\item Compiling properly?
+\item Manually step-by-step comparison of a simple graphical atomaton model and generated code (verified by Andrzej Wasowski).
+\end{enumerate}
+
+\subsection{Presumptions and Resulting Motivations\label{implementation-presumptions}}
+
+Our implementation represents only a subset of actual ECDAR. Currently,
+the implementation assumes only one clock per automaton. Also, we
+assume the specification to be valid, since there are other tools
+that verify correctness%
+\footnote{\href{http://people.cs.aau.dk/adavid/ecdar/}%
+}.
+
+The only operator we implement for code generation is the parallel
+composition operator. Let $M$ be the type ECDAR specification. Then
+all operators in ECDAR are of type $M_{i}\otimes M_{j}\rightarrow M_{ij}$.
+Other than for the majority of operators, which refine the specification,
+it is impractical to implement parallel composition as a model-to-model
+transformation, since it produces the cross-product of two models
+\cite{david_compositional_2012}. These models are size $|M_{i}|\cdot|M_{j}|$
+and generating code for them would consume a large amount of memory
+and raise complexity. This would be inappropriate for an embedded
+system. We elaborate on this further in Sect. \ref{implementation-framework}.
+
+ECDAR specifications are written on the assumption of the synchrony
+hypothesis (see Sect. \ref{background-ecdar}) \cite{david_compositional_2012}.
+This is an important property for code generation, as reasoning about
+time differences in execution becomes unnecessary for the developer.
+However, we still kept overhead low to achieve reasonable fast performance.
+
+%To produce feasible code that would be able to run on embedded systems,
+%we targeted Real-Time Java (Java RTS)%
+%\footnote{\href{}{http://www.oracle.com/technetwork/java/javase/tech/index-jsp-139921.html}%
+%}. Java RTS was designed to improve upon standard Java in terms of
+%timing accuracy an real-time embedded systems.
+
+

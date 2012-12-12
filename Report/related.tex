@@ -1,1 +1,13 @@
-ECDAR is a TIOA modeler based on UPPAAL. A similar tool based on UPPAAL already exists. I.e. Times \cite{timestool} a tool for modeling and implementation of embedded systems. Times is a graphical simulator, in which a user can validate dynamic behavior of a system and see how tasks execute - much like Ecdar, but it can also do code-generation. However there is a difference between Ecdar and Times. Looking at what are taking as input by the controller - Times simple takes a model and generates code. ECDAR: Synthesize models for you so to avoid “that” stage. In ECDAR you have the possibility to you use composition.
+ECDAR is a TIOA modeler based on UPPAAL. A similar tool based on UPPAAL already exists. 
+
+\paragraph{Times}
+Times\footnote{\href{http://www.timestool.com}} is a tool for modeling and implementation of embedded systems. Times is a graphical simulator, in which a user can validate dynamic behavior of a system and see how tasks execute - much like Ecdar, but it can also do code-generation. However there is a difference between Ecdar and Times.
+
+Looking at what are taking as input by the controller - Times simple takes a model and generates code. ECDAR: Synthesize models for you so to avoid “that” stage. In ECDAR you have the possibility to you use composition.
+
+\paragraph{Composable Code Generation for Model-Based Development}
+by Kirk Schloegel et al. present a framework for generating code\cite{composable-code-generation}. They emphasize how utilizing their framework, code generators aren't programs seperated from a correspnding graphical model as it often have been in the past. Our code generator isn't based on this framework, however their approch on developing code generators with focus on graphical models is related to our apporch with ECDAR. 
+
+\paragraph{Code Synthesis for Timed Automata}
+by Tobias Amnell et al. present a framework for the development of real-time embedded
+systems\cite{Amnell:2002:CST:779110.779112}. Their work is sumulor to our project. In the article the illustrate how their framework is based on timed automatas and real-time tasks - relative to our concept with ECDAR.
