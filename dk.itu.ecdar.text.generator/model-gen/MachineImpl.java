@@ -8,12 +8,12 @@ public class MachineImpl extends ITIOA {
 
 
 
-//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@7d172643 (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@3cdd9094 (urgent: false, universal: false, name: Idle)]
+//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@f00cb1e (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@62244b92 (urgent: false, universal: false, name: Idle)]
 
 /* Generating all edges - NOTE: Edges with IO type "!" is OutputEdge, "?" is InputEdge	 */
 
    	/*	Number: 1
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7393358c (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1055d6f4 (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: ?	*/ 
  		
@@ -34,12 +34,12 @@ public class MachineImpl extends ITIOA {
 
 		@Override
 		public void onTraverse() {
-			resetTime();
+			
 		}
 	} 
 
    	/*	Number: 2
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7e2ab45d (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@39f2f6d3 (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: !	*/ 
  		
@@ -65,12 +65,12 @@ public class MachineImpl extends ITIOA {
 
 		@Override
 		public void onTraverse() {
-			resetTime();
+			
 		}
 	} 
 
    	/*	Number: 3
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@679e900a (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3baf24e2 (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: !	*/ 
  		
@@ -96,12 +96,14 @@ public class MachineImpl extends ITIOA {
 
 		@Override
 		public void onTraverse() {
+			
 			resetTime();
+			
 		}
 	} 
 
    	/*	Number: 4
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@16d2eead (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5dad3677 (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: ?	*/ 
  		
@@ -122,7 +124,9 @@ public class MachineImpl extends ITIOA {
 
 		@Override
 		public void onTraverse() {
+			
 			resetTime();
+			
 		}
 	} 
 
@@ -144,13 +148,13 @@ public class MachineImpl extends ITIOA {
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
 						
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@679e900a (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@679e900a (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3baf24e2 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3baf24e2 (controllable: false)
 								new Edge3()																																							};
 			
 			inputEdges = new IInputEdge[]{
 				
 						
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@16d2eead (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@16d2eead (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5dad3677 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5dad3677 (controllable: false)
 								new Edge4()																								};
 		}
 
@@ -185,13 +189,13 @@ public class MachineImpl extends ITIOA {
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
 						
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7e2ab45d (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7e2ab45d (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@39f2f6d3 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@39f2f6d3 (controllable: false)
 								new Edge2()																																																					};
 			
 			inputEdges = new IInputEdge[]{
 				
 						
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7393358c (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@7393358c (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1055d6f4 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1055d6f4 (controllable: false)
 								new Edge1()																																																															};
 		}
 

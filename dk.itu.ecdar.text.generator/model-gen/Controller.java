@@ -8,9 +8,9 @@ public class Controller extends IController {
 	public Controller() {
          super(new ITIOA[]{
 				new Machine(),
-				//new University2(),
+				new University2(),
 				//new Spec(),
-				new University(),
+				//new University(),
 				//new MachineImpl(),
 				//new MachineRef(),
 				//new ResearcherImpl(),
