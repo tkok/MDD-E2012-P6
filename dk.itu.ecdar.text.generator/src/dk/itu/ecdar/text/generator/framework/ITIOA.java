@@ -8,8 +8,8 @@ import dk.itu.ecdar.text.generator.environment.QuickLog;
 public abstract class ITIOA {
 
 	/**
-	 * This thread monitors transitions between uncontrollable
-	 * edges. It will go sleeping each time no edge is available
+	 * This thread monitors transitions over input edges.
+	 * It will go sleeping each time no edge is available
 	 * until there is at least one edge available.
 	 */
 	class TransitionThread extends Thread {
@@ -64,7 +64,7 @@ public abstract class ITIOA {
 	/**
 	 * Resets the ITIOA flags to false.
 	 */
-	private void reset() {
+	private synchronized void reset() {
 		executing = false;
 		executed = false;
 	}
@@ -87,6 +87,7 @@ public abstract class ITIOA {
 		for (IInputEdge edge : current.inputEdges) {
 			if (edge.acceptInput(input) && edge.checkGuard(getTime())) {
 				that = edge;
+				break;
 			}
 		}
 
@@ -101,7 +102,9 @@ public abstract class ITIOA {
 			if (current.isPreemptive()) {
 				current.kill();
 			} else {
-				QuickLog.log(toString(), getTime(), "Received input during execution of non-preemptive task! Input will be ignored.");
+				QuickLog.log(toString(), getTime(),
+						"Received input during execution of non-preemptive task! Input will be ignored.");
+				return;
 			}
 		}
 
@@ -131,21 +134,17 @@ public abstract class ITIOA {
 	 * @return The minimum waiting time as long until the first edge becomes available.
 	 */
 	private long getMinWaitingTime() {
-		boolean check = false;
 		long time = 0;
 		
-		while (!check) {
+		while (true) {
 			time++;
 			for (IEdge e : current.inputEdges) {
 				
 				// TODO: Time will continue. How should we handle this? Synchrony hypothesis?
-				check = e.checkGuard(getTime() + time);
-				if (check)
-					break;
+				if (e.checkGuard(getTime() + time))
+					return time;
 			}			
 		}
-		
-		return time;
 	}
 	
 	/**
