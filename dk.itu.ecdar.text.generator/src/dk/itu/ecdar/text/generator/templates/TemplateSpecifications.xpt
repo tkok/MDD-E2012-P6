@@ -59,7 +59,9 @@ public class «this.name» extends ITIOA {
 
 		@Override
 		public void onTraverse() {
+			«IF (!edge.updates.isEmpty)» «REM» Hackish but good until we found another way «ENDREM» 
 			resetTime();
+			«ENDIF»
 		}
 	} 
 «ENDFOREACH»
