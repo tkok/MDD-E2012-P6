@@ -170,16 +170,16 @@ processed.
 \label{implementation-code-generation}
 
 In the implementation presented the actual generation of source code is done
-through a model to text transformation. The generation outputs compilable
+through a model to text transformation. The generation outputs compileable
 JAVA-code based on input from an ECDAR file.
 
 The Eclipse Modeling Framework (EMF) is utilized for the process. EMF is a
 modeling framework and code generation facility for building applications based
 on a structured data model. From a model specification described in XMI, EMF
-provides tools and runtime support to produce a set of Java classes for the
+provides tools and run time support to produce a set of Java classes for the
 model, along with a set of adapter classes that enable viewing and command-based
 editing of the model and it provides a basic editor.  The core EMF framework
-includes a meta model (Ecore) for describing models and runtime support for the
+includes a meta model (Ecore) for describing models and run time support for the
 models including: change notification, persistence support with default XMI
 serialization, and a very efficient reflective API for manipulating EMF objects
 generically. In the implementation presented in this paper an Xtext environment
@@ -199,7 +199,7 @@ The initial output from the ECDAR tool is in the XML-format. This XML-output
 contains a complete definition of the model with locations, edges, variables,
 transformations etc. In order to work with these files and do the actual code
 generation, a conversion to Xtext ECDAR DSL is needed. For this conversion we
-are using a converter (courtesy of Bastian) that simply takes the ECDAR XML-file
+are using a converter (courtesy of Bastian M\"uller) that simply takes the ECDAR XML-file
 and converts it to ECDAR DSL. The ECDAR DSL syntax is defined in our Xtext ECDAR
 environment. With the combination of the Ecore meta model and the Xtext syntax a
 workflow can be defined. This workflow is describing how to handle the
@@ -210,32 +210,32 @@ Xpand. Xpand is a statically typed template language. Conveniently Xpand
 supports code-completion directly connected to the Ecore model defined in the
 MWE2 workflow, but also comes with syntax coloring, refactoring and error
 highlighting. The output generation results for the system presented in this
-paper are based on serveral workflows and templates to do the rather complex
+paper are based on several workflows and templates to do the rather complex
 transformations: One set of workflows and templates for respectively the
 Specification, Controller and Environment.
 
 More specifically in the workflow-file one defines what model to use, a
 slot-name to refer to later and an entry point. The entry point defines which
 class element is the top or root element. The entry-element that is defined for
-the three afformentioned workflows is "ETSpecificationDefinition". Also defined
+the three aforementioned workflows is "ETSpecificationDefinition". Also defined
 in the workflow is how to use the entry-element. For instance in the
 specification workflow it is defined that for each "ETSpecificationDefinition" a
 transformation is done using the Xpand template for this particular
-generation. The end result is having generated ouput for each specification that
-was initialy described and modeled from within the ECDAR XML-file.
+generation. The end result is having generated output for each specification that
+was initially described and modeled from within the ECDAR XML-file.
 
 With the workflow fully configured, the next step is to write the
 transformation. This is done in a Xpand template. The snippets in figure
 \ref{xpand-example} shows some important steps.
 
 \begin{figure}[t]
-\lstinputlisting[linerange={1-2}]{code/TemplateSpecifications.xpt}
-\lstinputlisting[linerange={6-6}]{code/TemplateSpecifications.xpt}
-\lstinputlisting[linerange={34-41}]{code/TemplateSpecifications.xpt}
+%\lstinputlisting[linerange={1-2}]{code/TemplateSpecifications.xpt}
+%\lstinputlisting[linerange={6-6}]{code/TemplateSpecifications.xpt}
+%\lstinputlisting[linerange={34-41}]{code/TemplateSpecifications.xpt}
 \caption{Snippets from Xpand-template \label{xpand-example}}
 \end{figure}
 
-The arrows, known as guillemets (``\guillemotleft'' and `` \guillemotright''),
+The arrows, known as guillemots (``\guillemotleft'' and `` \guillemotright''),
 shows where in figure \ref{xpand-example} the XPAND language is in place. First
 of all an import of the model is done in the first line, referenced as
 ecdarText. We then proceed to one of the central concepts of Xpand by using the
@@ -247,7 +247,7 @@ current class. In the first line we create the constructor by inserting the text
 "Edge" and add the number the iterator has reached. We then iterate through a
 list of the current Edges variables, which should be one signal, and returns the
 results as a list. We furthermore use a new iterator to keep track of this
-itereation. We afterwards check if it's the first iteration, and if it is, we
+iteration. We afterwards check if it's the first iteration, and if it is, we
 print out the edges target name and the variable signal, such as "super(C,
 "signal");".
 
