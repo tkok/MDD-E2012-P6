@@ -1,11 +1,9 @@
-%% BACKGROUND (Wiktor) %%% 
-
-% LAST UPDATE: Grammar (12.12.2012) % 
+% LAST UPDATE: 13.12.2012 % 
 
 
 \subsection{Timed Input/Output Automata}
 \label{background-tioa}
-%
+
 The "Timed Input/Output Automata" is a basic, mathematical specification
 framework for description and analysis of real time systems.  In this framework,
 system is represented by nondeterministic, possibly infinite-state, state
@@ -16,34 +14,41 @@ language in ECDAR \cite{conf/atva/DavidLLNW10}.
 \begin{figure}[t]
 \label{simple-model}
 \begin{centering}
-\includegraphics[scale=0.7]{images/bev_machine_model}
+\includegraphics[scale=0.6]{images/simplefied_uni}
 \par\end{centering}
-\caption{Model of beverage-serving machine.}
+\caption{Model of beverage-serving machine and researcher.}
 \label{bev-machine}
 \end{figure}
 
-The preceding figure (see fig. \ref{bev-machine}) illustrates the model of
-beverage-serving machine. Given a coin (\emph{coin}), it serves either coffee
-(\emph{cof}) or tea (\emph{tea}) within a given time interval. Moreover, free
-tea is served once in a while. In the example, the TIOA consists of and two
-locations represented by circles: \emph{Idle} and \emph{Serving}. \emph{Idle}
-represents the starting location, and the state of machine waiting for coin
-input (\emph{coin?}).  The flow of TIOA is controlled by three types of labels:
-\emph{invariants}, \emph{guards} and \emph{clock-reset operations}.  Invariants
-are defined on locations ($y\leq 6$) and represent constraints for the clocks in
-order for the control to remain in particular location until time requirement is
-fulfilled.  Guards are located on the edges ($y\geq 2$ and $y\geq 4$) and
-express conditions on the values of clock that must be satisfied in order for
-the edge to be taken. When the condition is satisfied, the transition occurs and
-action (\emph{cof!} or \emph{tea!}) is triggered. Clock-reset operations ($y=0$)
-are simple clock value manipulations in form of assignment that enforce progress
-in the system.
+The preceding figure (see fig. \ref{simple-model}) illustrates the system
+consisting of two automatons: \emph{Coffee Machine} and \emph{Researcher}.  The
+\emph{Coffee Machine}, given a coin (\emph{coin}), it serves either coffee
+(\emph{cof}) or tea (\emph{tea}) to the \emph{Researcher} within a given time
+interval. Moreover, free tea is served once in a while. The \emph{Researcher} is
+producing publications (\emph{pub}), once provided a timely stimuli in form of
+prefered beverage (\emph{cof}).  In the example, the \emph{Coffee Machine} -
+TIOA consists of and two locations represented by circles: \emph{Idle} and
+\emph{Serving}. \emph{Idle} represents the starting location, and the state of
+machine waiting for coin input (\emph{coin?}). Analogously, the
+\emph{Researcher} is in \emph{Idle} state expecting either coffee (\emph{cof})
+or tea (\emph{tea}) provided by \emph{Coffee Machine}.  The flow of each TIOA is
+controlled by three types of labels: \emph{invariants}, \emph{guards} and
+\emph{clock-reset operations}.  Invariants are defined on locations ($y\leq 6$
+and $x\textgreater 4$) and represent constraints for the clocks in order for the
+control to remain in particular location until time requirement is fulfilled.
+Guards are located on the edges ($y\geq 2$ and $y\geq 4$) and express conditions
+on the values of clock that must be satisfied in order for the edge to be
+taken. When the condition is satisfied, the transition occurs and action
+(\emph{cof!}, \emph{tea!} or \emph{pub!}) is triggered. Clock-reset operations
+($y=0$) are simple clock value manipulations in form of assignment that enforce
+progress in the system.
 
 In ECDAR, the specification interface is leveraging the UPPAAL TIGA language
 \cite{behrmann_uppaal-tiga:_2006} to describe TIOA. However, the following
 constraints are retained\footnote{See
   \url{http://people.cs.aau.dk/adavid/ecdar/examples.html\#lang}}:
-%
+
+
 \begin{itemize}
 \item Invariants may not be strict.
 \item Inputs must use controllable edges.
@@ -63,6 +68,7 @@ constraints are retained\footnote{See
 
 \subsection{Code Generation}
 \label{background-codegeneration}
+
 In order to clarify what code generation is one need to understand what a model
 transformation is, as this is a fundamental part of code generation. In short
 one could say that the model transformation is a way to ensure that the final
@@ -79,8 +85,6 @@ an example, where the base input is an XML-document and the final output is
 another XML-document, often XHTML, with a predefined XML-Schema.
 
 Model to model is a transformation of a number of models to a given number of
-new models -- from X number of models to Z number of new models. Model to text is
+new models - from X number of models to Z number of new models. Model to text is
 the transformation of a number of models to text, the text could for instance be
 code - which is why the process sometimes is known as model to code.
-
-
