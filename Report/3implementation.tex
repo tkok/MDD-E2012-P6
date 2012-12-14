@@ -16,18 +16,18 @@ is, however, still too abstract to justify code generation. We can
 generate code which implements the behavior of state machines, but
 in essence, the system would then only produce messages.
 
-To make this tool more useful, we introduce the notion of tasks as
-an extension to the language. Let $T_{S}$ be a set of tasks and $L_{S}$
-a set of locations on a system $S$. Then $\forall l\in L_{s}\exists t\in T_{s}$,
-i.e. each location is assigned exactly one task. A task is a procedure
-which will be executed as soon as an automaton traverses over an edge,
-arriving at a new location.
+To make this tool more useful, we introduce the notion of tasks as an extension
+to the language. Each location is assigned exactly one task. A task is a
+procedure which will be executed as soon as an automaton traverses over an edge,
+arriving at a new location. Such a task could for example be a procedure that
+heats up the water in the coffe machine from Fig. \ref{bev-machine} or some code
+that extends the undercarriage of a plane when approaching the landing strip.
 
 Tasks can either be preemptive or non-preemptive. This property becomes
 important for defining behavior of automata when they are notified
 about input by the controller.
 
-ECDAR is input-enabled (see Sect. \ref{background-ecdar}) and therefore,
+ECDAR is input-enabled (see Sect. \ref{introduction-ecdar}) and therefore,
 the system is required to react to input immediately. As a consequence,
 there must also be a well defined reaction to input during the execution
 of a task.
@@ -70,24 +70,71 @@ so that nearly no waiting is required.
 The following overview will give further implementation details on each
 component of ECDAR as we implemented it. Each component is illustrated with a
 short code example, implementing ECDAR's "University"
-example \footnote{\url{http://people.cs.aau.dk/adavid/ecdar/examples.html\#university}}. For
+example \footnote{\url{http://people.cs.aau.dk/adavid/ecdar/examples.html#university}}. For
 clarity, we omit the framework implementation and focus on the generated code.
 
+\subsubsection{Controller.}
+
+\begin{figure}[t]
+\lstinputlisting[linerange={6-11,63-63}]{../dk.itu.ecdar.text.generator.mockup/src/dk/itu/ecdar/text/generator/mockup/university/UniversityController.java}
+\caption{Example of controller code.}
+\label{controller-example}
+\end{figure}
+
+The controller holds all automata given in the specification, executes
+them initially in quasi-parallel and notifies automata about input
+from the environment. It is a singleton, accessible in a static fashion.
+This property is useful for output edges that need to notify
+the controller about input. (See Fig. \ref{controller-example})
+
+\subsubsection{TIOA.}
+
+The implementation of timed I/O automata holds a set of locations
+and a reference to the location it is currently at. The TIOA is executed
+by a thread that keeps checking for available edges and traverses
+along these, as soon as they become enabled. To check if an edge is
+available, let $E_{s\rightarrow t}$ be an edge where $s,\, t$ are
+start and target locations respectively. Furthermore, let $g(E)$
+be a function evaluating the guard of an edge $E$ and $I(l)$ a function
+evaluating the invariant of a location $l$. Our implementation uses
+$g'(E_{s\rightarrow t})=g(E_{s\rightarrow t})\wedge I(t)$ to check
+if $E_{s\rightarrow t}$ is available.
+
+\begin{figure}[t]
+\lstinputlisting[linerange={8-8,157-170}]{../dk.itu.ecdar.text.generator.mockup/src/dk/itu/ecdar/text/generator/mockup/university/Machine.java}
+\caption{Example of TIOA code.}
+\label{tioa-example}
+\end{figure}
+
+Additionally, the automaton has the ability to return the current
+local clock state (see \ref{implementation-presumptions}) and to
+reset the clock. We use the same notion of clocks as \cite{amnell_code_2002},
+where time on the local clock is the difference between the current
+time on the system clock and the time the local clock was started.
+Resetting the local clock means to use the current system clock time
+as the new start time. (See Fig. \ref{tioa-example})
+
 \subsubsection{Locations.}
+
+\begin{figure}[t]
+\lstinputlisting[linerange={98-119}]{../dk.itu.ecdar.text.generator.mockup/src/dk/itu/ecdar/text/generator/mockup/university/Machine.java}
+\caption{Example of location code.}
+\label{location-example}
+\end{figure}
 
 Each location is a associated with a task. Task execution is implemented
 in a separate thread, not blocking the execution of the automaton.
 Locations are implemented as objects holding an array of edges that
 point away from it. (See Fig. \ref{location-example})
 
-\begin{figure}[t]
-\lstinputlisting[linerange={101-132}]{code/Machine.java}
-\caption{Example of location code.}
-\label{location-example}
-\end{figure}
-
 
 \subsubsection{Edges.}
+
+\begin{figure}[t]
+\lstinputlisting[linerange={11-24}]{../dk.itu.ecdar.text.generator.mockup/src/dk/itu/ecdar/text/generator/mockup/university/Machine.java}
+\caption{Example of edge code.}
+\label{edge-example}
+\end{figure}
 
 An edge holds a reference to the location which the parent automaton
 will be at after traversing this very edge. Edges can be asked if
@@ -102,49 +149,6 @@ The implementation makes a class-wise distinction between controllable
 and uncontrollable edges and hard-codes the behavior for given input.
 Such hard-coded features are e.g. notifying the controller on traversing
 an uncontrollable edge. (See Fig. \ref{edge-example})
-
-
-\subsection{TIOA.}
-
-The implementation of timed I/O automata holds a set of locations
-and a reference to the location it is currently at. The TIOA is executed
-by a thread that keeps checking for available edges and traverses
-along these, as soon as they become enabled. To check if an edge is
-available, let $E_{s\rightarrow t}$ be an edge where $s,\, t$ are
-start and target locations respectively. Furthermore, let $g(E)$
-be a function evaluating the guard of an edge $E$ and $I(l)$ a function
-evaluating the invariant of a location $l$. Our implementation uses
-$g'(E_{s\rightarrow t})=g(E_{s\rightarrow t})\wedge I(t)$ to check
-if $E_{s\rightarrow t}$ is available.
-
-Additionally, the automaton has the ability to return the current
-local clock state (see \ref{implementation-presumptions}) and to
-reset the clock. We use the same notion of clocks as \cite{amnell_code_2002},
-where time on the local clock is the difference between the current
-time on the system clock and the time the local clock was started.
-Resetting the local clock means to use the current system clock time
-as the new start time. (See Fig. \ref{tioa-example})
-
-\begin{figure}[t]
-\lstinputlisting[linerange={8-8,169-184}]{code/Machine.java}
-\caption{Example of TIOA code.}
-\label{tioa-example}
-\end{figure}
-
-
-\subsubsection{Controller.}
-
-The controller holds all automata given in the specification, executes
-them initially in quasi-parallel and notifies automata about input
-from the environment. It is a singleton, accessible in a static fashion.
-This property is useful for uncontrollable edges that need to notify
-the controller about input. (See Fig. \ref{controller-example})
-
-\begin{figure}[t]
-\lstinputlisting[linerange={6-11,63-64}]{code/UniversityController.java}
-\caption{Example of controller code.}
-\label{controller-example}
-\end{figure}
 
 
 \subsection{Synchronization}
