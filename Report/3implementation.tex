@@ -52,13 +52,16 @@ system to decide. By default are all tasks non-preemptive.
 \caption{Schematic of the architecture of our ECDAR implementation.}
 \end{figure}
 
-The architecture we chose is based upon the work of Amnell et al.\cite{amnell_code_2002}
-with some modifications. Communication between automata is implemented
-as message passing between environment and automata, where automata
-send messages to the environment by traversing over output edges --
-there are no shared variables (see Sect. \ref{background-tioa}). Messages
-are processed by a controller object, which initializes automata and
-also notifies automata about received messages.
+The architecture we chose is based upon the work of Amnell et
+al.\cite{amnell_code_2002} with some modifications. Communication between
+automata is implemented as message passing between a controller and automata,
+where automata send messages to the controller by traversing over output
+edges. This is different in actual ECDAR, where automata communicate through
+message passing directly between each other. However, by choosing a slightly
+different architecture, we can unify the message system in the implementation,
+handling all messages central and also not distinguishing between a message
+coming from the environment or a message send by an automaton. The resulting
+behavior is equal.
 
 We require multiple automata to execute in quasi-parallel. Therefore,
 we do not queue tasks. Since the automata are moved to classical threading
@@ -69,8 +72,8 @@ so that nearly no waiting is required.
 
 The following overview will give further implementation details on each
 component of ECDAR as we implemented it. Each component is illustrated with a
-short code example, implementing ECDAR's "University"
-example \footnote{\url{http://people.cs.aau.dk/adavid/ecdar/examples.html#university}}. For
+short code example, implementing ECDAR's ``University''
+example\footnote{\url{http://people.cs.aau.dk/adavid/ecdar/examples.html#university}}. For
 clarity, we omit the framework implementation and focus on the generated code.
 
 \subsubsection{Controller.}
@@ -85,7 +88,7 @@ The controller holds all automata given in the specification, executes
 them initially in quasi-parallel and notifies automata about input
 from the environment. It is a singleton, accessible in a static fashion.
 This property is useful for output edges that need to notify
-the controller about input. (See Fig. \ref{controller-example})
+the controller about input (see Fig. \ref{controller-example}).
 
 \subsubsection{TIOA.}
 
@@ -112,7 +115,7 @@ reset the clock. We use the same notion of clocks as \cite{amnell_code_2002},
 where time on the local clock is the difference between the current
 time on the system clock and the time the local clock was started.
 Resetting the local clock means to use the current system clock time
-as the new start time. (See Fig. \ref{tioa-example})
+as the new start time (see Fig. \ref{tioa-example}).
 
 \subsubsection{Locations.}
 
@@ -129,6 +132,7 @@ point away from it. (See Fig. \ref{location-example})
 
 
 \subsubsection{Edges.}
+\label{subsubsec:edges}
 
 \begin{figure}[t]
 \lstinputlisting[linerange={11-24}]{../dk.itu.ecdar.text.generator.mockup/src/dk/itu/ecdar/text/generator/mockup/university/Machine.java}
@@ -145,10 +149,10 @@ if the automaton is notified at this input. If it is uncontrollable,
 it will send its input to the controller. Furthermore, edges have
 access to the clock of the parent automaton to reset it appropriately.
 
-The implementation makes a class-wise distinction between controllable
-and uncontrollable edges and hard-codes the behavior for given input.
-Such hard-coded features are e.g. notifying the controller on traversing
-an uncontrollable edge. (See Fig. \ref{edge-example})
+The implementation makes a class-wise distinction between input edges
+(i.e. edges that are traversed when a corresponding message was received) and
+output edges (edges that send messages on traversal) and hard-codes the behavior
+for given input (see Fig. \ref{edge-example}).
 
 
 \subsection{Synchronization}
@@ -196,7 +200,7 @@ setup a workflow that manages the process and finally a XPAND-template is needed
 to define how the transformation output should look like. Each step is being
 described in more detail in the following section.
 
-\subsubsection{Transformation process}
+\subsubsection{Transformation Process}
 \label{transformation-process}
 
 The initial output from the ECDAR tool is in the XML-format. This XML-output
