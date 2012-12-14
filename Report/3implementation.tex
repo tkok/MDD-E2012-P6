@@ -10,6 +10,7 @@ section describes our implemented subset of ECDAR and the code generator
 in detail.
 
 \subsection{Tasks}
+\label{subsec:tasks}
 
 ECDAR defines the behavior of a system as a state machine. This behavior
 is, however, still too abstract to justify code generation. We can
@@ -39,7 +40,7 @@ if and only if the task is preemptive. Otherwise, the given input
 will be ignored and the execution of the task continues.
 
 To determine if a task is preemptive is up to the designer of the
-system to decide. By default are all tasks non-preemptive.
+system to decide. By default all tasks are non-preemptive.
 
 \subsection{The ECDAR Framework}
 \label{implementation-framework}
@@ -63,12 +64,11 @@ handling all messages central and also not distinguishing between a message
 coming from the environment or a message send by an automaton. The resulting
 behavior is equal.
 
-We require multiple automata to execute in quasi-parallel. Therefore,
-we do not queue tasks. Since the automata are moved to classical threading
-architecture, we do not require multiple processor units. Instead,
-the controller and each automaton run in separate threads. Since there
-is no communication between automata directly, we can minimize synchronizing
-so that nearly no waiting is required.
+Automata need to execute in quasi-parallel. In the implementation they are run
+in a classical threading architecture that does not require multiple processor
+units. Since there is no communication between automata directly, we can
+minimize synchronizing between threads (see more on synchronizing in
+Sec. \ref{subsec:synch}).
 
 The following overview will give further implementation details on each
 component of ECDAR as we implemented it. Each component is illustrated with a
@@ -84,24 +84,24 @@ clarity, we omit the framework implementation and focus on the generated code.
 \label{controller-example}
 \end{figure}
 
-The controller holds all automata given in the specification, executes
-them initially in quasi-parallel and notifies automata about input
-from the environment. It is a singleton, accessible in a static fashion.
-This property is useful for output edges that need to notify
-the controller about input (see Fig. \ref{controller-example}).
+The controller holds all automata given in the specification and notifies them
+about received messages. It is a singleton, accessible in a static fashion.
+This property is useful for sending messages to the controller.
 
 \subsubsection{TIOA.}
 
-The implementation of timed I/O automata holds a set of locations
-and a reference to the location it is currently at. The TIOA is executed
-by a thread that keeps checking for available edges and traverses
-along these, as soon as they become enabled. To check if an edge is
-available, let $E_{s\rightarrow t}$ be an edge where $s,\, t$ are
-start and target locations respectively. Furthermore, let $g(E)$
-be a function evaluating the guard of an edge $E$ and $I(l)$ a function
-evaluating the invariant of a location $l$. Our implementation uses
-$g'(E_{s\rightarrow t})=g(E_{s\rightarrow t})\wedge I(t)$ to check
-if $E_{s\rightarrow t}$ is available.
+The implementation of timed I/O automata holds a set of locations and a
+reference to the location it is currently at. The TIOA is executed by a thread
+that keeps checking for available edges and traverses along these as soon as
+they become enabled. To check if an edge is available, let $E_{s\rightarrow t}$
+be an edge where $s,\, t$ are start and target locations
+respectively. Furthermore, let $g(E)$ be a function evaluating the guard of an
+edge $E$ and $I(l)$ a function evaluating the invariant of a location $l$. Our
+implementation uses $g'(E_{s\rightarrow t})=g(E_{s\rightarrow t})\wedge I(t)$ to
+check if $E_{s\rightarrow t}$ is available. We do not check the invariant of the
+source location because if the source location's invariant was violated, the
+system would already be in a deadlock. This cannot be true, as we assume that
+the system is verified.
 
 \begin{figure}[t]
 \lstinputlisting[linerange={8-8,157-170}]{../dk.itu.ecdar.text.generator.mockup/src/dk/itu/ecdar/text/generator/mockup/university/Machine.java}
@@ -125,10 +125,10 @@ as the new start time (see Fig. \ref{tioa-example}).
 \label{location-example}
 \end{figure}
 
-Each location is a associated with a task. Task execution is implemented
-in a separate thread, not blocking the execution of the automaton.
-Locations are implemented as objects holding an array of edges that
-point away from it. (See Fig. \ref{location-example})
+Each location is a associated with a task (see Sec. \ref{subsec:tasks}). Task
+execution is implemented in a separate thread so that the execution of the
+automaton is never blocked. Locations are implemented as objects holding an
+array of edges that point away from it. (See Fig. \ref{location-example})
 
 
 \subsubsection{Edges.}
@@ -152,10 +152,11 @@ access to the clock of the parent automaton to reset it appropriately.
 The implementation makes a class-wise distinction between input edges
 (i.e. edges that are traversed when a corresponding message was received) and
 output edges (edges that send messages on traversal) and hard-codes the behavior
-for given input (see Fig. \ref{edge-example}).
+in the framework, e.g. messaging the controller (see Fig. \ref{edge-example}).
 
 
 \subsection{Synchronization}
+\label{subsec:synch}
 
 In the framework implementation, the Java keyword \textit{synchronized} is 
 used for making certain operations quasi-atomic. That means, that a set of
