@@ -14,15 +14,12 @@ public class Machine extends ITIOA {
 			super(serving, "coin");
 		}
 
-		@Override
 		public boolean checkGuard(long time) {
 			return to.checkInvariant(time) && true;
 		}
 
-		@Override
 		public void onTraverse() {
 			resetTime();
-			
 		}
 	}
 	
@@ -104,31 +101,21 @@ public class Machine extends ITIOA {
 			super("idle", parent);
 		}
 		
-		@Override
 		public void setupEdges() {
-			outputEdges = new IOutputEdge[]{
-					new Idle_TEA_Idle()
-			};
+			outputEdges = new IOutputEdge[]{new Idle_TEA_Idle()};
 			
-			inputEdges = new IInputEdge[]{
-					new Idle_COIN_Serving()
-			};
+			inputEdges = new IInputEdge[]{new Idle_COIN_Serving()};
 		}
 
-		@Override
 		public boolean checkInvariant(long time) {
 			return true;
 		}
 
-		@Override
 		public boolean isPreemptive() {
 			return false;
 		}
 
-		@Override
-		public void task() {
-			
-		}
+		public void task() { }
 	}
 	
 	class Serving extends ILocation {
@@ -180,5 +167,4 @@ public class Machine extends ITIOA {
 		
 		current = idle;
 	}
-		
 }
