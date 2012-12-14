@@ -1,3 +1,4 @@
+
 % This is LLNCS.DEM the demonstration file of
 % the LaTeX macro package from Springer-Verlag
 % for Lecture Notes in Computer Science,
@@ -7,8 +8,8 @@
 %
 \usepackage{makeidx}  % allows for indexgeneration
 \usepackage{graphicx} % so we can include images
-\usepackage[utf8]{inputenc} % display all characters properly
-\usepackage[unicode=true,english,american]{babel} % doesn't change anything?
+\usepackage{inputenc} % display all characters properly
+\usepackage[english,american]{babel}
 
 \usepackage{url}
 \usepackage{listings} % for listing code
@@ -26,31 +27,21 @@
 \definecolor{Orange}{rgb}{1,0.5,0}
 \newcommand{\todo}[1]{\textsf{\textbf{\textcolor{Orange}{[#1]}}}}
 
-\lstset{ %
-  language=Java,                  % the language of the code
-  basicstyle=\ttfamily\footnotesize,       % the size of the fonts that are used for the code
-  numbers=left,                   % where to put the line-numbers
-  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
-  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
-                                  % will be numbered
-  numbersep=5pt,                  % how far the line-numbers are from the code
-  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
-  showspaces=false,               % show spaces adding particular underscores
-  showstringspaces=false,         % underline spaces within strings
-  showtabs=false,                 % show tabs within strings adding particular underscores
-  frame=single,                     % adds a frame around the code
-  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+\lstset{
+  language=Java,
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  frame=single,
   tabsize=2,
-  captionpos=b,                   % sets the caption-position to bottom
+  captionpos=b,
   breaklines=true,
   breakatwhitespace=true,
-  %title=\lstname,                 % show the filename of files included with \lstinputlisting;
   keywordstyle=\color{keywords},
   commentstyle=\color{comments},
   stringstyle=\color{strings},
-  %escapeinside={\%*}{*)},        % if you want to add LaTeX within your code
-  %morekeywords={*,...},          % if you want to add more keywords to the set
-  %deletekeywords={}           % if you want to delete keywords from the given language
 }
 
 %
@@ -82,64 +73,42 @@
 \maketitle % typeset the title of the contribution
 
 \begin{abstract}
-\input{abstract}
+\input{abstract.tex}
 \end{abstract}
 
-\section{Introduction\label{introduction}}
-\input{introduction}
+
+\section{Introduction}
+\label{introduction}
+\input{introduction.tex}
 
 
+\section{Background}
+\label{background}
+\input{background.tex}
 
-%%% Begin of background
 
-\section{Background\label{background}}
-\input{background}
+\section{Implementation}
+\label{implementation}
+\input{implementation.tex}
 
-%%% End of background
-
-%%% Begin of implementation
-
-\section{Implementation\label{implementation}}
-\input{implementation}
-
-%%% End of implementation
 
 \section{Evaluation and Discussion}
-\input{evaluation}
+\label{evaluation}
+\input{evaluation.tex}
 
 
-
-\section{Related Work\label{related}}
-\input{related}
+\section{Related Work}
+\label{related}
+\input{related.tex}
 
 
 \section{Conclusion}
-\input{conclusion}
+\input{conclusion.tex}
 
-%
-...
-%
-
-% ---- Bibliography ----
 \bibliographystyle{plain}
 \nocite{*}
-\bibliography{MDD}
+\bibliography{MDD.bib}
 
-% Add more references to MDD.bib by hand or send links with them to me, I'll generate the file properly then. /Florian
-%
-%\begin{thebibliography}{5}
-
-%\bibitem {Selic:PoMDD}
-%\textsl Bran Selic: {The Pragmatics of Model-Driven Development}, IBM Rational Software, (2003), \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1231146}
-%\bibitem {Ecdar:Ewe}
-%\textsl Environment for Compositional Design and Analysis of Real Time Systems (2012-10-19), \url{http://ecdar.cs.aau.dk/}
-%\bibitem {Larsen:UPPAAL}
-%\textsl Larsen, K., Pettersson, P., Yi, W.: Uppaal in a nutshell. International Journal on Software Tools for Technology Transfer (STTT) 1(1), 134–152 (1997)
-
-
-%\end{thebibliography}
-
-%
 \appendix
 \section{First Appendix}
 

@@ -1,28 +1,37 @@
 \subsection{Testing}
 \label{Testing}
-In order to test our software solution three different testing methods have been arranged.
+In order to test our software solution three different testing methods have been
+arranged.
 
 \subsubsection{Compiling properly}
 Making sure every output compiles properly.
 
 \subsubsection{Logfile testing}
-For the project an logfile analysis program have been incorporated. A small program verifying that the signals in the generator code are fired in the right order according to the input model. 
-The analysis program is hardcoded to match our testing model (see figure~\ref{simple-model} on page~\pageref{simple-model}). Thus it is checking for signals like: GRANT, COIN and TEA, in the specifyied order. If a signal is called within the generator before it is supposed too (e.g TEA before COIN) the analysis program will call for an ERROR. 
+For the project an logfile analysis program have been incorporated. A small
+program verifying that the signals in the generator code are fired in the right
+order according to the input model.  The analysis program is hardcoded to match
+our testing model (see Fig. \ref{simple-model}). Thus it is checking for signals
+like: GRANT, COIN and TEA, in the specifyied order. If a signal is called within
+the generator before it is supposed too (e.g TEA before COIN) the analysis
+program will call for an ERROR.
 
-The logfile contain timestamps of global time from each atomaton in a model. The global time can then be verified by comparison with time assigned within the ECDAR modelling tool.
+The logfile contain timestamps of global time from each atomaton in a model. The
+global time can then be verified by comparison with time assigned within the
+ECDAR modelling tool.
 
 \subsubsection{Manual Comparison}
-Final testing procedure is a manual step-by-step comparison of a simple graphical atomaton model and the corisponding code generated. Cycling through the times, comparing each step with the output.
+Final testing procedure is a manual step-by-step comparison of a simple
+graphical atomaton model and the corisponding code generated. Cycling through
+the times, comparing each step with the output.
 %(verified by Andrzej Wasowski).
 
-\subsection{Presumptions and Resulting Motivations\label{implementation-presumptions}}
+\subsection{Presumptions and Resulting Motivations}
+\label{implementation-presumptions}
 
-Our implementation represents only a subset of actual ECDAR. Currently,
-the implementation assumes only one clock per automaton. Also, we
-assume the specification to be valid, since there are other tools
-that verify correctness%
-\footnote{\href{http://people.cs.aau.dk/adavid/ecdar/}%
-}.
+Our implementation represents only a subset of actual ECDAR. Currently, the
+implementation assumes only one clock per automaton. Also, we assume the
+specification to be valid, since there are other tools that verify
+correctness\footnote{\url{http://people.cs.aau.dk/adavid/ecdar/}}.
 
 The only operator we implement for code generation is the parallel
 composition operator. Let $M$ be the type ECDAR specification. Then
