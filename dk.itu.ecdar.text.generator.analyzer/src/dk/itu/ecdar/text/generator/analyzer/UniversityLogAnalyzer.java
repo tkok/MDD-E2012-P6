@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.Result;
 
 public class UniversityLogAnalyzer {
 	
@@ -51,7 +50,6 @@ public class UniversityLogAnalyzer {
 	public void setUp() throws Exception {
 		log = new ArrayList<Signal>();
 		
-		// 39,University2,110,12,Executing task
 		Pattern signalPattern = Pattern.compile("^\\d+,([^,]+),(\\d+),\\d+,Signaling\\s([^,]+)$");
 		Scanner logScanner = new Scanner(new File(System.getenv("UNIVERSITY_LOGFILE")));
 		
@@ -80,7 +78,7 @@ public class UniversityLogAnalyzer {
 	}
 
 	@Test
-	public void test() {
+	public void checkLog() {
 		int current = 0;
 		
 		while (current < log.size()) {
