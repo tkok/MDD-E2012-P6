@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.Result;
 
 public class UniversityLogAnalyzer {
 	
@@ -52,7 +53,7 @@ public class UniversityLogAnalyzer {
 		
 		// 39,University2,110,12,Executing task
 		Pattern signalPattern = Pattern.compile("^\\d+,([^,]+),(\\d+),\\d+,Signaling\\s([^,]+)$");
-		Scanner logScanner = new Scanner(new File("log2.csv"));
+		Scanner logScanner = new Scanner(new File(System.getenv("UNIVERSITY_LOGFILE")));
 		
 		while (logScanner.hasNext()) {
 			String line = logScanner.nextLine();
@@ -63,7 +64,7 @@ public class UniversityLogAnalyzer {
 				Signal signal = new Signal(logMatcher.group(3),
 						logMatcher.group(1),
 						Integer.valueOf(logMatcher.group(2)));
-				System.err.println(signal);
+				
 				log.add(signal);
 			}
 		}
@@ -137,10 +138,8 @@ public class UniversityLogAnalyzer {
 				return false;
 			
 			// true if follow-up signal is found
-			if (future.signal.equals(signal) && !future.lookedAt) {
-				future.lookedAt = true;
+			if (future.signal.equals(signal))
 				return true;
-			}
 		}
 		return false;
 	}
