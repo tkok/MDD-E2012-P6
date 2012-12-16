@@ -16,38 +16,40 @@ paper an Xtext environment is generated from the ECDAR Ecore
 model. Xtext\footnote{\url{http://www.eclipse.org/Xtext/}} is a framework for
 development of programming languages and domain specific languages.
 
-In order to generate code from the model it's imperative to follow a process of
+In order to generate code from the model it is imperative to follow a process of
 multiple steps: get the input from ECDAR, translate this to Xtext ECDAR DSL,
 setup a workflow that manages the process and finally a Xpand-template is needed
-to define how the transformation output should look like. Each step is described in more detail in the following section.
+to define how the transformation output should look like. Each step is described
+in more detail in the following section.
 
 \subsubsection{Transformation Process}
 \label{transformation-process}
 
-The initial output from the ECDAR tool is in XML-format. The XML-output
-contains a complete definition of the model with locations, edges, variables,
+The initial output from the ECDAR tool is in XML-format. The XML-output contains
+a complete definition of the model with locations, edges, variables,
 transformations etc. In order to work with these files and do the actual code
 generation, a conversion to Xtext ECDAR DSL is needed. For this conversion we
-are using a converter (courtesy of Bastian M\"uller) that simply takes the ECDAR XML-file and converts it to ECDAR DSL. The ECDAR DSL syntax is defined in our Xtext ECDAR
-environment. With the combination of the Ecore meta model and the Xtext syntax a
-workflow can be defined. This workflow is describing how to handle the
-generation process. This is done with the help of the ``Modeling Workflow Engine 2''
-(MWE2). Also referenced in the workflow is the template that describes how the
-actual output is going to look like. The templates are written using
-Xpand. Xpand is a statically typed template language. Conveniently Xpand
+are using a converter (courtesy of Bastian M\"uller) that simply takes the ECDAR
+XML-file and converts it to ECDAR DSL. The ECDAR DSL syntax is defined in our
+Xtext ECDAR environment. With the combination of the Ecore meta model and the
+Xtext syntax a workflow can be defined. This workflow is describing how to
+handle the generation process. This is done with the help of the ``Modeling
+Workflow Engine 2'' (MWE2). Also referenced in the workflow is the template that
+describes how the actual output is going to look like. The templates are written
+using Xpand. Xpand is a statically typed template language. Conveniently Xpand
 supports code-completion directly connected to the Ecore model defined in the
 MWE2 workflow, but also comes with syntax coloring, refactoring and error
 highlighting. The output generation results, for the system presented in this
 paper, are based on several workflows and templates to do the rather complex
-transformations: One set of workflows and templates for respectively the
+transformations: one set of workflows and templates for respectively the
 Specification, Controller and Environment.
 
 More specifically in the workflow-file one defines what model to use, a
 slot-name to refer to later and an entry point. The entry point defines which
 class element is the top or root element. The entry-element that is specified for
 the three aforementioned workflows is ``ETSpecificationDefinition''. Also defined
-in the workflow is how to use the entry-element. For instance in the
-specification workflow it is defined that for each "ETSpecificationDefinition" a
+in the workflow is how to use the entry element. For instance in the
+specification workflow it is defined that for each ``ETSpecificationDefinition'' a
 transformation is done using the Xpand template for this particular
 generation. The end result is generated output for each specification that
 was initially described and modeled from within the ECDAR XML-file.
@@ -60,28 +62,27 @@ transformation. This is done in a Xpand template. The snippets in Fig.
 \lstinputlisting[linerange={1-2}]{code/TemplateSpecifications.xpt}
 \lstinputlisting[linerange={6-6}]{code/TemplateSpecifications.xpt}
 \lstinputlisting[linerange={34-41}]{code/TemplateSpecifications.xpt}
-\caption{Snippets from Xpand-template \label{xpand-example}}
+\caption{Snippets from Xpand-template.}
+\label{xpand-example}
 \end{figure}
 
-The arrows, known as guillemots (``\guillemotleft'' and ``\guillemotright''),
-indicates where in figure \ref{xpand-example} the XPAND language is in place. First
-of all an import of the model is done in the first line, referenced as
-ecdarText. We then proceed to one of the central concepts of Xpand by using the
-define-block; This is where we define our template. We only use one template in
-this specific file, but it could have contained multiple, which would have
-resulted in multiple define-blocks. In the next and last snippet we jump to a
-part where we are iterating through each edge and create a constructor for the
-current class. In the first line we create the constructor by inserting the text
-``Edge'' and add the number the iterator has reached. We then iterate through a
-list of the current edges variables, which should be one signal, and returns the
-results as a list. We furthermore use a new iterator to keep track of this
-iteration. Afterward we use a check too make sure it's the first iteration, and if it is, we
-print out the current Edge target name and the variable signal, such as \texttt{super(C,
-"signal");}.
+Guillemots (``\guillemotleft'' and ``\guillemotright'') indicate where the
+XPAND language is in place (see Fig. \ref{xpand-example}). First of all an
+import of the model is done in the first line, referenced as \texttt{ecdarText}. We then
+proceed to one of the central concepts of Xpand by using the define-block; this
+is where we define our template. We only use one template in this specific file,
+but it could have contained multiple, which would have resulted in multiple
+define-blocks. In the next and last snippet we jump to a part where we are
+iterating through each edge and create a constructor for the current class. In
+the first line we create the constructor by inserting the text ``Edge'' and add
+the number the iterator has reached. We then iterate through a list of the
+current edges variables, which should be one signal, and returns the results as
+a list. We furthermore use a new iterator to keep track of this
+iteration. Afterward we use a check to make sure it is the first iteration, and
+if it is, we print out the current Edge target name and the variable signal,
+such as \texttt{super(C, ``signal'');}.
 
 The notion of tasks as previous described in Sec.~\ref{subsec:tasks} is accounted for in
 our generated output. In the controller we generate functions that will be
-invoked at each location. A task is a procedure which will be executed as soon
-as an automaton traverses over an edge, arriving at a new location. There can
-only be one task for each location. The idea behind having all methods in the
+invoked at each location. The idea behind having all methods in the
 controller is for a better overview and a centralized customizable file.
