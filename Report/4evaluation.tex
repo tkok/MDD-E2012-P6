@@ -12,7 +12,7 @@ if the generated code compiles. If the code does not compile, we know that the
 code generator does not generate valid code and that our templates are wrong.
 
 
-\subsubsection{Manual Comparison}
+\subsubsection{Manual Log Analysis}
 
 A first approach to validating correctness is manual validation of generated log
 files. A log file contains each action that occurs in a specified system with
@@ -20,9 +20,10 @@ local time, i.e. the clock time on the automaton, and global time, i.e. time
 since the system started.
 
 We employed this approach on the ``University'' example, together with Andrzej
-Wasowski, who authored ECDAR and the given example specification.
+Wasowski, who authored ECDAR and the given example specification. A log file for
+this particular example can be found under Appendix~\ref{log-file}.
 
-\subsubsection{Log File Analysis}
+\subsubsection{Automated Log Analysis}
 
 As means to analyze the generated log files in a more automated and valid
 fashion we conceived a JUnit test program. This program is tuned especially for
