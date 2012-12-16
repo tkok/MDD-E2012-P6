@@ -1,0 +1,143 @@
+1,Machine,6,0,Executing task.
+2,University,6,0,Executing task.
+3,ResearcherImpl,6,0,Executing task.
+4,Environment,6,0,Signaling grant
+5,Controller,6,0,Received input grant
+6,University,6,0,Traversing from A to B via Edge10
+7,University,6,0,Executing task.
+8,University,7,0,Signaling coin
+9,Controller,7,0,Received input coin
+10,Machine,7,0,Traversing from Idle to Serving via Edge5
+11,Machine,7,0,Executing task.
+12,University,7,0,Traversing from B to C via Edge8
+13,University,7,0,Executing task.
+14,Machine,7,0,Signaling tea
+15,Controller,7,0,Received input tea
+16,ResearcherImpl,7,0,Traversing from Idle to Id22 via Edge11
+17,ResearcherImpl,7,0,Executing task.
+18,Machine,7,0,Traversing from Serving to Idle via Edge2
+19,Machine,7,0,Executing task.
+20,Machine,9,2,Signaling tea
+21,Controller,9,2,Received input tea
+22,ResearcherImpl,9,2,Traversing from Id22 to Id22 via Edge7
+23,ResearcherImpl,9,2,Executing task.
+24,Machine,9,2,Traversing from Idle to Idle via Edge4
+25,Machine,9,2,Executing task.
+26,Machine,10,3,Signaling tea
+27,Controller,10,3,Received input tea
+28,ResearcherImpl,10,3,Traversing from Id22 to Id22 via Edge7
+29,ResearcherImpl,10,3,Executing task.
+30,Machine,10,3,Traversing from Idle to Idle via Edge4
+31,Machine,10,3,Executing task.
+32,Machine,11,4,Signaling tea
+33,Controller,11,4,Received input tea
+34,ResearcherImpl,11,4,Traversing from Id22 to Id22 via Edge7
+35,ResearcherImpl,11,4,Executing task.
+36,Machine,11,4,Traversing from Idle to Idle via Edge4
+37,Machine,11,4,Executing task.
+38,Machine,12,5,Signaling tea
+39,Controller,12,5,Received input tea
+40,ResearcherImpl,12,5,Traversing from Id22 to Id22 via Edge7
+41,ResearcherImpl,12,5,Executing task.
+42,Machine,12,5,Traversing from Idle to Idle via Edge4
+43,Machine,12,5,Executing task.
+44,ResearcherImpl,13,6,Signaling pub
+45,Controller,13,6,Received input pub
+46,Machine,13,6,Signaling tea
+47,University,13,0,Traversing from C to D via Edge5
+48,University,13,0,Executing task.
+49,ResearcherImpl,13,0,Traversing from Id22 to Idle via Edge9
+50,Controller,13,6,Received input tea
+51,ResearcherImpl,13,0,Executing task.
+52,ResearcherImpl,13,0,Traversing from Idle to Id22 via Edge11
+53,ResearcherImpl,13,0,Executing task.
+54,Machine,13,6,Traversing from Idle to Idle via Edge4
+55,Machine,13,6,Executing task.
+56,University,14,1,Signaling patent
+57,Controller,14,7,Received input patent
+58,University,14,1,Traversing from D to A via Edge3
+59,University,14,1,Executing task.
+60,Machine,14,7,Signaling tea
+61,Controller,14,7,Received input tea
+62,ResearcherImpl,14,1,Traversing from Id22 to Id22 via Edge7
+63,ResearcherImpl,14,1,Executing task.
+64,Machine,14,7,Traversing from Idle to Idle via Edge4
+65,Machine,14,7,Executing task.
+66,Machine,15,8,Signaling tea
+67,Controller,15,9,Received input tea
+68,ResearcherImpl,15,2,Traversing from Id22 to Id22 via Edge7
+69,ResearcherImpl,15,2,Executing task.
+70,Machine,15,8,Traversing from Idle to Idle via Edge4
+71,Machine,15,8,Executing task.
+72,Machine,16,9,Signaling tea
+73,Controller,16,10,Received input tea
+74,ResearcherImpl,16,3,Traversing from Id22 to Id22 via Edge7
+75,ResearcherImpl,16,3,Executing task.
+76,Machine,16,9,Traversing from Idle to Idle via Edge4
+77,Machine,16,9,Executing task.
+78,Machine,17,10,Signaling tea
+79,Controller,17,11,Received input tea
+80,ResearcherImpl,17,4,Traversing from Id22 to Id22 via Edge7
+81,ResearcherImpl,17,4,Executing task.
+82,Machine,17,10,Traversing from Idle to Idle via Edge4
+83,Machine,17,10,Executing task.
+84,Machine,19,12,Signaling tea
+85,Controller,19,12,Received input tea
+86,ResearcherImpl,19,5,Traversing from Id22 to Id22 via Edge7
+87,ResearcherImpl,19,5,Executing task.
+88,Machine,19,12,Traversing from Idle to Idle via Edge4
+89,Machine,19,12,Executing task.
+90,ResearcherImpl,20,6,Signaling pub
+91,Controller,20,13,Received input pub
+92,University,20,6,Traversing from A to A via Edge9
+93,Machine,20,13,Signaling tea
+94,University,20,6,Executing task.
+95,Controller,20,13,Received input tea
+96,ResearcherImpl,20,0,Traversing from Id22 to Idle via Edge9
+97,ResearcherImpl,20,0,Executing task.
+98,ResearcherImpl,20,0,Traversing from Idle to Id22 via Edge11
+99,ResearcherImpl,20,0,Executing task.
+100,Machine,20,13,Traversing from Idle to Idle via Edge4
+101,Machine,20,13,Executing task.
+102,Machine,21,14,Signaling tea
+103,Controller,21,14,Received input tea
+104,ResearcherImpl,21,1,Traversing from Id22 to Id22 via Edge7
+105,ResearcherImpl,21,1,Executing task.
+106,Machine,21,14,Traversing from Idle to Idle via Edge4
+107,Machine,21,14,Executing task.
+108,Machine,22,15,Signaling tea
+109,Controller,22,15,Received input tea
+110,ResearcherImpl,22,2,Traversing from Id22 to Id22 via Edge7
+111,ResearcherImpl,22,2,Executing task.
+112,Machine,22,15,Traversing from Idle to Idle via Edge4
+113,Machine,22,15,Executing task.
+114,Machine,23,16,Signaling tea
+115,Controller,23,16,Received input tea
+116,ResearcherImpl,23,3,Traversing from Id22 to Id22 via Edge7
+117,ResearcherImpl,23,3,Executing task.
+118,Machine,23,16,Traversing from Idle to Idle via Edge4
+119,Machine,23,16,Executing task.
+120,Machine,24,17,Signaling tea
+121,Controller,24,17,Received input tea
+122,ResearcherImpl,24,4,Traversing from Id22 to Id22 via Edge7
+123,ResearcherImpl,24,4,Executing task.
+124,Machine,24,17,Traversing from Idle to Idle via Edge4
+125,Machine,24,17,Executing task.
+126,Machine,25,18,Signaling tea
+127,Controller,25,18,Received input tea
+128,ResearcherImpl,25,5,Traversing from Id22 to Id22 via Edge7
+129,ResearcherImpl,25,5,Executing task.
+130,Machine,25,18,Traversing from Idle to Idle via Edge4
+131,Machine,25,18,Executing task.
+132,ResearcherImpl,26,6,Signaling pub
+133,Controller,26,20,Received input pub
+134,Machine,26,19,Signaling tea
+135,University,26,13,Traversing from A to A via Edge9
+136,University,26,13,Executing task.
+137,Controller,26,20,Received input tea
+138,ResearcherImpl,26,0,Traversing from Id22 to Idle via Edge9
+139,ResearcherImpl,26,0,Executing task.
+140,ResearcherImpl,26,0,Traversing from Idle to Id22 via Edge11
+141,ResearcherImpl,26,0,Executing task.
+142,Machine,26,19,Traversing from Idle to Idle via Edge4
+143,Machine,26,19,Executing task.
