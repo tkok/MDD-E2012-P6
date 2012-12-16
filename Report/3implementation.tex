@@ -207,11 +207,10 @@ The initial output from the ECDAR tool is in XML-format. The XML-output
 contains a complete definition of the model with locations, edges, variables,
 transformations etc. In order to work with these files and do the actual code
 generation, a conversion to Xtext ECDAR DSL is needed. For this conversion we
-are using a converter (courtesy of Bastian M\"uller) that simply takes the ECDAR XML-file
-and converts it to ECDAR DSL. The ECDAR DSL syntax is defined in our Xtext ECDAR
+are using a converter (courtesy of Bastian M\"uller) that simply takes the ECDAR XML-file and converts it to ECDAR DSL. The ECDAR DSL syntax is defined in our Xtext ECDAR
 environment. With the combination of the Ecore meta model and the Xtext syntax a
 workflow can be defined. This workflow is describing how to handle the
-generation process. This is done with the help of the Modeling Workflow Engine 2
+generation process. This is done with the help of the ``Modeling Workflow Engine 2''
 (MWE2). Also referenced in the workflow is the template that describes how the
 actual output is going to look like. The templates are written using
 Xpand. Xpand is a statically typed template language. Conveniently Xpand
@@ -237,9 +236,9 @@ transformation. This is done in a Xpand template. The snippets in Fig.
 \ref{xpand-example} shows some important steps.
 
 \begin{figure}[t]
-\lstinputlisting[linerange={1-2}]{code/TemplateSpecifications.xpt}
-\lstinputlisting[linerange={6-6}]{code/TemplateSpecifications.xpt}
-\lstinputlisting[linerange={34-41}]{code/TemplateSpecifications.xpt}
+%\lstinputlisting[linerange={1-2}]{code/TemplateSpecifications.xpt}
+%\lstinputlisting[linerange={6-6}]{code/TemplateSpecifications.xpt}
+%\lstinputlisting[linerange={34-41}]{code/TemplateSpecifications.xpt}
 \caption{Snippets from Xpand-template \label{xpand-example}}
 \end{figure}
 
