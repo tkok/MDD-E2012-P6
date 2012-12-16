@@ -98,8 +98,8 @@ public class UniversityLogAnalyzer {
 				checkTeaPub(current);
 				break;
 			case "pub":
-				checkPubPatent(current);
-				break;
+				if (checkPubPatent(current))
+					return;
 			default:
 			}
 			
@@ -123,8 +123,10 @@ public class UniversityLogAnalyzer {
 		assertTrue("tea -> pub", lookFor("pub", -1, pos));
 	}
 	
-	public void checkPubPatent(int pos) {
-		assertTrue("pub -> patent", lookFor("patent", -1, pos));
+	public boolean checkPubPatent(int pos) {
+		boolean hasPatent = lookFor("patent", -1, pos);
+		assertTrue("pub -> patent", hasPatent);
+		return hasPatent;
 	}
 	
 	public boolean lookFor(String signal, int time, int pos) {
