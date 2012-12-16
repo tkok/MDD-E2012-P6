@@ -1,29 +1,54 @@
 \subsection{Testing}
 \label{Testing}
 In order to test our software solution three different testing methods have been
-arranged.
+arranged. Our test case is the ``University'' example as introduced in
+Sec. \ref{background} and \ref{implementation}.
 
-\subsubsection{Compiling properly}
-Making sure every output compiles properly.
 
-\subsubsection{Log file testing}
-For this project a log file analysis program have been incorporated. A small
-program verifying that the signals in the generator code are fired in the right
-order according to the input model.  The analysis program is hard coded to match
-our testing model (see Fig. \ref{simple-model}). Thus it is checking for signals
-like: GRANT, COIN and TEA, in the specified order. If a signal is called within
-the generator before it is supposed too (e.g TEA before COIN) the analysis
-program will call for an ERROR.
+\subsubsection{Compilation}
 
-The log file contain time stamps of global time from each automaton in a model. The
-global time can then be verified by comparison with time assigned within the
-ECDAR modelling tool.
+To test code generation, our first step in validating our approach is checking
+if the generated code compiles. If the code does not compile, we know that the
+code generator does not generate valid code and that our templates are wrong.
+
 
 \subsubsection{Manual Comparison}
-Final testing procedure is a manual step-by-step comparison of a simple
-graphical automaton model and the corresponding code generated. Cycling through
-the times, comparing each step with the output.
-%(verified by Andrzej Wasowski).
+
+A first approach to validating correctness is manual validation of generated log
+files. A log file contains each action that occurs in a specified system with
+local time, i.e. the clock time on the automaton, and global time, i.e. time
+since the system started.
+
+We employed this approach on the ``University'' example, together with Andrzej
+Wasowski, who authored ECDAR and the given example specification.
+
+\subsubsection{Log File Analysis}
+
+As means to analyze the generated log files in a more automated and valid
+fashion we conceived a JUnit test program. This program is tuned especially for
+the ``University'' example and therefore does currently not apply to any other
+specifications.
+
+The analyzer converts a log file into a list of \textit{Events}, more exactly
+\textit{Signals}, i.e. messages that are send from the environment or from automata
+to the controller, which can be easily compared to in terms of type, source and
+global time. These events are stored in a list sorted by time of occurrence. For
+each occurring signal, there is a follow-up signal defined in the specification
+(e.g. ``grant'' is followed by ``coin'') within a certain time frame.
+
+The list of events is then searched until an occurrence of the follow-up signal
+is found. For each signal encountered, one assertion for a follow-up signal is
+issued. If a signal is missing its follow-up signal, the assertion evaluates to
+false and the test case will result in an error.
+
+We assume, that after one cycle through the specification, beginning with
+``grant'' and ending with ``patent'', the system is behaving
+correctly. Therefore, we let the test terminate as soon as ``patent'' is
+encountered.
+
+All runs of automated analysis for logs generated with our implementation
+succeeded. However, it needs to be noted that currently, we do not verify the
+timing constraints but only that the general behavior of the system is correct.
 
 \subsection{Presumptions and Resulting Motivations}
 \label{implementation-presumptions}
@@ -50,10 +75,5 @@ This is an important property for code generation, as reasoning about
 time differences in execution becomes unnecessary for the developer.
 However, we still kept overhead low to achieve reasonable fast performance.
 
-%To produce feasible code that would be able to run on embedded systems,
-%we targeted Real-Time Java (Java RTS)%
-%\footnote{\href{}{http://www.oracle.com/technetwork/java/javase/tech/index-jsp-139921.html}%
-%}. Java RTS was designed to improve upon standard Java in terms of
-%timing accuracy an real-time embedded systems.
 
 
