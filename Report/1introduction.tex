@@ -41,12 +41,11 @@ implementation with verification questions \cite{conf/atva/DavidLLNW10}.
 This paper will follow an implementation of code generation from ECDAR to
 Java. The proposed implementation of the ECDAR code generator is split up in two
 parts. The first part is a framework of abstract classes, implementing in as
-much detail as possible the single parts of ECDAR specifications (i.e. edges,
-locations, TIOA). The second is the actual code generation. Our code generator
-generates sources which inherit from the abstract framework to minimize the
-amount of code that needs actually to be generated. The paper will also detail
-the different testing issues and benefits of implementing code generation for
-ECDAR.
+much detail as possible the single elements used in ECDAR specifications. The
+second is the actual code generation. Our code generator generates sources which
+inherit from the abstract framework to minimize the amount of code that needs
+actually to be generated. The paper will also detail the different testing
+issues and benefits of implementing code generation for ECDAR.
 
 To write programs that meet the demands of real-time systems in Java the
 Real-Time Specification for Java (RTSJ) is needed. RTSJ is a set of interfaces
