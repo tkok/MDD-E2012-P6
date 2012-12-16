@@ -34,7 +34,7 @@ The analyzer converts a log file into a list of \textit{Events}, more exactly
 to the controller, which can be easily compared to in terms of type, source and
 global time. These events are stored in a list sorted by time of occurrence. For
 each occurring signal, there is a follow-up signal defined in the specification
-(e.g. ``grant'' is followed by ``coin'') within a certain time frame.
+(e.g. \emph{grant} is followed by \emph{coin}) within a certain time frame.
 
 The list of events is then searched until an occurrence of the follow-up signal
 is found. For each signal encountered, one assertion for a follow-up signal is
@@ -42,8 +42,8 @@ issued. If a signal is missing its follow-up signal, the assertion evaluates to
 false and the test case will result in an error.
 
 We assume, that after one cycle through the specification, beginning with
-``grant'' and ending with ``patent'', the system is behaving
-correctly. Therefore, we let the test terminate as soon as ``patent'' is
+\emph{grant} and ending with \emph{patent}, the system is behaving
+correctly. Therefore, we let the test terminate as soon as \emph{patent} is
 encountered.
 
 All runs of automated analysis for logs generated with our implementation
