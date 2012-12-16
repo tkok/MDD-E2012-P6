@@ -14,7 +14,7 @@
 \usepackage[T1]{fontenc}
 
 \usepackage{url}
-\usepackage{listings} % for listing code
+\usepackage{listingsutf8} % for listing code
 \usepackage{color} % colors are nice
 
 \definecolor{black}{rgb}{0,0,0}
@@ -29,7 +29,23 @@
 \definecolor{Orange}{rgb}{1,0.5,0}
 \newcommand{\todo}[1]{\textsf{\textbf{\textcolor{Orange}{[#1]}}}}
 
-\lstset{language=Java, basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\tiny\color{gray}, stepnumber=1, numbersep=5pt, frame=single, tabsize=2, captionpos=b, breaklines=true, breakatwhitespace=true, keywordstyle=\color{keywords}, commentstyle=\color{comments}, stringstyle=\color{strings}
+\lstset{language=Java,
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  frame=single,
+  tabsize=2,
+  captionpos=b,
+  breaklines=true,
+  breakatwhitespace=true,
+  keywordstyle=\color{keywords},
+  commentstyle=\color{comments},
+  stringstyle=\color{strings},
+  extendedchars=true,
+  inputencoding=utf8/latin1,
+  texcl=true
 }
 
 %
