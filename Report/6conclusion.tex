@@ -1,7 +1,17 @@
-In this project we have developed a code generator for a TIOA modeller:
-ECDAR. We have successfully generated code from simplified model into Java. See
-section~\ref{Testing} on page~\pageref{Testing}.
+In this project we showed how to develop a code generator for TIOA 
+models created by ECDAR. 
 
+First by building a framework of abstract classes in java based on 
+ECDAR. This entails locations, edges and TIOA with a modified messaging 
+system based on tasks and a controller class. The Java keyword 
+\textit{synchronized} is used for for logging time, internal states and 
+maintaining priority. 
 
+Secondly by defining the code generation, with a model to text 
+transformation, that inherits from the abstract classes in the 
+framework. More concretely used the translated input from ECDAR, and 
+utilized an xpand-template to generate the code. 
 
-
+In our implementation we assumed ECDAR specifications to be valid 
+testing was accomplished through compiling, log file testing and manual 
+comparison. 
