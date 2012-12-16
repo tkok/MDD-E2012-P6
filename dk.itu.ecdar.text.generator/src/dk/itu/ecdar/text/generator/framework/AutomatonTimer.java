@@ -37,4 +37,8 @@ public class AutomatonTimer {
 	public static void setResolution(int resolution) {
 		AutomatonTimer.resolution = resolution;
 	}
+	
+	public static int getResolution() {
+		return AutomatonTimer.resolution;
+	}
 }
