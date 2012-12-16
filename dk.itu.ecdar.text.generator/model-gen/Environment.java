@@ -17,6 +17,7 @@ public class Environment extends IEnvironment {
 		
 		QuickLog.setLogLevel(20);
 		QuickLog.logToFile();
+		//QuickLog.logToConsole();
 		
 		IEnvironment Environment = new Environment();
 		Environment.parse(args[0]);

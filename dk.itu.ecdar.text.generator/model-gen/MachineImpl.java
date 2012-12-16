@@ -8,12 +8,12 @@ public class MachineImpl extends ITIOA {
 
 
 
-//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@f00cb1e (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@62244b92 (urgent: false, universal: false, name: Idle)]
+//[dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@7393358c (urgent: false, universal: false, name: Serving), dk.itu.ecdar.text.ecdarText.impl.ETLocationImpl@679e900a (urgent: false, universal: false, name: Idle)]
 
 /* Generating all edges - NOTE: Edges with IO type "!" is OutputEdge, "?" is InputEdge	 */
 
    	/*	Number: 1
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1055d6f4 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@19675d97 (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: ?	*/ 
  		
@@ -28,7 +28,7 @@ public class MachineImpl extends ITIOA {
 		@Override
 		public boolean checkGuard(long time) {
 			
-			return to.checkInvariant(time);
+			return /*to.checkInvariant(time)*/ true;
 			
 		}
 
@@ -39,7 +39,7 @@ public class MachineImpl extends ITIOA {
 	} 
 
    	/*	Number: 2
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@39f2f6d3 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@15a2c346 (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: !	*/ 
  		
@@ -56,7 +56,7 @@ public class MachineImpl extends ITIOA {
 			
 			
 			
-					return to.checkInvariant(time) && time >=5;
+					return /*to.checkInvariant(time) &&*/ time >=5;
 					
 			
 			
@@ -70,7 +70,7 @@ public class MachineImpl extends ITIOA {
 	} 
 
    	/*	Number: 3
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3baf24e2 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@689ac6da (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: !	*/ 
  		
@@ -87,7 +87,7 @@ public class MachineImpl extends ITIOA {
 			
 			
 			
-					return to.checkInvariant(time) && time >=10;
+					return /*to.checkInvariant(time) &&*/ time >=10;
 					
 			
 			
@@ -96,14 +96,14 @@ public class MachineImpl extends ITIOA {
 
 		@Override
 		public void onTraverse() {
-			
+			  
 			resetTime();
 			
 		}
 	} 
 
    	/*	Number: 4
- 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5dad3677 (controllable: false) of edge
+ 		Name: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@f00cb1e (controllable: false) of edge
  		Controllable: false
  		Edge IO Type: ?	*/ 
  		
@@ -118,13 +118,13 @@ public class MachineImpl extends ITIOA {
 		@Override
 		public boolean checkGuard(long time) {
 			
-			return to.checkInvariant(time);
+			return /*to.checkInvariant(time)*/ true;
 			
 		}
 
 		@Override
 		public void onTraverse() {
-			
+			  
 			resetTime();
 			
 		}
@@ -148,13 +148,13 @@ public class MachineImpl extends ITIOA {
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
 						
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3baf24e2 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@3baf24e2 (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@689ac6da (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@689ac6da (controllable: false)
 								new Edge3()																																							};
 			
 			inputEdges = new IInputEdge[]{
 				
 						
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5dad3677 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@5dad3677 (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@f00cb1e (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@f00cb1e (controllable: false)
 								new Edge4()																								};
 		}
 
@@ -189,13 +189,13 @@ public class MachineImpl extends ITIOA {
 		public void setupEdges() {
 			outputEdges = new IOutputEdge[]{
 						
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@39f2f6d3 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@39f2f6d3 (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@15a2c346 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@15a2c346 (controllable: false)
 								new Edge2()																																																					};
 			
 			inputEdges = new IInputEdge[]{
 				
 						
-								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1055d6f4 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@1055d6f4 (controllable: false)
+								//Matching: dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@19675d97 (controllable: false) = dk.itu.ecdar.text.ecdarText.impl.ETEdgeImpl@19675d97 (controllable: false)
 								new Edge1()																																																															};
 		}
 
