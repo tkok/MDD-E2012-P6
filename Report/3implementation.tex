@@ -2,8 +2,8 @@ The proposed implementation of the ECDAR code generator is split up
 in two parts. The first part is a framework of abstract classes, implementing
 in as much detail as possible the single parts of ECDAR specifications
 (i.e. edges, locations, TIOA). The second is the actual code generation.
-Our code generator generates sources which inherit from the abstract
-framework to minimize the amount of code that needs actually to be
+Our code generator generates source code which inherit from the abstract
+framework to minimize the amount of code that needs to be
 generated. This means that nearly all design decisions have been made
 prior to generating code, reducing space for possible errors. This
 section describes our implemented subset of ECDAR and the code generator
@@ -125,7 +125,7 @@ as the new start time (see Fig. \ref{tioa-example}).
 \label{location-example}
 \end{figure}
 
-Each location is a associated with a task (see Sec. \ref{subsec:tasks}). Task
+Each location is associated with a task (see Sec. \ref{subsec:tasks}). Task
 execution is implemented in a separate thread so that the execution of the
 automaton is never blocked. Locations are implemented as objects holding an
 array of edges that point away from it. (See Fig. \ref{location-example})

@@ -1,6 +1,4 @@
 % LAST UPDATE: 13.12.2012 % 
-
-
 \subsection{Timed Input/Output Automata}
 \label{background-tioa}
 
@@ -70,21 +68,9 @@ constraints are retained\footnote{See
 \label{background-codegeneration}
 
 In order to clarify what code generation is one need to understand what a model
-transformation is, as this is a fundamental part of code generation. In short
-one could say that the model transformation is a way to ensure that the final
-code is consistent and with a reduced number of errors. The generation is an
-automated way to produce code from models. The actual generation is defined by
-the software developer, thus it is defined what the output should be, but the
-input and the data is not.
+transformation is, as this is a fundamental part of code generation. Briefly explained a model transformation can be seen as a process of converting an input model, that complies to a certain metamodel, to a new model. The generation is an automated way to produce code from models. The actual generation is defined by the software developer, thus it is defined what the output should be, but the input and the data is not. The reasons for doing code generation are many, one could mention code quality, cost-effective, less error-prone and generally easier to understand for non-domain experts.
 
-There is generally two ways to do model transformations, that is model to model
-and model to text, the former known as M2M and the latter M2T. There are also a
-lot of other tools and techniques for transformation, which should not be
-confused with model transformations. One could mention an XSLT-transformation as
-an example, where the base input is an XML-document and the final output is
+There are generally two ways perform a model transformation, that is ``model to model'' and ``model to text'', the former known as M2M and the latter M2T. M2M is a transformation of a number of models to a given number of new models -- from X number of models to Z number of new models. M2T is  the transformation of a number of models to text, the text could for instance be code -- which is why the process sometimes is known as ``model to code''.
+
+There are also a lot of other tools and techniques for transformation, which should not be confused with model transformations. One could mention an XSLT-transformation as an example, where the base input is an XML-document and the final output is
 another XML-document, often XHTML, with a predefined XML-Schema.
-
-Model to model is a transformation of a number of models to a given number of
-new models -- from X number of models to Z number of new models. Model to text is
-the transformation of a number of models to text, the text could for instance be
-code -- which is why the process sometimes is known as model to code.
