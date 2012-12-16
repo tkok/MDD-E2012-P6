@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 % This is LLNCS.DEM the demonstration file of
 % the LaTeX macro package from Springer-Verlag
@@ -122,3 +123,129 @@
 \section{First Appendix}
 
 \end{document}
+=======
+
+% This is LLNCS.DEM the demonstration file of
+% the LaTeX macro package from Springer-Verlag
+% for Lecture Notes in Computer Science,
+% version 2.4 for LaTeX2e as of 16. April 2010
+%
+\documentclass[english]{llncs}
+%
+\usepackage{makeidx}  % allows for indexgeneration
+%\usepackage{graphicx} % so we can include images
+\usepackage[pdftex]{graphicx} % so we can include images
+\usepackage[utf8]{inputenc} % display all characters properly
+\usepackage[polish,danish,american,english]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage{url}
+\usepackage{listingsutf8} % for listing code
+\usepackage{color} % colors are nice
+
+\definecolor{black}{rgb}{0,0,0}
+\definecolor{gray}{rgb}{0.6,0.6,0.6}
+\definecolor{white}{rgb}{1,1,1}
+
+\definecolor{keywords}{rgb}{0.5,0,0.6}
+\definecolor{strings}{rgb}{0,0.4,0}
+\definecolor{comments}{rgb}{0.5,0.5,0.5}
+
+\newcommand{\comment}[1]{}
+\definecolor{Orange}{rgb}{1,0.5,0}
+\newcommand{\todo}[1]{\textsf{\textbf{\textcolor{Orange}{[#1]}}}}
+
+\lstset{language=Java,
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=5pt,
+  frame=single,
+  tabsize=2,
+  captionpos=b,
+  breaklines=true,
+  breakatwhitespace=true,
+  keywordstyle=\color{keywords},
+  commentstyle=\color{comments},
+  stringstyle=\color{strings},
+  extendedchars=true,
+  inputencoding=utf8/latin1,
+  texcl=true
+}
+
+%
+\begin{document}
+%
+\frontmatter          % for the preliminaries
+%o
+\pagestyle{headings}  % switches on printing of running heads
+\addtocmark{Code Generation From ECDAR} % additional mark in the TOC
+%
+\mainmatter              % start of the contributions
+%
+\title{Code Generation From ECDAR}
+%
+\titlerunning{Code Generation From ECDAR}  % abbreviated title (for running head)
+%                                     also used for the TOC unless
+%                                     \toctitle is used
+%
+\author{Rasmus Berntsen \and Florian Biermann \and Lauge Groes \and Nicolas Wainach Lundqvist Jensen \and Thomas Kokholm \and Piort Stawiski \and Wiktor Michal Zdziechowski}
+
+\authorrunning{Rasmus Berntsen et al.} % abbreviated author list (for running head)
+
+%%%% list of authors for the TOC (use if author list has to be modified)
+\tocauthor{Rasmus Berntsen, Florian Biermann, Lauge Groes, Nicolas Wainach Lundqvist Jensen, Thomas Kokholm, Piort Stawiski, Wiktor Michal Zdziechowski}
+
+\institute{IT University of Copenhagen, Denmark\\
+\email{\{raber, fbier, lgro, nicl, tkok, psta, wmic\}@itu.dk}
+}
+\maketitle % typeset the title of the contribution
+
+\begin{abstract}
+\input{0abstract.tex}
+\end{abstract}
+
+
+\section{Introduction}
+\label{introduction}
+\input{1introduction.tex}
+
+
+\section{Background}
+\label{background}
+\input{2background.tex}
+
+
+\section{Implementation}
+\label{implementation}
+\input{3implementation.tex}
+
+
+\section{Evaluation and Discussion}
+\label{evaluation}
+\input{4evaluation.tex}
+
+
+\section{Related Work}
+\label{related}
+\input{5related.tex}
+
+
+\section{Conclusion}
+\label{conclusion}
+\input{6conclusion.tex}
+
+\section{Acknowledgements}
+\label{acknowledgements}
+\input{7acknowledgements.tex}
+
+\bibliographystyle{plain}
+\nocite{*}
+\bibliography{MDD}
+
+\appendix
+\section{First Appendix}
+
+\end{document}
+>>>>>>> main
