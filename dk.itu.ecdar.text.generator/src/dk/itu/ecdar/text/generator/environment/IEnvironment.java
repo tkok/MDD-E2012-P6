@@ -96,7 +96,7 @@ public abstract class IEnvironment {
 		QuickLog.print("All instructions sent.");
 		
 		try {
-			Thread.sleep(100);
+			Thread.sleep(20 * AutomatonTimer.getResolution());
 		} catch (InterruptedException e) {
 			QuickLog.print(e.getMessage());
 		}

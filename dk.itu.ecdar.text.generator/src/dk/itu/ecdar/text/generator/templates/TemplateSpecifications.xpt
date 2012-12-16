@@ -43,14 +43,14 @@ public class «this.name» extends ITIOA {
 		@Override
 		public boolean checkGuard(long time) {
 			«IF (edge.guard.metaType == null)»
-			return to.checkInvariant(time);
+			return /*to.checkInvariant(time)*/ true;
 			«ELSEIF (edge.guard.metaType != null)»
 			«LET edge.guard.metaType AS metaType»
 			«LET edge.guard.eContents.typeSelect(ETNumberLiteral).value.get(0) AS value»
-					«IF metaType == ecdarText::ETLessEqualExpression»return to.checkInvariant(time) && time <=«value»;
-					«ELSEIF metaType == ecdarText::ETLessExpression»return to.checkInvariant(time) && time <«value»;
-					«ELSEIF metaType == ecdarText::ETGreaterEqualExpression»return to.checkInvariant(time) && time >=«value»;
-					«ELSEIF metaType == ecdarText::ETGreaterExpression»return to.checkInvariant(time) && time >«value»;
+					«IF metaType == ecdarText::ETLessEqualExpression»return /*to.checkInvariant(time) &&*/ time <=«value»;
+					«ELSEIF metaType == ecdarText::ETLessExpression»return /*to.checkInvariant(time) &&*/ time <«value»;
+					«ELSEIF metaType == ecdarText::ETGreaterEqualExpression»return /*to.checkInvariant(time) &&*/ time >=«value»;
+					«ELSEIF metaType == ecdarText::ETGreaterExpression»return /*to.checkInvariant(time) &&*/ time >«value»;
 					«ENDIF»
 			«ENDLET»
 			«ENDLET»
