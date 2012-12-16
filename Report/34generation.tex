@@ -1,5 +1,5 @@
 In the implementation the generation of source code is done
-through a model to text transformation. The generation outputs compileable
+through a model to text transformation. The generation outputs compilable
 Java based on input from an ECDAR file.
 
 The Eclipse Modeling Framework (EMF) is utilized for the process. EMF is a
@@ -74,7 +74,7 @@ current class. In the first line we create the constructor by inserting the text
 "Edge" and add the number the iterator has reached. We then iterate through a
 list of the current Edges variables, which should be one signal, and returns the
 results as a list. We furthermore use a new iterator to keep track of this
-iteration. Afterwards we use a check too make sure it's the first iteration, and if it is, we
+iteration. Afterward we use a check too make sure it's the first iteration, and if it is, we
 print out the current Edge target name and the variable signal, such as "super(C,
 "signal");".
 
@@ -83,4 +83,4 @@ our generated output. In the controller we generate functions that will be
 invoked at each location. A task is a procedure which will be executed as soon
 as an automaton traverses over an edge, arriving at a new location. There can
 only be one task for each location. The idea behind having all methods in the
-controller is for a better overview and a centralized customizeable file.
+controller is for a better overview and a centralized customizable file.
