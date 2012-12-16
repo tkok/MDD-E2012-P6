@@ -17,12 +17,13 @@ public abstract class ITIOA {
 		public void run () {
 			
 			while (true) {
+				
 				transition();
 				
-				// Put this thread to sleep while waiting for the first
+				//	Put this thread to sleep while waiting for the first
 				// edge to become available (lazy waiting)
 				try {
-					super.sleep(getMinWaitingTime());
+					super.sleep(getMinWaitingTime() * AutomatonTimer.getResolution());
 				} catch (InterruptedException e) {
 				}
 			}
@@ -136,14 +137,18 @@ public abstract class ITIOA {
 	private long getMinWaitingTime() {
 		long time = 0;
 		
+		// Wait 1000ms 
+		if (current.outputEdges.length == 0)
+			return 1000;
+		
 		while (true) {
 			time++;
-			for (IEdge e : current.inputEdges) {
+			for (IEdge e : current.outputEdges) {
 				
 				// TODO: Time will continue. How should we handle this? Synchrony hypothesis?
 				if (e.checkGuard(getTime() + time))
 					return time;
-			}			
+			}
 		}
 	}
 	
