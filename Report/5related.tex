@@ -6,21 +6,15 @@ The aim of this project is to develop a tool for automatic synthesis of Java-cod
 
 Simulor to tools based on timed automata exists in relation to ECDAR. Most noticeable TIMES\footnote{\url{http://www.timestool.com}}: is a graphical tool set for modelling, schedulability analysis for implementation of embedded systems. It allows users to model a system and the abstract behaviour of its environment. 
 Like ECDAR, TIMES is based on timed automata (See section x for more details on automaton). Similarly TIMES derive from UPPAAL and is based on the standard for modelling real-time systems [Rajeev Alur and David L. Dill. A theory of timed automata. Theoretical Computer
-Science, 126(2):183–235, 1994.].
+Science, 126(2):183?235, 1994.].
 Times is extended by real-time tasks, checking the reachability and schedulability of a modelled automata. It too can simulate models and validate dynamic behaviour of a system: Users can see how tasks executes according to time. The simulator shows a graphical representation of the generated trace, showing the time points when the tasks are released, invoked, suspended, resumed, and completed.
 
 TIMES can be used for code-generate, as illustrated Tobias Amnell et al [Tobias Amnell, Elena Fersman, Paul Pettersson, Hongyan Sun, and Wang Yi. Code
 synthesis for timed automata. Nordic Journal of Computing, 2003.]. They generate C-code for a Lego Mindstorms system using TIMES, checking for reachability and schedulability. Simulor to what we trying to do with ECDAR. 
 
-<<<<<<< HEAD
-In contrast to ECDAR's programmable logic controllers, a scheduling approach is not sufficient to deal with unpredictable behaviour.
-
-There are certain differences between TIMES and ECDAR however, despite the missing feature of code generation in ECDAR. 
-=======
->>>>>>> related TK
 
 
-There are certain differences between TIMES and ECDAR, despite the missing feature of code generation in ECDAR. In contrast to TIMES's programmable logic controllers, a scheduling approach is not sufﬁcient to deal with unpredictable behaviour in ECDAR.
+There are certain differences between TIMES and ECDAR, despite the missing feature of code generation in ECDAR. In contrast to TIMES's programmable logic controllers, a scheduling approach is not suf?cient to deal with unpredictable behaviour in ECDAR.
 Looking at what are taking as input by the controller - TIMES simple takes a model, checking reachability and schedulability, whereas ECDAR synthesise each component in a model.
 
 
@@ -38,3 +32,4 @@ by Tobias Amnell et al. present a framework for the development of real-time
 embedded systems\cite{Amnell:2002:CST:779110.779112}. Their work is similar to
 our project. In the article the illustrate how their framework is based on timed
 automata and real-time tasks - relative to our concept with ECDAR.
+
