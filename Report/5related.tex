@@ -2,15 +2,18 @@ ECDAR is a TIOA modeler based on UPPAAL. A similar tool based on UPPAAL already
 exists.
 
 \paragraph{Times}
-Times\footnote{\url{http://www.timestool.com}} is a tool for modeling and
-implementation of embedded systems. Times is a graphical simulator, in which a
-user can validate dynamic behavior of a system and see how tasks execute - much
-like Ecdar, but it can also do code-generation. However there is a difference
-between Ecdar and Times.
+Times\footnote{\url{http://www.timestool.com}} is a tool set for modelling, schedulability analysis for implementation of embedded systems.
+
+Times is a graphical editor for timed automata (See section x for more details on automaton) extended with tasks, that allows users to model a system and the abstract behaviour of its environment.
+
+Times can simulate a model and validate dynamic behaviour of a modelled system and see how tasks executes according to time. The simulator shows a graphical representation of the generated trace showing the time points when the tasks are released, invoked, suspended, resumed, and completed.
+
+Times is also a code generator for automatic synthesis of C-code. 
 
 Looking at what are taking as input by the controller - Times simple takes a
-model and generates code. ECDAR: Synthesize models for you so to avoid “that”
+model and generates code. ECDAR: Synthesise models for you so to avoid ?that?
 stage. In ECDAR you have the possibility to you use composition.
+
 
 \paragraph{Composable Code Generation for Model-Based Development}
 by Kirk Schloegel et al. present a framework for generating
