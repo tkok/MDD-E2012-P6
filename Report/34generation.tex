@@ -8,7 +8,7 @@ on a structured data model. From a model specification described in the XMI-form
 provides tools and run time support to produce a set of Java classes for the
 model, along with a set of adapter classes that enable viewing and command-based
 editing of the model and it provides a basic editor. The core EMF framework
-includes a meta model -in Ecore- for describing models and run time support for the
+includes a meta model -- in Ecore -- for describing models and run time support for the
 models including: change notification, persistence support with default XMI
 serialization, and a very efficient reflective API for manipulating EMF objects
 generically. In the implementation presented in this paper an Xtext environment
@@ -75,10 +75,10 @@ current class. In the first line we create the constructor by inserting the text
 list of the current Edges variables, which should be one signal, and returns the
 results as a list. We furthermore use a new iterator to keep track of this
 iteration. Afterward we use a check too make sure it's the first iteration, and if it is, we
-print out the current Edge target name and the variable signal, such as "super(C,
-"signal");".
+print out the current Edge target name and the variable signal, such as \texttt{super(C,
+"signal");}.
 
-The notion of tasks as previous described in section 3.2. is accounted for in
+The notion of tasks as previous described in Sec.~\ref{subsec:tasks} is accounted for in
 our generated output. In the controller we generate functions that will be
 invoked at each location. A task is a procedure which will be executed as soon
 as an automaton traverses over an edge, arriving at a new location. There can
