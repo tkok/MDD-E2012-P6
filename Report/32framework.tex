@@ -38,15 +38,19 @@ This property is useful for sending messages to the controller.
 The implementation of timed I/O automata holds a set of locations and a
 reference to the location it is currently at. The TIOA is executed by a thread
 that keeps checking for available edges and traverses along these as soon as
-they become enabled. To check if an edge is available, let $E_{s\rightarrow t}$
-be an edge where $s,\, t$ are start and target locations
-respectively. Furthermore, let $g(E)$ be a function evaluating the guard of an
-edge $E$ and $I(l)$ a function evaluating the invariant of a location $l$. Our
-implementation uses $g'(E_{s\rightarrow t})=g(E_{s\rightarrow t})\wedge I(t)$ to
-check if $E_{s\rightarrow t}$ is available. We do not check the invariant of the
-source location because if the source location's invariant was violated, the
-system would already be in a deadlock. This cannot be true, as we assume that
-the system is verified.
+they become enabled. To check if an edge is available, we check only the edge's
+associated guard. Though it is tempting to also check the invariants of the
+source and target locations of the edge, there are valid reasons against
+both.
+
+For the source edge, the check is redundant, since we know that if the invariant
+was violated, the system would already be in a deadlocked state. The reason for
+not checking the target edge's invariant is a bit more subtle. An edge can
+update the clock of the automaton in which it resides on traversal. If a target
+edge's invariant is checked before the edge pointing to it as been traversed,
+this change is not taken into account. The specification, however, always takes
+this update on the clock into account. Therefore, only checking the edge's guard
+is valid.
 
 \begin{figure}[t]
 \lstinputlisting[linerange={8-8,157-170}]{../dk.itu.ecdar.text.generator.mockup/src/dk/itu/ecdar/text/generator/mockup/university/Machine.java}
