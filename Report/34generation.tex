@@ -4,19 +4,20 @@ Java based on input from an ECDAR file.
 
 The Eclipse Modeling Framework (EMF) is utilized for the process. EMF is a
 modeling framework and code generation facility for building applications based
-on a structured data model. From a model specification described in the XMI-format, EMF
-provides tools and run time support to produce a set of Java classes for the
-model, along with a set of adapter classes that enable viewing and command-based
-editing of the model and it provides a basic editor. The core EMF framework
-includes a meta model -- in Ecore -- for describing models and run time support for the
-models including: change notification, persistence support with default XMI
-serialization, and a very efficient reflective API for manipulating EMF objects
-generically. In the implementation presented in this paper an Xtext environment
-is generated from the ECDAR Ecore model. Xtext is a framework for development of
-programming languages and domain specific languages.
+on a structured data model. From a model specification described in the
+XMI-format, EMF provides tools and run time support to produce a set of Java
+classes for the model, along with a set of adapter classes that enable viewing
+and command-based editing of the model and it provides a basic editor. The core
+EMF framework includes a meta model -- in Ecore -- for describing models and run
+time support for the models including: change notification, persistence support
+with default XMI serialization, and a very efficient reflective API for
+manipulating EMF objects generically. In the implementation presented in this
+paper an Xtext environment is generated from the ECDAR Ecore
+model. Xtext\footnote{\url{http://www.eclipse.org/Xtext/}} is a framework for
+development of programming languages and domain specific languages.
 
 In order to generate code from the model it's imperative to follow a process of
-multiple steps: Get the input from ECDAR, translate this to Xtext ECDAR DSL,
+multiple steps: get the input from ECDAR, translate this to Xtext ECDAR DSL,
 setup a workflow that manages the process and finally a Xpand-template is needed
 to define how the transformation output should look like. Each step is described in more detail in the following section.
 
@@ -71,8 +72,8 @@ this specific file, but it could have contained multiple, which would have
 resulted in multiple define-blocks. In the next and last snippet we jump to a
 part where we are iterating through each edge and create a constructor for the
 current class. In the first line we create the constructor by inserting the text
-"Edge" and add the number the iterator has reached. We then iterate through a
-list of the current Edges variables, which should be one signal, and returns the
+``Edge'' and add the number the iterator has reached. We then iterate through a
+list of the current edges variables, which should be one signal, and returns the
 results as a list. We furthermore use a new iterator to keep track of this
 iteration. Afterward we use a check too make sure it's the first iteration, and if it is, we
 print out the current Edge target name and the variable signal, such as \texttt{super(C,
