@@ -29,11 +29,11 @@ fashion we conceived a JUnit test program. This program is tuned especially for
 the ``University'' example and therefore does currently not apply to any other
 specifications.
 
-The analyzer converts a log file into a list of \textit{Events}, more exactly
-\textit{Signals}, i.e. messages that are send from the environment or from automata
-to the controller, which can be easily compared to in terms of type, source and
-global time. These events are stored in a list sorted by time of occurrence. For
-each occurring signal, there is a follow-up signal defined in the specification
+The analyzer converts a log file into a list of events, more exactly signals,
+i.e. messages that are send from the environment or from automata to the
+controller, which can be easily compared to in terms of type, source and global
+time. These events are stored in a list sorted by time of occurrence. For each
+occurring signal, there is a follow-up signal defined in the specification
 (e.g. \emph{grant} is followed by \emph{coin}) within a certain time frame.
 
 The list of events is then searched until an occurrence of the follow-up signal
