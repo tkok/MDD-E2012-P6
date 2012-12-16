@@ -1,9 +1,12 @@
-This paper present a framework for code generation, based on timed automata modelled in ECDAR (Environment for Compositional Design and Analysis of Real Time Systems). A graphical tool based on UPPAAL that allows to visually create models of real-time systems.
+This paper present a framework for code generation, based on timed automata modeled in ECDAR (Environment for Compositional Design and Analysis of Real Time Systems). ECDAR is a graphical tool based on UPPAAL that allows to visually create models of real-time systems.
 
 The motivation for doing this project is, that the current version of the ECDAR framework is lacking an important feature: The possibility to utilize models for code generation, as a way to develop software solutions based on visually represented models.
 
-The general approach of this project is to solve this aforementioned challenge: Show how one can generate true code, in this case Java, from an ECDAR model (\ref{implementation}). This is done in two closely related parts. The first part is a framework build to macth the single parts of the ECDAR specification (\ref{implementation-framework}). The second part presents how to generate compileable code from an ECDAR model. The code basis of the generated code is from the framework(\ref{implementation-code-generation}). In order to solve these tasks, it was necessary to create the notation of tasks as an extension to the ECDAR model, within the framework (\ref{subsec:tasks}). 
+The general approach of this project is to solve this afforementioned challenge: Show how one can generate true code, in this case Java, from an ECDAR model (\ref{implementation}). This is done in two closely related parts. The first part is a framework build to match the single parts of the ECDAR specification (\ref{implementation-framework}). The second part presents how to generate compilable code from an ECDAR model. The code basis of the generated code is from the framework(\ref{implementation-code-generation}). 
 
-The functionality of the framework is evaluated through a series of test (\ref{Testing}). All of which is based on beverage-serving machine model (See figure \ref{bev-machine} on page \pageref{bev-machine}).
+We furthermore created the notation of tasks as an extension to the ECDAR model, within the framework (\ref{subsec:tasks}). 
 
-From our findings in the evaluation (\ref{evaluation}) \todo{Finish it when we have the evalulation in place}
+The functionality of the framework is evaluated through a series of tests (\ref{Testing}). 
+%All of which is based on beverage-serving machine model (See figure \ref{bev-machine} on page \pageref{bev-machine}).
+
+From our findings in the evaluation (\ref{evaluation}) \todo{Finish it when we have the evaluation in place}
