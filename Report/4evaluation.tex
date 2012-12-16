@@ -58,22 +58,24 @@ implementation assumes only one clock per automaton. Also, we assume the
 specification to be valid, since there are other tools that verify
 correctness\footnote{\url{http://people.cs.aau.dk/adavid/ecdar/}}.
 
-The only operator we implement for code generation is the parallel
-composition operator. Let $M$ be the type ECDAR specification. Then
-all operators in ECDAR are of type $M_{i}\otimes M_{j}\rightarrow M_{ij}$.
-Other than for the majority of operators, which refine the specification,
-it is impractical to implement parallel composition as a model-to-model
-transformation, since it produces the cross-product of two models
-\cite{david_compositional_2012}. These models are size $|M_{i}|\cdot|M_{j}|$
-and generating code for them would consume a large amount of memory
-and raise complexity. This would be inappropriate for an embedded
-system. We elaborate on this further in Sect. \ref{implementation-framework}.
+ECDAR features a variety of operators on specifications
+\cite{david_compositional_2012}. The only operator fo these that our code
+generator performs upon is the parallel composition operator. Let $M$ be the
+type ECDAR specification. Then all operators in ECDAR are of type $M_{i}\otimes
+M_{j}\rightarrow M_{ij}$. It is impractical to implement parallel composition as
+a model-to-model transformation, since it produces the cross-product of two
+models \cite{david_compositional_2012}. These models are size
+$|M_{i}|\cdot|M_{j}|$ and generating code for them would consume a large amount
+of memory and raise complexity of the actual implementation. This would be
+inappropriate for an embedded system. Opposite, if we used model-to-model
+transformations for the parallel composition operator, we would not have to
+handle timing on threads or synchronization between them.
 
-ECDAR specifications are written on the assumption of the synchrony
-hypothesis (see Sect. \ref{background-ecdar}) \cite{david_compositional_2012}.
-This is an important property for code generation, as reasoning about
-time differences in execution becomes unnecessary for the developer.
-However, we still kept overhead low to achieve reasonable fast performance.
+ECDAR specifications are written on the assumption of the synchrony hypothesis
+(see Sect. \ref{introduction-rts}) \cite{david_compositional_2012}.  This is an
+important property for code generation, as reasoning about time differences in
+execution becomes unnecessary for the developer.  However, we still kept
+overhead low in the implementation to achieve reasonable fast performance.
 
 
 
