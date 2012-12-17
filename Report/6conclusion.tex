@@ -21,7 +21,9 @@ Real-Time Specification for Java (RTSJ). RTSJ is a set of interfaces and
 behavioral specifications that allow for real-time programming in the 
 Java programming language 
 \footnote{\url{http://www.oracle.com/technetwork/java/javase/tech/index- 
-jsp-139921.html}}. So ``real-time'' is about predictable timing. In our 
-implementation we don't utilize RTSJ, so we can't currently guarantee 
-thread prioritization and timing. 
+jsp-139921.html}}. RTSJ implements a subset of the Java library and guarantees
+timing and thread prioritization.
+
+Also, further validation of the system by extending automated tests to check
+timing and by using multiple specifications should be conducted in the future.
 
