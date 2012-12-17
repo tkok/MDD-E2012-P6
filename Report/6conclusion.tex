@@ -1,5 +1,5 @@
-In this project we showed how to develop a code generator for TIOA 
-models created by ECDAR. 
+In this project we showed a valid approach towards developing a code 
+generator for TIOA models created by ECDAR. 
 
 First by building a framework of abstract classes in Java, based on 
 ECDAR. This entails locations, edges and TIOA with a modified messaging 
@@ -13,5 +13,15 @@ framework. More concretely used the translated input from ECDAR, and
 utilized an Xpand-template to generate the code. 
 
 In our implementation we assumed ECDAR specifications to be valid. 
-Testing was accomplished through compiling, log file testing and manual 
-comparison. 
+Testing was accomplished through compiling, automatic and manual log 
+file testing. 
+
+Further work is possible by converting our framework for use with the 
+Real-Time Specification for Java (RTSJ). RTSJ is a set of interfaces and 
+behavioral specifications that allow for real-time programming in the 
+Java programming language 
+\footnote{\url{http://www.oracle.com/technetwork/java/javase/tech/index- 
+jsp-139921.html}}. So ``real-time'' is about predictable timing. In our 
+implementation we don't utilize RTSJ, so we can't currently guarantee 
+thread prioritization and timing. 
+

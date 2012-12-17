@@ -54,14 +54,3 @@ second is the actual code generation. Our code generator generates sources which
 inherit from the abstract framework to minimize the amount of code that needs
 actually to be generated. The paper will also detail the different testing
 issues and benefits of implementing code generation for ECDAR.
-
-To write programs that meet the demands of real-time systems in Java the
-Real-Time Specification for Java (RTSJ) is needed. RTSJ is a set of interfaces
-and behavioral specifications that allow for real-time programming in the Java
-programming language.  Real-time in the RTSJ context means ``the ability to
-reliably and predictably respond to a real-world
-event''\footnote{\url{http://www.oracle.com/technetwork/java/javase/tech/index-jsp-139921.html#what}}.
-So ``real-time'' is about predictable timing. In our implementation we don't
-utilize RTSJ, so we can't currently guarantee thread prioritization and
-timing. RTSJ is only commercially available but can be integrated in to our
-framework in the future.
